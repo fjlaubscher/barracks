@@ -1,0 +1,72 @@
+{
+  "germany": {
+    "name": "Germany",
+    "image": "/armies/germany.png",
+    "rules": [
+      {
+        "name": "Initiative Training",
+        "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troppers takes over the squad and leads it just as effectively as before. To repesent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
+      },
+      {
+        "name": "Hitler's Buzzsaw",
+        "description": "German light and medium machine guns fire one extra shot. Note that this applies to all light and medium machine guns, both those carried by infantry units and those mounted on vehicles."
+      }
+    ]
+  },
+  "us": {
+    "name": "United States",
+    "image": "/armies/us.png",
+    "rules": [
+      {
+        "name": "Fire and Manouvre",
+        "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
+      },
+      {
+        "name": "Air Superiority",
+        "description": "A US forward air observer unit can call an air strike twice instead of once per game."
+      }
+    ]
+  },
+  "great-britain": {
+    "name": "Great Britain",
+    "image": "/armies/great-britain.png",
+    "rules": [
+      {
+        "name": "Artillery Support",
+        "description": "British armies can include 1 regular artillery forward observer for free."
+      },
+      {
+        "name": "Bombardment",
+        "description": "When rolling for the effects of a preparatory bombardment instead of rolling one die on the results chart for each enemy unit, roll two dice and choose the best result."
+      }
+    ]
+  },
+  "soviet-union": {
+    "name": "Soviet Union",
+    "image": "/armies/soviet-union.png",
+    "rules": [
+      {
+        "name": "The Great Patriotic War",
+        "description": "Whenever a unit of infantry or artillery models fails a morale check and would otherwise be destroyed as a consequence, take the test again and apply this second result. This re-roll applies to all infantry and artillery units, including HQ units that would otherwise be destroyed if they failed a morale check. Note that this rule only applies to infantry and artillery, and not to tanks or other vehicles."
+      },
+      {
+        "name": "Quantity has a quality all of it's own",
+        "description": "The Russian army gets a free 12-man squad of inexperienced infantry, with all of the possible options you have models for."
+      }
+    ]
+  },
+  "imperial-japan": {
+    "name": "Imperial Japan",
+    "image": "/armies/imperial-japan.png",
+    "rules": [
+      {
+        "name": "Death Before Dishonour",
+        "description": "Every unit in this list has the fanatics special rule, as described. In addition, infantry and artillery units automatically pass morale checks for being assaulted by enemy tanks (note that artillery pieces are still destroyed as normal)."
+      },
+      {
+        "name": "Banzai Charge",
+        "description": "If a Japanese infantry unit is ordered to Run towards (or assault) the closest visible enemy, any order test for that move is automatically passed, as if the unit had rolled a double one."
+      }
+    ]
+  }
+}
