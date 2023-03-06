@@ -1,6 +1,5 @@
 declare namespace Barracks {
-
-  type Veterancy = 'inexperienced' | 'regular' | 'veteran'
+  type Veterancy = 'inexperienced' | 'regular' | 'veteran';
 
   interface Item {
     name: string;
@@ -30,13 +29,17 @@ declare namespace Barracks {
   }
 
   interface Unit {
-    type: "infantry" | "artillery" | "vehicles";
-    role: string;
     name: string;
     cost: UnitOption[];
     composition: string;
     weapons: string;
     options: UnitOption[];
     rules: string[];
+  }
+
+  interface Units {
+    [type: string]: {
+      [role: string]: Unit[];
+    };
   }
 }

@@ -13,7 +13,7 @@ const useArmy = (key: string) => {
       const data = await response.json();
 
       if (data) {
-        return data as Barracks.Unit[];
+        return data as Barracks.Units;
       }
 
       return undefined;

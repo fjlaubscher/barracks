@@ -1,407 +1,395 @@
-[
-  {
-    "type": "infantry",
-    "role": "Headquarters",
-    "name": "Officer",
-    "cost": [
+{
+  "infantry": {
+    "Headquarters": [
       {
-        "name": "Second Lieutenant (Leutnant)",
-        "cost": {
-          "regular": 50,
-          "veteran": 65
-        }
+        "name": "Officer",
+        "cost": [
+          {
+            "name": "Second Lieutenant (Leutnant)",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          },
+          {
+            "name": "First Lieutenant (Oberleutnant)",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          },
+          {
+            "name": "Captain (Hauptmann)",
+            "cost": {
+              "regular": 110,
+              "veteran": 125
+            }
+          },
+          {
+            "name": "Major",
+            "cost": {
+              "regular": 150,
+              "veteran": 165
+            }
+          }
+        ],
+        "composition": "1 Officer and up to 2 further men",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
       },
       {
-        "name": "First Lieutenant (Oberleutnant)",
-        "cost": {
-          "regular": 75,
-          "veteran": 90
-        }
-      },
-      {
-        "name": "Captain (Hauptmann)",
-        "cost": {
-          "regular": 110,
-          "veteran": 125
-        }
-      },
-      {
-        "name": "Major",
-        "cost": {
-          "regular": 150,
-          "veteran": 165
-        }
+        "name": "Forward Observer",
+        "cost": [
+          {
+            "name": "Artillery Forward Observer",
+            "cost": {
+              "regular": 100,
+              "veteran": 115
+            }
+          },
+          {
+            "name": "Air Force Forward Observer",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "1 Forward Observer and up to 2 further men",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
       }
     ],
-    "composition": "1 Officer and up to 2 further men",
-    "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
-    "options": [
+    "Infantry Squads and Teams": [
       {
-        "name": "Attendant",
-        "cost": {
-          "regular": 10,
-          "veteran": 13
-        },
-        "max": 2
-      }
-    ],
-    "rules": []
-  },
-  {
-    "type": "infantry",
-    "role": "Headquarters",
-    "name": "Forward Observer",
-    "cost": [
-      {
-        "name": "Artillery Forward Observer",
-        "cost": {
-          "regular": 100,
-          "veteran": 115
-        }
+        "name": "Wehrmacht Infantry Squad",
+        "cost": [
+          {
+            "name": "Regular Infantry",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 men",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional man",
+            "cost": {
+              "regular": 10
+            },
+            "max": 5
+          },
+          {
+            "name": "Submachine gun",
+            "cost": {
+              "regular": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "Assault rifle",
+            "cost": {
+              "regular": 5
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "regular": 5
+            },
+            "max": 4
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Air Force Forward Observer",
-        "cost": {
-          "regular": 75,
-          "veteran": 90
-        }
-      }
-    ],
-    "composition": "1 Forward Observer and up to 2 further men",
-    "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
-    "options": [
-      {
-        "name": "Attendant",
-        "cost": {
-          "regular": 10,
-          "veteran": 13
-        },
-        "max": 2
-      }
-    ],
-    "rules": []
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Wehrmacht Infantry Squad",
-    "cost": [
-      {
-        "name": "Regular Infantry",
-        "cost": {
-          "regular": 50
-        }
-      }
-    ],
-    "composition": "1 NCO and 4 men",
-    "weapons": "Rifles",
-    "options": [
-      {
-        "name": "Additional man",
-        "cost": {
-          "regular": 10
-        },
-        "max": 5
+        "name": "Waffen-SS, Fallschirmjager or Veteran Infantry Squad",
+        "cost": [
+          {
+            "name": "Veteran Infantry",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 men",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional man",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "Submachine gun",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "Assault rifle",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 10
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 4
+          }
+        ],
+        "rules": []
       },
       {
-        "name": "Submachine gun",
-        "cost": {
-          "regular": 3
-        },
-        "max": 2
+        "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
+        "cost": [
+          {
+            "name": "Inexperienced Infantry",
+            "cost": {
+              "inexperienced": 35
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 men",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional man",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 5
+          },
+          {
+            "name": "Submachine gun",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "inexperienced": 5
+            },
+            "max": 4
+          },
+          {
+            "name": "Green",
+            "cost": {
+              "inexperienced": 0
+            },
+            "max": 1
+          },
+          {
+            "name": "Shirker",
+            "cost": {
+              "inexperienced": -3
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Volkssturm units can be Green",
+          "Osttruppen can be Shirkers",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
-      {
-        "name": "Assault rifle",
-        "cost": {
-          "regular": 5
-        },
-        "max": 3
-      },
-      {
-        "name": "LMG",
-        "cost": {
-          "regular": 20
-        },
-        "max": 1
-      },
-      {
-        "name": "Panzerfaust",
-        "cost": {
-          "regular": 5
-        },
-        "max": 4
-      },
-      {
-        "name": "Anti-tank grenades",
-        "cost": {
-          "regular": 2
-        },
-        "max": 10
-      }
-    ],
-    "rules": ["Tank Hunters (if anti-tank grenades taken)"]
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Waffen-SS, Fallschirmjager or Veteran Infantry Squad",
-    "cost": [
-      {
-        "name": "Veteran Infantry",
-        "cost": {
-          "veteran": 65
-        }
-      }
-    ],
-    "composition": "1 NCO and 4 men",
-    "weapons": "Rifles",
-    "options": [
-      {
-        "name": "Additional man",
-        "cost": {
-          "veteran": 13
-        },
-        "max": 5
-      },
-      {
-        "name": "Submachine gun",
-        "cost": {
-          "veteran": 3
-        },
-        "max": 7
-      },
-      {
-        "name": "Assault rifle",
-        "cost": {
-          "veteran": 5
-        },
-        "max": 10
-      },
-      {
-        "name": "LMG",
-        "cost": {
-          "veteran": 20
-        },
-        "max": 2
-      },
-      {
-        "name": "Panzerfaust",
-        "cost": {
-          "veteran": 5
-        },
-        "max": 4
-      }
-    ],
-    "rules": []
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
-    "cost": [
-      {
-        "name": "Inexperienced Infantry",
-        "cost": {
-          "inexperienced": 35
-        }
-      }
-    ],
-    "composition": "1 NCO and 4 men",
-    "weapons": "Rifles",
-    "options": [
-      {
-        "name": "Additional man",
-        "cost": {
-          "inexperienced": 7
-        },
-        "max": 5
-      },
-      {
-        "name": "Submachine gun",
-        "cost": {
-          "inexperienced": 3
-        },
-        "max": 3
-      },
-      {
-        "name": "LMG",
-        "cost": {
-          "inexperienced": 20
-        },
-        "max": 1
-      },
-      {
-        "name": "Panzerfaust",
-        "cost": {
-          "inexperienced": 5
-        },
-        "max": 4
-      },
-      {
-        "name": "Green",
-        "cost": {
-          "inexperienced": 0
-        },
-        "max": 1
-      },
-      {
-        "name": "Shirker",
-        "cost": {
-          "inexperienced": -3
-        },
-        "max": 10
-      },
-      {
-        "name": "Anti-tank grenades",
-        "cost": {
-          "inexperienced": 2
-        },
-        "max": 10
-      }
-    ],
-    "rules": [
-      "Volkssturm units can be Green",
-      "Osttruppen can be Shirkers",
-      "Tank Hunters (if anti-tank grenades taken)"
-    ]
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Machine Gun Team",
-    "cost": [
       {
         "name": "Machine Gun Team",
-        "cost": {
-          "inexperienced": 35,
-          "regular": 50,
-          "veteran": 65
-        }
-      }
-    ],
-    "composition": "3 men",
-    "weapons": "1 MMG",
-    "options": [],
-    "rules": ["Team weapon", "Fixed"]
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Sniper Team",
-    "cost": [
+        "cost": [
+          {
+            "name": "Machine Gun Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 men",
+        "weapons": "1 MMG",
+        "options": [],
+        "rules": ["Team weapon", "Fixed"]
+      },
       {
         "name": "Sniper Team",
-        "cost": {
-          "regular": 50,
-          "veteran": 65
-        }
-      }
-    ],
-    "composition": "2 men",
-    "weapons": "1 Rifle",
-    "options": [],
-    "rules": ["Team weapon", "Sniper"]
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Light Mortar Team",
-    "cost": [
+        "cost": [
+          {
+            "name": "Sniper Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "2 men",
+        "weapons": "1 Rifle",
+        "options": [],
+        "rules": ["Team weapon", "Sniper"]
+      },
       {
         "name": "Light Mortar Team",
-        "cost": {
-          "inexperienced": 24,
-          "regular": 35,
-          "veteran": 46
-        }
-      }
-    ],
-    "composition": "2 men",
-    "weapons": "1 Light mortar",
-    "options": [],
-    "rules": ["Team weapon", "Indirect fire"]
-  },
-  {
-    "type": "infantry",
-    "role": "Infantry Squads and Teams",
-    "name": "Medium Mortar Team",
-    "cost": [
+        "cost": [
+          {
+            "name": "Light Mortar Team",
+            "cost": {
+              "inexperienced": 24,
+              "regular": 35,
+              "veteran": 46
+            }
+          }
+        ],
+        "composition": "2 men",
+        "weapons": "1 Light mortar",
+        "options": [],
+        "rules": ["Team weapon", "Indirect fire"]
+      },
       {
         "name": "Medium Mortar Team",
-        "cost": {
-          "inexperienced": 35,
-          "regular": 50,
-          "veteran": 65
-        }
+        "cost": [
+          {
+            "name": "Medium Mortar Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 men",
+        "weapons": "1 Medium mortar",
+        "options": [],
+        "rules": ["Team weapon", "Indirect fire"]
       }
     ],
-    "composition": "3 men",
-    "weapons": "1 Medium mortar",
-    "options": [],
-    "rules": ["Team weapon", "Indirect fire"]
-  },
-  {
-    "type": "infantry",
-    "role": "Field Artillery",
-    "name": "Light Artillery",
-    "cost": [
+    "Field Artillery": [
       {
         "name": "Light Artillery",
-        "cost": {
-          "inexperienced": 40,
-          "regular": 50,
-          "veteran": 60
-        }
+        "cost": [
+          {
+            "name": "Light Artillery",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": "3 men",
+        "weapons": "1 Light howitzer",
+        "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
       }
     ],
-    "composition": "3 men",
-    "weapons": "1 Light howitzer",
-    "options": [],
-    "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
-  },
-  {
-    "type": "infantry",
-    "role": "Anti-Tank Guns",
-    "name": "75mm PaK",
-    "cost": [
+    "Anti-Tank Guns": [
       {
         "name": "75mm PaK",
-        "cost": {
-          "inexperienced": 80,
-          "regular": 110,
-          "veteran": 132
-        }
+        "cost": [
+          {
+            "name": "75mm PaK",
+            "cost": {
+              "inexperienced": 80,
+              "regular": 110,
+              "veteran": 132
+            }
+          }
+        ],
+        "composition": "4 men",
+        "weapons": "1 Heavy anti-tank gun",
+        "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed"]
       }
     ],
-    "composition": "4 men",
-    "weapons": "1 Heavy anti-tank gun",
-    "options": [],
-    "rules": ["Gun shield", "Team weapon", "Fixed"]
-  },
-  {
-    "type": "infantry",
-    "role": "Anti-Aircraft Guns",
-    "name": "88mm Flak 36 Dual Purpose AA/AT Gun",
-    "cost": [
+    "Anti-Aircraft Guns": [
       {
         "name": "88mm Flak 36 Dual Purpose AA/AT Gun",
-        "cost": {
-          "inexperienced": 148,
-          "regular": 185,
-          "veteran": 222
-        }
+        "cost": [
+          {
+            "name": "88mm Flak 36 Dual Purpose AA/AT Gun",
+            "cost": {
+              "inexperienced": 148,
+              "regular": 185,
+              "veteran": 222
+            }
+          }
+        ],
+        "composition": "7 men",
+        "weapons": "1 Plaform-mounted super-heavy anti-tank gun",
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "regular": 10
+            }
+          }
+        ],
+        "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
       }
-    ],
-    "composition": "7 men",
-    "weapons": "1 Plaform-mounted super-heavy anti-tank gun",
-    "options": [
-      {
-        "name": "Spotter",
-        "cost": {
-          "regular": 10
-        }
-      }
-    ],
-    "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
+    ]
   }
-]
+}

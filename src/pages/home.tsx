@@ -1,18 +1,12 @@
-import { FaCog } from 'react-icons/fa';
-import { useLocalStorage } from 'react-use';
+import { FaCog, FaPlus, FaDatabase } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { Card, Grid, IconButton } from '@fjlaubscher/matter';
+import { Alert, Button, IconButton, Stack } from '@fjlaubscher/matter';
 
 // components
-import Image from '../components/image';
 import Layout from '../components/layout';
-
-// helpers
-import { ARMIES } from '../helpers/storage';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
 
   return (
     <Layout
@@ -23,21 +17,19 @@ const Home = () => {
         </IconButton>
       }
     >
-      {armies && (
-        <Grid>
-          {Object.keys(armies).map((key) => (
-            <Card key={key} title={armies[key].name} onClick={() => navigate(`/army/${key}`)}>
-              <Image src={armies[key].image} alt={armies[key].name} />
-              {armies[key].rules.map((rule, index) => (
-                <div key={`rule-${index}`}>
-                  <h4>{rule.name}</h4>
-                  <p>{rule.description}</p>
-                </div>
-              ))}
-            </Card>
-          ))}
-        </Grid>
-      )}
+      <Stack direction="column">
+        <Alert title="Welcome to Barracks!" variant="info">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis exercitationem non fuga
+          laboriosam maiores soluta neque tenetur porro! Repellat labore explicabo eveniet natus,
+          doloribus minima sequi quaerat nulla blanditiis voluptas.
+        </Alert>
+        <Button variant="info" leftIcon={<FaDatabase />} onClick={() => navigate('/armies')}>
+          Browse Armies
+        </Button>
+        <Button leftIcon={<FaPlus />} onClick={() => navigate('/list/create')}>
+          Create a List
+        </Button>
+      </Stack>
     </Layout>
   );
 };

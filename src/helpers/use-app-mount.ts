@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useAsync } from 'react-use';
 
 // storage
@@ -17,10 +16,6 @@ const useAppMount = () => {
     } catch (ex) {}
 
     return undefined;
-  }, []);
-
-  useEffect(() => {
-    console.log('app is mounted');
   }, []);
 
   return { loading: loadingArmies };

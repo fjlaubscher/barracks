@@ -1,6 +1,12 @@
-@use '@fjlaubscher/matter/src/styles/global';
+$primary: #426f6f;
+$accent: #f5af0a;
+@import '@fjlaubscher/matter/src/styles/colors';
+@import '@fjlaubscher/matter/src/styles/global';
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   margin-top: 0;
   margin-bottom: 1rem;
 }

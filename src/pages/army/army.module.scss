@@ -1,8 +1,46 @@
-@use "@fjlaubscher/matter/src/styles/colors";
+@use '@fjlaubscher/matter/src/styles/breakpoints';
+@use '@fjlaubscher/matter/src/styles/colors';
+
+.image {
+  max-width: 100%;
+
+  @media (min-width: breakpoints.$tablet) {
+    max-width: breakpoints.$max-form-width;
+  }
+}
+
+.header {
+  @media (min-width: breakpoints.$tablet) {
+    flex-direction: row-reverse !important;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.groupedRole {
+  .heading {
+    > span:first-child {
+      text-transform: capitalize;
+    }
+
+    padding: 1rem 0;
+    border-top: 1px solid colors.$light-surface;
+    border-bottom: 1px solid colors.$light-surface;
+
+    @media (prefers-color-scheme: dark) {
+      border-top-color: colors.$dark-surface;
+      border-bottom-color: colors.$dark-surface;
+    }
+  }
+}
+
+.rules {
+  max-width: breakpoints.$max-form-width;
+}
 
 .section {
   margin-bottom: 1rem;
-  
+
   h4 {
     color: colors.$accent;
     margin-bottom: 0.25rem;
