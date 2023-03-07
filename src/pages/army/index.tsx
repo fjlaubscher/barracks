@@ -46,7 +46,7 @@ const Army = () => {
           {Object.keys(units).map((type) => (
             <Stack key={`unit-type-${type}`} direction="column">
               {Object.keys(units[type]).map((role, i) => (
-                <Stack className={styles.groupedRole} key={`${type}-role-${i}`} direction="column">
+                <Stack key={`${type}-role-${i}`} direction="column">
                   <Stat className={styles.heading} title={type} value={role} />
                   {units[type][role].map((unit, unitIndex) => (
                     <Card key={`unit-${unitIndex}`} title={unit.name}>
@@ -58,12 +58,12 @@ const Army = () => {
                           { text: 'Veteran' }
                         ]}
                       >
-                        {unit.cost.map((uc, costIndex) => (
+                        {unit.profiles.map((profile, costIndex) => (
                           <tr key={`unit-cost-${costIndex}`}>
-                            <td>{uc.name}</td>
-                            <td>{uc.cost.inexperienced || '-'}</td>
-                            <td>{uc.cost.regular || '-'}</td>
-                            <td>{uc.cost.veteran || '-'}</td>
+                            <td>{profile.name}</td>
+                            <td>{profile.cost.inexperienced || '-'}</td>
+                            <td>{profile.cost.regular || '-'}</td>
+                            <td>{profile.cost.veteran || '-'}</td>
                           </tr>
                         ))}
                       </Table>

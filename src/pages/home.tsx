@@ -1,9 +1,10 @@
 import { FaCog, FaPlus, FaDatabase } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { Alert, Button, IconButton, Stack } from '@fjlaubscher/matter';
+import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../components/layout';
+import LinkButton from '../components/button/link';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -23,12 +24,12 @@ const Home = () => {
           laboriosam maiores soluta neque tenetur porro! Repellat labore explicabo eveniet natus,
           doloribus minima sequi quaerat nulla blanditiis voluptas.
         </Alert>
-        <Button variant="info" leftIcon={<FaDatabase />} onClick={() => navigate('/armies')}>
+        <LinkButton leftIcon={<FaDatabase />} to="/armies">
           Browse Armies
-        </Button>
-        <Button leftIcon={<FaPlus />} onClick={() => navigate('/list/create')}>
+        </LinkButton>
+        <LinkButton leftIcon={<FaPlus />} to="/list">
           Create a List
-        </Button>
+        </LinkButton>
       </Stack>
     </Layout>
   );

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { GiTank } from 'react-icons/gi';
+import { GiBarracks } from 'react-icons/gi';
 import { useToast } from '@fjlaubscher/matter';
 
 // components
@@ -20,7 +20,7 @@ const NotFound = () => {
   return (
     <Layout title="Not Found">
       <div className={styles.content}>
-        <GiTank className={styles.notFound} />
+        <GiBarracks className={styles.notFound} />
       </div>
     </Layout>
   );

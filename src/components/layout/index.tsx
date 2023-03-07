@@ -1,13 +1,13 @@
 import { useCallback } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaListAlt, FaShareAlt, FaUsers } from 'react-icons/fa';
-import { GiBarracks, GiTank } from 'react-icons/gi';
+import { FaHome, FaListAlt, FaShareAlt } from 'react-icons/fa';
+import { GiBarracks } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';
 
 // components
-import LinkButton from '../link-button';
+import LinkButton from '../button/link';
 
 import styles from './layout.module.scss';
 
@@ -73,7 +73,7 @@ const AppLayout = ({ children, title, description, image, action, isLoading }: P
             Home
           </LinkButton>
           <LinkButton
-            leftIcon={<GiTank />}
+            leftIcon={<GiBarracks />}
             className={classnames(
               styles.action,
               pathname === '/armies' ? styles.active : undefined

@@ -17,9 +17,7 @@ declare namespace Barracks {
   }
 
   interface Cost {
-    inexperienced?: number;
-    regular?: number;
-    veteran?: number;
+    [key: string]: number;
   }
 
   interface UnitOption {
@@ -30,7 +28,7 @@ declare namespace Barracks {
 
   interface Unit {
     name: string;
-    cost: UnitOption[];
+    profiles: UnitOption[];
     composition: string;
     weapons: string;
     options: UnitOption[];
@@ -40,6 +38,39 @@ declare namespace Barracks {
   interface Units {
     [type: string]: {
       [role: string]: Unit[];
+    };
+  }
+
+  interface List {
+    key: string;
+    created: string;
+    name: string;
+    notes: string;
+    army: string;
+    units: List.Units;
+    points: number;
+    limit: number;
+  }
+}
+
+declare namespace Barracks.List {
+  interface UnitOption {
+    option: Barracks.UnitOption;
+    amount: number;
+  }
+
+  interface Unit {
+    key: string;
+    unit: Barracks.Unit;
+    profile: Barracks.UnitOption;
+    options: List.UnitOption[];
+    veterancy: string;
+    points: number;
+  }
+
+  interface Units {
+    [type: string]: {
+      [role: string]: List.Unit[];
     };
   }
 }

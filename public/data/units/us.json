@@ -5,21 +5,21 @@
         "name": "Officer",
         "profiles": [
           {
-            "name": "Second Lieutenant (Leutnant)",
+            "name": "Second Lieutenant",
             "cost": {
               "regular": 50,
               "veteran": 65
             }
           },
           {
-            "name": "First Lieutenant (Oberleutnant)",
+            "name": "First Lieutenant",
             "cost": {
               "regular": 75,
               "veteran": 90
             }
           },
           {
-            "name": "Captain (Hauptmann)",
+            "name": "Captain",
             "cost": {
               "regular": 110,
               "veteran": 125
@@ -82,7 +82,7 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Wehrmacht Infantry Squad",
+        "name": "Regular Infantry Squad",
         "profiles": [
           {
             "name": "Regular Infantry",
@@ -99,7 +99,7 @@
             "cost": {
               "regular": 10
             },
-            "max": 5
+            "max": 7
           },
           {
             "name": "Submachine gun",
@@ -109,38 +109,24 @@
             "max": 2
           },
           {
-            "name": "Assault rifle",
+            "name": "BAR",
             "cost": {
               "regular": 5
-            },
-            "max": 3
-          },
-          {
-            "name": "LMG",
-            "cost": {
-              "regular": 20
             },
             "max": 1
-          },
-          {
-            "name": "Panzerfaust",
-            "cost": {
-              "regular": 5
-            },
-            "max": 4
           },
           {
             "name": "Anti-tank grenades",
             "cost": {
               "regular": 2
             },
-            "max": 10
+            "max": 12
           }
         ],
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Waffen-SS, Fallschirmjager or Veteran Infantry Squad",
+        "name": "Rangers, Airborne, Marines or Veteran Infantry Squad",
         "profiles": [
           {
             "name": "Veteran Infantry",
@@ -157,41 +143,34 @@
             "cost": {
               "veteran": 13
             },
-            "max": 5
+            "max": 7
           },
           {
             "name": "Submachine gun",
             "cost": {
               "veteran": 3
             },
-            "max": 7
+            "max": 5
           },
           {
-            "name": "Assault rifle",
+            "name": "BAR",
             "cost": {
               "veteran": 5
-            },
-            "max": 10
-          },
-          {
-            "name": "LMG",
-            "cost": {
-              "veteran": 20
             },
             "max": 2
           },
           {
-            "name": "Panzerfaust",
+            "name": "Anti-tank grenades",
             "cost": {
-              "veteran": 5
+              "veteran": 2
             },
-            "max": 4
+            "max": 12
           }
         ],
-        "rules": []
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
+        "name": "Inexperienced Infantry Squad",
         "profiles": [
           {
             "name": "Inexperienced Infantry",
@@ -208,59 +187,34 @@
             "cost": {
               "inexperienced": 7
             },
-            "max": 5
+            "max": 7
           },
           {
             "name": "Submachine gun",
             "cost": {
               "inexperienced": 3
             },
-            "max": 3
+            "max": 2
           },
           {
-            "name": "LMG",
-            "cost": {
-              "inexperienced": 20
-            },
-            "max": 1
-          },
-          {
-            "name": "Panzerfaust",
+            "name": "BAR",
             "cost": {
               "inexperienced": 5
             },
-            "max": 4
-          },
-          {
-            "name": "Green",
-            "cost": {
-              "inexperienced": 0
-            },
             "max": 1
-          },
-          {
-            "name": "Shirker",
-            "cost": {
-              "inexperienced": -3
-            },
-            "max": 10
           },
           {
             "name": "Anti-tank grenades",
             "cost": {
               "inexperienced": 2
             },
-            "max": 10
+            "max": 12
           }
         ],
-        "rules": [
-          "Volkssturm units can be Green",
-          "Osttruppen can be Shirkers",
-          "Tank Hunters (if anti-tank grenades taken)"
-        ]
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Machine Gun Team",
+        "name": ".30 Cal Medium Machine Gun Team",
         "profiles": [
           {
             "name": "Machine Gun Team",
@@ -274,7 +228,28 @@
         "composition": "3 soldiers",
         "weapons": "1 MMG",
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Extra selection - you may take up to three .30 Cal MMGs as one selection in each reinforced platoon."
+        ]
+      },
+      {
+        "name": "Bazooka Team",
+        "profiles": [
+          {
+            "name": "Bazooka Team",
+            "cost": {
+              "inexperienced": 42,
+              "regular": 60,
+              "veteran": 78
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Bazooka",
+        "options": [],
+        "rules": ["Team weapon", "Shaped charge"]
       },
       {
         "name": "Sniper Team",
@@ -310,10 +285,10 @@
         "rules": ["Team weapon", "Indirect fire"]
       },
       {
-        "name": "Medium Mortar Team",
+        "name": "81mm Medium Mortar",
         "profiles": [
           {
-            "name": "Medium Mortar Team",
+            "name": "81mm Medium Mortar",
             "cost": {
               "inexperienced": 35,
               "regular": 50,
@@ -323,18 +298,25 @@
         ],
         "composition": "3 soldiers",
         "weapons": "1 Medium mortar",
-        "options": [],
-        "rules": ["Team weapon", "Indirect fire"]
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "regular": 10
+            }
+          }
+        ],
+        "rules": ["Team weapon", "Fixed", "Indirect fire"]
       }
     ]
   },
   "artillery": {
     "Field Artillery": [
       {
-        "name": "Light Artillery",
+        "name": "75mm Howitzer",
         "profiles": [
           {
-            "name": "Light Artillery",
+            "name": "75mm Howitzer",
             "cost": {
               "inexperienced": 40,
               "regular": 50,
@@ -350,47 +332,40 @@
     ],
     "Anti-Tank Guns": [
       {
-        "name": "75mm PaK",
+        "name": "57mm Anti-Tank Gun",
         "profiles": [
           {
-            "name": "75mm PaK",
+            "name": "57mm Anti-Tank Gun",
             "cost": {
-              "inexperienced": 80,
-              "regular": 110,
-              "veteran": 132
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
             }
           }
         ],
-        "composition": "4 soldiers",
-        "weapons": "1 Heavy anti-tank gun",
+        "composition": "3 soldiers",
+        "weapons": "1 Medium anti-tank gun",
         "options": [],
         "rules": ["Gun shield", "Team weapon", "Fixed"]
       }
     ],
     "Anti-Aircraft Guns": [
       {
-        "name": "88mm Flak 36 Dual Purpose AA/AT Gun",
+        "name": "37mm M1A2 Anti-Aircraft Gun",
         "profiles": [
           {
-            "name": "88mm Flak 36 Dual Purpose AA/AT Gun",
+            "name": "37mm M1A2 Anti-Aircraft Gun",
             "cost": {
-              "inexperienced": 148,
-              "regular": 185,
-              "veteran": 222
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
             }
           }
         ],
-        "composition": "7 soldiers",
-        "weapons": "1 Plaform-mounted super-heavy anti-tank gun",
-        "options": [
-          {
-            "name": "Spotter",
-            "cost": {
-              "regular": 10
-            }
-          }
-        ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
+        "composition": "4 soldiers",
+        "weapons": "1 Plaform-mounted heavy automatic cannon",
+        "options": [],
+        "rules": ["Team weapon", "Fixed", "Flak"]
       }
     ]
   }

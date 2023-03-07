@@ -1,0 +1,40 @@
+@use '@fjlaubscher/matter/src/styles/colors';
+
+.header {
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-top: 1px solid colors.$light-surface;
+  border-bottom: 1px solid colors.$light-surface;
+
+  @media (prefers-color-scheme: dark) {
+    border-top-color: colors.$dark-surface;
+    border-bottom-color: colors.$dark-surface;
+  }
+
+  .heading {
+    gap: 0;
+    align-items: flex-start;
+
+    .title {
+      color: colors.$accent;
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+      font-weight: 500;
+      text-transform: capitalize;
+
+      @media (prefers-color-scheme: dark) {
+        font-weight: normal;
+      }
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+}
+
+.action {
+  font-size: 0.9rem;
+  width: auto;
+}
