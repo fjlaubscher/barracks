@@ -41,6 +41,16 @@ declare namespace Barracks {
     };
   }
 
+  interface Core {
+    hit: Barracks.Core.Hit[];
+    damage: {
+      [key: string]: Barracks.Core.Damage[];
+    };
+    weapons: {
+      [key: string]: Barracks.Core.Weapon[];
+    };
+  }
+
   interface List {
     key: string;
     created: string;
@@ -50,6 +60,26 @@ declare namespace Barracks {
     units: List.Units;
     points: number;
     limit: number;
+  }
+}
+
+declare namespace Barracks.Core {
+  interface Hit {
+    type: string;
+    modifier: string;
+  }
+
+  interface Damage {
+    type: string;
+    result: string;
+  }
+
+  interface Weapon {
+    type: string;
+    range: string;
+    shots: string;
+    pen: string;
+    rules: string[];
   }
 }
 

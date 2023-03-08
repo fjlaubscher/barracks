@@ -9,7 +9,7 @@ interface Props {
   children: ReactNode;
   title: string;
   description: string;
-  onAddClick: () => void;
+  onAddClick?: () => void;
 }
 
 const ListSection = ({ className, children, title, description, onAddClick }: Props) => (
@@ -19,9 +19,11 @@ const ListSection = ({ className, children, title, description, onAddClick }: Pr
         <span className={styles.title}>{title}</span>
         <span className={styles.description}>{description}</span>
       </Stack>
-      <IconButton className={styles.action} onClick={onAddClick}>
-        <FaPlus />
-      </IconButton>
+      {onAddClick && (
+        <IconButton className={styles.action} onClick={onAddClick}>
+          <FaPlus />
+        </IconButton>
+      )}
     </Stack>
     <Stack direction="column">{children}</Stack>
   </Stack>

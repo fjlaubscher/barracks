@@ -1,12 +1,13 @@
 import { useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useToast, IconButton, Stack } from '@fjlaubscher/matter';
+import { IconButton, Stack } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
 import { useRecoilValue } from 'recoil';
 
 // components
+import BackButton from '../../components/button/back';
 import Layout from '../../components/layout';
-import UnitCard from '../../components/unit/card';
+import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
 
 // helpers
@@ -16,12 +17,10 @@ import { calculateCost } from '../../helpers/unit';
 
 // state
 import { CreateListUnitAtom, ListUnitAtom } from '../../state/list';
-import BackButton from '../../components/button/back';
 
 const AddListUnit = () => {
   const navigate = useNavigate();
   const { key } = useParams();
-  const toast = useToast();
 
   const { type, role } = useRecoilValue(CreateListUnitAtom);
   const listUnit = useRecoilValue(ListUnitAtom);
@@ -47,14 +46,13 @@ const AddListUnit = () => {
         ...list.units,
         [type]: {
           ...list.units[type],
-          [role]: [newUnit, ...list.units[type][role]]
+          [role]: [...list.units[type][role], newUnit]
         }
       }
     });
 
-    toast({ text: `${listUnit.profile.name} added.`, variant: 'success' });
     navigate(`/list/${key}/edit`);
-  }, [list, type, role, toast, navigate, listUnit]);
+  }, [list, type, role, navigate, listUnit]);
 
   return (
     <Layout
@@ -68,7 +66,7 @@ const AddListUnit = () => {
     >
       <Stack direction="column">
         <BackButton to={`/list/${key}/edit`} />
-        {listUnit && <UnitCard detailed listUnit={listUnit} />}
+        {listUnit && <UnitListCard listUnit={listUnit} />}
         {list && units && <UnitBuilder units={units[type][role]} />}
       </Stack>
     </Layout>

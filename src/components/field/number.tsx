@@ -30,18 +30,18 @@ const NumberField = ({
 }: Props) => (
   <Field className={className} error={errorMessage}>
     <label htmlFor={name}>{label}</label>
-    <input
-      id={name}
-      onChange={(e) => onChange(e.currentTarget.valueAsNumber)}
-      name={name}
-      type="number"
-      placeholder={placeholder}
-      value={value}
-    />
     <div className={styles.buttons}>
       <Button disabled={value === minimum} onClick={() => onChange(value - step)}>
         <FaMinus />
       </Button>
+      <input
+        id={name}
+        onChange={(e) => onChange(e.currentTarget.valueAsNumber)}
+        name={name}
+        type="number"
+        placeholder={placeholder}
+        value={value}
+      />
       <Button disabled={value === maximum} onClick={() => onChange(value + step)}>
         <FaPlus />
       </Button>

@@ -14,6 +14,7 @@ import UnitCard from '../../components/unit/card';
 // helpers
 import useArmy from '../../helpers/use-army';
 import useList from '../../helpers/use-list';
+import { calculateOrderDice } from '../../helpers/list';
 
 // state
 import { CreateListUnitAtom } from '../../state/list';
@@ -24,21 +25,9 @@ const EditList = () => {
   const setCreateListUnit = useSetRecoilState(CreateListUnitAtom);
 
   const [list, setList] = useList(key!);
-  const { army, units, loading } = useArmy(list?.army || '');
+  const { army, units, loading } = useArmy(list!.army);
 
-  const totalOrderDice = useMemo(() => {
-    let orderDice = 0;
-
-    if (list) {
-      Object.keys(list.units).forEach((type) =>
-        Object.keys(list.units[type]).forEach(
-          (role) => (orderDice += list.units[type][role].length)
-        )
-      );
-    }
-
-    return orderDice;
-  }, [list]);
+  const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
 
   const handleAddListUnit = useCallback(
     (type: string, role: string) => {

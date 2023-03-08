@@ -1,13 +1,12 @@
 @use '@fjlaubscher/matter/src/styles/colors';
 
 .buttons {
-  margin-top: 0.5rem;
   width: 100%;
   display: flex;
   align-items: center;
 
   > button {
-    padding: 0.75rem;
+    max-width: 6rem;
   }
 
   > button:nth-child(1) {
@@ -15,7 +14,15 @@
     border-bottom-right-radius: 0;
   }
 
-  > button:nth-child(2) {
+  > input:nth-child(2) {
+    border-radius: 0;
+    padding: 0.5rem;
+    line-height: 1;
+    min-height: 2rem;
+    text-align: center;
+  }
+
+  > button:nth-child(3) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }

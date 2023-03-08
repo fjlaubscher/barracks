@@ -5,7 +5,7 @@
     "rules": [
       {
         "name": "Initiative Training",
-        "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troppers takes over the squad and leads it just as effectively as before. To repesent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
+        "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troopers takes over the squad and leads it just as effectively as before. To repesent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
       },
       {
         "name": "Hitler's Buzzsaw",
