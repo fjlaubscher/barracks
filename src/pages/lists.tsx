@@ -1,36 +1,49 @@
-import { useLocalStorage } from 'react-use';
-import { Alert, Grid, Stack } from '@fjlaubscher/matter';
+import { useCallback } from 'react';
+import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
 import { FaPlus } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 // components
 import Layout from '../components/layout';
-import LinkButton from '../components/button/link';
 import ListCard from '../components/list/card';
 
 // helpers
 import { LISTS } from '../helpers/storage';
+import useLocalStorage from '../helpers/use-local-storage';
 
 const Armies = () => {
-  const [lists] = useLocalStorage<Barracks.List[]>(LISTS);
+  const navigate = useNavigate();
+  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+
+  const handleListDelete = useCallback(
+    (key: string) => {
+      if (lists) {
+        setLists(lists.filter((l) => l.key !== key));
+      }
+    },
+    [lists, setLists]
+  );
 
   const hasLists = lists && lists.length > 0;
 
   return (
-    <Layout title="Lists">
-      {hasLists ? (
-        <Grid>
-          {lists.map((list) => (
-            <ListCard key={list.key} list={list} />
-          ))}
-        </Grid>
-      ) : (
-        <Stack direction="column">
+    <Layout
+      title="Lists"
+      action={
+        <IconButton onClick={() => navigate('/list')}>
+          <FaPlus />
+        </IconButton>
+      }
+    >
+      <Stack direction="column">
+        {hasLists ? (
+          lists.map((list) => (
+            <ListCard key={list.key} list={list} onDeleteClick={() => handleListDelete(list.key)} />
+          ))
+        ) : (
           <Alert variant="info">You don&apos;t have any lists yet.</Alert>
-          <LinkButton leftIcon={<FaPlus />} to="/list">
-            Create a List
-          </LinkButton>
-        </Stack>
-      )}
+        )}
+      </Stack>
     </Layout>
   );
 };

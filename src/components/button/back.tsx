@@ -3,7 +3,7 @@ import { FaArrowLeft } from 'react-icons/fa';
 // components
 import LinkButton from './link';
 
-import styles from './back.module.scss';
+import styles from './button.module.scss';
 
 interface Props {
   to: string;

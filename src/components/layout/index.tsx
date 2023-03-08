@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaListAlt, FaShareAlt } from 'react-icons/fa';
-import { GiBarracks } from 'react-icons/gi';
+import { FaListAlt, FaShareAlt } from 'react-icons/fa';
+import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';
 
@@ -66,17 +66,17 @@ const AppLayout = ({ children, title, description, image, action, isLoading }: P
       menu={
         <>
           <LinkButton
-            leftIcon={<FaHome />}
+            leftIcon={<GiBarracks />}
             className={classnames(styles.action, pathname === '/' ? styles.active : undefined)}
             to="/"
           >
             Home
           </LinkButton>
           <LinkButton
-            leftIcon={<GiBarracks />}
+            leftIcon={<GiTank />}
             className={classnames(
               styles.action,
-              pathname === '/armies' ? styles.active : undefined
+              pathname.includes('/arm') ? styles.active : undefined
             )}
             to="/armies"
           >
@@ -84,7 +84,10 @@ const AppLayout = ({ children, title, description, image, action, isLoading }: P
           </LinkButton>
           <LinkButton
             leftIcon={<FaListAlt />}
-            className={classnames(styles.action, pathname === '/lists' ? styles.active : undefined)}
+            className={classnames(
+              styles.action,
+              pathname.includes('/list') ? styles.active : undefined
+            )}
             to="/lists"
           >
             Lists

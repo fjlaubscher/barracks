@@ -102,7 +102,7 @@
             "max": 5
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "regular": 3
             },
@@ -160,7 +160,7 @@
             "max": 5
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "veteran": 3
             },
@@ -211,7 +211,7 @@
             "max": 5
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "inexperienced": 3
             },
@@ -386,7 +386,9 @@
           {
             "name": "Spotter",
             "cost": {
-              "regular": 10
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
             }
           }
         ],

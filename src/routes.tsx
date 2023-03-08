@@ -14,7 +14,7 @@ const AppRoutes = () => (
   <Routes>
     <Route path="/lists" element={<Lists />} />
     <Route path="/list/:key/edit" element={<EditList />} />
-    <Route path="/list/:key/unit/:type/:role" element={<AddListUnit />} />
+    <Route path="/list/:key/unit" element={<AddListUnit />} />
     <Route path="/list" element={<CreateList />} />
     <Route path="/army/:key" element={<Army />} />
     <Route path="/armies" element={<Armies />} />

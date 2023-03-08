@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
+import { SWRConfig } from 'swr';
 
 import './styles/global.scss';
 
@@ -13,7 +14,14 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <BrowserRouter>
       <RecoilRoot>
         <ToastProvider>
-          <App />
+          <SWRConfig
+            value={{
+              fetcher: (resource: RequestInfo | URL, init?: RequestInit) =>
+                fetch(resource, init).then((res) => res.json())
+            }}
+          >
+            <App />
+          </SWRConfig>
         </ToastProvider>
       </RecoilRoot>
     </BrowserRouter>

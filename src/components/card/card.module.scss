@@ -1,0 +1,24 @@
+.card {
+  padding: 0.5rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+
+  table {
+    margin-bottom: 0.5rem;
+  }
+
+  .title {
+    gap: 0;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .delete {
+    width: auto;
+    font-size: 0.9rem;
+    background-color: transparent;
+  }
+}

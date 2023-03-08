@@ -1,12 +1,12 @@
-import { useLocalStorage } from 'react-use';
+import { Alert, Card, Stack, TagGroup, Tag } from '@fjlaubscher/matter';
 import { useNavigate } from 'react-router-dom';
-import { Card, Grid, Image } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../components/layout';
 
 // helpers
 import { ARMIES } from '../helpers/storage';
+import useLocalStorage from '../helpers/use-local-storage';
 
 const Armies = () => {
   const navigate = useNavigate();
@@ -14,15 +14,21 @@ const Armies = () => {
 
   return (
     <Layout title="Armies">
-      {armies && (
-        <Grid>
-          {Object.keys(armies).map((key) => (
+      <Stack direction="column">
+        <Alert title="🚧 Don't see everything?" variant="info">
+          Currently, Barracks only includes the rules and units from the 2nd edition rulebook.
+        </Alert>
+        {armies &&
+          Object.keys(armies).map((key) => (
             <Card key={key} title={armies[key].name} onClick={() => navigate(`/army/${key}`)}>
-              <Image src={armies[key].image} alt={armies[key].name} />
+              <TagGroup>
+                {armies[key].rules.map((rule, i) => (
+                  <Tag key={`rule-${i}`}>{rule.name}</Tag>
+                ))}
+              </TagGroup>
             </Card>
           ))}
-        </Grid>
-      )}
+      </Stack>
     </Layout>
   );
 };

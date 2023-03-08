@@ -1,7 +1,6 @@
-import { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
+import { FaListAlt } from 'react-icons/fa';
 import { Card, IconButton, Image, Stack, Stat, Table } from '@fjlaubscher/matter';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
 import Layout from '../../components/layout';
@@ -13,8 +12,8 @@ import styles from './army.module.scss';
 
 const Army = () => {
   const { key } = useParams();
-  const { loading, army, units } = useArmy(key || '');
-  const [showSearch, setShowSearch] = useState(false);
+  const navigate = useNavigate();
+  const { loading, army, units } = useArmy(key!);
 
   if (!loading && !army) {
     return <Navigate to="/404" />;
@@ -24,8 +23,8 @@ const Army = () => {
     <Layout
       title="Army"
       action={
-        <IconButton onClick={() => setShowSearch(!showSearch)}>
-          <FaSearch />
+        <IconButton onClick={() => navigate(`/list?army=${key}`)}>
+          <FaListAlt />
         </IconButton>
       }
       isLoading={loading}
@@ -75,6 +74,16 @@ const Army = () => {
                         <h4>Weapons</h4>
                         <p>{unit.weapons}</p>
                       </div>
+                      {unit.options.length > 0 && (
+                        <div className={styles.section}>
+                          <h4>Options</h4>
+                          <ul>
+                            {unit.options.map((option, optionIndex) => (
+                              <li key={`unit-option-${optionIndex}`}>{option.name}</li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                       {unit.rules.length > 0 && (
                         <div className={styles.section}>
                           <h4>Special Rules</h4>

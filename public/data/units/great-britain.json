@@ -1,0 +1,378 @@
+{
+  "infantry": {
+    "Headquarters": [
+      {
+        "name": "Officer",
+        "profiles": [
+          {
+            "name": "Second Lieutenant",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          },
+          {
+            "name": "First Lieutenant",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          },
+          {
+            "name": "Captain",
+            "cost": {
+              "inexperienced": 95,
+              "regular": 110,
+              "veteran": 125
+            }
+          },
+          {
+            "name": "Major",
+            "cost": {
+              "inexperienced": 135,
+              "regular": 150,
+              "veteran": 165
+            }
+          }
+        ],
+        "composition": "1 Officer and up to 2 further soldiers",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      },
+      {
+        "name": "Forward Observer",
+        "profiles": [
+          {
+            "name": "Artillery Forward Observer",
+            "cost": {
+              "regular": 0,
+              "veteran": 115
+            }
+          },
+          {
+            "name": "Air Force Forward Observer",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "1 Forward Observer and up to 2 further soldiers",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      }
+    ],
+    "Infantry Squads and Teams": [
+      {
+        "name": "Regular Infantry Section",
+        "profiles": [
+          {
+            "name": "Regular Infantry",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Commandos, Chindits, Royal Marines, Airborne or Veteran Infantry Section",
+        "profiles": [
+          {
+            "name": "Veteran Infantry",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 5
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Inexperienced Infantry Section",
+        "profiles": [
+          {
+            "name": "Inexperienced Infantry",
+            "cost": {
+              "inexperienced": 35
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Machine Gun Team",
+        "profiles": [
+          {
+            "name": "Machine Gun Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 MMG",
+        "options": [],
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Extra selection - you may take up to three .30 Cal MMGs as one selection in each reinforced platoon."
+        ]
+      },
+      {
+        "name": "PIAT Team",
+        "profiles": [
+          {
+            "name": "PIAT Team",
+            "cost": {
+              "inexperienced": 28,
+              "regular": 40,
+              "veteran": 52
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 PIAT",
+        "options": [],
+        "rules": ["Team weapon", "Shaped charge"]
+      },
+      {
+        "name": "Sniper Team",
+        "profiles": [
+          {
+            "name": "Sniper Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Rifle",
+        "options": [],
+        "rules": ["Team weapon", "Sniper"]
+      },
+      {
+        "name": "Light Mortar Team",
+        "profiles": [
+          {
+            "name": "Light Mortar Team",
+            "cost": {
+              "inexperienced": 24,
+              "regular": 35,
+              "veteran": 46
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Light mortar",
+        "options": [],
+        "rules": ["Team weapon", "Indirect fire"]
+      },
+      {
+        "name": "Medium Mortar Team",
+        "profiles": [
+          {
+            "name": "Medium Mortar Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 Medium mortar",
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
+        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+      }
+    ]
+  },
+  "artillery": {
+    "Field Artillery": [
+      {
+        "name": "Light Artillery",
+        "profiles": [
+          {
+            "name": "Light Artillery",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 Light howitzer",
+        "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+      }
+    ],
+    "Anti-Tank Guns": [
+      {
+        "name": "QF 6-pdr",
+        "profiles": [
+          {
+            "name": "QF 6-pdr",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 Medium anti-tank gun",
+        "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed"]
+      }
+    ],
+    "Anti-Aircraft Guns": [
+      {
+        "name": "40mm Bofors Gun",
+        "profiles": [
+          {
+            "name": "40mm Bofors Gun",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "composition": "4 soldiers",
+        "weapons": "1 Plaform-mounted heavy automatic cannon",
+        "options": [],
+        "rules": ["Team weapon", "Fixed", "Flak"]
+      }
+    ]
+  }
+}

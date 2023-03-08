@@ -22,7 +22,7 @@ declare namespace Barracks {
 
   interface UnitOption {
     name: string;
-    cost: Cost;
+    cost: Barracks.Cost;
     max?: number;
   }
 

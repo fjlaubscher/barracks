@@ -1,31 +1,27 @@
-import { useToast } from '@fjlaubscher/matter';
-import { useMemo } from 'react';
-import { useAsync, useLocalStorage } from 'react-use';
+import { useEffect, useMemo, useState } from 'react';
+import useSWR from 'swr';
 
+// helpers
 import { ARMIES } from './storage';
+import useLocalStorage from './use-local-storage';
 
 const useArmy = (key: string) => {
-  const toast = useToast();
-  const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
-  const { loading, value: units } = useAsync(async () => {
-    try {
-      const response = await fetch(`/data/units/${key}.json`);
-      const data = await response.json();
+  const [hasSynced, setHasSynced] = useState(false);
+  const { data: units, isLoading } = useSWR<Barracks.Units>(`/data/units/${key}.json`);
 
-      if (data) {
-        return data as Barracks.Units;
-      }
+  const [offlineArmies] = useLocalStorage<Barracks.Armies>(ARMIES);
+  const [offlineUnits, setOfflineUnits] = useLocalStorage<Barracks.Units>(`BARRACKS_${key}_UNITS`);
 
-      return undefined;
-    } catch (ex) {
-      toast({ text: 'Unable to fetch units.', variant: 'error' });
-      return undefined;
+  const army = useMemo(() => (offlineArmies ? offlineArmies[key] : undefined), [key]);
+
+  useEffect(() => {
+    if (!hasSynced && units) {
+      setOfflineUnits(units);
+      setHasSynced(true);
     }
-  }, [key]);
+  }, [hasSynced, setHasSynced, units, setOfflineUnits]);
 
-  const army = useMemo(() => (armies ? armies[key] : undefined), [key]);
-
-  return { loading, army, units };
+  return { loading: isLoading, army, units: units || offlineUnits };
 };
 
 export default useArmy;

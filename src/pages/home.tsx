@@ -1,4 +1,5 @@
-import { FaCog, FaPlus, FaDatabase } from 'react-icons/fa';
+import { FaCog, FaPlus } from 'react-icons/fa';
+import { GiTank } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
 
@@ -19,16 +20,20 @@ const Home = () => {
       }
     >
       <Stack direction="column">
-        <Alert title="Welcome to Barracks!" variant="info">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis exercitationem non fuga
-          laboriosam maiores soluta neque tenetur porro! Repellat labore explicabo eveniet natus,
-          doloribus minima sequi quaerat nulla blanditiis voluptas.
+        <Alert variant="info">
+          Barracks is a free and open-source Bolt-Action assistant.
+          <br />
+          <br />
+          Have any issues with the app?
+          <a href="https://github.com/fjlaubscher/barracks/issues" target="_blank">
+            https://github.com/fjlaubscher/barracks/issues
+          </a>
         </Alert>
-        <LinkButton leftIcon={<FaDatabase />} to="/armies">
-          Browse Armies
+        <LinkButton leftIcon={<GiTank />} to="/armies">
+          Army Rules
         </LinkButton>
         <LinkButton leftIcon={<FaPlus />} to="/list">
-          Create a List
+          New List
         </LinkButton>
       </Stack>
     </Layout>

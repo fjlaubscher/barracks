@@ -1,6 +1,5 @@
-import { useCallback } from 'react';
-import { useLocalStorage } from 'react-use';
-import { useNavigate } from 'react-router-dom';
+import { useCallback, useMemo } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useToast, IconButton } from '@fjlaubscher/matter';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaSave } from 'react-icons/fa';
@@ -12,14 +11,29 @@ import ListForm, { FormValues as ListFormValues } from '../../components/list/fo
 // helpers
 import { ARMIES, LISTS } from '../../helpers/storage';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
+import useLocalStorage from '../../helpers/use-local-storage';
 
 const CreateList = () => {
+  const [search] = useSearchParams();
   const navigate = useNavigate();
   const toast = useToast();
+
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
 
-  const form = useForm<ListFormValues>({ mode: 'onChange', defaultValues: { limit: 1000 } });
+  const armyId = useMemo(() => {
+    const army = search.get('army');
+    if (army && armies) {
+      return Object.keys(armies).indexOf(army);
+    }
+
+    return undefined;
+  }, [search, armies]);
+
+  const form = useForm<ListFormValues>({
+    mode: 'onChange',
+    defaultValues: { limit: 1000, armyId: armyId }
+  });
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(

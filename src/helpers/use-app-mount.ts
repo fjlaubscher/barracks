@@ -1,24 +1,23 @@
-import { useAsync } from 'react-use';
+import { useEffect, useState } from 'react';
+import useSWR from 'swr';
 
 // storage
 import { ARMIES } from './storage';
+import useLocalStorage from './use-local-storage';
 
 const useAppMount = () => {
-  const { loading: loadingArmies } = useAsync(async () => {
-    try {
-      const response = await fetch('/data/armies.json');
-      const data = await response.json();
+  const [hasSynced, setHasSynced] = useState(false);
+  const { data: armies, isLoading } = useSWR<Barracks.Armies>('/data/armies.json');
+  const [, setOfflineArmies] = useLocalStorage(ARMIES);
 
-      if (data) {
-        localStorage.setItem(ARMIES, JSON.stringify(data));
-        return data as Barracks.Armies;
-      }
-    } catch (ex) {}
+  useEffect(() => {
+    if (!hasSynced && armies) {
+      setOfflineArmies(armies);
+      setHasSynced(true);
+    }
+  }, [hasSynced, setHasSynced, armies, setOfflineArmies]);
 
-    return undefined;
-  }, []);
-
-  return { loading: loadingArmies };
+  return { loading: isLoading };
 };
 
 export default useAppMount;

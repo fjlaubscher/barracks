@@ -7,6 +7,7 @@
           {
             "name": "Second Lieutenant",
             "cost": {
+              "inexperienced": 35,
               "regular": 50,
               "veteran": 65
             }
@@ -14,6 +15,7 @@
           {
             "name": "First Lieutenant",
             "cost": {
+              "inexperienced": 60,
               "regular": 75,
               "veteran": 90
             }
@@ -21,6 +23,7 @@
           {
             "name": "Captain",
             "cost": {
+              "inexperienced": 95,
               "regular": 110,
               "veteran": 125
             }
@@ -28,6 +31,7 @@
           {
             "name": "Major",
             "cost": {
+              "inexperienced": 135,
               "regular": 150,
               "veteran": 165
             }
@@ -39,6 +43,7 @@
           {
             "name": "Attendant",
             "cost": {
+              "inexperienced": 7,
               "regular": 10,
               "veteran": 13
             },
@@ -102,7 +107,7 @@
             "max": 7
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "regular": 3
             },
@@ -146,7 +151,7 @@
             "max": 7
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "veteran": 3
             },
@@ -190,7 +195,7 @@
             "max": 7
           },
           {
-            "name": "Submachine gun",
+            "name": "SMG",
             "cost": {
               "inexperienced": 3
             },
@@ -302,7 +307,9 @@
           {
             "name": "Spotter",
             "cost": {
-              "regular": 10
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
             }
           }
         ],
