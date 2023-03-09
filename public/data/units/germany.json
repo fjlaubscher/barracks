@@ -395,5 +395,339 @@
         "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
       }
     ]
+  },
+  "vehicles": {
+    "Tanks": [
+      {
+        "name": "Panzer IV",
+        "profiles": [
+          {
+            "name": "Panzer IV",
+            "cost": {
+              "inexperienced": 188,
+              "regular": 235,
+              "veteran": 282
+            }
+          }
+        ],
+        "composition": "1 Panzer IV",
+        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": []
+      },
+      {
+        "name": "Panther",
+        "profiles": [
+          {
+            "name": "Panther",
+            "cost": {
+              "regular": 355,
+              "veteran": 426
+            }
+          }
+        ],
+        "composition": "1 Panther",
+        "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "The Panther's heavy frontal armour has a rating of +1 giving it the same frontal value as a heavy tank (10+)"
+        ]
+      },
+      {
+        "name": "Tiger I",
+        "profiles": [
+          {
+            "name": "Tiger I",
+            "cost": {
+              "regular": 395,
+              "veteran": 474
+            }
+          }
+        ],
+        "composition": "1 Tiger I",
+        "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "10+ (heavy tank)",
+        "rules": []
+      }
+    ],
+    "Tank Destroyers": [
+      {
+        "name": "StuG III/IV",
+        "profiles": [
+          {
+            "name": "StuG III/IV",
+            "cost": {
+              "inexperienced": 184,
+              "regular": 230,
+              "veteran": 276
+            }
+          }
+        ],
+        "composition": "1 StuG III/IV",
+        "weapons": "1 Casement-mounted forward facing heavy anti-tank gun and 1 remotely operated MMG with 360° arc of fire",
+        "options": [
+          {
+            "name": "Forward facing co-axial MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": []
+      },
+      {
+        "name": "Marder",
+        "profiles": [
+          {
+            "name": "Marder",
+            "cost": {
+              "inexperienced": 132,
+              "regular": 165,
+              "veteran": 198
+            }
+          }
+        ],
+        "composition": "1 Marder",
+        "weapons": "1 Forward facing heavy anti-tank gun and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "7+ (armoured carrier)",
+        "rules": ["Open-topped"]
+      }
+    ],
+    "Self-Propelled Artillery": [
+      {
+        "name": "Sturmhaubitze 42",
+        "profiles": [
+          {
+            "name": "Sturmhaubitze 42",
+            "cost": {
+              "inexperienced": 152,
+              "regular": 190,
+              "veteran": 228
+            }
+          }
+        ],
+        "composition": "1 Sturmhaubitze 42",
+        "weapons": "1 Casement-mounted forward facing medium howitzer and 1 remotely operated MMG with 360° arc of fire",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": []
+      },
+      {
+        "name": "Panzerwerfer 42",
+        "profiles": [
+          {
+            "name": "Panzerwerfer 42",
+            "cost": {
+              "inexperienced": 92,
+              "regular": 115,
+              "veteran": 138
+            }
+          }
+        ],
+        "composition": "1 Panzerwerfer 42",
+        "weapons": "1 Forward facing Nebelwerfer multiple rocket launcher (treat as heavy mortar)",
+        "options": [
+          {
+            "name": "Forward facing pintle-mounted MMG (SdKfz 4 ammunition carrier version)",
+            "cost": {
+              "inexperienced": -55,
+              "regular": -55,
+              "veteran": -55
+            }
+          }
+        ],
+        "damage": "7+ (armoured carrier)",
+        "rules": ["Indirect fire", "Multiple launcher", "Open-topped"]
+      }
+    ],
+    "Anti-Aircraft Vehicles": [
+      {
+        "name": "SdKfz 7 Flak Half-Track",
+        "profiles": [
+          {
+            "name": "SdKfz 7 Flak Half-Track",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "composition": "1 SdKfz 7 Flak Half-Track",
+        "weapons": "1 platform-mounted heavy autocannon (37mm Flak 38) with 360° arc of fire",
+        "options": [
+          {
+            "name": "platform-mounted quadruple light autocannon (four 20mm KwK 38) with 360° arc of fire",
+            "cost": {
+              "inexperienced": 80,
+              "regular": 80,
+              "veteran": 80
+            }
+          }
+        ],
+        "damage": "6+ (soft-skin carrier)",
+        "rules": ["Flak"]
+      }
+    ],
+    "Armoured Cars": [
+      {
+        "name": "SdKfz 234 Heavy Armoured Car",
+        "profiles": [
+          {
+            "name": "SdKfz 234 Heavy Armoured Car",
+            "cost": {
+              "inexperienced": 71,
+              "regular": 95,
+              "veteran": 109
+            }
+          }
+        ],
+        "composition": "1 SdKfz 234 Heavy Armoured Car",
+        "weapons": "1 open turret-mounted light autocannon and co-axial MMG",
+        "options": [
+          {
+            "name": "Enclosed turret and medium anti-tank gun with co axial MMG (Puma)",
+            "cost": {
+              "inexperienced": 50,
+              "regular": 50,
+              "veteran": 50
+            }
+          },
+          {
+            "name": "Fixed forward facing light howitzer (short 75mm)",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          },
+          {
+            "name": "Fixed forward facing heavy anti-tank gun (long 75mm)",
+            "cost": {
+              "inexperienced": 75,
+              "regular": 75,
+              "veteran": 75
+            }
+          }
+        ],
+        "damage": "7+ (armoured car)",
+        "rules": [
+          "Recce",
+          "Dual-direction steering - the 234 series can be driven from both front and rear enabling it to execute a full speed Run rate reverse",
+          "Open-topped - unless the Puma options is taken, in which case there is an enclosed turret"
+        ]
+      }
+    ],
+    "Transports and Tows": [
+      {
+        "name": "SdKfz 251 Hanomag Half-Track",
+        "profiles": [
+          {
+            "name": "SdKfz 251 Hanomag Half-Track",
+            "cost": {
+              "inexperienced": 67,
+              "regular": 84,
+              "veteran": 101
+            }
+          }
+        ],
+        "composition": "1 SdKfz 251 Hanomag Half-Track",
+        "weapons": "1 Forward facing pintle-mounted MMG covering the front arc",
+        "options": [
+          {
+            "name": "Rear facing pintle-mounted MMG covering rear arc",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          },
+          {
+            "name": "Forward facing light anti-tank gun (37mm PaK 36)",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 40,
+              "veteran": 40
+            }
+          },
+          {
+            "name": "Pintle-mounted light autocannon (KwK 38) with 360° arc of fire",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20,
+              "veteran": 20
+            }
+          }
+        ],
+        "damage": "7+ (armoured carrier)",
+        "transport": "Up to 12 soldiers in basic version - up to 4 soldiers with either light anti-tank gun or autocannon options added",
+        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light anti-aircraft gun",
+        "rules": ["Open-topped"]
+      },
+      {
+        "name": "Truck",
+        "profiles": [
+          {
+            "name": "Truck",
+            "cost": {
+              "inexperienced": 31,
+              "regular": 39,
+              "veteran": 47
+            }
+          }
+        ],
+        "composition": "1 Truck",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG with 360° arc of fire",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          }
+        ],
+        "damage": "6+ (soft-skin)",
+        "transport": "Up to 12 soldiers",
+        "tow": "Light howitzer; light or medium anti-tank gun, light anti-aircraft gun",
+        "rules": []
+      },
+      {
+        "name": "Kubelwagen",
+        "profiles": [
+          {
+            "name": "Kubelwagen",
+            "cost": {
+              "inexperienced": 17,
+              "regular": 21,
+              "veteran": 25
+            }
+          }
+        ],
+        "composition": "1 Kubelwagen",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG with 360° arc of fire",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          }
+        ],
+        "damage": "6+ (soft-skin)",
+        "transport": "Up to 3 soldiers (none if MMG taken)",
+        "rules": []
+      }
+    ]
   }
 }

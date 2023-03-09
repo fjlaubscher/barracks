@@ -374,5 +374,13 @@
         "rules": ["Team weapon", "Fixed", "Flak"]
       }
     ]
+  },
+  "vehicles": {
+    "Tanks": [],
+    "Tank Destroyers": [],
+    "Self-Propelled Artillery": [],
+    "Anti-Aircraft Vehicles": [],
+    "Armoured Cars": [],
+    "Transports and Tows": []
   }
 }

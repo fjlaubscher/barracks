@@ -25,6 +25,24 @@ const ListUnitCard = ({ listUnit }: Props) => {
           <td>Weapons</td>
           <td>{listUnit.unit.weapons}</td>
         </tr>
+        {listUnit.unit.damage && (
+          <tr>
+            <td>Damage Value</td>
+            <td>{listUnit.unit.damage}</td>
+          </tr>
+        )}
+        {listUnit.unit.transport && (
+          <tr>
+            <td>Transport</td>
+            <td>{listUnit.unit.transport}</td>
+          </tr>
+        )}
+        {listUnit.unit.tow && (
+          <tr>
+            <td>Tow</td>
+            <td>{listUnit.unit.tow}</td>
+          </tr>
+        )}
         {listUnit.unit.rules.length > 0 ? (
           <tr>
             <td>Special Rules</td>

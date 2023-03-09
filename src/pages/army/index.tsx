@@ -74,6 +74,24 @@ const Army = () => {
                         <h4>Weapons</h4>
                         <p>{unit.weapons}</p>
                       </div>
+                      {unit.damage && (
+                        <div className={styles.section}>
+                          <h4>Damage Value</h4>
+                          <p>{unit.damage}</p>
+                        </div>
+                      )}
+                      {unit.transport && (
+                        <div className={styles.section}>
+                          <h4>Transport</h4>
+                          <p>{unit.transport}</p>
+                        </div>
+                      )}
+                      {unit.tow && (
+                        <div className={styles.section}>
+                          <h4>Tow</h4>
+                          <p>{unit.tow}</p>
+                        </div>
+                      )}
                       {unit.options.length > 0 && (
                         <div className={styles.section}>
                           <h4>Options</h4>

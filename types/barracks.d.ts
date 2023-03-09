@@ -33,6 +33,9 @@ declare namespace Barracks {
     weapons: string;
     options: UnitOption[];
     rules: string[];
+    damage?: string;
+    transport?: string;
+    tow?: string;
   }
 
   interface Units {
