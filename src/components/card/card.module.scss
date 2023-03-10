@@ -11,12 +11,22 @@
   }
 
   .title {
-    gap: 0;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
+
+    span {
+      padding-top: 0.5rem;
+      white-space: nowrap;
+    }
   }
 
-  .delete {
+  .buttons {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .button {
     width: auto;
     font-size: 0.9rem;
     background-color: transparent;

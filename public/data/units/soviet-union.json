@@ -5,7 +5,7 @@
         "name": "Officer",
         "profiles": [
           {
-            "name": "Second Lieutenant",
+            "name": "Second (Junior) Lieutenant",
             "cost": {
               "inexperienced": 35,
               "regular": 50,
@@ -13,7 +13,7 @@
             }
           },
           {
-            "name": "First Lieutenant",
+            "name": "First (Senior) Lieutenant",
             "cost": {
               "inexperienced": 60,
               "regular": 75,
@@ -136,10 +136,17 @@
             "cost": {
               "regular": 3
             },
-            "max": 2
+            "max": 12
           },
           {
-            "name": "BAR",
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
             "cost": {
               "regular": 5
             },
@@ -156,22 +163,16 @@
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Rangers, Airborne, Marines or Veteran Infantry Squad",
+        "name": "Guard, NKVD or Veteran Infantry Squad",
         "profiles": [
           {
-            "name": "Rangers Squad",
+            "name": "Guard Squad",
             "cost": {
               "veteran": 65
             }
           },
           {
-            "name": "Airborne Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Marines Squad",
+            "name": "NKVD Squad",
             "cost": {
               "veteran": 65
             }
@@ -198,14 +199,21 @@
             "cost": {
               "veteran": 3
             },
-            "max": 5
+            "max": 12
           },
           {
-            "name": "BAR",
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
             "cost": {
               "veteran": 5
             },
-            "max": 2
+            "max": 1
           },
           {
             "name": "Anti-tank grenades",
@@ -242,12 +250,12 @@
             "cost": {
               "inexperienced": 3
             },
-            "max": 2
+            "max": 1
           },
           {
-            "name": "BAR",
+            "name": "LMG",
             "cost": {
-              "inexperienced": 5
+              "inexperienced": 20
             },
             "max": 1
           },
@@ -257,71 +265,22 @@
               "inexperienced": 2
             },
             "max": 12
-          }
-        ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
-      },
-      {
-        "name": "Engineer Squad",
-        "profiles": [
-          {
-            "name": "Engineer Squad",
-            "cost": {
-              "regular": 50,
-              "veteran": 65
-            }
-          }
-        ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
-        "options": [
-          {
-            "name": "Additional soldier",
-            "cost": {
-              "regular": 10,
-              "veteran": 13
-            },
-            "max": 3
           },
           {
-            "name": "SMG",
+            "name": "Green",
             "cost": {
-              "regular": 3,
-              "veteran": 3
-            },
-            "max": 2
-          },
-          {
-            "name": "BAR",
-            "cost": {
-              "regular": 5,
-              "veteran": 5
-            },
-            "max": 2
-          },
-          {
-            "name": "Flamethrower",
-            "cost": {
-              "regular": 20,
-              "veteran": 20
+              "inexperienced": 0
             },
             "max": 1
-          },
-          {
-            "name": "Anti-tank grenades",
-            "cost": {
-              "regular": 2
-            },
-            "max": 8
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Green (if option taken)"]
       },
       {
-        "name": "Medium Machine Gun Team",
+        "name": "Machine Gun Team",
         "profiles": [
           {
-            "name": "Medium Machine Gun Team",
+            "name": "Machine Gun Team",
             "cost": {
               "inexperienced": 35,
               "regular": 50,
@@ -331,29 +290,31 @@
         ],
         "composition": "3 soldiers",
         "weapons": "1 MMG",
-        "options": [],
+        "options": [
+          { "name": "Gun shield", "cost": { "inexperienced": 5, "regular": 5, "veteran": 5 } }
+        ],
         "rules": [
           "Team weapon",
           "Fixed",
-          "Extra selection - you may take up to three .30 Cal MMGs as one selection in each reinforced platoon."
+          "Gun shield (if fitted) with the same rule as for artillery"
         ]
       },
       {
-        "name": "Bazooka Team",
+        "name": "Anti-tank rifle team",
         "profiles": [
           {
-            "name": "Bazooka Team",
+            "name": "Anti-tank rifle team",
             "cost": {
-              "inexperienced": 42,
-              "regular": 60,
-              "veteran": 78
+              "inexperienced": 21,
+              "regular": 30,
+              "veteran": 39
             }
           }
         ],
         "composition": "2 soldiers",
-        "weapons": "1 Bazooka",
+        "weapons": "1 Anti-tank rifle",
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": ["Team weapon"]
       },
       {
         "name": "Sniper Team",
@@ -370,22 +331,6 @@
         "weapons": "1 Rifle",
         "options": [],
         "rules": ["Team weapon", "Sniper"]
-      },
-      {
-        "name": "Flamethrower Team",
-        "profiles": [
-          {
-            "name": "Flamethrower Team",
-            "cost": {
-              "regular": 50,
-              "veteran": 65
-            }
-          }
-        ],
-        "composition": "2 soldiers",
-        "weapons": "1 Infantry flamethrower",
-        "options": [],
-        "rules": ["Team weapon", "Flamethrower"]
       },
       {
         "name": "Medium Mortar Team",
@@ -418,10 +363,10 @@
   "artillery": {
     "Field Artillery": [
       {
-        "name": "75mm Howitzer",
+        "name": "ZiS-3 76.2mm Field Gun",
         "profiles": [
           {
-            "name": "75mm Howitzer",
+            "name": "ZiS-3 76.2mm Field Gun",
             "cost": {
               "inexperienced": 40,
               "regular": 50,
@@ -437,10 +382,10 @@
     ],
     "Anti-Tank Guns": [
       {
-        "name": "57mm Anti-Tank Gun",
+        "name": "ZiS-2 Anti-Tank Gun",
         "profiles": [
           {
-            "name": "57mm Anti-Tank Gun",
+            "name": "ZiS-2 Anti-Tank Gun",
             "cost": {
               "inexperienced": 60,
               "regular": 75,
@@ -456,10 +401,10 @@
     ],
     "Anti-Aircraft Guns": [
       {
-        "name": "37mm M1A2 Anti-Aircraft Gun",
+        "name": "37mm 61-K Model 1939",
         "profiles": [
           {
-            "name": "37mm M1A2 Anti-Aircraft Gun",
+            "name": "37mm 61-K Model 1939",
             "cost": {
               "inexperienced": 48,
               "regular": 60,
@@ -477,163 +422,18 @@
   "vehicles": {
     "Tanks": [
       {
-        "name": "M5 Stuart",
+        "name": "BT-5 / BT-7 Light Tank",
         "profiles": [
           {
-            "name": "M5 Stuart",
+            "name": "BT-5 Light Tank",
             "cost": {
-              "inexperienced": 108,
-              "regular": 135,
-              "veteran": 162
-            }
-          }
-        ],
-        "composition": "1 M5 Stuart",
-        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "Pintle-mounted MMG",
-            "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
+              "inexperienced": 100,
+              "regular": 125,
+              "veteran": 150
             }
           },
           {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
-          }
-        ],
-        "damage": "8+ (light tank)",
-        "rules": []
-      },
-      {
-        "name": "M4 Sherman (75mm)",
-        "profiles": [
-          {
-            "name": "M4 Sherman (75mm)",
-            "cost": {
-              "inexperienced": 156,
-              "regular": 195,
-              "veteran": 234
-            }
-          }
-        ],
-        "composition": "1 M4 Sherman (75mm)",
-        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
-          },
-          {
-            "name": "105mm medium howitzer",
-            "cost": {
-              "inexperienced": 0,
-              "regular": 0,
-              "veteran": 0
-            }
-          }
-        ],
-        "damage": "9+ (medium tank)",
-        "rules": [
-          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
-          "HE - instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
-        ]
-      },
-      {
-        "name": "M4 Sherman (76mm)",
-        "profiles": [
-          {
-            "name": "M4 Sherman (76mm)",
-            "cost": {
-              "inexperienced": 188,
-              "regular": 235,
-              "veteran": 282
-            }
-          }
-        ],
-        "composition": "1 M4 Sherman (76mm)",
-        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
-          }
-        ],
-        "damage": "9+ (medium tank)",
-        "rules": [
-          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test"
-        ]
-      }
-    ],
-    "Tank Destroyers": [
-      {
-        "name": "M10 Tank Destroyer",
-        "profiles": [
-          {
-            "name": "M10 Tank Destroyer",
-            "cost": {
-              "inexperienced": 144,
-              "regular": 180,
-              "veteran": 216
-            }
-          }
-        ],
-        "composition": "1 M10 Tank Destroyer",
-        "weapons": "1 Turret-mounted heavy anti-tank gun",
-        "options": [
-          {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
-          }
-        ],
-        "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
-      }
-    ],
-    "Self-Propelled Artillery": [
-      {
-        "name": "M7 Priest",
-        "profiles": [
-          {
-            "name": "M7 Priest",
-            "cost": {
-              "inexperienced": 128,
-              "regular": 160,
-              "veteran": 192
-            }
-          }
-        ],
-        "composition": "1 M7 Priest",
-        "weapons": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
-        "options": [],
-        "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
-      }
-    ],
-    "Anti-Aircraft Vehicles": [
-      {
-        "name": "M16 Anti-Aircraft Carriage",
-        "profiles": [
-          {
-            "name": "M16 Anti-Aircraft Carriage",
+            "name": "BT-7 Light Tank",
             "cost": {
               "inexperienced": 100,
               "regular": 125,
@@ -641,8 +441,152 @@
             }
           }
         ],
-        "composition": "1 M16 Anti-Aircraft Carriage",
-        "weapons": "4 Platform-mounted HMGs",
+        "composition": "1 BT-5 / BT-7 Light Tank",
+        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG",
+        "options": [
+          {
+            "name": "Light howitzer",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": []
+      },
+      {
+        "name": "T-32/76 Medium Tank",
+        "profiles": [
+          {
+            "name": "T-32/76 Medium Tank",
+            "cost": {
+              "inexperienced": 156,
+              "regular": 195,
+              "veteran": 234
+            }
+          }
+        ],
+        "composition": "1 T-32/76 Medium Tank",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": []
+      },
+      {
+        "name": "T34/85 Medium Tank",
+        "profiles": [
+          {
+            "name": "T34/85 Medium Tank",
+            "cost": {
+              "inexperienced": 188,
+              "regular": 235,
+              "veteran": 282
+            }
+          }
+        ],
+        "composition": "1 T34/85 Medium Tank",
+        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": []
+      },
+      {
+        "name": "IS-2 Heavy Tank",
+        "profiles": [
+          {
+            "name": "IS-2 Heavy Tank",
+            "cost": {
+              "inexperienced": 256,
+              "regular": 320,
+              "veteran": 384
+            }
+          }
+        ],
+        "composition": "1 IS-2 Heavy Tank",
+        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "10+ (heavy tank)",
+        "rules": [
+          "HE - instead of using 2\" template, an IS-2's HE rounds use the 3\" template",
+          "Slow load - an IS-2 tank cannot be given an order until at least one other unit on the same side has already been given orders (whether successfully or not)"
+        ]
+      }
+    ],
+    "Tank Destroyers": [
+      {
+        "name": "SU-85",
+        "profiles": [
+          {
+            "name": "SU-85",
+            "cost": {
+              "inexperienced": 176,
+              "regular": 220,
+              "veteran": 264
+            }
+          }
+        ],
+        "composition": "1 SU-85",
+        "weapons": "1 Casement-mounted forward facing heavy anti-tank gun",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": []
+      }
+    ],
+    "Self-Propelled Artillery": [
+      {
+        "name": "SU-76",
+        "profiles": [
+          {
+            "name": "SU-76",
+            "cost": {
+              "inexperienced": 92,
+              "regular": 115,
+              "veteran": 138
+            }
+          }
+        ],
+        "composition": "1 SU-76",
+        "weapons": "1 Forward facing light howitzer",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": ["Open-topped", "Howitzer"]
+      },
+      {
+        "name": "Katyusha Rocket Launcher",
+        "profiles": [
+          {
+            "name": "Katyusha Rocket Launcher",
+            "cost": {
+              "inexperienced": 64,
+              "regular": 80,
+              "veteran": 96
+            }
+          }
+        ],
+        "composition": "1 Katyusha Rocket Launcher",
+        "weapons": "1 Forward facing Katyusha multiple rocket launcher (heavy mortar)",
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "rules": ["Indirect fire", "Multiple launcher"]
+      }
+    ],
+    "Anti-Aircraft Vehicles": [
+      {
+        "name": "Tokarev 4M Quad Maxim on GAZ-AAA Truck",
+        "profiles": [
+          {
+            "name": "Tokarev 4M Quad Maxim on GAZ-AAA Truck",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "composition": "1 Tokarev 4M Quad Maxim on GAZ-AAA Truck",
+        "weapons": "4 turret-mounted MMGs",
         "options": [
           {
             "name": "Bofors 40mm heavy automatic cannon",
@@ -653,61 +597,36 @@
             }
           }
         ],
-        "damage": "7+ (armoured car)",
-        "rules": ["Open-topped", "Flak"]
+        "damage": "6+ (soft-skinned)",
+        "rules": ["Flak"]
       }
     ],
     "Armoured Cars": [
       {
-        "name": "M8 Greyhound / M20 Scout Car",
+        "name": "BA-64",
         "profiles": [
           {
-            "name": "M8 Greyhound",
+            "name": "BA-64",
             "cost": {
-              "inexperienced": 100,
-              "regular": 125,
-              "veteran": 150
-            }
-          },
-          {
-            "name": "M20 Scout Car",
-            "cost": {
-              "inexperienced": 100,
-              "regular": 125,
-              "veteran": 150
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
             }
           }
         ],
-        "composition": "1 M8 Greyhound / M20 Scout Car",
-        "weapons": "1 Light anti-tank gun and co-axial MMG in an open turret",
-        "options": [
-          {
-            "name": "Additional pintle-mounted HMG with 360° arc of fire",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
-          },
-          {
-            "name": "Replace light anti-tank gun and co-axial MMG with pintle-mounted HMG with 360° arc of fire (M20 variant)",
-            "cost": {
-              "inexperienced": -30,
-              "regular": -30,
-              "veteran": -30
-            }
-          }
-        ],
+        "composition": "1 BA-64",
+        "weapons": "1 turreted LMG with 360° arc",
+        "options": [],
         "damage": "7+ (armoured car)",
         "rules": ["Open-topped", "Recce"]
       }
     ],
     "Transports and Tows": [
       {
-        "name": "2½ Ton Truck",
+        "name": "Truck",
         "profiles": [
           {
-            "name": "2½ Ton Truck",
+            "name": "Truck",
             "cost": {
               "inexperienced": 31,
               "regular": 39,
@@ -715,36 +634,28 @@
             }
           }
         ],
-        "composition": "1 2½ Ton Truck",
+        "composition": "1 Truck",
         "weapons": "None",
         "options": [
           {
-            "name": "Pintle-mounted MMG",
+            "name": "Pintle-mounted MMG with 360° arc",
             "cost": {
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
             }
-          },
-          {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            }
           }
         ],
         "damage": "6+ (soft-skinned)",
         "transport": "12 soldiers",
-        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
+        "tow": "Light howitzer; light or medium anti-tank gun",
         "rules": []
       },
       {
-        "name": "Jeep",
+        "name": "GAZ 'Jeep'",
         "profiles": [
           {
-            "name": "Jeep",
+            "name": "GAZ 'Jeep'",
             "cost": {
               "inexperienced": 17,
               "regular": 21,
@@ -752,7 +663,7 @@
             }
           }
         ],
-        "composition": "1 Jeep",
+        "composition": "1 GAZ 'Jeep'",
         "weapons": "None",
         "options": [
           {
@@ -776,87 +687,6 @@
         "transport": "3 soldiers (none if equipped with MMG / HMG)",
         "tow": "Light anti-tank gun",
         "rules": []
-      },
-      {
-        "name": "M3 Half-Track",
-        "profiles": [
-          {
-            "name": "M3 Half-Track",
-            "cost": {
-              "inexperienced": 79,
-              "regular": 99,
-              "veteran": 119
-            }
-          }
-        ],
-        "composition": "1 M3 Half-Track",
-        "weapons": "1 Pintle-mounted HMG with 360° arc of fire",
-        "options": [
-          {
-            "name": "Pintle-mounted MMG (left arc)",
-            "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
-            }
-          },
-          {
-            "name": "Pintle-mounted MMG (right arc)",
-            "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
-            }
-          },
-          {
-            "name": "Pintle-mounted MMG (rear arc)",
-            "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
-            }
-          }
-        ],
-        "damage": "7+ (armoured carrier)",
-        "transport": "12 soldiers",
-        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
-        "rules": ["Open-topped"]
-      },
-      {
-        "name": "LVT Amphibious Troop Transport",
-        "profiles": [
-          {
-            "name": "LVT Amphibious Troop Transport",
-            "cost": {
-              "inexperienced": 78,
-              "regular": 98,
-              "veteran": 118
-            }
-          }
-        ],
-        "composition": "1 LVT Amphibious Troop Transport",
-        "weapons": "2 Pintle-mounted MMGs (1 covering the forward and left arcs, and 1 covering the forward and right arcs)",
-        "options": [
-          {
-            "name": "Upgrade the 2 forward-facing MMGs to HMGs",
-            "cost": {
-              "inexperienced": 20,
-              "regular": 20,
-              "veteran": 20
-            }
-          },
-          {
-            "name": "2 Pintle-mounted MMGs (1 covering the rear and left arcs, and 1 covering the rear and right arcs)",
-            "cost": {
-              "inexperienced": 30,
-              "regular": 30,
-              "veteran": 30
-            }
-          }
-        ],
-        "damage": "6+ (soft-skinned)",
-        "transport": "24 soldiers",
-        "rules": ["Amphibious"]
       }
     ]
   }

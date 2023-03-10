@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IconButton, Stack } from '@fjlaubscher/matter';
+import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
 import { useRecoilValue } from 'recoil';
 
@@ -19,6 +19,7 @@ import { calculateCost } from '../../helpers/unit';
 import { CreateListUnitAtom, ListUnitAtom } from '../../state/list';
 
 const AddListUnit = () => {
+  const toast = useToast();
   const navigate = useNavigate();
   const { key } = useParams();
 
@@ -50,7 +51,7 @@ const AddListUnit = () => {
         }
       }
     });
-
+    toast({ text: `${newUnit.unit.name} added.`, variant: 'success' });
     navigate(`/list/${key}/edit`);
   }, [list, type, role, navigate, listUnit]);
 

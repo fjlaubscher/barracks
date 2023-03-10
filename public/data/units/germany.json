@@ -108,7 +108,7 @@
         "name": "Wehrmacht Infantry Squad",
         "profiles": [
           {
-            "name": "Regular Infantry",
+            "name": "Whermacht Infantry Squad",
             "cost": {
               "regular": 50
             }
@@ -166,7 +166,19 @@
         "name": "Waffen-SS, Fallschirmjager or Veteran Infantry Squad",
         "profiles": [
           {
-            "name": "Veteran Infantry",
+            "name": "Waffen-SS Squad",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Fallschirmjager Squad",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Veteran Infantry Squad",
             "cost": {
               "veteran": 65
             }
@@ -289,6 +301,18 @@
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
         "profiles": [
           {
+            "name": "Volkssturm Squad",
+            "cost": {
+              "inexperienced": 35
+            }
+          },
+          {
+            "name": "Osttruppen Squad",
+            "cost": {
+              "inexperienced": 35
+            }
+          },
+          {
             "name": "Inexperienced Infantry",
             "cost": {
               "inexperienced": 35
@@ -355,10 +379,10 @@
         ]
       },
       {
-        "name": "MG34 LMG Team",
+        "name": "MG34 Light Machine Gun Team",
         "profiles": [
           {
-            "name": "MG34 LMG Team",
+            "name": "MG34 Light Machine Gun Team",
             "cost": {
               "regular": 50,
               "veteran": 65
@@ -562,7 +586,15 @@
         "name": "Panzer III Ausf H, J",
         "profiles": [
           {
-            "name": "Panzer III Ausf H, J",
+            "name": "Panzer III Ausf H",
+            "cost": {
+              "inexperienced": 160,
+              "regular": 200,
+              "veteran": 240
+            }
+          },
+          {
+            "name": "Panzer III Ausf J",
             "cost": {
               "inexperienced": 160,
               "regular": 200,
@@ -638,7 +670,15 @@
         "name": "StuG III/IV",
         "profiles": [
           {
-            "name": "StuG III/IV",
+            "name": "StuG III",
+            "cost": {
+              "inexperienced": 184,
+              "regular": 230,
+              "veteran": 276
+            }
+          },
+          {
+            "name": "StuG IV",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
@@ -761,7 +801,23 @@
         "name": "SdKfz 221, 222 and 223 Light Armoured Car",
         "profiles": [
           {
-            "name": "SdKfz 221, 222 and 223 Light Armoured Car",
+            "name": "SdKfz 221 Light Armoured Car",
+            "cost": {
+              "inexperienced": 76,
+              "regular": 95,
+              "veteran": 114
+            }
+          },
+          {
+            "name": "SdKfz 222 Light Armoured Car",
+            "cost": {
+              "inexperienced": 76,
+              "regular": 95,
+              "veteran": 114
+            }
+          },
+          {
+            "name": "SdKfz 223 Light Armoured Car",
             "cost": {
               "inexperienced": 76,
               "regular": 95,
@@ -769,7 +825,7 @@
             }
           }
         ],
-        "composition": "1 SdKfz 221, 222 and 223 Light Armoured Car",
+        "composition": "1 SdKfz 221 / 222 / 223 Light Armoured Car",
         "weapons": "1 turret-mounted light autocannon and co-axial MMG",
         "options": [
           {

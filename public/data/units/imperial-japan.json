@@ -1,0 +1,586 @@
+{
+  "infantry": {
+    "Headquarters": [
+      {
+        "name": "Officer",
+        "profiles": [
+          {
+            "name": "Second (Rikugun Shoi) Lieutenant",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          },
+          {
+            "name": "First (Rikugun Chio) Lieutenant",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          },
+          {
+            "name": "Captain (Rikugan Taii)",
+            "cost": {
+              "inexperienced": 95,
+              "regular": 110,
+              "veteran": 125
+            }
+          },
+          {
+            "name": "Major (Rikugan Shosa)",
+            "cost": {
+              "inexperienced": 135,
+              "regular": 150,
+              "veteran": 165
+            }
+          }
+        ],
+        "composition": "1 Officer and up to 2 further soldiers",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models; The officer may also have a sword",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          },
+          {
+            "name": "Horse (Captain / Major only)",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Tough Fighter (officer model with sword only)"]
+      },
+      {
+        "name": "Forward Observer",
+        "profiles": [
+          {
+            "name": "Artillery Forward Observer",
+            "cost": {
+              "regular": 100,
+              "veteran": 115
+            }
+          },
+          {
+            "name": "Air Force Forward Observer",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "1 Forward Observer and up to 2 further soldiers",
+        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      },
+      {
+        "name": "Medic",
+        "profiles": [
+          {
+            "name": "Medic",
+            "cost": {
+              "regular": 23,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": "1 Medic and up to 2 further soldiers",
+        "weapons": "Pistol or none as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      }
+    ],
+    "Infantry Squads and Teams": [
+      {
+        "name": "IJA Infantry Squad",
+        "profiles": [
+          {
+            "name": "IJA Infantry Squad",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 6 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 8
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 14
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "SNLF, Paratroopers or IJA Veteran Infantry Squad",
+        "profiles": [
+          {
+            "name": "SNLF Squad",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Paratroopers Squad",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "IJA Veteran Infantry Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 6 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 8
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Militia Squad (Late-War)",
+        "profiles": [
+          {
+            "name": "Inexperienced Infantry",
+            "cost": {
+              "inexperienced": 25
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Sharpened bamboo spears",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 5
+            },
+            "max": 10
+          },
+          {
+            "name": "Rifle",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 15
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 15
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Green",
+          "Bamboo spears - models so armed may not shoot but can fight normally in close quarters"
+        ]
+      },
+      {
+        "name": "Machine Gun Team",
+        "profiles": [
+          {
+            "name": "Machine Gun Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 MMG",
+        "options": [],
+        "rules": ["Team weapon", "Fixed"]
+      },
+      {
+        "name": "Anti-tank rifle team",
+        "profiles": [
+          {
+            "name": "Anti-tank rifle team",
+            "cost": {
+              "inexperienced": 21,
+              "regular": 30,
+              "veteran": 39
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Anti-tank rifle",
+        "options": [],
+        "rules": ["Team weapon"]
+      },
+      {
+        "name": "Sniper Team",
+        "profiles": [
+          {
+            "name": "Sniper Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Rifle",
+        "options": [],
+        "rules": ["Team weapon", "Sniper"]
+      },
+      {
+        "name": "Light Mortar Team",
+        "profiles": [
+          {
+            "name": "Light Mortar Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Light mortar",
+        "options": [],
+        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+      },
+      {
+        "name": "Medium Mortar Team",
+        "profiles": [
+          {
+            "name": "Medium Mortar Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 Medium mortar",
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
+        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+      }
+    ]
+  },
+  "artillery": {
+    "Field Artillery": [
+      {
+        "name": "75mm Field Gun",
+        "profiles": [
+          {
+            "name": "75mm Field Gun",
+            "cost": {
+              "inexperienced": 44,
+              "regular": 55,
+              "veteran": 66
+            }
+          }
+        ],
+        "composition": "4 soldiers",
+        "weapons": "1 Light howitzer",
+        "options": [
+          { "name": "Loader", "cost": { "inexperienced": 5, "regular": 5, "veteran": 5 }, "max": 2 }
+        ],
+        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+      }
+    ],
+    "Anti-Tank Guns": [
+      {
+        "name": "Type 1 47mm Anti-Tank Gun",
+        "profiles": [
+          {
+            "name": "Type 1 47mm Anti-Tank Gun",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 Medium anti-tank gun",
+        "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed"]
+      }
+    ],
+    "Anti-Aircraft Guns": [
+      {
+        "name": "Type 98 20mm Anti-Aircraft Gun",
+        "profiles": [
+          {
+            "name": "Type 98 20mm Anti-Aircraft Gun",
+            "cost": {
+              "inexperienced": 36,
+              "regular": 45,
+              "veteran": 54
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 light automatic cannon",
+        "options": [
+          {
+            "name": "Type 2 twin AA cannon",
+            "cost": { "inexperienced": 30, "regular": 30, "veteran": 30 }
+          }
+        ],
+        "rules": ["Team weapon", "Fixed", "Flak"]
+      }
+    ]
+  },
+  "vehicles": {
+    "Tanks": [
+      {
+        "name": "Type 95 Ha-Go Light Tank",
+        "profiles": [
+          {
+            "name": "Type 95 Ha-Go Light Tank",
+            "cost": {
+              "inexperienced": 72,
+              "regular": 90,
+              "veteran": 108
+            }
+          }
+        ],
+        "composition": "1 Type 95 Ha-Go Light Tank",
+        "weapons": "1 Turret-mounted light anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "7+ (armoured carrier)",
+        "rules": [
+          "One-man turret. Combining the roles of commander, gunner and loader together and squeezing the man responsible into a one-man turret means it's hard to do different things at once! To represent this it is always necessary to take an order test when issuing an Advance order, even if the tank is not pinned. In addition, you can fire either the main gun or the rear-mounted machine gun, but not both in the same turn.",
+          "Low velocity light anti-tank gun. The Ha-Go's main weapon counts as a light anti-tank gun, but with a penetration rating of +3 instead of the usual +4."
+        ]
+      },
+      {
+        "name": "Type 97 Chi-Ha Medium Tank",
+        "profiles": [
+          {
+            "name": "Type 97 Chi-Ha Medium Tank",
+            "cost": {
+              "inexperienced": 108,
+              "regular": 135,
+              "veteran": 162
+            }
+          }
+        ],
+        "composition": "1 Type 97 Chi-Ha Medium Tank",
+        "weapons": "1 Turret-mounted light howitzer, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": []
+      },
+      {
+        "name": "Type 97-Kai Shinhoto Chi-Ha Medium Tank",
+        "profiles": [
+          {
+            "name": "Type 97-Kai Shinhoto Chi-Ha Medium Tank",
+            "cost": {
+              "inexperienced": 124,
+              "regular": 155,
+              "veteran": 186
+            }
+          }
+        ],
+        "composition": "1 Type 97-Kai Shinhoto Chi-Ha Medium Tank",
+        "weapons": "1 Turret-mounted medium anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": []
+      }
+    ],
+    "Tank Destroyers": [],
+    "Self-Propelled Artillery": [],
+    "Anti-Aircraft Vehicles": [
+      {
+        "name": "Type 98 Anti-Aircraft Truck",
+        "profiles": [
+          {
+            "name": "Type 98 Anti-Aircraft Truck",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": "1 Type 98 Anti-Aircraft Truck",
+        "weapons": "1 Platform-mounted light automatic cannon with 360° arc of fire",
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "rules": ["Flak"]
+      }
+    ],
+    "Armoured Cars": [
+      {
+        "name": "Type 94 Tankette",
+        "profiles": [
+          {
+            "name": "Type 94 Tankette",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "composition": "1 Type 94 Tankette",
+        "weapons": "1 turret-mounted MMG",
+        "options": [],
+        "damage": "7+ (armoured car)",
+        "rules": ["Recce"]
+      }
+    ],
+    "Transports and Tows": [
+      {
+        "name": "General Purpose Truck",
+        "profiles": [
+          {
+            "name": "General Purpose Truck",
+            "cost": {
+              "inexperienced": 33,
+              "regular": 41,
+              "veteran": 49
+            }
+          }
+        ],
+        "composition": "1 General Purpose Truck",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG covering the forward arc",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "13 soldiers",
+        "tow": "Light howitzer; light or medium anti-tank gun; light anti-aircraft gun",
+        "rules": []
+      },
+      {
+        "name": "Type 95 Kurogane",
+        "profiles": [
+          {
+            "name": "Type 95 Kurogane",
+            "cost": {
+              "inexperienced": 18,
+              "regular": 23,
+              "veteran": 28
+            }
+          }
+        ],
+        "composition": "1 Type 95 Kurogane",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG with 360° arc of",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "4 soldiers (none if equipped with MMG)",
+        "rules": []
+      }
+    ]
+  }
+}

@@ -115,7 +115,7 @@
         "name": "Regular Infantry Section",
         "profiles": [
           {
-            "name": "Regular Infantry",
+            "name": "Regular Infantry Section",
             "cost": {
               "regular": 50
             }
@@ -158,6 +158,30 @@
       {
         "name": "Commandos, Chindits, Royal Marines, Airborne or Veteran Infantry Section",
         "profiles": [
+          {
+            "name": "Commandos Section",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Chindits Section",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Royal Marines Section",
+            "cost": {
+              "veteran": 65
+            }
+          },
+          {
+            "name": "Airborne Section",
+            "cost": {
+              "veteran": 65
+            }
+          },
           {
             "name": "Veteran Infantry",
             "cost": {
@@ -203,7 +227,7 @@
         "name": "Inexperienced Infantry Section",
         "profiles": [
           {
-            "name": "Inexperienced Infantry",
+            "name": "Inexperienced Infantry Section",
             "cost": {
               "inexperienced": 35
             }
@@ -654,7 +678,15 @@
         "name": "Humber / Daimler Light Armoured Car",
         "profiles": [
           {
-            "name": "Humber / Daimler Light Armoured Car",
+            "name": "Humber Light Armoured Car",
+            "cost": {
+              "inexperienced": 92,
+              "regular": 115,
+              "veteran": 138
+            }
+          },
+          {
+            "name": "Daimler Light Armoured Car",
             "cost": {
               "inexperienced": 92,
               "regular": 115,

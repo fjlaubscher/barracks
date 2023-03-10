@@ -10,14 +10,19 @@ import { capitalize } from '../../helpers/text';
 
 interface Props {
   listUnit: Barracks.List.Unit;
+  onCopyClick?: () => void;
   onDeleteClick?: () => void;
 }
 
-const UnitCard = ({ listUnit, onDeleteClick }: Props) => {
+const UnitCard = ({ listUnit, onCopyClick, onDeleteClick }: Props) => {
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   return (
-    <Card title={`${listUnit.profile.name} - ${calculatedCost}pts`} onDeleteClick={onDeleteClick}>
+    <Card
+      title={`${listUnit.profile.name} - ${calculatedCost}pts`}
+      onCopyClick={onCopyClick}
+      onDeleteClick={onDeleteClick}
+    >
       <TagGroup>
         <Tag variant={getColorFromVeterancy(listUnit.veterancy)}>
           {capitalize(listUnit.veterancy)}

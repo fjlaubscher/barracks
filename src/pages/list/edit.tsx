@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
 import { useSetRecoilState } from 'recoil';
 
@@ -20,6 +20,7 @@ import { calculateOrderDice } from '../../helpers/list';
 import { CreateListUnitAtom } from '../../state/list';
 
 const EditList = () => {
+  const toast = useToast();
   const { key } = useParams();
   const navigate = useNavigate();
   const setCreateListUnit = useSetRecoilState(CreateListUnitAtom);
@@ -37,6 +38,32 @@ const EditList = () => {
     [key, setCreateListUnit, navigate]
   );
 
+  const handleListUnitCopy = useCallback(
+    (type: string, role: string, listUnit: Barracks.List.Unit) => {
+      if (list) {
+        const newUnit: Barracks.List.Unit = {
+          ...listUnit,
+          key: `${type}-${role}-${list.units[type][role].length + 1}`
+        };
+
+        setList({
+          ...list,
+          points: list.points + newUnit.points,
+          units: {
+            ...list.units,
+            [type]: {
+              ...list.units[type],
+              [role]: [...list.units[type][role], newUnit]
+            }
+          }
+        });
+
+        toast({ text: `${listUnit.unit.name} duplicated.`, variant: 'success' });
+      }
+    },
+    [list, setList, toast]
+  );
+
   const handleListUnitDelete = useCallback(
     (type: string, role: string, listUnit: Barracks.List.Unit) => {
       if (list) {
@@ -51,9 +78,11 @@ const EditList = () => {
             }
           }
         });
+
+        toast({ text: `${listUnit.unit.name} deleted.`, variant: 'success' });
       }
     },
-    [list, setList]
+    [list, setList, toast]
   );
 
   return (
@@ -99,6 +128,7 @@ const EditList = () => {
                     <UnitCard
                       key={`list-unit-${i}`}
                       listUnit={unit}
+                      onCopyClick={() => handleListUnitCopy(type, role, unit)}
                       onDeleteClick={() => handleListUnitDelete(type, role, unit)}
                     />
                   ))}
