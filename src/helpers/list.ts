@@ -1,3 +1,4 @@
+import { ARMY_NAME_MAPPING } from './data';
 import { capitalize } from './text';
 
 export const calculateOrderDice = (list: Barracks.List) => {
@@ -12,8 +13,8 @@ export const calculateOrderDice = (list: Barracks.List) => {
   return orderDice;
 };
 
-const buildTextList = (list: Barracks.List, armyName: string): string => {
-  let text = `*${armyName} - ${list.name}*\nPoints: ${
+const buildTextList = (list: Barracks.List): string => {
+  let text = `*${ARMY_NAME_MAPPING[list.army]} - ${list.name}*\nPoints: ${
     list.points
   }\nOrder Dice: ${calculateOrderDice(list)}\n\n`;
 
@@ -50,17 +51,18 @@ interface ShareResult {
   success: boolean;
 }
 
-export const shareList = async (list: Barracks.List, armyName: string) => {
+export const shareList = async (list: Barracks.List) => {
   let result: ShareResult = {
     method: 'navigator',
     success: false
   };
 
-  const text = buildTextList(list, armyName);
+  const text = buildTextList(list);
 
   try {
     const shareData: ShareData = {
       title: list.name,
+      url: window.location.origin,
       text
     };
 

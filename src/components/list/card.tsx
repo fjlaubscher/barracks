@@ -18,7 +18,7 @@ const ListCard = ({ list, onDeleteClick }: Props) => {
   return (
     <Card
       title={list.name}
-      onClick={() => navigate(`/list/${list.key}/edit`)}
+      onClick={() => navigate(`/list/${list.key}`)}
       onDeleteClick={onDeleteClick}
     >
       <TagGroup>

@@ -30,8 +30,8 @@ const List = () => {
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
 
   const handleShare = useCallback(async () => {
-    if (army && list) {
-      const result = await shareList(list, army.name);
+    if (list) {
+      const result = await shareList(list);
 
       if (result.success) {
         toast({
@@ -42,7 +42,7 @@ const List = () => {
         toast({ text: 'Unable to share list.', variant: 'error' });
       }
     }
-  }, [toast, list, army]);
+  }, [toast, list]);
 
   return (
     <Layout
