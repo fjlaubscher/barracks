@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, Card, Table } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, Card, Table, useToast } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
 
 // components
@@ -14,11 +14,12 @@ import Stats from '../../components/stats';
 import useArmy from '../../helpers/use-army';
 import useCore from '../../helpers/use-core';
 import useList from '../../helpers/use-list';
-import { calculateOrderDice } from '../../helpers/list';
+import { calculateOrderDice, shareList } from '../../helpers/list';
 
 import styles from './list.module.scss';
 
 const List = () => {
+  const toast = useToast();
   const { key } = useParams();
   const navigate = useNavigate();
 
@@ -27,6 +28,21 @@ const List = () => {
   const { army, loading: loadingArmy } = useArmy(list?.army || '');
 
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
+
+  const handleShare = useCallback(async () => {
+    if (army && list) {
+      const result = await shareList(list, army.name);
+
+      if (result.success) {
+        toast({
+          text: result.method === 'clipboard' ? 'List copied to clipboard.' : 'List shared.',
+          variant: 'success'
+        });
+      } else {
+        toast({ text: 'Unable to share list.', variant: 'error' });
+      }
+    }
+  }, [toast, list, army]);
 
   return (
     <Layout
@@ -37,6 +53,7 @@ const List = () => {
         </IconButton>
       }
       isLoading={loadingCore || loadingArmy}
+      onShareClick={handleShare}
     >
       {army && data && list && (
         <>

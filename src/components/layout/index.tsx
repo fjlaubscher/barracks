@@ -18,9 +18,18 @@ interface Props {
   image?: string;
   action?: React.ReactNode;
   isLoading?: boolean;
+  onShareClick?: () => void;
 }
 
-const AppLayout = ({ children, title, description, image, action, isLoading }: Props) => {
+const AppLayout = ({
+  children,
+  title,
+  description,
+  image,
+  action,
+  isLoading,
+  onShareClick
+}: Props) => {
   const { pathname } = useLocation();
   const toast = useToast();
 
@@ -92,7 +101,11 @@ const AppLayout = ({ children, title, description, image, action, isLoading }: P
           >
             Lists
           </LinkButton>
-          <Button leftIcon={<FaShareAlt />} className={styles.action} onClick={handleShare}>
+          <Button
+            leftIcon={<FaShareAlt />}
+            className={styles.action}
+            onClick={onShareClick || handleShare}
+          >
             Share
           </Button>
         </>
