@@ -108,7 +108,7 @@
         "name": "Wehrmacht Infantry Squad",
         "profiles": [
           {
-            "name": "Whermacht Infantry Squad",
+            "name": "Wehrmacht Infantry Squad",
             "cost": {
               "regular": 50
             }
@@ -296,6 +296,122 @@
           }
         ],
         "rules": ["Fanatics (if taken)"]
+      },
+      {
+        "name": "Heer Pioneer Squad",
+        "profiles": [
+          {
+            "name": "Heer Pioneer Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Waffen-SS Pioneers (Late-War)",
+        "profiles": [
+          {
+            "name": "Waffen-SS Pioneers (Late-War)",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 10
+          },
+          {
+            "name": "Fanatics",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
       },
       {
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
