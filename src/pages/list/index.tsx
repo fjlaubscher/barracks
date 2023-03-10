@@ -32,7 +32,7 @@ const List = () => {
     <Layout
       title="List"
       action={
-        <IconButton onClick={() => navigate(`/list/${key}`)}>
+        <IconButton onClick={() => navigate(`/list/${key}/edit`)}>
           <FaEdit />
         </IconButton>
       }

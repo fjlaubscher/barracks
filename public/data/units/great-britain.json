@@ -83,6 +83,31 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Medic",
+        "profiles": [
+          {
+            "name": "Medic",
+            "cost": {
+              "regular": 23,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": "1 Medic and up to 2 further soldiers",
+        "weapons": "Pistol or none as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
       }
     ],
     "Infantry Squads and Teams": [
@@ -376,11 +401,418 @@
     ]
   },
   "vehicles": {
-    "Tanks": [],
-    "Tank Destroyers": [],
-    "Self-Propelled Artillery": [],
-    "Anti-Aircraft Vehicles": [],
-    "Armoured Cars": [],
-    "Transports and Tows": []
+    "Tanks": [
+      {
+        "name": "M5 Stuart",
+        "profiles": [
+          {
+            "name": "M5 Stuart",
+            "cost": {
+              "inexperienced": 108,
+              "regular": 135,
+              "veteran": 162
+            }
+          }
+        ],
+        "composition": "1 M5 Stuart",
+        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          },
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": []
+      },
+      {
+        "name": "M4 Sherman (75mm)",
+        "profiles": [
+          {
+            "name": "M4 Sherman (75mm)",
+            "cost": {
+              "inexperienced": 156,
+              "regular": 195,
+              "veteran": 234
+            }
+          }
+        ],
+        "composition": "1 M4 Sherman (75mm)",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          },
+          {
+            "name": "105mm medium howitzer",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
+          "HE - instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      },
+      {
+        "name": "Cromwell",
+        "profiles": [
+          {
+            "name": "Cromwell",
+            "cost": {
+              "inexperienced": 156,
+              "regular": 195,
+              "veteran": 234
+            }
+          }
+        ],
+        "composition": "1 Cromwell",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "95mm medium howitzer",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "HE - instead of using the 1\" template, a Cromwell's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      },
+      {
+        "name": "Sherman Firefly",
+        "profiles": [
+          {
+            "name": "Sherman Firefly",
+            "cost": {
+              "inexperienced": 244,
+              "regular": 305,
+              "veteran": 366
+            }
+          }
+        ],
+        "composition": "1 Sherman Firefly",
+        "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG",
+        "options": [
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test"
+        ]
+      },
+      {
+        "name": "Churchill",
+        "profiles": [
+          {
+            "name": "Churchill",
+            "cost": {
+              "inexperienced": 212,
+              "regular": 265,
+              "veteran": 318
+            }
+          }
+        ],
+        "composition": "1 Churchill",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "Crocodile variant - replace the hull-ounted MMG with a flamethrower",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 40,
+              "veteran": 40
+            }
+          },
+          {
+            "name": "95mm medium howitzer",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          }
+        ],
+        "damage": "10+ (heavy tank)",
+        "rules": [
+          "Slow",
+          "HE - instead of using the 1\" template, a Churchill's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      }
+    ],
+    "Tank Destroyers": [
+      {
+        "name": "M10 Wolverine",
+        "profiles": [
+          {
+            "name": "M10 Wolverine",
+            "cost": {
+              "regular": 180,
+              "veteran": 216
+            }
+          }
+        ],
+        "composition": "1 M10 Wolverine",
+        "weapons": "1 Turret-mounted heavy anti-tank gun",
+        "options": [
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": ["Open-topped"]
+      }
+    ],
+    "Self-Propelled Artillery": [
+      {
+        "name": "M7 Priest",
+        "profiles": [
+          {
+            "name": "M7 Priest",
+            "cost": {
+              "inexperienced": 128,
+              "regular": 160,
+              "veteran": 192
+            }
+          }
+        ],
+        "composition": "1 M7 Priest",
+        "weapons": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": ["Open-topped"]
+      }
+    ],
+    "Anti-Aircraft Vehicles": [
+      {
+        "name": "Crusader AA",
+        "profiles": [
+          {
+            "name": "Crusader AA",
+            "cost": {
+              "inexperienced": 84,
+              "regular": 105,
+              "veteran": 126
+            }
+          }
+        ],
+        "composition": "1 Crusader AA",
+        "weapons": "1 Heavy automatic cannon in open turret",
+        "options": [
+          {
+            "name": "Enclosed turret with two 20mm light automatic cannons",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": ["Flak", "Open-topped (40mm version only)"]
+      }
+    ],
+    "Armoured Cars": [
+      {
+        "name": "Humber / Daimler Light Armoured Car",
+        "profiles": [
+          {
+            "name": "Humber / Daimler Light Armoured Car",
+            "cost": {
+              "inexperienced": 92,
+              "regular": 115,
+              "veteran": 138
+            }
+          }
+        ],
+        "composition": "1 Humber / Daimler Light Armoured Car",
+        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG",
+        "options": [],
+        "damage": "7+ (armoured car)",
+        "rules": ["Recce"]
+      }
+    ],
+    "Transports and Tows": [
+      {
+        "name": "Truck",
+        "profiles": [
+          {
+            "name": "Truck",
+            "cost": {
+              "inexperienced": 31,
+              "regular": 39,
+              "veteran": 47
+            }
+          }
+        ],
+        "composition": "1 Truck",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          },
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "12 soldiers",
+        "tow": "Light howitzer; light or medium anti-tank gun",
+        "rules": []
+      },
+      {
+        "name": "Jeep",
+        "profiles": [
+          {
+            "name": "Jeep",
+            "cost": {
+              "inexperienced": 17,
+              "regular": 21,
+              "veteran": 25
+            }
+          }
+        ],
+        "composition": "1 Jeep",
+        "weapons": "None",
+        "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            }
+          },
+          {
+            "name": "Pintle-mounted HMG",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            }
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "3 soldiers (none if equipped with MMG / HMG)",
+        "tow": "Light anti-tank gun",
+        "rules": []
+      },
+      {
+        "name": "Bren Carrier",
+        "profiles": [
+          {
+            "name": "Bren Carrier",
+            "cost": {
+              "inexperienced": 56,
+              "regular": 70,
+              "veteran": 84
+            }
+          }
+        ],
+        "composition": "1 Bren Carrier",
+        "weapons": "Light or medium anti-tank gun",
+        "options": [
+          {
+            "name": "Forward facing MMG (Vickers MMG carrier)",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          }
+        ],
+        "damage": "7+ (armoured carrier)",
+        "transport": "5 soldiers (none if equipped with MMG)",
+        "tow": "Light or medium anti-tank gun",
+        "rules": [
+          "Open-topped",
+          "Recce",
+          "Turn on the spot - the universal carrier can turn on the spot enabling it to execute a full speed Run rate 'reverse' finishing the move facing in direction of travel"
+        ]
+      },
+      {
+        "name": "LVT Amphibious Troop Transport",
+        "profiles": [
+          {
+            "name": "LVT Amphibious Troop Transport",
+            "cost": {
+              "inexperienced": 78,
+              "regular": 98,
+              "veteran": 118
+            }
+          }
+        ],
+        "composition": "1 LVT Amphibious Troop Transport",
+        "weapons": "2 Pintle-mounted MMGs (1 covering the forward and left arcs, and 1 covering the forward and right arcs)",
+        "options": [
+          {
+            "name": "Upgrade the 2 forward-facing MMGs to HMGs",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20,
+              "veteran": 20
+            }
+          },
+          {
+            "name": "2 Pintle-mounted MMGs (1 covering the rear and left arcs, and 1 covering the rear and right arcs)",
+            "cost": {
+              "inexperienced": 30,
+              "regular": 30,
+              "veteran": 30
+            }
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "24 soldiers",
+        "rules": ["Amphibious"]
+      }
+    ]
   }
 }

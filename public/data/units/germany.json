@@ -78,6 +78,29 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Medic",
+        "profiles": [
+          {
+            "name": "Medic",
+            "cost": {
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": "1 Medic and up to 2 further soldiers",
+        "weapons": "Pistol or none as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "veteran": 8
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
       }
     ],
     "Infantry Squads and Teams": [
@@ -191,6 +214,78 @@
         "rules": []
       },
       {
+        "name": "Waffen-SS Squad (Late War)",
+        "profiles": [
+          {
+            "name": "Waffen-SS Squad (Late War)",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3,
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "Assault rifle",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 10
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 4
+          },
+          {
+            "name": "Fanatics",
+            "cost": {
+              "inexperienced": 3,
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Fanatics (if taken)"]
+      },
+      {
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
         "profiles": [
           {
@@ -260,10 +355,38 @@
         ]
       },
       {
-        "name": "Machine Gun Team",
+        "name": "MG34 LMG Team",
         "profiles": [
           {
-            "name": "Machine Gun Team",
+            "name": "MG34 LMG Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "3 soldiers",
+        "weapons": "1 LMG",
+        "options": [
+          {
+            "name": "Anti-aircraft mount",
+            "cost": {
+              "regular": 5,
+              "veteran": 5
+            }
+          }
+        ],
+        "rules": [
+          "Team weapon",
+          "Fixed (if anti-aircraft mount taken)",
+          "Flak (if anti-aircraft mount taken)"
+        ]
+      },
+      {
+        "name": "Medium Machine Gun Team",
+        "profiles": [
+          {
+            "name": "Medium Machine Gun Team",
             "cost": {
               "inexperienced": 35,
               "regular": 50,
@@ -275,6 +398,23 @@
         "weapons": "1 MMG",
         "options": [],
         "rules": ["Team weapon", "Fixed"]
+      },
+      {
+        "name": "Anti-Tank Rifle Team",
+        "profiles": [
+          {
+            "name": "Anti-Tank Rifle Team",
+            "cost": {
+              "inexperienced": 21,
+              "regular": 30,
+              "veteran": 39
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Anti-tank rifle",
+        "options": [],
+        "rules": ["Team weapon"]
       },
       {
         "name": "Sniper Team",
@@ -291,6 +431,26 @@
         "weapons": "1 Rifle",
         "options": [],
         "rules": ["Team weapon", "Sniper"]
+      },
+      {
+        "name": "Flamethrower Team",
+        "profiles": [
+          {
+            "name": "Flamethrower Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Infantry flamethrower or 2 one-shot infantry flamethrowers",
+        "options": [],
+        "rules": [
+          "Flamethrower",
+          "Team weapon (Flammenwerfer)",
+          "One-shot weapon (Einstossflammenwerfer)"
+        ]
       },
       {
         "name": "Light Mortar Team",
@@ -398,6 +558,26 @@
   },
   "vehicles": {
     "Tanks": [
+      {
+        "name": "Panzer III Ausf H, J",
+        "profiles": [
+          {
+            "name": "Panzer III Ausf H, J",
+            "cost": {
+              "inexperienced": 160,
+              "regular": 200,
+              "veteran": 240
+            }
+          }
+        ],
+        "composition": "1 Panzer III Ausf H, J",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "Reinforced rear armour: The Ausf H and J treat hits against the rear armour as hits against the side armour"
+        ]
+      },
       {
         "name": "Panzer IV",
         "profiles": [
@@ -572,11 +752,59 @@
             }
           }
         ],
-        "damage": "6+ (soft-skin carrier)",
+        "damage": "6+ (soft-skinned)",
         "rules": ["Flak"]
       }
     ],
     "Armoured Cars": [
+      {
+        "name": "SdKfz 221, 222 and 223 Light Armoured Car",
+        "profiles": [
+          {
+            "name": "SdKfz 221, 222 and 223 Light Armoured Car",
+            "cost": {
+              "inexperienced": 76,
+              "regular": 95,
+              "veteran": 114
+            }
+          }
+        ],
+        "composition": "1 SdKfz 221, 222 and 223 Light Armoured Car",
+        "weapons": "1 turret-mounted light autocannon and co-axial MMG",
+        "options": [
+          {
+            "name": "Turret-mounted MMG and radio (SdKfz 223)",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            }
+          },
+          {
+            "name": "Turret-mounted MMG / anti-tank rifle (SdKfz 221)",
+            "cost": {
+              "inexperienced": -25,
+              "regular": -25,
+              "veteran": -25
+            }
+          },
+          {
+            "name": "Turret-mounted Panzerbüchse (SdKfz 221)",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
+        "damage": "7+ (armoured car)",
+        "rules": [
+          "Open-topped",
+          "Recce",
+          "Flak (SdKfz 222 only)",
+          "Panzerbüchse: Counts as a light anti-tank gun, and in addition its squeeze-bore system means that ranges of up to 12\", its base armour penetration is increased by two to a total of +6, at over half range armour penetration is reduced by two instead of the usual one to a total of +2."
+        ]
+      },
       {
         "name": "SdKfz 234 Heavy Armoured Car",
         "profiles": [
@@ -667,7 +895,7 @@
           }
         ],
         "damage": "7+ (armoured carrier)",
-        "transport": "Up to 12 soldiers in basic version - up to 4 soldiers with either light anti-tank gun or autocannon options added",
+        "transport": "12 soldiers in basic version - 4 soldiers with either light anti-tank gun or autocannon options added",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light anti-aircraft gun",
         "rules": ["Open-topped"]
       },
@@ -695,8 +923,8 @@
             }
           }
         ],
-        "damage": "6+ (soft-skin)",
-        "transport": "Up to 12 soldiers",
+        "damage": "6+ (soft-skinned)",
+        "transport": "12 soldiers",
         "tow": "Light howitzer; light or medium anti-tank gun, light anti-aircraft gun",
         "rules": []
       },
@@ -724,7 +952,7 @@
             }
           }
         ],
-        "damage": "6+ (soft-skin)",
+        "damage": "6+ (soft-skinned)",
         "transport": "Up to 3 soldiers (none if MMG taken)",
         "rules": []
       }

@@ -17,6 +17,12 @@ const Armies = () => {
       <Stack direction="column">
         <Alert title="🚧 Don't see everything?" variant="info">
           Currently, Barracks only includes the rules and units from the 2nd edition rulebook.
+          <br />
+          <br />
+          Have a specific unit you'd like added?
+          <a href="https://github.com/fjlaubscher/barracks/issues" target="_blank">
+            https://github.com/fjlaubscher/barracks/issues
+          </a>
         </Alert>
         {armies &&
           Object.keys(armies).map((key) => (
