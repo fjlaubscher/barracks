@@ -1044,8 +1044,8 @@
   integrity sha512-y+EHuSchhL7FjHgvQL/0fnnFmO4T1bhvWANX6gcnqTjtnKWbTvUMCpGnv2+t+31d7RzyEAYAd4u2fnIhHL6N/Q==
 
 "@fjlaubscher/matter@fjlaubscher/matter":
-  version "2.1.6"
-  resolved "https://codeload.github.com/fjlaubscher/matter/tar.gz/32f86528ddc8e11980d920bd3ce8f1f4dc6269de"
+  version "2.2.0"
+  resolved "https://codeload.github.com/fjlaubscher/matter/tar.gz/f408390edf0e26546a90be0fc45b29cb58fd395d"
 
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"

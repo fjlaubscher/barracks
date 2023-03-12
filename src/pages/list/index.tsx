@@ -125,10 +125,10 @@ const List = () => {
                   {data.weapons['heavy-weapons'].map((weapon, i) => (
                     <tr key={`weapon-type-${i}`}>
                       <td>{weapon.type}</td>
-                      <td>{weapon.range}</td>
+                      <td className={styles.noWrap}>{weapon.range}</td>
                       <td>{weapon.shots}</td>
                       <td>{weapon.pen}</td>
-                      <td>{weapon.rules.join(', ')}</td>
+                      <td className={styles.noWrap}>{weapon.rules.join(', ')}</td>
                     </tr>
                   ))}
                 </Table>
@@ -138,30 +138,25 @@ const List = () => {
                   {data.hit.map((hit, i) => (
                     <tr key={`hit-${i}`}>
                       <td>{hit.type}</td>
-                      <td>{hit.modifier}</td>
+                      <td className={styles.modifier}>{hit.modifier}</td>
                     </tr>
                   ))}
                 </Table>
               </Card>
               <Card title="Damage">
-                <Table
-                  headings={[
-                    { text: 'Troops and Soft-Skinned Targets' },
-                    { text: 'Result Needed' }
-                  ]}
-                >
+                <Table headings={[{ text: 'Troops and Soft-Skinned Targets' }, { text: 'Result' }]}>
                   {data.damage['troops'].map((damage, i) => (
                     <tr key={`damage-${i}`}>
                       <td>{damage.type}</td>
-                      <td>{damage.result}</td>
+                      <td className={styles.modifier}>{damage.result}</td>
                     </tr>
                   ))}
                 </Table>
-                <Table headings={[{ text: 'Armoured Targets' }, { text: 'Result Needed' }]}>
+                <Table headings={[{ text: 'Armoured Targets' }, { text: 'Result' }]}>
                   {data.damage['armoured-targets'].map((damage, i) => (
                     <tr key={`damage-${i}`}>
                       <td>{damage.type}</td>
-                      <td>{damage.result}</td>
+                      <td className={styles.modifier}>{damage.result}</td>
                     </tr>
                   ))}
                 </Table>

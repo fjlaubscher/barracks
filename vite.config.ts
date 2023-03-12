@@ -9,17 +9,20 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: [
+        'data/core.json',
         '/data/armies.json',
         '/data/units/germany.json',
         '/data/units/great-britain.json',
-        '/data/units/us.json'
+        '/data/units/imperial-japan.json',
+        '/data/units/soviet-union.json',
+        '/data/units/us.json',
       ],
       manifest: {
         name: 'Barracks',
         short_name: 'Barracks',
         description: 'Barracks is a free and open-source Bolt Action assistant.',
-        theme_color: '#EA7317',
-        background_color: '#EA7317',
+        theme_color: '#426f6f',
+        background_color: '#426f6f',
         icons: [
           {
             src: '/android-icon-192x192.png',

@@ -11,7 +11,7 @@
       { "type": "Inexperienced infantry or artillery", "result": "3+" },
       { "type": "Regular infantry or artillery", "result": "4+" },
       { "type": "Veteran infantry or artillery", "result": "5+" },
-      { "type": "All soft-skill vehicles", "result": "6+" }
+      { "type": "All soft-skinned vehicles", "result": "6+" }
     ],
     "armoured-targets": [
       { "type": "Armoured car/carrier", "result": "7+" },
