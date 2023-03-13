@@ -29,7 +29,9 @@ const Armies = () => {
             <Card key={key} title={armies[key].name} onClick={() => navigate(`/army/${key}`)}>
               <TagGroup>
                 {armies[key].rules.map((rule, i) => (
-                  <Tag key={`rule-${i}`}>{rule.name}</Tag>
+                  <Tag variant="info" key={`rule-${i}`}>
+                    {rule.name}
+                  </Tag>
                 ))}
               </TagGroup>
             </Card>

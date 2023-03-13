@@ -21,18 +21,19 @@ const CreateList = () => {
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
 
+  const army = useMemo(() => search.get('army') ?? undefined, [search]);
+
   const armyId = useMemo(() => {
-    const army = search.get('army');
     if (army && armies) {
       return Object.keys(armies).indexOf(army);
     }
 
     return undefined;
-  }, [search, armies]);
+  }, [army, armies]);
 
   const form = useForm<ListFormValues>({
     mode: 'onChange',
-    defaultValues: { limit: 1000, armyId: armyId }
+    defaultValues: { limit: 1000, armyId: armyId, army }
   });
   const { isValid, isSubmitting } = form.formState;
 

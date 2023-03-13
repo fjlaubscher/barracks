@@ -1,8 +1,9 @@
 import { useCallback, useMemo } from 'react';
-import { FaEdit } from 'react-icons/fa';
+import { FaEdit, FaFilePdf } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, Card, Table, useToast } from '@fjlaubscher/matter';
+import { Button, Stat, IconButton, Stack, Card, Table, useToast } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
+import { Helmet } from 'react-helmet';
 
 // components
 import Layout from '../../components/layout';

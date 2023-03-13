@@ -1,5 +1,5 @@
 import classnames from 'classnames';
-import { FaTrash, FaCopy } from 'react-icons/fa';
+import { FaTrash, FaClone } from 'react-icons/fa';
 import { Card as MatterCard, Stack, IconButton } from '@fjlaubscher/matter';
 import type { CardProps } from '@fjlaubscher/matter';
 
@@ -26,7 +26,7 @@ const Card = ({ children, className, onClick, onCopyClick, onDeleteClick, title 
                 onCopyClick();
               }}
             >
-              <FaCopy />
+              <FaClone />
             </IconButton>
           )}
           {onDeleteClick && (

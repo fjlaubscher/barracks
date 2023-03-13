@@ -21,7 +21,7 @@
   > span:first-child {
     text-transform: capitalize;
   }
-  
+
   padding: 1rem 0;
   border-top: 1px solid colors.$light-surface;
   border-bottom: 1px solid colors.$light-surface;
@@ -36,23 +36,43 @@
   max-width: breakpoints.$max-form-width;
 }
 
-.section {
-  margin-bottom: 1rem;
+.contentsButton {
+  width: auto;
+  position: fixed;
+  z-index: 2;
+  bottom: 4.5rem;
+  right: 1rem;
 
-  h4 {
+  @media (min-width: breakpoints.$tablet) {
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+.contents {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+
+  a {
     color: colors.$accent;
-    margin-bottom: 0.25rem;
-    font-size: 0.9rem;
-    font-weight: 500;
   }
 
-  p {
-    margin: 0;
+  > li > ul {
+    margin-top: 0.5rem;
+
+    li:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  ul {
-    margin: 0;
-    padding-left: 1.5rem;
-    font-size: 0.9rem;
+  > li:not(:last-child) {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid colors.$light-surface;
+    margin-bottom: 1rem;
+
+    @media (prefers-color-scheme: dark) {
+      border-bottom-color: colors.$dark-surface;
+    }
   }
 }
