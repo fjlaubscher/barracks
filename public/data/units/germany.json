@@ -105,10 +105,114 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Wehrmacht Infantry Squad",
+        "name": "Heer Infantry Squad",
         "profiles": [
           {
-            "name": "Wehrmacht Infantry Squad",
+            "name": "Heer Infantry Squad",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Bicycle",
+            "cost": {
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot."
+        ]
+      },
+      {
+        "name": "Kradschützen Squad",
+        "profiles": [
+          {
+            "name": "Kradschützen Squad",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 3
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Motorcycle",
+            "cost": {
+              "regular": 5
+            },
+            "max": 8
+          }
+        ],
+        "rules": ["Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"]
+      },
+      {
+        "name": "Heer Grenadier Squad",
+        "profiles": [
+          {
+            "name": "Heer Grenadier Squad",
             "cost": {
               "regular": 50
             }
@@ -153,7 +257,7 @@
             "max": 4
           },
           {
-            "name": "Anti-tank grenades",
+            "name": "Anti-tank grenades (if no Panzerfaust taken)",
             "cost": {
               "regular": 2
             },
@@ -163,22 +267,10 @@
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Waffen-SS, Fallschirmjager or Veteran Infantry Squad",
+        "name": "Heer Veteran Grenadier Squad",
         "profiles": [
           {
-            "name": "Waffen-SS Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Fallschirmjager Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Veteran Infantry Squad",
+            "name": "Heer Veteran Grenadier Squad",
             "cost": {
               "veteran": 65
             }
@@ -221,9 +313,408 @@
               "veteran": 5
             },
             "max": 4
+          },
+          {
+            "name": "Anti-tank grenades (if no Panzerfaust taken)",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
           }
         ],
-        "rules": []
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Heer Pioneer Squad",
+        "profiles": [
+          {
+            "name": "Heer Pioneer Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Sturmpioniere (Assault Engineer) Squad",
+        "profiles": [
+          {
+            "name": "Sturmpioniere (Assault Engineer) Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Sturmpistole",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "GrB-39 grenade launcher",
+            "cost": {
+              "veteran": 30
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 4
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Sturmpistole: This weapon is treated like a Panzerfaust, except that it only has a range of 6\" and a Pen value of +3. It can, however, be fired normally once a turn and not just once per game.",
+          "GrB-39 grenade launcher (see armies of germany book)"
+        ]
+      },
+      {
+        "name": "Fallschirmjäger Squad (Early War)",
+        "profiles": [
+          {
+            "name": "Fallschirmjäger Squad (Early War)",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Stubborn: Paratroopers don't give in easily! If forced to check their morale, then they always test on their full morale value, ignoring any pin markers."
+        ]
+      },
+      {
+        "name": "Fallschirmjäger Squad (Late War)",
+        "profiles": [
+          {
+            "name": "Fallschirmjäger Squad (Late War)",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "Assault rifle",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 10
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 4
+          }
+        ],
+        "rules": [
+          "Stubborn: Paratroopers don't give in easily! If forced to check their morale, then they always test on their full morale value, ignoring any pin markers."
+        ]
+      },
+      {
+        "name": "Gebirgsjäger Squad (Early War)",
+        "profiles": [
+          {
+            "name": "Gebirgsjäger Squad (Early War)",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Ski",
+            "cost": {
+              "veteran": 1
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Skis (if taken): Ski troops ignore movement penalties for snow and other winter conditions"
+        ]
+      },
+      {
+        "name": "Gebirgsjäger Squad (Late War)",
+        "profiles": [
+          {
+            "name": "Gebirgsjäger Squad (Late War)",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "Assault rifle",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 4
+          },
+          {
+            "name": "Ski",
+            "cost": {
+              "veteran": 1
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Skis (if taken): Ski troops ignore movement penalties for snow and other winter conditions"
+        ]
+      },
+      {
+        "name": "Waffen-SS Squad (Early War)",
+        "profiles": [
+          {
+            "name": "Waffen-SS Squad (Early War)",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Fanatic",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
       },
       {
         "name": "Waffen-SS Squad (Late War)",
@@ -296,57 +787,6 @@
           }
         ],
         "rules": ["Fanatics (if taken)"]
-      },
-      {
-        "name": "Heer Pioneer Squad",
-        "profiles": [
-          {
-            "name": "Heer Pioneer Squad",
-            "cost": {
-              "veteran": 65
-            }
-          }
-        ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
-        "options": [
-          {
-            "name": "Additional soldier",
-            "cost": {
-              "veteran": 13
-            },
-            "max": 5
-          },
-          {
-            "name": "SMG",
-            "cost": {
-              "veteran": 3
-            },
-            "max": 7
-          },
-          {
-            "name": "LMG",
-            "cost": {
-              "veteran": 20
-            },
-            "max": 1
-          },
-          {
-            "name": "Flamethrower",
-            "cost": {
-              "veteran": 20
-            },
-            "max": 1
-          },
-          {
-            "name": "Anti-tank grenades",
-            "cost": {
-              "veteran": 2
-            },
-            "max": 10
-          }
-        ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
         "name": "Waffen-SS Pioneers (Late-War)",
@@ -495,10 +935,10 @@
         ]
       },
       {
-        "name": "MG34 Light Machine Gun Team",
+        "name": "Light Machine Gun Team",
         "profiles": [
           {
-            "name": "MG34 Light Machine Gun Team",
+            "name": "Light Machine Gun Team",
             "cost": {
               "regular": 50,
               "veteran": 65
@@ -557,6 +997,23 @@
         "rules": ["Team weapon"]
       },
       {
+        "name": "Panzerschreck Team",
+        "profiles": [
+          {
+            "name": "Panzerschreck Team",
+            "cost": {
+              "inexperienced": 56,
+              "regular": 80,
+              "veteran": 104
+            }
+          }
+        ],
+        "composition": "2 soldiers",
+        "weapons": "1 Panzerschreck",
+        "options": [],
+        "rules": ["Team weapon", "Shaped charge"]
+      },
+      {
         "name": "Sniper Team",
         "profiles": [
           {
@@ -607,7 +1064,7 @@
         "composition": "2 soldiers",
         "weapons": "1 Light mortar",
         "options": [],
-        "rules": ["Team weapon", "Indirect fire"]
+        "rules": ["Team weapon", "Indirect fire", "No smoke rounds: This mortar cannot fire smoke"]
       },
       {
         "name": "Medium Mortar Team",
@@ -623,8 +1080,17 @@
         ],
         "composition": "3 soldiers",
         "weapons": "1 Medium mortar",
-        "options": [],
-        "rules": ["Team weapon", "Indirect fire"]
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
+        "rules": ["Team weapon", "Fixed", "Indirect fire"]
       }
     ]
   },
@@ -645,6 +1111,32 @@
         "composition": "3 soldiers",
         "weapons": "1 Light howitzer",
         "options": [],
+        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+      },
+      {
+        "name": "Medium Artillery",
+        "profiles": [
+          {
+            "name": "Medium Artillery",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": "4 soldiers",
+        "weapons": "1 Medium howitzer",
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
         "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
       }
     ],
@@ -727,10 +1219,26 @@
         ]
       },
       {
-        "name": "Panzer IV",
+        "name": "Panzer IV Ausf G, H, J",
         "profiles": [
           {
-            "name": "Panzer IV",
+            "name": "Panzer IV Ausf G",
+            "cost": {
+              "inexperienced": 188,
+              "regular": 235,
+              "veteran": 282
+            }
+          },
+          {
+            "name": "Panzer IV Ausf H",
+            "cost": {
+              "inexperienced": 188,
+              "regular": 235,
+              "veteran": 282
+            }
+          },
+          {
+            "name": "Panzer IV Ausf J",
             "cost": {
               "inexperienced": 188,
               "regular": 235,
@@ -740,9 +1248,18 @@
         ],
         "composition": "1 Panzer IV",
         "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [],
+        "options": [
+          {
+            "name": "Schürzen armour skirts",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            }
+          }
+        ],
         "damage": "9+ (medium tank)",
-        "rules": []
+        "rules": ["Tiger fear"]
       },
       {
         "name": "Panther",
@@ -776,9 +1293,36 @@
         ],
         "composition": "1 Tiger I",
         "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [],
+        "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          }
+        ],
         "damage": "10+ (heavy tank)",
-        "rules": []
+        "rules": ["Tiger fear"]
+      },
+      {
+        "name": "Tiger II",
+        "profiles": [
+          {
+            "name": "Tiger II",
+            "cost": {
+              "regular": 555,
+              "veteran": 666
+            }
+          }
+        ],
+        "composition": "1 Tiger II",
+        "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [],
+        "damage": "11+ (super-heavy tank)",
+        "rules": ["Tiger fear"]
       }
     ],
     "Tank Destroyers": [
@@ -1087,7 +1631,7 @@
         "weapons": "None",
         "options": [
           {
-            "name": "Pintle-mounted MMG with 360° arc of fire",
+            "name": "Pintle-mounted MMG covering the forward arc",
             "cost": {
               "inexperienced": 15,
               "regular": 15,
