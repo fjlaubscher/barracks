@@ -82,7 +82,7 @@
             "max": 2
           }
         ],
-        "rules": []
+        "rules": ["Massed Batteries (Artillery Forward Observer)"]
       },
       {
         "name": "Medic",
@@ -90,7 +90,7 @@
           {
             "name": "Medic",
             "cost": {
-              "regular": 23,
+              "regular": 25,
               "veteran": 30
             }
           }
@@ -108,6 +108,29 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Commissar",
+        "profiles": [
+          {
+            "name": "Commissar",
+            "cost": {
+              "inexperienced": 15
+            }
+          }
+        ],
+        "composition": "1 Commissar and up to 2 further soldiers",
+        "weapons": "Pistol, SMG, or rifle as depicted on the models.",
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 2
+          }
+        ],
+        "rules": ["Not One Step Back!"]
       }
     ],
     "Infantry Squads and Teams": [

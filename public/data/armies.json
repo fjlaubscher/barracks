@@ -4,12 +4,20 @@
     "image": "/armies/germany.png",
     "rules": [
       {
+        "name": "Blitzkrieg",
+        "description": "German officers using the 'You men, snap to action' special rule can take one additional order die from the bag and assign it as normal."
+      },
+      {
         "name": "Initiative Training",
         "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troopers takes over the squad and leads it just as effectively as before. To repesent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
       },
       {
         "name": "Hitler's Buzzsaw",
         "description": "German light and medium machine guns fire one extra shot. Note that this applies to all light and medium machine guns, both those carried by infantry units and those mounted on vehicles."
+      },
+      {
+        "name": "Tiger Fear",
+        "description": "All enemy units that are within 18\" of, and have line of sight to, one or more vehicle with the Tiger Fear special rule (see the vehicles section of this army list) suffer from Tiger Fear. Note that the 18\" range is measured AFTER you have declared which order you have given to the unit. Units suffering from Tiger fear count as having one extra pin marker on them when taking any order test, except if ordered to Fire against a vehicle causing Tiger fear. Note that this penalty also affects units without any pin marker, which must therefore take an order test on -1 morale to execute orders even if they have no pin markers."
       }
     ]
   },
@@ -18,12 +26,20 @@
     "image": "/armies/us.png",
     "rules": [
       {
+        "name": "Air Superiority",
+        "description": "A US forward air observer unit can call an air strike twice instead of once per game."
+      },
+      {
         "name": "Fire and Manouvre",
         "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
       },
       {
-        "name": "Air Superiority",
-        "description": "A US forward air observer unit can call an air strike twice instead of once per game."
+        "name": "Gyro-Stabilisers",
+        "description": "When a weapon is described as gyro-stabilised in a vehicle's entry, it does not suffer the -1 'to hit' penalty for shooting and moving if the crew are Veteran. This does not apply to vehicles with Inexperienced or Regular crew, nor does it apply to any co-axial machine gun."
+      },
+      {
+        "name": "Modern Communications",
+        "description": "When units take an order test to move from reserve onto the table, do not apply the usual -1 penalty, but use their basic Morale value instead."
       }
     ]
   },
@@ -38,6 +54,30 @@
       {
         "name": "Bombardment",
         "description": "When rolling for the effects of a preparatory bombardment instead of rolling one die on the results chart for each enemy unit, roll two dice and choose the best result."
+      },
+      {
+        "name": "A National Characteristic",
+        "description": "Any British army - whatever its national make-up - can choose any one of the following rules to reresent it as you - its commander - chooses to see it. The only limit is that you can only choose one rule - and that rule applies to the whole army."
+      },
+      {
+        "name": "National Characteristic: Up and 'at 'em",
+        "description": "If the army has this rule then any order given to make an assault is automatically treated as having been passed - the unit is assumed to have rolled whatever order die score is needed to pass its order. This rule does not apply to Inexperienced troops - including any units taht start out as 'Green'."
+      },
+      {
+        "name": "National Characteristic: Blood Curdling Charge",
+        "description": "If the army has this special rule then enemy units cannot react to an assault by shooting at them. This rule does not apply to Inexperienced troops - including any units taht start out as 'Green'."
+      },
+      {
+        "name": "National Characteristic: Tough as Boots",
+        "description": "If the army has this special rule then all Regular or Veteran infantry units roll bonus attack dice when fighting at close quarters. For every three soldiers fighting in the combat, roll one extra die. This extra attack can be assumed to come from any of the soldiers fighting."
+      },
+      {
+        "name": "National Characteristic - Rapid Fire",
+        "description": "If the army has this special rule then all rifle armed Regular and Veteran infantry units roll bonus dice when shooting. For every three soldiers shooting rifles, roll one bonus die. These extra shots can be assumed to come from any of the soliders fighting."
+      },
+      {
+        "name": "National Characteristic - Vengeance",
+        "description": "If the army has this special rule then every Regular or Veteran unit that has one or more pin markers can make a test to lose one pin marker if there are any enemy units within 12\" immediately before an order is given to it. Roll a die: on 4 - 6 the test is passed and the unit loses one pin marker; on 1 - 3 the test is failed and the unit retains the pin markers it has. Once this has been done, continue to test to see if the unit obeys its order in the usual way, even if they have lost their last pin marker (in which case the Order test is taken without negative modifiers from pin markers)."
       }
     ]
   },
@@ -50,7 +90,15 @@
         "description": "Whenever a unit of infantry or artillery models fails a morale check and would otherwise be destroyed as a consequence, take the test again and apply this second result. This re-roll applies to all infantry and artillery units, including HQ units that would otherwise be destroyed if they failed a morale check. Note that this rule only applies to infantry and artillery, and not to tanks or other vehicles."
       },
       {
-        "name": "Quantity has a quality all of it's own",
+        "name": "Massed Batteries",
+        "description": "When rolling to determine the 'Fire for effect' radius from the aiming point (D6+6\") instead of rolling one die, roll two dice and take the highest score."
+      },
+      {
+        "name": "Not One Step Back!",
+        "description": "When a friendly infantry unit fails an Order test with 6\" of a commissar, remove one model from the unit and re-roll the dice. Note that there is no choice in the matter - if the commissar is within 6\" of the unit he wil shoot dissenters whether you want him to or not! The second result stands as normal - the commissar can only make a single re-roll for each unit affected. This rule does not apply to units other than infantry, and does not apply to infantry units already reduced to one or two models, or consisting of only one or two models to start with."
+      },
+      {
+        "name": "Quantity Has a Quality All of It's Own",
         "description": "The Russian army gets a free 12-man squad of inexperienced infantry, with all of the possible options you have models for."
       }
     ]
