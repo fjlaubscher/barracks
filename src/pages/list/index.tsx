@@ -1,15 +1,16 @@
 import { useCallback, useMemo } from 'react';
-import { FaEdit, FaFilePdf } from 'react-icons/fa';
+import { FaBook, FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Button, Stat, IconButton, Stack, Card, Table, useToast } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, Card, useToast } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
-import { Helmet } from 'react-helmet';
 
 // components
 import Layout from '../../components/layout';
-import ListSection from '../../components/list/section';
+import LinkButton from '../../components/button/link';
 import ListUnitCard from '../../components/unit/list-card';
 import Stats from '../../components/stats';
+import Section from '../../components/section';
+import Weapons from '../../components/rules/weapons';
 
 // helpers
 import useArmy from '../../helpers/use-army';
@@ -72,97 +73,33 @@ const List = () => {
               />
             </Stats>
           </Stack>
+          <LinkButton leftIcon={<FaBook />} to="/rules">
+            Core Rules
+          </LinkButton>
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) =>
                 list.units[type][role].length > 0 ? (
-                  <ListSection key={`${type}-role-${i}`} title={type} description={role}>
+                  <Section key={`${type}-role-${i}`} title={type} description={role}>
                     {list.units[type][role].map((unit, i) => (
                       <ListUnitCard key={`list-unit-${i}`} listUnit={unit} />
                     ))}
-                  </ListSection>
+                  </Section>
                 ) : undefined
               )}
             </div>
           ))}
           <Stack className={styles.rules} direction="column">
-            <ListSection title="Rules" description={army.name}>
+            <Section id="army-rules" title="Rules" description={army.name}>
               {army.rules.map((rule, i) => (
                 <Card key={`army-rule-${i}`} title={rule.name}>
                   {rule.description}
                 </Card>
               ))}
-            </ListSection>
-            <ListSection title="Rules" description="Core">
-              <Card title="Weapons">
-                <Table
-                  headings={[
-                    { text: 'Small Arms' },
-                    { text: 'Range' },
-                    { text: 'Shots' },
-                    { text: 'Pen' },
-                    { text: 'Rules' }
-                  ]}
-                >
-                  {data.weapons['small-arms'].map((weapon, i) => (
-                    <tr key={`weapon-type-${i}`}>
-                      <td>{weapon.type}</td>
-                      <td>{weapon.range}</td>
-                      <td>{weapon.shots}</td>
-                      <td>{weapon.pen}</td>
-                      <td>{weapon.rules.join(', ')}</td>
-                    </tr>
-                  ))}
-                </Table>
-                <Table
-                  headings={[
-                    { text: 'Heavy Weapons' },
-                    { text: 'Range' },
-                    { text: 'Shots' },
-                    { text: 'Pen' },
-                    { text: 'Rules' }
-                  ]}
-                >
-                  {data.weapons['heavy-weapons'].map((weapon, i) => (
-                    <tr key={`weapon-type-${i}`}>
-                      <td>{weapon.type}</td>
-                      <td className={styles.noWrap}>{weapon.range}</td>
-                      <td>{weapon.shots}</td>
-                      <td>{weapon.pen}</td>
-                      <td className={styles.noWrap}>{weapon.rules.join(', ')}</td>
-                    </tr>
-                  ))}
-                </Table>
-              </Card>
-              <Card title="Hit Rolls">
-                <Table headings={[{ text: 'Type' }, { text: 'Modifier' }]}>
-                  {data.hit.map((hit, i) => (
-                    <tr key={`hit-${i}`}>
-                      <td>{hit.type}</td>
-                      <td className={styles.modifier}>{hit.modifier}</td>
-                    </tr>
-                  ))}
-                </Table>
-              </Card>
-              <Card title="Damage">
-                <Table headings={[{ text: 'Troops and Soft-Skinned Targets' }, { text: 'Result' }]}>
-                  {data.damage['troops'].map((damage, i) => (
-                    <tr key={`damage-${i}`}>
-                      <td>{damage.type}</td>
-                      <td className={styles.modifier}>{damage.result}</td>
-                    </tr>
-                  ))}
-                </Table>
-                <Table headings={[{ text: 'Armoured Targets' }, { text: 'Result' }]}>
-                  {data.damage['armoured-targets'].map((damage, i) => (
-                    <tr key={`damage-${i}`}>
-                      <td>{damage.type}</td>
-                      <td className={styles.modifier}>{damage.result}</td>
-                    </tr>
-                  ))}
-                </Table>
-              </Card>
-            </ListSection>
+            </Section>
+            <Section title="Rules" description="Weapons">
+              <Weapons weapons={data.weapons} />
+            </Section>
           </Stack>
         </>
       )}

@@ -1,5 +1,5 @@
-import { FaCog, FaPlus } from 'react-icons/fa';
-import { GiTank } from 'react-icons/gi';
+import { FaBook, FaCog, FaPlus } from 'react-icons/fa';
+import { GiRuleBook, GiTank } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
 
@@ -29,8 +29,11 @@ const Home = () => {
             https://github.com/fjlaubscher/barracks/issues
           </a>
         </Alert>
+        <LinkButton leftIcon={<FaBook />} to="/rules">
+          Core Rules
+        </LinkButton>
         <LinkButton leftIcon={<GiTank />} to="/armies">
-          Army Rules
+          Armies
         </LinkButton>
         <LinkButton leftIcon={<FaPlus />} to="/list">
           New List

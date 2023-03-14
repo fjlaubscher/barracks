@@ -1,0 +1,47 @@
+.noWrap {
+  white-space: nowrap;
+}
+
+.stretch {
+  min-width: 75%;
+}
+
+.center {
+  text-align: center;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.keys {
+  font-size: 0.9rem;
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.list {
+  font-size: 0.9rem;
+  padding-left: 1.5rem;
+
+  li {
+    margin-bottom: 0.5rem;
+
+    ol {
+      list-style: lower-roman;
+    }
+
+    ul, ol {
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.notes {
+  font-size: 0.8rem;
+}

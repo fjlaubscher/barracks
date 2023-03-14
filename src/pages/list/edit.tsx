@@ -7,7 +7,7 @@ import { useSetRecoilState } from 'recoil';
 
 // components
 import Layout from '../../components/layout';
-import ListSection from '../../components/list/section';
+import Section from '../../components/section';
 import Stats from '../../components/stats';
 import UnitCard from '../../components/unit/card';
 
@@ -114,7 +114,7 @@ const EditList = () => {
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) => (
-                <ListSection
+                <Section
                   key={`${type}-role-${i}`}
                   title={type}
                   description={role}
@@ -132,7 +132,7 @@ const EditList = () => {
                       onDeleteClick={() => handleListUnitDelete(type, role, unit)}
                     />
                   ))}
-                </ListSection>
+                </Section>
               ))}
             </div>
           ))}

@@ -5,6 +5,7 @@ import { IconButton, Stack } from '@fjlaubscher/matter';
 import styles from './section.module.scss';
 
 interface Props {
+  id?: string;
   className?: string;
   children: ReactNode;
   title: string;
@@ -12,8 +13,8 @@ interface Props {
   onAddClick?: () => void;
 }
 
-const ListSection = ({ className, children, title, description, onAddClick }: Props) => (
-  <Stack className={className} direction="column">
+const Section = ({ id, className, children, title, description, onAddClick }: Props) => (
+  <Stack id={id} className={className} direction="column">
     <Stack className={styles.header} direction="row">
       <Stack className={styles.heading} direction="column">
         <span className={styles.title}>{title}</span>
@@ -29,4 +30,4 @@ const ListSection = ({ className, children, title, description, onAddClick }: Pr
   </Stack>
 );
 
-export default ListSection;
+export default Section;
