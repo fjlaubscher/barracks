@@ -112,10 +112,47 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Regular Infantry Section",
+        "name": "Regular Infantry Section (Early War)",
         "profiles": [
           {
-            "name": "Regular Infantry Section",
+            "name": "Regular Infantry Section (Early War)",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 5
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Regular Infantry Section (Mid - Late War)",
+        "profiles": [
+          {
+            "name": "Regular Infantry Section (Mid - Late War)",
             "cost": {
               "regular": 50
             }
@@ -156,34 +193,10 @@
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
       },
       {
-        "name": "Commandos, Chindits, Royal Marines, Airborne or Veteran Infantry Section",
+        "name": "Veteran Infantry Section (Early - Mid War)",
         "profiles": [
           {
-            "name": "Commandos Section",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Chindits Section",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Royal Marines Section",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Airborne Section",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Veteran Infantry",
+            "name": "Veteran Infantry Section (Early - Mid War)",
             "cost": {
               "veteran": 65
             }
@@ -196,6 +209,93 @@
             "name": "Additional soldier",
             "cost": {
               "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },{
+        "name": "Veteran Infantry Section (Late War)",
+        "profiles": [
+          {
+            "name": "Veteran Infantry Section (Late War)",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Paratroop Section",
+        "profiles": [
+          {
+            "name": "Paratroop Section",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
             },
             "max": 5
           },
@@ -221,13 +321,148 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Stubborn. If forced to check morale when reduced to half strength then always test on full morale ignoring any pin markers."
+        ]
       },
       {
-        "name": "Inexperienced Infantry Section",
+        "name": "Chindit Section",
         "profiles": [
           {
-            "name": "Inexperienced Infantry Section",
+            "name": "Chindit Section",
+            "cost": {
+              "veteran": 75
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 15
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Behind Enemy Lines - When Outflanking, units of Chindits ignore the -1 modifier to the Order test for coming onto the table.",
+          "Fire & Manoeuvre - Chindit units do not suffer the -1 to 'hit' penalty for moving and shooting."
+        ]
+      },
+      {
+        "name": "Commando Section",
+        "profiles": [
+          {
+            "name": "Commando Section",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 10
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Vickers K LMG",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Tough Fighters",
+          "Behind Enemy Lines - When Outflanking, units of Chindits ignore the -1 modifier to the Order test for coming onto the table.",
+          "Vickers K Gun - When shooting add +1 shot compared to a regular LMG."
+        ]
+      },
+      {
+        "name": "Inexperienced Infantry Section (Early War)",
+        "profiles": [
+          {
+            "name": "Inexperienced Infantry Section (Early War)",
+            "cost": {
+              "inexperienced": 35
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 5
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },{
+        "name": "Inexperienced Infantry Section (Mid - Late War)",
+        "profiles": [
+          {
+            "name": "Inexperienced Infantry Section (Mid - Late War)",
             "cost": {
               "inexperienced": 35
             }
@@ -248,7 +483,7 @@
             "cost": {
               "inexperienced": 3
             },
-            "max": 1
+            "max": 2
           },
           {
             "name": "LMG",
@@ -372,7 +607,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "rules": ["Team weapon", "Fixed", "Indirect fire"]
@@ -460,7 +696,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -468,7 +705,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "8+ (light tank)",
@@ -495,7 +733,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           },
           {
             "name": "105mm medium howitzer",
@@ -503,7 +742,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -533,7 +773,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -562,7 +803,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -591,7 +833,8 @@
               "inexperienced": 40,
               "regular": 40,
               "veteran": 40
-            }
+            },
+            "max": 1
           },
           {
             "name": "95mm medium howitzer",
@@ -599,7 +842,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "10+ (heavy tank)",
@@ -630,7 +874,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "8+ (light tank)",
@@ -736,7 +981,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -744,7 +990,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -773,7 +1020,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -781,7 +1029,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -810,7 +1059,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured carrier)",
@@ -843,7 +1093,8 @@
               "inexperienced": 20,
               "regular": 20,
               "veteran": 20
-            }
+            },
+            "max": 1
           },
           {
             "name": "2 Pintle-mounted MMGs (1 covering the rear and left arcs, and 1 covering the rear and right arcs)",
@@ -851,7 +1102,8 @@
               "inexperienced": 30,
               "regular": 30,
               "veteran": 30
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",

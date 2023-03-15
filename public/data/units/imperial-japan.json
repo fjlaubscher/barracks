@@ -348,7 +348,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "rules": ["Team weapon", "Fixed", "Indirect fire"]
@@ -414,7 +415,8 @@
         "options": [
           {
             "name": "Type 2 twin AA cannon",
-            "cost": { "inexperienced": 30, "regular": 30, "veteran": 30 }
+            "cost": { "inexperienced": 30, "regular": 30, "veteran": 30 },
+            "max": 1
           }
         ],
         "rules": ["Team weapon", "Fixed", "Flak"]
@@ -545,7 +547,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -574,7 +577,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",

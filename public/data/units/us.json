@@ -408,7 +408,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "rules": ["Team weapon", "Fixed", "Indirect fire"]
@@ -497,7 +498,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -505,7 +507,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "8+ (light tank)",
@@ -532,7 +535,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           },
           {
             "name": "105mm medium howitzer",
@@ -540,7 +544,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -570,7 +575,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -601,7 +607,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "8+ (light tank)",
@@ -650,7 +657,8 @@
               "inexperienced": -40,
               "regular": -40,
               "veteran": -40
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured car)",
@@ -687,7 +695,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           },
           {
             "name": "Replace light anti-tank gun and co-axial MMG with pintle-mounted HMG with 360° arc of fire (M20 variant)",
@@ -695,7 +704,8 @@
               "inexperienced": -30,
               "regular": -30,
               "veteran": -30
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured car)",
@@ -724,7 +734,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -732,7 +743,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -761,7 +773,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted HMG",
@@ -769,7 +782,8 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -798,7 +812,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted MMG (right arc)",
@@ -806,7 +821,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted MMG (rear arc)",
@@ -814,7 +830,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured carrier)",
@@ -843,7 +860,8 @@
               "inexperienced": 20,
               "regular": 20,
               "veteran": 20
-            }
+            },
+            "max": 1
           },
           {
             "name": "2 Pintle-mounted MMGs (1 covering the rear and left arcs, and 1 covering the rear and right arcs)",
@@ -851,7 +869,8 @@
               "inexperienced": 30,
               "regular": 30,
               "veteran": 30
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",

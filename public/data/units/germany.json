@@ -953,7 +953,8 @@
             "cost": {
               "regular": 5,
               "veteran": 5
-            }
+            },
+            "max": 1
           }
         ],
         "rules": [
@@ -1075,7 +1076,8 @@
               "inexperienced": 35,
               "regular": 50,
               "veteran": 65
-            }
+            },
+            "max": 1
           }
         ],
         "composition": "3 soldiers",
@@ -1134,7 +1136,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
@@ -1181,7 +1184,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
@@ -1255,7 +1259,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -1355,7 +1360,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
@@ -1420,7 +1426,8 @@
               "inexperienced": -55,
               "regular": -55,
               "veteran": -55
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured carrier)",
@@ -1444,12 +1451,13 @@
         "weapons": "1 platform-mounted heavy autocannon (37mm Flak 38) with 360° arc of fire",
         "options": [
           {
-            "name": "platform-mounted quadruple light autocannon (four 20mm KwK 38) with 360° arc of fire",
+            "name": "Platform-mounted quadruple light autocannon (four 20mm KwK 38) with 360° arc of fire",
             "cost": {
               "inexperienced": 80,
               "regular": 80,
               "veteran": 80
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -1494,7 +1502,8 @@
               "inexperienced": 0,
               "regular": 0,
               "veteran": 0
-            }
+            },
+            "max": 1
           },
           {
             "name": "Turret-mounted MMG / anti-tank rifle (SdKfz 221)",
@@ -1502,7 +1511,8 @@
               "inexperienced": -25,
               "regular": -25,
               "veteran": -25
-            }
+            },
+            "max": 1
           },
           {
             "name": "Turret-mounted Panzerbüchse (SdKfz 221)",
@@ -1510,7 +1520,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured car)",
@@ -1542,7 +1553,8 @@
               "inexperienced": 50,
               "regular": 50,
               "veteran": 50
-            }
+            },
+            "max": 1
           },
           {
             "name": "Fixed forward facing light howitzer (short 75mm)",
@@ -1550,7 +1562,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           },
           {
             "name": "Fixed forward facing heavy anti-tank gun (long 75mm)",
@@ -1558,7 +1571,8 @@
               "inexperienced": 75,
               "regular": 75,
               "veteran": 75
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured car)",
@@ -1591,7 +1605,8 @@
               "inexperienced": 10,
               "regular": 10,
               "veteran": 10
-            }
+            },
+            "max": 1
           },
           {
             "name": "Forward facing light anti-tank gun (37mm PaK 36)",
@@ -1599,7 +1614,8 @@
               "inexperienced": 40,
               "regular": 40,
               "veteran": 40
-            }
+            },
+            "max": 1
           },
           {
             "name": "Pintle-mounted light autocannon (KwK 38) with 360° arc of fire",
@@ -1607,7 +1623,8 @@
               "inexperienced": 20,
               "regular": 20,
               "veteran": 20
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "7+ (armoured carrier)",
@@ -1636,7 +1653,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
@@ -1665,7 +1683,8 @@
               "inexperienced": 15,
               "regular": 15,
               "veteran": 15
-            }
+            },
+            "max": 1
           }
         ],
         "damage": "6+ (soft-skinned)",
