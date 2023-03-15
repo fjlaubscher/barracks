@@ -75,12 +75,6 @@ const ListForm = ({ armies, onSubmit }: Props) => {
         {...register('limit', { required: true, valueAsNumber: true })}
         required
       />
-      <TextAreaField
-        label="Notes"
-        isFullHeight
-        placeholder="Add any notes you'd like to add."
-        {...register('notes', { required: false })}
-      />
     </Form>
   );
 };

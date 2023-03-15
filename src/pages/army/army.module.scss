@@ -1,5 +1,4 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
-@use '@fjlaubscher/matter/src/styles/colors';
 
 .image {
   max-width: 100%;
@@ -14,21 +13,6 @@
     flex-direction: row-reverse !important;
     align-items: flex-start;
     justify-content: space-between;
-  }
-}
-
-.heading {
-  > span:first-child {
-    text-transform: capitalize;
-  }
-
-  padding: 1rem 0;
-  border-top: 1px solid colors.$light-surface;
-  border-bottom: 1px solid colors.$light-surface;
-
-  @media (prefers-color-scheme: dark) {
-    border-top-color: colors.$dark-surface;
-    border-bottom-color: colors.$dark-surface;
   }
 }
 

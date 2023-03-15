@@ -93,7 +93,7 @@ const List = () => {
             <Section id="army-rules" title="Rules" description={army.name}>
               {army.rules.map((rule, i) => (
                 <Card key={`army-rule-${i}`} title={rule.name}>
-                  {rule.description}
+                  <p>{rule.description}</p>
                 </Card>
               ))}
             </Section>

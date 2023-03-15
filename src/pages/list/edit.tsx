@@ -17,13 +17,13 @@ import useList from '../../helpers/use-list';
 import { calculateOrderDice } from '../../helpers/list';
 
 // state
-import { CreateListUnitAtom } from '../../state/list';
+import { UnitBuilderAtom } from '../../state/unit-builder';
 
 const EditList = () => {
   const toast = useToast();
   const { key } = useParams();
   const navigate = useNavigate();
-  const setCreateListUnit = useSetRecoilState(CreateListUnitAtom);
+  const setUnitBuilderPayload = useSetRecoilState(UnitBuilderAtom);
 
   const [list, setList] = useList(key!);
   const { army, units, loading } = useArmy(list!.army);
@@ -32,10 +32,10 @@ const EditList = () => {
 
   const handleAddListUnit = useCallback(
     (type: string, role: string) => {
-      setCreateListUnit({ type, role });
+      setUnitBuilderPayload({ type, role, unit: undefined });
       navigate(`/list/${key}/unit`);
     },
-    [key, setCreateListUnit, navigate]
+    [key, setUnitBuilderPayload, navigate]
   );
 
   const handleListUnitCopy = useCallback(

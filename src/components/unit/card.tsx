@@ -1,4 +1,4 @@
-import { TagGroup, Tag, Table } from '@fjlaubscher/matter';
+import { TagGroup, Tag } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 
 // components
@@ -10,16 +10,19 @@ import { capitalize } from '../../helpers/text';
 
 interface Props {
   listUnit: Barracks.List.Unit;
+  onDrag?: () => void;
+  onClick?: () => void;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
 }
 
-const UnitCard = ({ listUnit, onCopyClick, onDeleteClick }: Props) => {
+const UnitCard = ({ listUnit, onClick, onCopyClick, onDeleteClick }: Props) => {
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   return (
     <Card
       title={`${listUnit.profile.name} - ${calculatedCost}pts`}
+      onClick={onClick}
       onCopyClick={onCopyClick}
       onDeleteClick={onDeleteClick}
     >

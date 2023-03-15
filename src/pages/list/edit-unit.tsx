@@ -18,7 +18,7 @@ import { calculateCost } from '../../helpers/unit';
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
 
-const AddListUnit = () => {
+const EditListUnit = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const { key } = useParams();
@@ -33,9 +33,9 @@ const AddListUnit = () => {
       return undefined;
     }
 
+    const otherUnits = list.units[type][role].filter((u) => u.key !== unit.key);
     const newUnit: Barracks.List.Unit = {
       ...unit,
-      key: `${type}-${role}-${list.units[type][role].length + 1}`,
       points: calculateCost(unit)
     };
 
@@ -46,11 +46,11 @@ const AddListUnit = () => {
         ...list.units,
         [type]: {
           ...list.units[type],
-          [role]: [...list.units[type][role], newUnit]
+          [role]: [newUnit, ...otherUnits]
         }
       }
     });
-    toast({ text: `${newUnit.unit.name} added.`, variant: 'success' });
+    toast({ text: `${newUnit.unit.name} updated.`, variant: 'success' });
     navigate(`/list/${key}/edit`);
   }, [list, type, role, navigate, unit]);
 
@@ -60,10 +60,10 @@ const AddListUnit = () => {
 
   return (
     <Layout
-      title="Add Unit"
+      title="Edit Unit"
       isLoading={loading}
       action={
-        <IconButton disabled={!unit} variant="info" onClick={handleSubmit}>
+        <IconButton variant="info" onClick={handleSubmit}>
           <FaSave />
         </IconButton>
       }
@@ -77,4 +77,4 @@ const AddListUnit = () => {
   );
 };
 
-export default AddListUnit;
+export default EditListUnit;

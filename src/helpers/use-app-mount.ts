@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useLocalStorage } from '@fjlaubscher/matter';
 import useSWR from 'swr';
 
 // storage
 import { ARMIES } from './storage';
-import useLocalStorage from './use-local-storage';
 
 const useAppMount = () => {
   const [hasSynced, setHasSynced] = useState(false);

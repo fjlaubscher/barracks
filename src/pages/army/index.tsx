@@ -1,18 +1,19 @@
-import { useMemo, useState } from 'react';
-import { FaLayerGroup, FaFileAlt } from 'react-icons/fa';
+import { useMemo } from 'react';
+import { FaFileAlt } from 'react-icons/fa';
 import { Card, IconButton, Image, Modal, Stack, Stat } from '@fjlaubscher/matter';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
+import ArmyUnitCard from '../../components/army/unit-card';
+import ContentsModal from '../../components/contents-modal';
 import Layout from '../../components/layout';
+import Section from '../../components/section';
 
 // helpers
 import useArmy from '../../helpers/use-army';
 
 import styles from './army.module.scss';
 import { capitalize, slugify } from '../../helpers/text';
-import ArmyUnitCard from '../../components/army/unit-card';
-import ContentsModal from '../../components/contents-modal';
 
 const Army = () => {
   const { key } = useParams();
@@ -61,7 +62,7 @@ const Army = () => {
               <Stat title="Rules" value={army.name} />
               {army.rules.map((rule, i) => (
                 <Card key={`army-rule-${i}`} title={rule.name}>
-                  {rule.description}
+                  <p>{rule.description}</p>
                 </Card>
               ))}
             </Stack>
@@ -69,12 +70,16 @@ const Army = () => {
           {Object.keys(units).map((type) => (
             <Stack key={`unit-type-${type}`} direction="column">
               {Object.keys(units[type]).map((role, i) => (
-                <Stack id={`${type}-${slugify(role)}`} key={`${type}-role-${i}`} direction="column">
-                  <Stat className={styles.heading} title={type} value={role} />
+                <Section
+                  id={`${type}-${slugify(role)}`}
+                  key={`${type}-role-${i}`}
+                  title={type}
+                  description={role}
+                >
                   {units[type][role].map((unit, unitIndex) => (
                     <ArmyUnitCard key={`unit-${unitIndex}`} unit={unit} />
                   ))}
-                </Stack>
+                </Section>
               ))}
             </Stack>
           ))}

@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from 'react';
+import { useLocalStorage } from '@fjlaubscher/matter';
 
 // helpers
 import { LISTS } from './storage';
-import useLocalStorage from './use-local-storage';
 
 const useList = (
   key: string

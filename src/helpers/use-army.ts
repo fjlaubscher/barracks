@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useLocalStorage } from '@fjlaubscher/matter';
 import useSWR from 'swr';
 
 // helpers
 import { ARMIES } from './storage';
-import useLocalStorage from './use-local-storage';
 
 const useArmy = (key: string) => {
   const [hasSynced, setHasSynced] = useState(false);

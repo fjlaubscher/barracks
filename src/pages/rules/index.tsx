@@ -201,8 +201,7 @@ const Rules = () => {
                     <p>
                       The unit executes a <i>run</i> order and must move as fast as possible away
                       from the closest visible enemy unit. If no enemy are visible the unit goes{' '}
-                      <i>down</i>
-                      instead.
+                      <i>down</i> instead.
                     </p>
                   </td>
                 </tr>

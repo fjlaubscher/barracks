@@ -1,5 +1,5 @@
 import { FaBook, FaCog, FaPlus } from 'react-icons/fa';
-import { GiRuleBook, GiTank } from 'react-icons/gi';
+import { GiTank } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
 

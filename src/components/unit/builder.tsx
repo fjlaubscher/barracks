@@ -9,7 +9,7 @@ import NumberField from '../field/number';
 import { capitalize } from '../../helpers/text';
 
 // state
-import { ListUnitAtom } from '../../state/list';
+import { UnitBuilderAtom } from '../../state/unit-builder';
 
 import styles from './unit.module.scss';
 
@@ -22,7 +22,7 @@ interface SelectedOptions {
 }
 
 const UnitBuilder = ({ units }: Props) => {
-  const [listUnit, setListUnit] = useRecoilState(ListUnitAtom);
+  const [{ unit: listUnit }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({});
   const [selectedUnitIndex, setSelectedUnitIndex] = useState(0);
@@ -99,8 +99,8 @@ const UnitBuilder = ({ units }: Props) => {
   }, [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]);
 
   useEffect(() => {
-    setListUnit(memoedListUnit);
-  }, [memoedListUnit, setListUnit]);
+    setUnitBuilderPayload((payload) => ({ ...payload, unit: memoedListUnit }));
+  }, [memoedListUnit, setUnitBuilderPayload]);
 
   return (
     <Stack className={styles.form} direction="column">

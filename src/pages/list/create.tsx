@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useToast, IconButton } from '@fjlaubscher/matter';
+import { useToast, IconButton, useLocalStorage } from '@fjlaubscher/matter';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaSave } from 'react-icons/fa';
 
@@ -11,7 +11,6 @@ import ListForm, { FormValues as ListFormValues } from '../../components/list/fo
 // helpers
 import { ARMIES, LISTS } from '../../helpers/storage';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
-import useLocalStorage from '../../helpers/use-local-storage';
 
 const CreateList = () => {
   const [search] = useSearchParams();
@@ -33,7 +32,7 @@ const CreateList = () => {
 
   const form = useForm<ListFormValues>({
     mode: 'onChange',
-    defaultValues: { limit: 1000, armyId: armyId, army }
+    defaultValues: { limit: 1000, armyId: armyId, army, notes: '' }
   });
   const { isValid, isSubmitting } = form.formState;
 

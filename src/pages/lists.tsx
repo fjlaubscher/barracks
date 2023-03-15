@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
+import { Alert, IconButton, Stack, useLocalStorage } from '@fjlaubscher/matter';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,6 @@ import ListCard from '../components/list/card';
 
 // helpers
 import { LISTS } from '../helpers/storage';
-import useLocalStorage from '../helpers/use-local-storage';
 
 const Armies = () => {
   const navigate = useNavigate();

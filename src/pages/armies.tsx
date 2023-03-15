@@ -1,4 +1,4 @@
-import { Alert, Card, Stack, TagGroup, Tag } from '@fjlaubscher/matter';
+import { Alert, Card, Stack, TagGroup, Tag, useLocalStorage } from '@fjlaubscher/matter';
 import { useNavigate } from 'react-router-dom';
 
 // components
@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 
 // helpers
 import { ARMIES } from '../helpers/storage';
-import useLocalStorage from '../helpers/use-local-storage';
 
 const Armies = () => {
   const navigate = useNavigate();

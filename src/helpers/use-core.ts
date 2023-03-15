@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useLocalStorage } from '@fjlaubscher/matter';
 import useSWR from 'swr';
 
 // helpers
 import { CORE_DATA } from './storage';
-import useLocalStorage from './use-local-storage';
 
 const useCore = () => {
   const [hasSynced, setHasSynced] = useState(false);
