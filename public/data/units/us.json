@@ -478,6 +478,34 @@
   "vehicles": {
     "Tanks": [
       {
+        "name": "M3 Stuart",
+        "profiles": [
+          {
+            "name": "M3 Stuart",
+            "cost": {
+              "inexperienced": 100,
+              "regular": 125,
+              "veteran": 150
+            }
+          }
+        ],
+        "composition": "1 M5 Stuart",
+        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG and 2 forward facing hull-mounted MMGs",
+        "options": [
+          {
+            "name": "Recce",
+            "cost": {
+              "inexperienced": -25,
+              "regular": -25,
+              "veteran": -25
+            },
+            "max": 1
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": ["Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.", "Recce, Open-Topped (if option chosen)"]
+      },
+      {
         "name": "M5 Stuart",
         "profiles": [
           {

@@ -18,11 +18,13 @@
     span {
       padding-top: 0.5rem;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
   .buttons {
-    width: 100%;
+    width: 6rem;
     justify-content: flex-end;
   }
 
