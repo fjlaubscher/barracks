@@ -1,10 +1,13 @@
 import { Stack, Stat, Image, Table, Card } from '@fjlaubscher/matter';
+import { GiPistolGun, GiTank } from 'react-icons/gi';
+import { FaUsers } from 'react-icons/fa';
 
 // components
 import ContentsModal from '../../components/contents-modal';
 import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
+import LinkButton from '../../components/button/link';
 import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
 
@@ -93,8 +96,17 @@ const Rules = () => {
           <Stat
             title="Barracks"
             value="Quick Reference"
-            description="Last updated: 14 March 2023"
+            description="Last updated: 23 March 2023"
           />
+          <LinkButton leftIcon={<FaUsers />} to="/rules/units">
+            Unit Special Rules
+          </LinkButton>
+          <LinkButton leftIcon={<GiTank />} to="/rules/vehicles">
+            Vehicle Special Rules
+          </LinkButton>
+          <LinkButton leftIcon={<GiPistolGun />} to="/rules/weapons">
+            Weapon Special Rules
+          </LinkButton>
           <Image src="/bolt-action-2nd-ed.jpg" alt="Bolt Action: Second Edition" />
           <Section id="turn-sequence" title="Rules" description="The Turn">
             <ol className={styles.list}>

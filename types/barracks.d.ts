@@ -52,6 +52,9 @@ declare namespace Barracks {
     weapons: {
       [key: string]: Barracks.Core.Weapon[];
     };
+    rules: {
+      [key: string]: Barracks.Item[];
+    }
   }
 
   interface List {

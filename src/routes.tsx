@@ -10,11 +10,13 @@ const EditListUnit = lazy(() => import('./pages/list/edit-unit'));
 const List = lazy(() => import('./pages/list'));
 const Lists = lazy(() => import('./pages/lists'));
 const Rules = lazy(() => import('./pages/rules'));
+const SpecialRules = lazy(() => import('./pages/rules/special-rules'));
 const Home = lazy(() => import('./pages/home'));
 const NotFound = lazy(() => import('./pages/not-found'));
 
 const AppRoutes = () => (
   <Routes>
+    <Route path="/rules/:key" element={<SpecialRules />} />
     <Route path="/rules" element={<Rules />} />
     <Route path="/lists" element={<Lists />} />
     <Route path="/list/:key/edit" element={<EditList />} />

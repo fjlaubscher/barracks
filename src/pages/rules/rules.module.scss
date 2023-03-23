@@ -35,7 +35,8 @@
       list-style: lower-roman;
     }
 
-    ul, ol {
+    ul,
+    ol {
       padding-top: 0.5rem;
       padding-left: 1rem;
     }
@@ -44,4 +45,18 @@
 
 .notes {
   font-size: 0.8rem;
+}
+
+.keywords {
+  font-size: 0.9rem;
+
+  ul {
+    font-size: inherit;
+    padding-left: 1.5rem;
+    margin: 0;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
