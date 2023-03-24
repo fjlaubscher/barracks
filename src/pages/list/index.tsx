@@ -73,9 +73,6 @@ const List = () => {
               />
             </Stats>
           </Stack>
-          <LinkButton leftIcon={<FaBook />} to="/rules">
-            Core Rules
-          </LinkButton>
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) =>

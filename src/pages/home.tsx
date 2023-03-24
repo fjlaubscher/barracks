@@ -1,14 +1,32 @@
-import { FaBook, FaCog, FaPlus } from 'react-icons/fa';
-import { GiTank } from 'react-icons/gi';
+import { useCallback } from 'react';
+import { FaBook, FaCog, FaPlus, FaUsers } from 'react-icons/fa';
+import { GiPistolGun, GiTank } from 'react-icons/gi';
 import { useNavigate } from 'react-router-dom';
-import { Alert, IconButton, Stack } from '@fjlaubscher/matter';
+import { Alert, IconButton, Stack, useLocalStorage } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../components/layout';
 import LinkButton from '../components/button/link';
+import ListCard from '../components/list/card';
+import Section from '../components/section';
+
+// helpers
+import { LISTS } from '../helpers/storage';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+
+  const handleListDelete = useCallback(
+    (key: string) => {
+      if (lists) {
+        setLists(lists.filter((l) => l.key !== key));
+      }
+    },
+    [lists, setLists]
+  );
+
+  const hasLists = lists && lists.length > 0;
 
   return (
     <Layout
@@ -29,15 +47,19 @@ const Home = () => {
             https://github.com/fjlaubscher/barracks/issues
           </a>
         </Alert>
-        <LinkButton leftIcon={<FaBook />} to="/rules">
-          Core Rules
-        </LinkButton>
-        <LinkButton leftIcon={<GiTank />} to="/armies">
-          Armies
-        </LinkButton>
-        <LinkButton leftIcon={<FaPlus />} to="/list">
-          New List
-        </LinkButton>
+        <Section title="Barracks" description="Army Lists" onAddClick={() => navigate('/list')}>
+          {hasLists ? (
+            lists.map((list) => (
+              <ListCard
+                key={list.key}
+                list={list}
+                onDeleteClick={() => handleListDelete(list.key)}
+              />
+            ))
+          ) : (
+            <Alert variant="warning">You don&apos;t have any lists yet.</Alert>
+          )}
+        </Section>
       </Stack>
     </Layout>
   );

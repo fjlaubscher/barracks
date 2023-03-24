@@ -64,7 +64,7 @@ const CreateList = () => {
             loading={isSubmitting}
             type="submit"
             form="list-form"
-            variant="info"
+            variant="accent"
           >
             <FaSave />
           </IconButton>

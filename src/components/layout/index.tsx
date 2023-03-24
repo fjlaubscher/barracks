@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import { FaListAlt, FaShareAlt } from 'react-icons/fa';
+import { FaBookOpen, FaListAlt, FaShareAlt } from 'react-icons/fa';
 import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';
@@ -92,14 +92,14 @@ const AppLayout = ({
             Armies
           </LinkButton>
           <LinkButton
-            leftIcon={<FaListAlt />}
+            leftIcon={<FaBookOpen />}
             className={classnames(
               styles.action,
-              pathname.includes('/list') ? styles.active : undefined
+              pathname.includes('/rules') ? styles.active : undefined
             )}
-            to="/lists"
+            to="/rules"
           >
-            Lists
+            Rules
           </LinkButton>
           <Button
             leftIcon={<FaShareAlt />}

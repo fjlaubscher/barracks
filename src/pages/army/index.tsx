@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { FaFileAlt } from 'react-icons/fa';
-import { Card, IconButton, Image, Modal, Stack, Stat } from '@fjlaubscher/matter';
+import { Card, IconButton, Image, Stack, Stat } from '@fjlaubscher/matter';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
@@ -11,9 +11,10 @@ import Section from '../../components/section';
 
 // helpers
 import useArmy from '../../helpers/use-army';
+import { formatDate } from '../../helpers/date';
+import { capitalize, slugify } from '../../helpers/text';
 
 import styles from './army.module.scss';
-import { capitalize, slugify } from '../../helpers/text';
 
 const Army = () => {
   const { key } = useParams();
@@ -22,18 +23,20 @@ const Army = () => {
 
   const contents = useMemo(() => {
     if (army && units) {
-      return Object.keys(units).reduce(
-        (items, type) => ({
-          ...items,
-          [capitalize(type)]: Object.keys(units[type]).map((role) => ({
-            text: role,
-            href: `#${type}-${slugify(role)}`
-          }))
-        }),
-        {
-          Rules: [{ text: army.name, href: `#rules` }]
-        }
-      );
+      return Object.keys(units)
+        .filter((k) => k !== 'lastUpdated')
+        .reduce(
+          (items, type) => ({
+            ...items,
+            [capitalize(type)]: Object.keys(units[type]).map((role) => ({
+              text: role,
+              href: `#${type}-${slugify(role)}`
+            }))
+          }),
+          {
+            Army: [{ text: army.name, href: `#army` }]
+          }
+        );
     }
 
     return undefined;
@@ -58,8 +61,12 @@ const Army = () => {
           <ContentsModal items={contents} />
           <Stack className={styles.header} direction="column">
             <Image className={styles.image} src={army.image} alt={army.name} />
-            <Stack id="rules" className={styles.rules} direction="column">
-              <Stat title="Rules" value={army.name} />
+            <Stack id="army" className={styles.rules} direction="column">
+              <Stat
+                title="Army"
+                value={army.name}
+                description={`Last updated: ${formatDate(units.lastUpdated)}`}
+              />
               {army.rules.map((rule, i) => (
                 <Card key={`army-rule-${i}`} title={rule.name}>
                   <p>{rule.description}</p>
@@ -67,22 +74,24 @@ const Army = () => {
               ))}
             </Stack>
           </Stack>
-          {Object.keys(units).map((type) => (
-            <Stack key={`unit-type-${type}`} direction="column">
-              {Object.keys(units[type]).map((role, i) => (
-                <Section
-                  id={`${type}-${slugify(role)}`}
-                  key={`${type}-role-${i}`}
-                  title={type}
-                  description={role}
-                >
-                  {units[type][role].map((unit, unitIndex) => (
-                    <ArmyUnitCard key={`unit-${unitIndex}`} unit={unit} />
-                  ))}
-                </Section>
-              ))}
-            </Stack>
-          ))}
+          {Object.keys(units)
+            .filter((k) => k !== 'lastUpdated')
+            .map((type) => (
+              <Stack key={`unit-type-${type}`} direction="column">
+                {Object.keys(units[type]).map((role, i) => (
+                  <Section
+                    id={`${type}-${slugify(role)}`}
+                    key={`${type}-role-${i}`}
+                    title={type}
+                    description={role}
+                  >
+                    {units[type][role].map((unit, unitIndex) => (
+                      <ArmyUnitCard key={`unit-${unitIndex}`} unit={unit} />
+                    ))}
+                  </Section>
+                ))}
+              </Stack>
+            ))}
         </Stack>
       )}
     </Layout>

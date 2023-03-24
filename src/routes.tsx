@@ -8,17 +8,18 @@ const EditList = lazy(() => import('./pages/list/edit'));
 const AddListUnit = lazy(() => import('./pages/list/unit'));
 const EditListUnit = lazy(() => import('./pages/list/edit-unit'));
 const List = lazy(() => import('./pages/list'));
-const Lists = lazy(() => import('./pages/lists'));
 const Rules = lazy(() => import('./pages/rules'));
+const QuickReferenceRules = lazy(() => import('./pages/rules/quick-reference'));
 const SpecialRules = lazy(() => import('./pages/rules/special-rules'));
 const Home = lazy(() => import('./pages/home'));
 const NotFound = lazy(() => import('./pages/not-found'));
+const Settings = lazy(() => import('./pages/settings'));
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/rules/:key" element={<SpecialRules />} />
+    <Route path="/rules/quick-reference" element={<QuickReferenceRules />} />
     <Route path="/rules" element={<Rules />} />
-    <Route path="/lists" element={<Lists />} />
     <Route path="/list/:key/edit" element={<EditList />} />
     <Route path="/list/:key/unit/edit" element={<EditListUnit />} />
     <Route path="/list/:key/unit" element={<AddListUnit />} />
@@ -26,6 +27,7 @@ const AppRoutes = () => (
     <Route path="/list" element={<CreateList />} />
     <Route path="/army/:key" element={<Army />} />
     <Route path="/armies" element={<Armies />} />
+    <Route path="/settings" element={<Settings />} />
     <Route path="/" element={<Home />} />
     <Route path="*" element={<NotFound />} />
   </Routes>

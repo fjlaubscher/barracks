@@ -7,12 +7,14 @@ declare namespace Barracks {
   }
 
   interface Army {
+    lastUpdated: string;
     name: string;
     image: string;
     rules: Item[];
   }
 
   interface Armies {
+    lastUpdated: string;
     [key: string]: Army;
   }
 
@@ -39,12 +41,14 @@ declare namespace Barracks {
   }
 
   interface Units {
+    lastUpdated: string;
     [type: string]: {
       [role: string]: Unit[];
     };
   }
 
   interface Core {
+    lastUpdated: string;
     hit: Barracks.Core.Hit[];
     damage: {
       [key: string]: Barracks.Core.Damage[];
@@ -66,6 +70,11 @@ declare namespace Barracks {
     units: List.Units;
     points: number;
     limit: number;
+  }
+
+  interface Settings {
+    primaryColor: string;
+    accentColor: string;
   }
 }
 

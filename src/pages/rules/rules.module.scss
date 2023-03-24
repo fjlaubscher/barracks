@@ -1,3 +1,5 @@
+@use '@fjlaubscher/matter/src/styles/breakpoints';
+
 .noWrap {
   white-space: nowrap;
 }
@@ -58,5 +60,13 @@
     li {
       margin-bottom: 0.5rem;
     }
+  }
+}
+
+.rules {
+  @media (min-width: breakpoints.$tablet) {
+    flex-direction: row-reverse !important;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 }

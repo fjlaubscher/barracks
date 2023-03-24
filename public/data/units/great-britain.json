@@ -1,4 +1,5 @@
 {
+  "lastUpdated": "2023-03-24T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -235,7 +236,8 @@
           }
         ],
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
-      },{
+      },
+      {
         "name": "Veteran Infantry Section (Late War)",
         "profiles": [
           {
@@ -458,7 +460,8 @@
           }
         ],
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
-      },{
+      },
+      {
         "name": "Inexperienced Infantry Section (Mid - Late War)",
         "profiles": [
           {
@@ -717,7 +720,10 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.", "Recce, Open-Topped (if option chosen)"]
+        "rules": [
+          "Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.",
+          "Recce, Open-Topped (if option chosen)"
+        ]
       },
       {
         "name": "M5 Stuart",

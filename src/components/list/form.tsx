@@ -1,5 +1,5 @@
 import { useController, useFormContext } from 'react-hook-form';
-import { Form, InputField, SelectField, TextAreaField } from '@fjlaubscher/matter';
+import { Form, InputField, SelectField } from '@fjlaubscher/matter';
 import { useCallback, useMemo } from 'react';
 
 export interface FormValues {
@@ -25,9 +25,9 @@ const ListForm = ({ armies, onSubmit }: Props) => {
 
   const armyOptions = useMemo(
     () =>
-      Object.keys(armies).map(
-        (key, index) => ({ value: index, description: armies[key].name } as matter.Option)
-      ),
+      Object.keys(armies)
+        .filter((k) => k !== 'lastUpdated')
+        .map((key, index) => ({ value: index, description: armies[key].name } as matter.Option)),
     [armies]
   );
 
