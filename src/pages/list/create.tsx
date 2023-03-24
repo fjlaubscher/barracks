@@ -20,15 +20,19 @@ const CreateList = () => {
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
 
+  const armyKeys = useMemo(
+    () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
+    [armies]
+  );
   const army = useMemo(() => search.get('army') ?? undefined, [search]);
 
   const armyId = useMemo(() => {
-    if (army && armies) {
-      return Object.keys(armies).indexOf(army);
+    if (army) {
+      return armyKeys.indexOf(army);
     }
 
     return undefined;
-  }, [army, armies]);
+  }, [army, armyKeys]);
 
   const form = useForm<ListFormValues>({
     mode: 'onChange',

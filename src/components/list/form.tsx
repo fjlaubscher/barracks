@@ -22,13 +22,14 @@ const ListForm = ({ armies, onSubmit }: Props) => {
     formState: { errors },
     control
   } = useFormContext<FormValues>();
+  const armyKeys = useMemo(() => Object.keys(armies).filter((k) => k !== 'lastUpdated'), [armies]);
 
   const armyOptions = useMemo(
     () =>
-      Object.keys(armies)
-        .filter((k) => k !== 'lastUpdated')
-        .map((key, index) => ({ value: index, description: armies[key].name } as matter.Option)),
-    [armies]
+      armyKeys.map(
+        (key, index) => ({ value: index, description: armies[key].name } as matter.Option)
+      ),
+    [armies, armyKeys]
   );
 
   const { field: armyIdField } = useController({
@@ -42,7 +43,7 @@ const ListForm = ({ armies, onSubmit }: Props) => {
 
   const handleArmySelect = useCallback(
     (index: number) => {
-      const selectedKey = Object.keys(armies)[index];
+      const selectedKey = armyKeys[index];
 
       armyField.onChange(selectedKey);
       armyIdField.onChange(index);
