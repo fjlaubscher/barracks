@@ -154,7 +154,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Rangers, Airborne, Marines or Veteran Infantry Squad",
@@ -216,7 +218,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Inexperienced Infantry Squad",
@@ -260,7 +264,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Engineer Squad",
@@ -316,7 +322,9 @@
             "max": 8
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Medium Machine Gun Team",
@@ -354,7 +362,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Bazooka",
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": [
+          "Team weapon",
+          "Shaped charge"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -370,7 +381,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Rifle",
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": [
+          "Team weapon",
+          "Sniper"
+        ]
       },
       {
         "name": "Flamethrower Team",
@@ -386,7 +400,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Infantry flamethrower",
         "options": [],
-        "rules": ["Team weapon", "Flamethrower"]
+        "rules": [
+          "Team weapon",
+          "Flamethrower"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -413,7 +430,11 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       }
     ]
   },
@@ -434,7 +455,12 @@
         "composition": "3 soldiers",
         "weapons": "1 Light howitzer",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -453,7 +479,11 @@
         "composition": "3 soldiers",
         "weapons": "1 Medium anti-tank gun",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -472,7 +502,11 @@
         "composition": "4 soldiers",
         "weapons": "1 Plaform-mounted heavy automatic cannon",
         "options": [],
-        "rules": ["Team weapon", "Fixed", "Flak"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Flak"
+        ]
       }
     ]
   },
@@ -504,7 +538,10 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.", "Recce, Open-Topped (if option chosen)"]
+        "rules": [
+          "Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.",
+          "Recce, Open-Topped (if option chosen)"
+        ]
       },
       {
         "name": "M5 Stuart",
@@ -568,7 +605,7 @@
             "max": 1
           },
           {
-            "name": "105mm medium howitzer",
+            "name": "105mm medium howitzer - replaces AT gun",
             "cost": {
               "inexperienced": 0,
               "regular": 0,
@@ -641,7 +678,9 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Self-Propelled Artillery": [
@@ -661,7 +700,9 @@
         "weapons": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
         "options": [],
         "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -691,7 +732,10 @@
           }
         ],
         "damage": "7+ (armoured car)",
-        "rules": ["Open-topped", "Flak"]
+        "rules": [
+          "Open-topped",
+          "Flak"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -738,7 +782,10 @@
           }
         ],
         "damage": "7+ (armoured car)",
-        "rules": ["Open-topped", "Recce"]
+        "rules": [
+          "Open-topped",
+          "Recce"
+        ]
       }
     ],
     "Transports and Tows": [
@@ -866,7 +913,9 @@
         "damage": "7+ (armoured carrier)",
         "transport": "12 soldiers",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       },
       {
         "name": "LVT Amphibious Troop Transport",
@@ -904,7 +953,9 @@
         ],
         "damage": "6+ (soft-skinned)",
         "transport": "24 soldiers",
-        "rules": ["Amphibious"]
+        "rules": [
+          "Amphibious"
+        ]
       }
     ]
   }

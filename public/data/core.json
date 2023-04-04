@@ -1,25 +1,67 @@
 {
   "lastUpdated": "2023-03-24T00:00Z",
   "hit": [
-    { "type": "Shooting at point blank range", "modifier": "+1" },
-    { "type": "Per pin marker on the firer", "modifier": "-1" },
-    { "type": "Long range", "modifier": "-1" },
-    { "type": "Inexperienced", "modifier": "-1" },
-    { "type": "Fire on the move", "modifier": "-1" }
+    {
+      "type": "Shooting at point blank range",
+      "modifier": "+1"
+    },
+    {
+      "type": "Per pin marker on the firer",
+      "modifier": "-1"
+    },
+    {
+      "type": "Long range",
+      "modifier": "-1"
+    },
+    {
+      "type": "Inexperienced",
+      "modifier": "-1"
+    },
+    {
+      "type": "Fire on the move",
+      "modifier": "-1"
+    }
   ],
   "damage": {
     "troops": [
-      { "type": "Inexperienced infantry or artillery", "result": "3+" },
-      { "type": "Regular infantry or artillery", "result": "4+" },
-      { "type": "Veteran infantry or artillery", "result": "5+" },
-      { "type": "All soft-skinned vehicles", "result": "6+" }
+      {
+        "type": "Inexperienced infantry or artillery",
+        "result": "3+"
+      },
+      {
+        "type": "Regular infantry or artillery",
+        "result": "4+"
+      },
+      {
+        "type": "Veteran infantry or artillery",
+        "result": "5+"
+      },
+      {
+        "type": "All soft-skinned vehicles",
+        "result": "6+"
+      }
     ],
     "armoured-targets": [
-      { "type": "Armoured car/carrier", "result": "7+" },
-      { "type": "Light tank", "result": "8+" },
-      { "type": "Medium tank", "result": "9+" },
-      { "type": "Heavy tank", "result": "10+" },
-      { "type": "Super-heavy tank", "result": "11+" }
+      {
+        "type": "Armoured car/carrier",
+        "result": "7+"
+      },
+      {
+        "type": "Light tank",
+        "result": "8+"
+      },
+      {
+        "type": "Medium tank",
+        "result": "9+"
+      },
+      {
+        "type": "Heavy tank",
+        "result": "10+"
+      },
+      {
+        "type": "Super-heavy tank",
+        "result": "11+"
+      }
     ]
   },
   "weapons": {
@@ -29,7 +71,9 @@
         "range": "5",
         "shots": "1",
         "pen": "-",
-        "rules": ["Assault"]
+        "rules": [
+          "Assault"
+        ]
       },
       {
         "type": "Rifle",
@@ -43,13 +87,15 @@
         "range": "12",
         "shots": "2",
         "pen": "-",
-        "rules": ["Assault"]
+        "rules": [
+          "Assault"
+        ]
       },
       {
         "type": "Automatic rifle",
         "range": "30",
-        "shots": "1",
-        "pen": "+2",
+        "shots": "2",
+        "pen": "-",
         "rules": []
       },
       {
@@ -57,21 +103,28 @@
         "range": "18",
         "shots": "2",
         "pen": "-",
-        "rules": ["Assault"]
+        "rules": [
+          "Assault"
+        ]
       },
       {
         "type": "LMG",
         "range": "36",
         "shots": "4",
         "pen": "-",
-        "rules": ["Team"]
+        "rules": [
+          "Team"
+        ]
       },
       {
         "type": "MMG",
         "range": "36",
         "shots": "5",
         "pen": "-",
-        "rules": ["Team", "Fixed"]
+        "rules": [
+          "Team",
+          "Fixed"
+        ]
       }
     ],
     "heavy-weapons": [
@@ -80,140 +133,210 @@
         "range": "36",
         "shots": "3",
         "pen": "+1",
-        "rules": ["Team", "Fixed"]
+        "rules": [
+          "Team",
+          "Fixed"
+        ]
       },
       {
         "type": "Light automatic cannon",
         "range": "48",
         "shots": "2",
         "pen": "+2",
-        "rules": ["Team", "Fixed", "HE (1\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (1\")"
+        ]
       },
       {
         "type": "Heavy automatic cannon",
         "range": "72",
         "shots": "2",
         "pen": "+3",
-        "rules": ["Team", "Fixed", "HE (1\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (1\")"
+        ]
       },
       {
         "type": "Anti-tank rifle",
         "range": "36",
         "shots": "1",
         "pen": "+2",
-        "rules": ["Team"]
+        "rules": [
+          "Team"
+        ]
       },
       {
         "type": "PIAT",
         "range": "12",
         "shots": "1",
         "pen": "+5",
-        "rules": ["Team", "Shaped Charge"]
+        "rules": [
+          "Team",
+          "Shaped Charge"
+        ]
       },
       {
         "type": "Bazooka",
         "range": "24",
         "shots": "1",
         "pen": "+5",
-        "rules": ["Team", "Shaped Charge"]
+        "rules": [
+          "Team",
+          "Shaped Charge"
+        ]
       },
       {
         "type": "Panzerschreck",
         "range": "24",
         "shots": "1",
         "pen": "+6",
-        "rules": ["Team", "Shaped Charge"]
+        "rules": [
+          "Team",
+          "Shaped Charge"
+        ]
       },
       {
         "type": "Panzerfaust",
         "range": "12",
         "shots": "1",
         "pen": "+6",
-        "rules": ["One-shot", "Shaped Charge"]
+        "rules": [
+          "One-shot",
+          "Shaped Charge"
+        ]
       },
       {
         "type": "Light AT gun",
         "range": "48",
         "shots": "1",
         "pen": "+4",
-        "rules": ["Team", "Fixed", "HE (1\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (1\")"
+        ]
       },
       {
         "type": "Medium AT gun",
         "range": "60",
         "shots": "1",
         "pen": "+5",
-        "rules": ["Team", "Fixed", "HE (1\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (1\")"
+        ]
       },
       {
         "type": "Heavy AT gun",
         "range": "72",
         "shots": "1",
         "pen": "+6",
-        "rules": ["Team", "Fixed", "HE (2\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (2\")"
+        ]
       },
       {
         "type": "Super-heavy AT gun",
         "range": "84",
         "shots": "1",
         "pen": "+7",
-        "rules": ["Team", "Fixed", "HE (3\")"]
+        "rules": [
+          "Team",
+          "Fixed",
+          "HE (3\")"
+        ]
       },
       {
         "type": "Flamethrower (infantry)",
         "range": "6",
         "shots": "D6",
         "pen": "+3",
-        "rules": ["Team", "Flamethrower"]
+        "rules": [
+          "Team",
+          "Flamethrower"
+        ]
       },
       {
         "type": "Flamethrower (vehicle)",
         "range": "12",
         "shots": "D6+1",
         "pen": "+3",
-        "rules": ["Flamethrower"]
+        "rules": [
+          "Flamethrower"
+        ]
       },
       {
         "type": "Light mortar",
         "range": "12-24",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (1\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (1\")"
+        ]
       },
       {
         "type": "Medium mortar",
         "range": "12-60",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (2\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (2\")"
+        ]
       },
       {
         "type": "Heavy mortar",
         "range": "12-72",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (3\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (3\")"
+        ]
       },
       {
         "type": "Light howitzer",
         "range": "48 (or 24-60)",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (2\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (2\")"
+        ]
       },
       {
         "type": "Medium howitzer",
         "range": "60 (or 30-72)",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (3\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (3\")"
+        ]
       },
       {
         "type": "Heavy howitzer",
         "range": "72 (or 36-84)",
         "shots": "1",
         "pen": "HE",
-        "rules": ["Team", "Indirect Fire", "HE (4\")"]
+        "rules": [
+          "Team",
+          "Indirect Fire",
+          "HE (4\")"
+        ]
       }
     ]
   },

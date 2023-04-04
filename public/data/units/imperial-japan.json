@@ -60,7 +60,9 @@
             "max": 1
           }
         ],
-        "rules": ["Tough Fighter (officer model with sword only)"]
+        "rules": [
+          "Tough Fighter (officer model with sword only)"
+        ]
       },
       {
         "name": "Forward Observer",
@@ -163,7 +165,9 @@
             "max": 14
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "SNLF, Paratroopers or IJA Veteran Infantry Squad",
@@ -219,7 +223,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Militia Squad (Late-War)",
@@ -277,7 +283,10 @@
         "composition": "3 soldiers",
         "weapons": "1 MMG",
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": [
+          "Team weapon",
+          "Fixed"
+        ]
       },
       {
         "name": "Anti-tank rifle team",
@@ -294,7 +303,9 @@
         "composition": "2 soldiers",
         "weapons": "1 Anti-tank rifle",
         "options": [],
-        "rules": ["Team weapon"]
+        "rules": [
+          "Team weapon"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -310,7 +321,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Rifle",
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": [
+          "Team weapon",
+          "Sniper"
+        ]
       },
       {
         "name": "Light Mortar Team",
@@ -326,7 +340,11 @@
         "composition": "2 soldiers",
         "weapons": "1 Light mortar",
         "options": [],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -353,7 +371,11 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       }
     ]
   },
@@ -374,9 +396,22 @@
         "composition": "4 soldiers",
         "weapons": "1 Light howitzer",
         "options": [
-          { "name": "Loader", "cost": { "inexperienced": 5, "regular": 5, "veteran": 5 }, "max": 2 }
+          {
+            "name": "Loader",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 2
+          }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -395,7 +430,11 @@
         "composition": "3 soldiers",
         "weapons": "1 Medium anti-tank gun",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -416,11 +455,19 @@
         "options": [
           {
             "name": "Type 2 twin AA cannon",
-            "cost": { "inexperienced": 30, "regular": 30, "veteran": 30 },
+            "cost": {
+              "inexperienced": 30,
+              "regular": 30,
+              "veteran": 30
+            },
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Flak"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Flak"
+        ]
       }
     ]
   },
@@ -503,7 +550,9 @@
         "weapons": "1 Platform-mounted light automatic cannon with 360° arc of fire",
         "options": [],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Flak"]
+        "rules": [
+          "Flak"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -523,7 +572,9 @@
         "weapons": "1 turret-mounted MMG",
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce"]
+        "rules": [
+          "Recce"
+        ]
       }
     ],
     "Transports and Tows": [

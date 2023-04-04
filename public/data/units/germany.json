@@ -207,7 +207,9 @@
             "max": 8
           }
         ],
-        "rules": ["Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"]
+        "rules": [
+          "Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"
+        ]
       },
       {
         "name": "Heer Grenadier Squad",
@@ -265,7 +267,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Heer Veteran Grenadier Squad",
@@ -323,7 +327,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Heer Pioneer Squad",
@@ -374,7 +380,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Sturmpioniere (Assault Engineer) Squad",
@@ -715,7 +723,10 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Waffen-SS Squad (Late War)",
@@ -787,7 +798,9 @@
             "max": 10
           }
         ],
-        "rules": ["Fanatics (if taken)"]
+        "rules": [
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Waffen-SS Pioneers (Late-War)",
@@ -852,7 +865,10 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
@@ -979,7 +995,10 @@
         "composition": "3 soldiers",
         "weapons": "1 MMG",
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": [
+          "Team weapon",
+          "Fixed"
+        ]
       },
       {
         "name": "Anti-Tank Rifle Team",
@@ -996,7 +1015,9 @@
         "composition": "2 soldiers",
         "weapons": "1 Anti-tank rifle",
         "options": [],
-        "rules": ["Team weapon"]
+        "rules": [
+          "Team weapon"
+        ]
       },
       {
         "name": "Panzerschreck Team",
@@ -1013,7 +1034,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Panzerschreck",
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": [
+          "Team weapon",
+          "Shaped charge"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -1029,7 +1053,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Rifle",
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": [
+          "Team weapon",
+          "Sniper"
+        ]
       },
       {
         "name": "Flamethrower Team",
@@ -1066,7 +1093,11 @@
         "composition": "2 soldiers",
         "weapons": "1 Light mortar",
         "options": [],
-        "rules": ["Team weapon", "Indirect fire", "No smoke rounds: This mortar cannot fire smoke"]
+        "rules": [
+          "Team weapon",
+          "Indirect fire",
+          "No smoke rounds: This mortar cannot fire smoke"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -1093,7 +1124,11 @@
             }
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       }
     ]
   },
@@ -1114,7 +1149,12 @@
         "composition": "3 soldiers",
         "weapons": "1 Light howitzer",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       },
       {
         "name": "Medium Artillery",
@@ -1141,7 +1181,12 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -1160,7 +1205,11 @@
         "composition": "4 soldiers",
         "weapons": "1 Heavy anti-tank gun",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -1189,7 +1238,13 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Flak",
+          "Versatile"
+        ]
       }
     ]
   },
@@ -1265,7 +1320,9 @@
           }
         ],
         "damage": "9+ (medium tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       },
       {
         "name": "Panther",
@@ -1311,7 +1368,9 @@
           }
         ],
         "damage": "10+ (heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       },
       {
         "name": "Tiger II",
@@ -1328,7 +1387,9 @@
         "weapons": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
         "options": [],
         "damage": "11+ (super-heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       }
     ],
     "Tank Destroyers": [
@@ -1384,7 +1445,9 @@
         "weapons": "1 Forward facing heavy anti-tank gun and 1 forward facing hull-mounted MMG",
         "options": [],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Self-Propelled Artillery": [
@@ -1432,7 +1495,11 @@
           }
         ],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Indirect fire", "Multiple launcher", "Open-topped"]
+        "rules": [
+          "Indirect fire",
+          "Multiple launcher",
+          "Open-topped"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1462,7 +1529,9 @@
           }
         ],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Flak"]
+        "rules": [
+          "Flak"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -1631,7 +1700,9 @@
         "damage": "7+ (armoured carrier)",
         "transport": "12 soldiers in basic version - 4 soldiers with either light anti-tank gun or autocannon options added",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light anti-aircraft gun",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       },
       {
         "name": "Truck",

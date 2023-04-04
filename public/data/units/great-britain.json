@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-03-24T00:00Z",
+  "lastUpdated": "2023-04-04T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -147,7 +147,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Regular Infantry Section (Mid - Late War)",
@@ -191,7 +193,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Veteran Infantry Section (Early - Mid War)",
@@ -235,7 +239,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Veteran Infantry Section (Late War)",
@@ -279,7 +285,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Paratroop Section",
@@ -459,7 +467,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Inexperienced Infantry Section (Mid - Late War)",
@@ -503,7 +513,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Boys Anti-Tank Rifle Team",
@@ -520,7 +532,9 @@
         "composition": "2 soldiers",
         "weapons": "1 Anti-tank rifle",
         "options": [],
-        "rules": ["Team weapon"]
+        "rules": [
+          "Team weapon"
+        ]
       },
       {
         "name": "Machine Gun Team",
@@ -537,7 +551,10 @@
         "composition": "3 soldiers",
         "weapons": "1 MMG",
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": [
+          "Team weapon",
+          "Fixed"
+        ]
       },
       {
         "name": "PIAT Team",
@@ -554,7 +571,10 @@
         "composition": "2 soldiers",
         "weapons": "1 PIAT",
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": [
+          "Team weapon",
+          "Shaped charge"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -570,7 +590,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Rifle",
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": [
+          "Team weapon",
+          "Sniper"
+        ]
       },
       {
         "name": "Light Mortar Team",
@@ -587,7 +610,10 @@
         "composition": "2 soldiers",
         "weapons": "1 Light mortar",
         "options": [],
-        "rules": ["Team weapon", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Indirect fire"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -614,7 +640,11 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       }
     ]
   },
@@ -634,7 +664,12 @@
         "composition": "3 soldiers",
         "weapons": "1 Light howitzer",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -653,13 +688,17 @@
         "composition": "3 soldiers",
         "weapons": "1 Medium anti-tank gun",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       },
       {
         "name": "QF 17-pdr",
         "profiles": [
           {
-            "name": "QF 6-pdr",
+            "name": "QF 17-pdr",
             "cost": {
               "regular": 140,
               "veteran": 168
@@ -669,7 +708,11 @@
         "composition": "5 soldiers",
         "weapons": "1 Super-heavy anti-tank gun",
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -688,7 +731,11 @@
         "composition": "4 soldiers",
         "weapons": "1 Plaform-mounted heavy automatic cannon",
         "options": [],
-        "rules": ["Team weapon", "Fixed", "Flak"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Flak"
+        ]
       }
     ]
   },
@@ -787,7 +834,7 @@
             "max": 1
           },
           {
-            "name": "105mm medium howitzer",
+            "name": "105mm medium howitzer - replaces AT gun",
             "cost": {
               "inexperienced": 0,
               "regular": 0,
@@ -800,6 +847,36 @@
         "rules": [
           "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
           "HE - instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      },
+      {
+        "name": "Matilda II",
+        "profiles": [
+          {
+            "name": "Matilda II",
+            "cost": {
+              "inexperienced": 124,
+              "regular": 155,
+              "veteran": 186
+            }
+          }
+        ],
+        "composition": "1 Matilda II",
+        "weapons": "1 Turret-mounted 2-pdr light anti-tank gun with co-axial MMG",
+        "options": [
+          {
+            "name": "3-inch light howitzer - replaces AT gun",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            },
+            "max": 1
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "Slow"
         ]
       },
       {
@@ -818,7 +895,7 @@
         "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
         "options": [
           {
-            "name": "95mm medium howitzer",
+            "name": "95mm medium howitzer - replaces AT gun",
             "cost": {
               "inexperienced": 0,
               "regular": 0,
@@ -878,7 +955,7 @@
         "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
         "options": [
           {
-            "name": "Crocodile variant - replace the hull-ounted MMG with a flamethrower",
+            "name": "Crocodile variant - replace the hull-mounted MMG with a flamethrower",
             "cost": {
               "inexperienced": 40,
               "regular": 40,
@@ -929,7 +1006,9 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Self-Propelled Artillery": [
@@ -949,7 +1028,9 @@
         "weapons": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
         "options": [],
         "damage": "8+ (light tank)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -978,7 +1059,10 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Flak", "Open-topped (40mm version only)"]
+        "rules": [
+          "Flak",
+          "Open-topped (40mm version only)"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -1006,7 +1090,9 @@
         "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG",
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce"]
+        "rules": [
+          "Recce"
+        ]
       }
     ],
     "Transports and Tows": [
@@ -1158,7 +1244,9 @@
         ],
         "damage": "6+ (soft-skinned)",
         "transport": "24 soldiers",
-        "rules": ["Amphibious"]
+        "rules": [
+          "Amphibious"
+        ]
       }
     ]
   }
