@@ -483,6 +483,11 @@ const QuickReferenceRules = () => {
                   <td>-1</td>
                 </tr>
               </Table>
+              <ul className={styles.list}>
+                <li><strong>Superficial damage</strong> - Against armoured vehicles only, if the die roll to damage has scored <strong>the exact minimum</strong> needed after all modifiers are taken into account, then the shot only cause superficial damage.<br/>In this case deduct -3 from the damage result dice roll before consulting the table.</li>
+                <li><strong>Massive damage</strong> - If a weapon beats the damage value of the target by a total of <strong>3 or greater</strong> than the minimum score required, then the player rolls twice on the damage results chart.<br/>Roll once and apply the result, then roll again and apply the second result.</li>
+                <li><strong>Turret jam</strong> - When you inflict a damage result against a vehicle with a turret and the vehicle is not destroyed, you take a turret jam test - roll a D6.<br/>On a 1-3, nothing happens.<br/>On a 4-6, the turret is jammed and for the rest of the game the turret is limited in the arc that the damage-causing hit came from.</li>
+              </ul>
             </Card>
             <Card id="vehicle-damage-results" title="Damage Results on Vehicles">
               <Table headings={[{ text: 'D6' }, { text: 'Effect' }]}>
@@ -547,13 +552,13 @@ const QuickReferenceRules = () => {
               </Table>
               <ul className={styles.keys}>
                 <li>
-                  <strong>Superficial Damage</strong> - Roll D6-3
+                  <strong>Superficial Damage</strong> (damage roll matches required value) - D6-3
                 </li>
                 <li>
-                  <strong>Full Damage</strong> - Roll D6
+                  <strong>Full Damage</strong> (damage roll beats required value by 1 or 2) - D6
                 </li>
                 <li>
-                  <strong>Massive Damage</strong> - Roll 2D6
+                  <strong>Massive Damage</strong> (damage roll beats required value by 3 or more) - 2D6
                 </li>
                 <li>
                   <strong>Open-topped hit by indirect fire</strong> - Add +1.
@@ -573,11 +578,11 @@ const QuickReferenceRules = () => {
                   <li>Attackers roll to damage</li>
                   <li>Defenders take casualties</li>
                   <li>Defenders roll to damage</li>
-                  <li>Attackers take casualites</li>
+                  <li>Attackers take casualties</li>
                   <li>Loser surrenders and is destroyed</li>
                 </ol>
               </li>
-              <li>Resolve draws - further roudns of close quarters</li>
+              <li>Resolve draws - further rounds of close quarters</li>
               <li>Winner regroups</li>
             </ol>
           </Section>
