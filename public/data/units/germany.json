@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-03-24T00:00Z",
+  "lastUpdated": "2023-04-10T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -1191,12 +1191,12 @@
     ],
     "Anti-Tank Guns": [
       {
-        "name": "75mm PaK",
+        "name": "75mm PaK 40",
         "profiles": [
           {
-            "name": "75mm PaK",
+            "name": "75mm PaK 40",
             "cost": {
-              "inexperienced": 80,
+              "inexperienced": 88,
               "regular": 110,
               "veteran": 132
             }
@@ -1251,10 +1251,10 @@
   "vehicles": {
     "Tanks": [
       {
-        "name": "Panzer III Ausf H, J",
+        "name": "Panzer III",
         "profiles": [
           {
-            "name": "Panzer III Ausf H",
+            "name": "Ausf H",
             "cost": {
               "inexperienced": 160,
               "regular": 200,
@@ -1262,7 +1262,7 @@
             }
           },
           {
-            "name": "Panzer III Ausf J",
+            "name": "Ausf J",
             "cost": {
               "inexperienced": 160,
               "regular": 200,
@@ -1270,7 +1270,7 @@
             }
           }
         ],
-        "composition": "1 Panzer III Ausf H, J",
+        "composition": "1 Panzer III",
         "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
         "options": [],
         "damage": "9+ (medium tank)",
@@ -1279,7 +1279,7 @@
         ]
       },
       {
-        "name": "Panzer IV Ausf G, H, J",
+        "name": "Panzer IV",
         "profiles": [
           {
             "name": "Panzer IV Ausf G",
@@ -1394,10 +1394,10 @@
     ],
     "Tank Destroyers": [
       {
-        "name": "StuG III/IV",
+        "name": "StuG III",
         "profiles": [
           {
-            "name": "StuG III",
+            "name": "Ausf F",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
@@ -1405,7 +1405,15 @@
             }
           },
           {
-            "name": "StuG IV",
+            "name": "Ausf G",
+            "cost": {
+              "inexperienced": 184,
+              "regular": 230,
+              "veteran": 276
+            }
+          },
+          {
+            "name": "Ausf H",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
@@ -1413,15 +1421,15 @@
             }
           }
         ],
-        "composition": "1 StuG III/IV",
+        "composition": "1 StuG III",
         "weapons": "1 Casement-mounted forward facing heavy anti-tank gun and 1 remotely operated MMG with 360° arc of fire",
         "options": [
           {
-            "name": "Forward facing co-axial MMG",
+            "name": "Schürzen armour skirts (Ausf G and H only)",
             "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
             },
             "max": 1
           }
@@ -1603,53 +1611,44 @@
         ]
       },
       {
-        "name": "SdKfz 234 Heavy Armoured Car",
+        "name": "SdKfz 234/1 Heavy Armoured Car",
         "profiles": [
           {
-            "name": "SdKfz 234 Heavy Armoured Car",
+            "name": "SdKfz 234/1 Heavy Armoured Car",
             "cost": {
-              "inexperienced": 71,
+              "inexperienced": 76,
               "regular": 95,
-              "veteran": 109
+              "veteran": 114
             }
           }
         ],
-        "composition": "1 SdKfz 234 Heavy Armoured Car",
-        "weapons": "1 open turret-mounted light autocannon and co-axial MMG",
-        "options": [
-          {
-            "name": "Enclosed turret and medium anti-tank gun with co axial MMG (Puma)",
-            "cost": {
-              "inexperienced": 50,
-              "regular": 50,
-              "veteran": 50
-            },
-            "max": 1
-          },
-          {
-            "name": "Fixed forward facing light howitzer (short 75mm)",
-            "cost": {
-              "inexperienced": 15,
-              "regular": 15,
-              "veteran": 15
-            },
-            "max": 1
-          },
-          {
-            "name": "Fixed forward facing heavy anti-tank gun (long 75mm)",
-            "cost": {
-              "inexperienced": 75,
-              "regular": 75,
-              "veteran": 75
-            },
-            "max": 1
-          }
-        ],
+        "composition": "1 SdKfz 234/1 Heavy Armoured Car",
+        "weapons": "1 turret-mounted light autocannon and co-axial MMG",
+        "options": [],
         "damage": "7+ (armoured car)",
         "rules": [
-          "Recce",
-          "Dual-direction steering - the 234 series can be driven from both front and rear enabling it to execute a full speed Run rate reverse",
-          "Open-topped - unless the Puma options is taken, in which case there is an enclosed turret"
+          "Recce (dual direction steering)",
+          "Open-topped"
+        ]
+      },
+      {
+        "name": "SdKfz 234/2 Puma Heavy Armoured Car",
+        "profiles": [
+          {
+            "name": "SdKfz 234/2 Puma Heavy Armoured Car",
+            "cost": {
+              "inexperienced": 128,
+              "regular": 160,
+              "veteran": 192
+            }
+          }
+        ],
+        "composition": "1 SdKfz 234/2 Puma Heavy Armoured Car",
+        "weapons": "1 turret-mounted medium anti-tank gun and co-axial MMG",
+        "options": [],
+        "damage": "7+ (armoured car)",
+        "rules": [
+          "Recce (dual direction steering)"
         ]
       }
     ],
