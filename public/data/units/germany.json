@@ -1254,7 +1254,7 @@
         "name": "Panzer III",
         "profiles": [
           {
-            "name": "Ausf H",
+            "name": "Panzer III Ausf H",
             "cost": {
               "inexperienced": 160,
               "regular": 200,
@@ -1262,7 +1262,7 @@
             }
           },
           {
-            "name": "Ausf J",
+            "name": "Panzer III Ausf J",
             "cost": {
               "inexperienced": 160,
               "regular": 200,
@@ -1397,7 +1397,7 @@
         "name": "StuG III",
         "profiles": [
           {
-            "name": "Ausf F",
+            "name": "StuG III Ausf F",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
@@ -1405,7 +1405,7 @@
             }
           },
           {
-            "name": "Ausf G",
+            "name": "StuG III Ausf G",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
@@ -1413,7 +1413,7 @@
             }
           },
           {
-            "name": "Ausf H",
+            "name": "StuG III Ausf H",
             "cost": {
               "inexperienced": 184,
               "regular": 230,
