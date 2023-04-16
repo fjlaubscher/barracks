@@ -28,7 +28,7 @@ interface SelectedOptions {
 }
 
 const UnitBuilder = ({ units, initialValues }: Props) => {
-  const [{ unit: listUnit, type, role }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+  const [{ unit: listUnit }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>(
     initialValues?.options || {}

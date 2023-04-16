@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBookOpen, FaListAlt, FaShareAlt } from 'react-icons/fa';
+import { FaBookOpen, FaShareAlt } from 'react-icons/fa';
 import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';

@@ -1,12 +1,10 @@
 import { useCallback } from 'react';
-import { FaBook, FaCog, FaPlus, FaUsers } from 'react-icons/fa';
-import { GiPistolGun, GiTank } from 'react-icons/gi';
+import { FaCog } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack, useLocalStorage } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../components/layout';
-import LinkButton from '../components/button/link';
 import ListCard from '../components/list/card';
 import Section from '../components/section';
 
