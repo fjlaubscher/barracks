@@ -21,7 +21,7 @@ const AppRoutes = () => (
     <Route path="/rules/quick-reference" element={<QuickReferenceRules />} />
     <Route path="/rules" element={<Rules />} />
     <Route path="/list/:key/edit" element={<EditList />} />
-    <Route path="/list/:key/unit/edit" element={<EditListUnit />} />
+    <Route path="/list/:key/unit/:index" element={<EditListUnit />} />
     <Route path="/list/:key/unit" element={<AddListUnit />} />
     <Route path="/list/:key" element={<List />} />
     <Route path="/list" element={<CreateList />} />

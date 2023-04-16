@@ -27,3 +27,17 @@
     border-bottom-left-radius: 0;
   }
 }
+
+.labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.max {
+  color: var(--color-accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: underline;
+}

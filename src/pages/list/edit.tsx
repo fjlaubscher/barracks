@@ -30,12 +30,23 @@ const EditList = () => {
 
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
 
-  const handleAddListUnit = useCallback(
+  const handleListUnitAdd = useCallback(
     (type: string, role: string) => {
       setUnitBuilderPayload({ type, role, unit: undefined });
       navigate(`/list/${key}/unit`);
     },
     [key, setUnitBuilderPayload, navigate]
+  );
+
+  const handleListUnitEdit = useCallback(
+    (type: string, role: string, index: number) => {
+      if (list) {
+        const unit = list.units[type][role][index];
+        setUnitBuilderPayload({ type, role, unit });
+        navigate(`/list/${key}/unit/${index}`);
+      }
+    },
+    [list, navigate, setUnitBuilderPayload]
   );
 
   const handleListUnitCopy = useCallback(
@@ -119,8 +130,8 @@ const EditList = () => {
                   title={type}
                   description={role}
                   onAddClick={() => {
-                    if (units[type][role].length > 0) {
-                      handleAddListUnit(type, role);
+                    if (units && units[type][role].length > 0) {
+                      handleListUnitAdd(type, role);
                     }
                   }}
                 >
@@ -128,6 +139,7 @@ const EditList = () => {
                     <UnitCard
                       key={`list-unit-${i}`}
                       listUnit={unit}
+                      onClick={() => handleListUnitEdit(type, role, i)}
                       onCopyClick={() => handleListUnitCopy(type, role, unit)}
                       onDeleteClick={() => handleListUnitDelete(type, role, unit)}
                     />

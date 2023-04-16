@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
@@ -21,7 +21,7 @@ import { UnitBuilderAtom } from '../../state/unit-builder';
 const EditListUnit = () => {
   const toast = useToast();
   const navigate = useNavigate();
-  const { key } = useParams();
+  const { key, index } = useParams();
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
@@ -29,30 +29,62 @@ const EditListUnit = () => {
   const { units, loading } = useArmy(list?.army || '');
 
   const handleSubmit = useCallback(() => {
-    if (!list || !unit) {
+    if (!list || !unit || !index) {
       return undefined;
     }
 
-    const otherUnits = list.units[type][role].filter((u) => u.key !== unit.key);
+    const parsedIndex = parseInt(index);
     const newUnit: Barracks.List.Unit = {
       ...unit,
       points: calculateCost(unit)
     };
+    const newUnits: Barracks.List.Units = { ...list.units };
+    newUnits[type][role][parsedIndex] = { ...newUnit };
+
+    const listPoints = list.points - list.units[type][role][parsedIndex].points;
 
     setList({
       ...list,
-      points: list.points + newUnit.points,
-      units: {
-        ...list.units,
-        [type]: {
-          ...list.units[type],
-          [role]: [newUnit, ...otherUnits]
-        }
-      }
+      points: listPoints + newUnit.points,
+      units: { ...newUnits }
     });
     toast({ text: `${newUnit.unit.name} updated.`, variant: 'success' });
     navigate(`/list/${key}/edit`);
-  }, [list, type, role, navigate, unit]);
+  }, [list, type, role, navigate, unit, index]);
+
+  const builderInitialValues = useMemo(() => {
+    if (index && units && unit) {
+      const unitIndex = units[type][role].findIndex((u) => u.name === unit.unit.name);
+      const profileIndex = unit.unit.profiles.findIndex((p) => p.name === unit.profile.name);
+      const veterancyIndex = Object.keys(unit.unit.profiles[profileIndex].cost).findIndex(
+        (c) => c === unit.veterancy
+      );
+      const takenOptionNames = unit.options.map((o) => o.option.name);
+      const options: { [index: number]: number } = unit.unit.options.reduce(
+        (acc, option, index) => {
+          const takenOptionIndex = takenOptionNames.indexOf(option.name);
+          if (takenOptionIndex >= 0) {
+            return {
+              ...acc,
+              [index]: unit.options[takenOptionIndex].amount
+            };
+          }
+
+          return acc;
+        },
+        {}
+      );
+
+      return {
+        unitIndex,
+        profileIndex,
+        veterancyIndex,
+        options
+      };
+    }
+
+    return undefined;
+  }, [units, type, role, unit]);
 
   if (!type && !role) {
     return <Navigate to={`/list/${key}/edit`} />;
@@ -71,7 +103,9 @@ const EditListUnit = () => {
       <Stack direction="column">
         <BackButton to={`/list/${key}/edit`} />
         {unit && <UnitListCard listUnit={unit} />}
-        {list && units && <UnitBuilder units={units[type][role]} />}
+        {list && units && (
+          <UnitBuilder units={units[type][role]} initialValues={builderInitialValues} />
+        )}
       </Stack>
     </Layout>
   );

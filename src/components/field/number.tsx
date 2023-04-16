@@ -29,7 +29,14 @@ const NumberField = ({
   maximum = -1
 }: Props) => (
   <Field className={className} error={errorMessage}>
-    <label htmlFor={name}>{label}</label>
+    <div className={styles.labels}>
+      <label htmlFor={name}>{label}</label>
+      {maximum > 1 && value !== maximum ? (
+        <span onClick={() => onChange(maximum)} className={styles.max}>
+          Max
+        </span>
+      ) : undefined}
+    </div>
     <div className={styles.buttons}>
       <Button disabled={value === minimum} onClick={() => onChange(value - step)}>
         <FaMinus />

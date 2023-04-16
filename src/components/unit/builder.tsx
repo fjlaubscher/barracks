@@ -15,19 +15,31 @@ import styles from './unit.module.scss';
 
 interface Props {
   units: Barracks.Unit[];
+  initialValues?: {
+    unitIndex: number;
+    profileIndex: number;
+    veterancyIndex: number;
+    options: SelectedOptions;
+  };
 }
 
 interface SelectedOptions {
   [index: number]: number;
 }
 
-const UnitBuilder = ({ units }: Props) => {
-  const [{ unit: listUnit }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+const UnitBuilder = ({ units, initialValues }: Props) => {
+  const [{ unit: listUnit, type, role }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
 
-  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({});
-  const [selectedUnitIndex, setSelectedUnitIndex] = useState(0);
-  const [selectedProfileIndex, setSelectedProfileIndex] = useState(0);
-  const [selectedVeterancyIndex, setSelectedVeterancyIndex] = useState(0);
+  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>(
+    initialValues?.options || {}
+  );
+  const [selectedUnitIndex, setSelectedUnitIndex] = useState(initialValues?.unitIndex || 0);
+  const [selectedProfileIndex, setSelectedProfileIndex] = useState(
+    initialValues?.profileIndex || 0
+  );
+  const [selectedVeterancyIndex, setSelectedVeterancyIndex] = useState(
+    initialValues?.veterancyIndex || 0
+  );
 
   const unitOptions = useMemo(
     () => units.map((unit, i) => ({ value: i, description: unit.name } as matter.Option)),
