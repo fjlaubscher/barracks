@@ -1,22 +1,20 @@
 import { useCallback, useMemo } from 'react';
-import { FaEdit } from 'react-icons/fa';
+import { FaClone, FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, Card, useToast } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, Card, useToast, Button } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
 
 // components
 import Layout from '../../components/layout';
-import LinkButton from '../../components/button/link';
 import ListUnitCard from '../../components/unit/list-card';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
-import Weapons from '../../components/rules/weapons';
 
 // helpers
 import useArmy from '../../helpers/use-army';
 import useCore from '../../helpers/use-core';
 import useList from '../../helpers/use-list';
-import { calculateOrderDice, shareList } from '../../helpers/list';
+import { buildTextList, calculateOrderDice, shareListImage } from '../../helpers/list';
 
 import styles from './list.module.scss';
 
@@ -31,20 +29,31 @@ const List = () => {
 
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
 
-  const handleShare = useCallback(async () => {
+  const handleCopyList = useCallback(async () => {
     if (list) {
-      const result = await shareList(list);
+      const text = buildTextList(list);
+      await navigator.clipboard.writeText(text);
 
+      toast({
+        text: 'List copied to clipboard.',
+        variant: 'success'
+      });
+    }
+  }, [toast, list]);
+
+  const handleImageShare = useCallback(async () => {
+    if (list) {
+      const result = await shareListImage(list);
       if (result.success) {
         toast({
-          text: result.method === 'clipboard' ? 'List copied to clipboard.' : 'List shared.',
+          text: 'List shared.',
           variant: 'success'
         });
       } else {
         toast({ text: 'Unable to share list.', variant: 'error' });
       }
     }
-  }, [toast, list]);
+  }, [list, totalOrderDice]);
 
   return (
     <Layout
@@ -55,7 +64,7 @@ const List = () => {
         </IconButton>
       }
       isLoading={loadingCore || loadingArmy}
-      onShareClick={handleShare}
+      onShareClick={handleImageShare}
     >
       {army && data && list && (
         <>
@@ -69,10 +78,13 @@ const List = () => {
               <Stat
                 title="Points"
                 value={`${list.points}/${list.limit}`}
-                description={`${totalOrderDice} Order Dice`}
+                description={`Order Dice: ${totalOrderDice}`}
               />
             </Stats>
           </Stack>
+          <Button leftIcon={<FaClone />} className={styles.copyButton} onClick={handleCopyList}>
+            Copy to clipboard
+          </Button>
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) =>
