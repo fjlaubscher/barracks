@@ -58,7 +58,7 @@ declare namespace Barracks {
     };
     rules: {
       [key: string]: Barracks.Item[];
-    }
+    };
   }
 
   interface List {
@@ -75,6 +75,7 @@ declare namespace Barracks {
   interface Settings {
     primaryColor: string;
     accentColor: string;
+    banner: number;
   }
 }
 

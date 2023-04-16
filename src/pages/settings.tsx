@@ -1,4 +1,4 @@
-import { useLocalStorage, useToast, IconButton } from '@fjlaubscher/matter';
+import { useLocalStorage, useToast, IconButton, Alert } from '@fjlaubscher/matter';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -28,6 +28,12 @@ const Settings = () => {
     (values: Barracks.Settings) => {
       setSettings(values);
       overrideStyles(values);
+
+      toast({
+        variant: 'success',
+        text: 'Settings saved.'
+      });
+      navigate('/');
     },
     [setSettings, toast, navigate]
   );
@@ -48,6 +54,15 @@ const Settings = () => {
           </IconButton>
         }
       >
+        <Alert variant="info">
+          Barracks is a free and open-source Bolt-Action assistant.
+          <br />
+          <br />
+          Have any issues with the app?
+          <a href="https://github.com/fjlaubscher/barracks/issues" target="_blank">
+            https://github.com/fjlaubscher/barracks/issues
+          </a>
+        </Alert>
         <SettingsForm onSubmit={handleSubmit} />
       </Layout>
     </FormProvider>
