@@ -33,10 +33,10 @@ const UnitCard = ({ listUnit, onClick, onCopyClick, onDeleteClick }: Props) => {
         {listUnit.options.map((o, i) => (
           <Tag key={`option-${i}`}>
             {o.amount > 1 ? `${o.amount} x ` : ''}
-            {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount})
+            {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount}pts)
           </Tag>
         ))}
-        <Tag variant={'warning'}>{calculatedCost}pts</Tag>
+        <Tag variant="warning">{calculatedCost}pts</Tag>
       </TagGroup>
     </Card>
   );

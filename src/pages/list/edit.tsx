@@ -39,10 +39,9 @@ const EditList = () => {
   );
 
   const handleListUnitEdit = useCallback(
-    (type: string, role: string, index: number) => {
+    (type: string, role: string, listUnit: Barracks.List.Unit, index: number) => {
       if (list) {
-        const unit = list.units[type][role][index];
-        setUnitBuilderPayload({ type, role, unit });
+        setUnitBuilderPayload({ type, role, unit: { ...listUnit } });
         navigate(`/list/${key}/unit/${index}`);
       }
     },
@@ -76,7 +75,7 @@ const EditList = () => {
   );
 
   const handleListUnitDelete = useCallback(
-    (type: string, role: string, listUnit: Barracks.List.Unit) => {
+    (type: string, role: string, listUnit: Barracks.List.Unit, index: number) => {
       if (list) {
         setList({
           ...list,
@@ -85,7 +84,7 @@ const EditList = () => {
             ...list.units,
             [type]: {
               ...list.units[type],
-              [role]: list.units[type][role].filter((unit) => unit.key !== listUnit.key)
+              [role]: list.units[type][role].filter((_, i) => i !== index)
             }
           }
         });
@@ -139,9 +138,9 @@ const EditList = () => {
                     <UnitCard
                       key={`list-unit-${i}`}
                       listUnit={unit}
-                      onClick={() => handleListUnitEdit(type, role, i)}
+                      onClick={() => handleListUnitEdit(type, role, unit, i)}
                       onCopyClick={() => handleListUnitCopy(type, role, unit)}
-                      onDeleteClick={() => handleListUnitDelete(type, role, unit)}
+                      onDeleteClick={() => handleListUnitDelete(type, role, unit, i)}
                     />
                   ))}
                 </Section>

@@ -15,7 +15,7 @@ const ListUnitCard = ({ listUnit }: Props) => {
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   return (
-    <Card title={`${listUnit.profile.name} - ${calculatedCost}pts`}>
+    <Card title={listUnit.profile.name}>
       <Table headings={[{ text: '' }, { text: '' }]}>
         <tr>
           <td>Composition</td>
@@ -63,9 +63,10 @@ const ListUnitCard = ({ listUnit }: Props) => {
         {listUnit.options.map((o, i) => (
           <Tag key={`option-${i}`}>
             {o.amount > 1 ? `${o.amount} x ` : ''}
-            {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount})
+            {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount}pts)
           </Tag>
         ))}
+        <Tag variant="warning">{calculatedCost}pts</Tag>
       </TagGroup>
     </Card>
   );

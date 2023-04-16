@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { FaBook, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Stat, IconButton, Stack, Card, useToast } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
@@ -93,9 +93,6 @@ const List = () => {
                   <p>{rule.description}</p>
                 </Card>
               ))}
-            </Section>
-            <Section title="Rules" description="Weapons">
-              <Weapons weapons={data.weapons} />
             </Section>
           </Stack>
         </>

@@ -34,21 +34,19 @@ const EditListUnit = () => {
     }
 
     const parsedIndex = parseInt(index);
-    const newUnit: Barracks.List.Unit = {
-      ...unit,
-      points: calculateCost(unit)
-    };
-    const newUnits: Barracks.List.Units = { ...list.units };
-    newUnits[type][role][parsedIndex] = { ...newUnit };
+    const oldCost = calculateCost(list.units[type][role][parsedIndex]);
+    const newCost = calculateCost(unit);
+    const listPoints = list.points - oldCost;
 
-    const listPoints = list.points - list.units[type][role][parsedIndex].points;
+    const newUnits: Barracks.List.Units = { ...list.units };
+    newUnits[type][role][parsedIndex] = { ...unit, points: newCost };
 
     setList({
       ...list,
-      points: listPoints + newUnit.points,
+      points: listPoints + newCost,
       units: { ...newUnits }
     });
-    toast({ text: `${newUnit.unit.name} updated.`, variant: 'success' });
+    toast({ text: `${unit.unit.name} updated.`, variant: 'success' });
     navigate(`/list/${key}/edit`);
   }, [list, type, role, navigate, unit, index]);
 
