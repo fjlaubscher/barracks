@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-03-24T00:00Z",
+  "lastUpdated": "2023-04-17T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -140,128 +140,10 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Regular Infantry Squad",
+        "name": "Rifle Squad",
         "profiles": [
           {
-            "name": "Regular Infantry Squad",
-            "cost": {
-              "regular": 50
-            }
-          }
-        ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
-        "options": [
-          {
-            "name": "Additional soldier",
-            "cost": {
-              "regular": 10
-            },
-            "max": 7
-          },
-          {
-            "name": "SMG",
-            "cost": {
-              "regular": 3
-            },
-            "max": 12
-          },
-          {
-            "name": "LMG",
-            "cost": {
-              "regular": 20
-            },
-            "max": 1
-          },
-          {
-            "name": "Panzerfaust",
-            "cost": {
-              "regular": 5
-            },
-            "max": 1
-          },
-          {
-            "name": "Anti-tank grenades",
-            "cost": {
-              "regular": 2
-            },
-            "max": 12
-          }
-        ],
-        "rules": [
-          "Tank Hunters (if anti-tank grenades taken)"
-        ]
-      },
-      {
-        "name": "Guard, NKVD or Veteran Infantry Squad",
-        "profiles": [
-          {
-            "name": "Guard Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "NKVD Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Veteran Infantry",
-            "cost": {
-              "veteran": 65
-            }
-          }
-        ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
-        "options": [
-          {
-            "name": "Additional soldier",
-            "cost": {
-              "veteran": 13
-            },
-            "max": 7
-          },
-          {
-            "name": "SMG",
-            "cost": {
-              "veteran": 3
-            },
-            "max": 12
-          },
-          {
-            "name": "LMG",
-            "cost": {
-              "veteran": 20
-            },
-            "max": 1
-          },
-          {
-            "name": "Panzerfaust",
-            "cost": {
-              "veteran": 5
-            },
-            "max": 1
-          },
-          {
-            "name": "Anti-tank grenades",
-            "cost": {
-              "veteran": 2
-            },
-            "max": 12
-          }
-        ],
-        "rules": [
-          "Tank Hunters (if anti-tank grenades taken)"
-        ]
-      },
-      {
-        "name": "Inexperienced Infantry Squad",
-        "profiles": [
-          {
-            "name": "Inexperienced Infantry",
+            "name": "Rifle Squad",
             "cost": {
               "inexperienced": 35
             }
@@ -278,44 +160,386 @@
             "max": 7
           },
           {
+            "name": "Anti-tank grenades (molotov cocktails)",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Green",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Light Machine Gun Squad",
+        "profiles": [
+          {
+            "name": "Light Machine Gun Squad",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10
+            },
+            "max": 7
+          },
+          {
             "name": "SMG",
             "cost": {
-              "inexperienced": 3
+              "inexperienced": 3,
+              "regular": 3
             },
             "max": 1
           },
           {
             "name": "LMG",
             "cost": {
-              "inexperienced": 20
+              "inexperienced": 20,
+              "regular": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2,
+              "regular": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Submachine Gun Squad",
+        "profiles": [
+          {
+            "name": "Submachine Gun Squad",
+            "cost": {
+              "inexperienced": 50,
+              "regular": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Submachine guns",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 13
+            },
+            "max": 7
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20
             },
             "max": 1
           },
           {
             "name": "Anti-tank grenades",
             "cost": {
-              "inexperienced": 2
+              "inexperienced": 2,
+              "regular": 2
             },
             "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Tank Riders Squad",
+        "profiles": [
+          {
+            "name": "Tank Riders Squad",
+            "cost": {
+              "regular": 65,
+              "veteran": 80
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Submachine guns",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 13,
+              "veteran": 16
+            },
+            "max": 6
           },
           {
-            "name": "Green",
+            "name": "LMG",
             "cost": {
-              "inexperienced": 0
+              "veteran": 20
             },
             "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 11
+          },
+          {
+            "name": "SN-42 Body Armour",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 11
           }
         ],
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)",
-          "Green (if option taken)"
+          "Tank Riders: A tank rider unit can mount onto or dismount from a tank counting it as a transport for these purposes."
         ]
       },
       {
-        "name": "Machine Gun Team",
+        "name": "Guards Squad",
         "profiles": [
           {
-            "name": "Machine Gun Team",
+            "name": "Guards Squad",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 11
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "regular": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Veteran Squad",
+        "profiles": [
+          {
+            "name": "Veteran Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 11
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Panzerfaust",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 11
+          },
+          {
+            "name": "Tough Fighters",
+            "cost": {
+              "veteran": 1
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Tough Fighters (if option is taken)"
+        ]
+      },
+      {
+        "name": "NKVD Squad",
+        "profiles": [
+          {
+            "name": "NKVD Squad",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 11
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Fanatics",
+            "cost": {
+              "regular": 3
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Fanatics (if option is taken)"
+        ]
+      },
+      {
+        "name": "Assault Engineer Squad",
+        "profiles": [
+          {
+            "name": "Assault Engineer Squad",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 11
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "SN-42 Body Armour",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 11
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Medium Machine Gun Team",
+        "profiles": [
+          {
+            "name": "Medium Machine Gun Team",
             "cost": {
               "inexperienced": 35,
               "regular": 50,
@@ -358,7 +582,8 @@
         "weapons": "1 Anti-tank rifle",
         "options": [],
         "rules": [
-          "Team weapon"
+          "Team weapon",
+          "Extra selection: You may take up to 3 anti-tank teams as 1 selection in each reinforced platoon"
         ]
       },
       {
