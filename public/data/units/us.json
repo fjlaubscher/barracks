@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-03-24T00:00Z",
+  "lastUpdated": "2023-04-25T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -524,7 +524,7 @@
             }
           }
         ],
-        "composition": "1 M5 Stuart",
+        "composition": "1 M3 Stuart",
         "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG and 2 forward facing hull-mounted MMGs",
         "options": [
           {

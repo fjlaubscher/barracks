@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-04-04T00:00Z",
+  "lastUpdated": "2023-04-25T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -60,7 +60,7 @@
             "name": "Artillery Forward Observer",
             "cost": {
               "regular": 0,
-              "veteran": 115
+              "veteran": 0
             }
           },
           {
@@ -742,6 +742,94 @@
   "vehicles": {
     "Tanks": [
       {
+        "name": "Churchill",
+        "profiles": [
+          {
+            "name": "Churchill",
+            "cost": {
+              "inexperienced": 212,
+              "regular": 265,
+              "veteran": 318
+            }
+          }
+        ],
+        "composition": "1 Churchill",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "Crocodile variant - replace the hull-mounted MMG with a flamethrower",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 40,
+              "veteran": 40
+            },
+            "max": 1
+          },
+          {
+            "name": "95mm medium howitzer",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            },
+            "max": 1
+          }
+        ],
+        "damage": "10+ (heavy tank)",
+        "rules": [
+          "Slow",
+          "HE - instead of using the 1\" template, a Churchill's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      },
+      {
+        "name": "Cromwell",
+        "profiles": [
+          {
+            "name": "Cromwell",
+            "cost": {
+              "inexperienced": 156,
+              "regular": 195,
+              "veteran": 234
+            }
+          }
+        ],
+        "composition": "1 Cromwell",
+        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "options": [
+          {
+            "name": "95mm medium howitzer - replaces AT gun",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            },
+            "max": 1
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "HE - instead of using the 1\" template, a Cromwell's HE rounds use the 2\" template (75mm gun tanks)"
+        ]
+      },
+      {
+        "name": "Crusader III",
+        "profiles": [
+          {
+            "name": "Crusader III",
+            "cost": {
+              "inexperienced": 116,
+              "regular": 145,
+              "veteran": 174
+            }
+          }
+        ],
+        "composition": "1 Crusader III",
+        "weapons": "1 Turret-mounted 6-pdr medium anti-tank gun with co-axial MMG",
+        "options": [],
+        "damage": "8+ (light tank)",
+        "rules": []
+      },
+      {
         "name": "M3 Stuart",
         "profiles": [
           {
@@ -753,7 +841,7 @@
             }
           }
         ],
-        "composition": "1 M5 Stuart",
+        "composition": "1 M3 Stuart",
         "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG and 2 forward facing hull-mounted MMGs",
         "options": [
           {
@@ -880,36 +968,6 @@
         ]
       },
       {
-        "name": "Cromwell",
-        "profiles": [
-          {
-            "name": "Cromwell",
-            "cost": {
-              "inexperienced": 156,
-              "regular": 195,
-              "veteran": 234
-            }
-          }
-        ],
-        "composition": "1 Cromwell",
-        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "95mm medium howitzer - replaces AT gun",
-            "cost": {
-              "inexperienced": 0,
-              "regular": 0,
-              "veteran": 0
-            },
-            "max": 1
-          }
-        ],
-        "damage": "9+ (medium tank)",
-        "rules": [
-          "HE - instead of using the 1\" template, a Cromwell's HE rounds use the 2\" template (75mm gun tanks)"
-        ]
-      },
-      {
         "name": "Sherman Firefly",
         "profiles": [
           {
@@ -937,46 +995,6 @@
         "damage": "9+ (medium tank)",
         "rules": [
           "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test"
-        ]
-      },
-      {
-        "name": "Churchill",
-        "profiles": [
-          {
-            "name": "Churchill",
-            "cost": {
-              "inexperienced": 212,
-              "regular": 265,
-              "veteran": 318
-            }
-          }
-        ],
-        "composition": "1 Churchill",
-        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "Crocodile variant - replace the hull-mounted MMG with a flamethrower",
-            "cost": {
-              "inexperienced": 40,
-              "regular": 40,
-              "veteran": 40
-            },
-            "max": 1
-          },
-          {
-            "name": "95mm medium howitzer",
-            "cost": {
-              "inexperienced": 0,
-              "regular": 0,
-              "veteran": 0
-            },
-            "max": 1
-          }
-        ],
-        "damage": "10+ (heavy tank)",
-        "rules": [
-          "Slow",
-          "HE - instead of using the 1\" template, a Churchill's HE rounds use the 2\" template (75mm gun tanks)"
         ]
       }
     ],
