@@ -26,6 +26,13 @@
   }
 }
 
+.rules {
+  p {
+    color: bbb;
+
+  }
+}
+
 .list {
   font-size: 0.9rem;
   padding-left: 1.5rem;
@@ -60,13 +67,5 @@
     li {
       margin-bottom: 0.5rem;
     }
-  }
-}
-
-.rules {
-  @media (min-width: breakpoints.$tablet) {
-    flex-direction: row-reverse !important;
-    align-items: flex-start;
-    justify-content: space-between;
   }
 }

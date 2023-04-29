@@ -1,7 +1,6 @@
 .card {
   cursor: pointer;
-  padding: 0.5rem;
-  padding-left: 1rem;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -11,16 +10,32 @@
     margin-bottom: 0.5rem;
   }
 
-  .title {
+  .header {
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 0.5rem;
 
-    span {
+    .title {
       padding-top: 0.5rem;
-      white-space: nowrap;
+      gap: 0.25rem;
       overflow: hidden;
-      text-overflow: ellipsis;
+
+      span:nth-child(1) {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: var(--color-accent);
+        font-weight: bold;
+      }
+    }
+
+    .description {
+      font-size: 0.75rem;
+      color: var(--color-dark-border);
+
+      @media (prefers-color-scheme: dark) {
+        color: var(--color-light-border);
+      }
     }
   }
 

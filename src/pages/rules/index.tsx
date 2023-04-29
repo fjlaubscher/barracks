@@ -1,6 +1,6 @@
-import { Stack, Stat, Image } from '@fjlaubscher/matter';
-import { GiPistolGun, GiTank } from 'react-icons/gi';
-import { FaBookOpen, FaUsers } from 'react-icons/fa';
+import { Stack, Stat } from '@fjlaubscher/matter';
+import { GiFlagObjective, GiPistolGun, GiTank } from 'react-icons/gi';
+import { FaBookOpen, FaFlag, FaUsers } from 'react-icons/fa';
 
 // components
 import Layout from '../../components/layout';
@@ -23,22 +23,22 @@ const Rules = () => {
           value="Rules"
           description={`Last updated: ${formatDate(data?.lastUpdated)}`}
         />
-        <Stack className={styles.rules} direction="column">
-          <Image src="/bolt-action-2nd-ed.jpg" alt="Bolt Action: Second Edition" />
-          <Stack direction="column">
-            <LinkButton leftIcon={<FaBookOpen />} to="/rules/quick-reference">
-              Quick Reference
-            </LinkButton>
-            <LinkButton leftIcon={<FaUsers />} to="/rules/units">
-              Unit Special Rules
-            </LinkButton>
-            <LinkButton leftIcon={<GiTank />} to="/rules/vehicles">
-              Vehicle Special Rules
-            </LinkButton>
-            <LinkButton leftIcon={<GiPistolGun />} to="/rules/weapons">
-              Weapon Special Rules
-            </LinkButton>
-          </Stack>
+        <Stack direction="column">
+          <LinkButton leftIcon={<FaBookOpen />} to="/rules/core">
+            Core Rules
+          </LinkButton>
+          <LinkButton leftIcon={<FaFlag />} to="/rules/armies">
+            Army Rules
+          </LinkButton>
+          <LinkButton leftIcon={<FaUsers />} to="/rules/units">
+            Unit Special Rules
+          </LinkButton>
+          <LinkButton leftIcon={<GiTank />} to="/rules/vehicles">
+            Vehicle Special Rules
+          </LinkButton>
+          <LinkButton leftIcon={<GiPistolGun />} to="/rules/weapons">
+            Weapon Special Rules
+          </LinkButton>
         </Stack>
       </Stack>
     </Layout>

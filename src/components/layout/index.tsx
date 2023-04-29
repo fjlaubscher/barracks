@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import type { ReactNode } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
 import { FaBookOpen, FaShareAlt } from 'react-icons/fa';
@@ -12,11 +13,11 @@ import LinkButton from '../button/link';
 import styles from './layout.module.scss';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
   title: string;
   description?: string;
   image?: string;
-  action?: React.ReactNode;
+  action?: ReactNode;
   isLoading?: boolean;
   onShareClick?: () => void;
 }
@@ -68,7 +69,7 @@ const AppLayout = ({
       action={action}
       title={title}
       home={
-        <Link className={styles.home} to="/">
+        <Link to="/">
           <GiBarracks />
         </Link>
       }
@@ -85,11 +86,11 @@ const AppLayout = ({
             leftIcon={<GiTank />}
             className={classnames(
               styles.action,
-              pathname.includes('/arm') ? styles.active : undefined
+              pathname.includes('/list') ? styles.active : undefined
             )}
-            to="/armies"
+            to="/lists"
           >
-            Armies
+            Army Lists
           </LinkButton>
           <LinkButton
             leftIcon={<FaBookOpen />}

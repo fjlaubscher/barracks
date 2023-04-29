@@ -12,6 +12,7 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "postbuild": "react-snap",
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{ts,tsx}\""
@@ -34,9 +35,20 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "prettier": "^2.8.4",
+    "react-snap": "^1.23.0",
     "sass": "^1.58.3",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
     "vite-plugin-pwa": "^0.14.4"
+  },
+  "resolutions": {
+    "puppeteer": "^13"
+  },
+  "reactSnap": {
+    "source": "./dist",
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
   }
 }

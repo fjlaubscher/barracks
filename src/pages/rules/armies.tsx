@@ -3,12 +3,13 @@ import { useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 // components
-import Card from '../components/card';
-import Layout from '../components/layout';
+import Card from '../../components/card';
+import Layout from '../../components/layout';
 
 // helpers
-import { formatDate } from '../helpers/date';
-import { ARMIES } from '../helpers/storage';
+import { formatDate } from '../../helpers/date';
+import { ARMIES } from '../../helpers/storage';
+import BackButton from '../../components/button/back';
 
 const Armies = () => {
   const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Armies = () => {
           value="Armies"
           description={`Last updated: ${formatDate(armies?.lastUpdated)}`}
         />
+        <BackButton to="/rules" />
         <Alert title="🚧 Don't see everything?" variant="info">
           Currently, Barracks only includes the rules and units from the 2nd edition rulebook.
           <br />
@@ -38,7 +40,11 @@ const Armies = () => {
         </Alert>
         {armies &&
           armyKeys.map((key) => (
-            <Card key={key} title={armies[key].name} onClick={() => navigate(`/army/${key}`)}>
+            <Card
+              key={key}
+              title={armies[key].name}
+              onClick={() => navigate(`/rules/armies/${key}`)}
+            >
               <TagGroup>
                 {armies[key].rules.map((rule, i) => (
                   <Tag variant="info" key={`rule-${i}`}>

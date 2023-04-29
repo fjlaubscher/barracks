@@ -1,10 +1,11 @@
 import { useCallback, useMemo } from 'react';
 import { FaClone, FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, Card, useToast, Button } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, useToast, Button } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
 
 // components
+import Card from '../../components/card';
 import Layout from '../../components/layout';
 import ListUnitCard from '../../components/unit/list-card';
 import Stats from '../../components/stats';

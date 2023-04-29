@@ -1,7 +1,8 @@
-import { Stack, Stat, Table, Card } from '@fjlaubscher/matter';
+import { Stack, Stat, Table } from '@fjlaubscher/matter';
 
 // components
 import BackButton from '../../components/button/back';
+import Card from '../../components/card';
 import ContentsModal from '../../components/contents-modal';
 import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
@@ -90,11 +91,11 @@ const QuickReferenceRules = () => {
   return (
     <Layout title="Rules" isLoading={loading}>
       {data && (
-        <Stack direction="column">
+        <Stack className={styles.rules} direction="column">
           <ContentsModal items={CONTENTS} />
           <Stat
             title="Barracks"
-            value="Quick Reference"
+            value="Core Rules"
             description={`Last updated: ${formatDate(data?.lastUpdated)}`}
           />
           <BackButton to="/rules" />

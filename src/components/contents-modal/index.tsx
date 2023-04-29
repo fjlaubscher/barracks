@@ -6,10 +6,7 @@ import styles from './contents-modal.module.scss';
 
 interface Props {
   items: {
-    [key: string]: {
-      text: string;
-      href: string;
-    }[];
+    [key: string]: Barracks.ItemLink[];
   };
   visible?: boolean;
 }

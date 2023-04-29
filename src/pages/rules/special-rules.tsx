@@ -21,23 +21,26 @@ const SpecialRules = () => {
   const category = key ? capitalize(key) : '';
 
   const contents = useMemo(() => {
-    if (key && data?.rules[key]) {
+    if (key && data?.rules && data.rules[key]) {
       return {
-        [category]: data.rules[key].map((r) => ({
-          text: r.name,
-          href: `#${slugify(r.name)}`
-        }))
+        [category]: data.rules[key].map(
+          (r) =>
+            ({
+              text: r.name,
+              href: `#${slugify(r.name)}`
+            } as Barracks.ItemLink)
+        )
       };
     }
 
-    return { key: [] };
+    return undefined;
   }, [category, data, key]);
 
   return (
     <Layout title="Rules" isLoading={loading}>
       {key && data && (
         <Stack direction="column">
-          <ContentsModal items={contents} />
+          {contents && <ContentsModal items={contents} />}
           <Stat
             title="Rules"
             value={`${category.slice(0, category.length - 1)} Special Rules`}

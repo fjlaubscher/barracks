@@ -1,4 +1,7 @@
-import { Card, Table } from '@fjlaubscher/matter';
+import { Table } from '@fjlaubscher/matter';
+
+// components
+import Card from '../card';
 
 import styles from './army.module.scss';
 

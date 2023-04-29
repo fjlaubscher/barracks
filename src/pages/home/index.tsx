@@ -1,35 +1,15 @@
-import { useCallback } from 'react';
-import { FaCog } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
-import { Alert, IconButton, Image, Stack, useLocalStorage } from '@fjlaubscher/matter';
+import { FaBookOpen, FaCog, FaFileAlt } from 'react-icons/fa';
+import { GiTank } from 'react-icons/gi';
+import { Link, useNavigate } from 'react-router-dom';
+import { IconButton, Stack, Stat } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
-import ListCard from '../../components/list/card';
-import Section from '../../components/section';
-
-// helpers
-import { LISTS, SETTINGS } from '../../helpers/storage';
-import { BANNER_IMAGES } from '../../helpers/settings';
 
 import styles from './home.module.scss';
 
 const Home = () => {
   const navigate = useNavigate();
-  const [settings] = useLocalStorage<Barracks.Settings>(SETTINGS);
-  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
-
-  const handleListDelete = useCallback(
-    (key: string) => {
-      if (lists) {
-        setLists(lists.filter((l) => l.key !== key));
-      }
-    },
-    [lists, setLists]
-  );
-
-  const bannerImage = BANNER_IMAGES[settings?.banner ?? 0];
-  const hasLists = lists && lists.length > 0;
 
   return (
     <Layout
@@ -40,21 +20,18 @@ const Home = () => {
         </IconButton>
       }
     >
-      <Image className={styles.banner} alt={bannerImage.name} src={bannerImage.url} />
-      <Stack direction="column">
-        <Section title="Barracks" description="Army Lists" onAddClick={() => navigate('/list')}>
-          {hasLists ? (
-            lists.map((list) => (
-              <ListCard
-                key={list.key}
-                list={list}
-                onDeleteClick={() => handleListDelete(list.key)}
-              />
-            ))
-          ) : (
-            <Alert variant="warning">You don&apos;t have any lists yet.</Alert>
-          )}
-        </Section>
+      <Stack className={styles.home} direction="column">
+        <Stat title="Barracks" value="Home" description="Welcome to Barracks!" />
+        <Stack className={styles.tiles} direction="column">
+          <Link className={styles.tile} to="/rules">
+            <FaBookOpen />
+            <span>Need help with the rules?</span>
+          </Link>
+          <Link className={styles.tile} to="/lists">
+            <GiTank />
+            <span>Army Lists</span>
+          </Link>
+        </Stack>
       </Stack>
     </Layout>
   );

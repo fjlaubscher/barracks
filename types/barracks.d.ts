@@ -6,6 +6,11 @@ declare namespace Barracks {
     description: string;
   }
 
+  interface ItemLink {
+    text: string;
+    href: string;
+  }
+
   interface Army {
     lastUpdated: string;
     name: string;
@@ -75,7 +80,6 @@ declare namespace Barracks {
   interface Settings {
     primaryColor: string;
     accentColor: string;
-    banner: number;
   }
 }
 

@@ -1,5 +1,8 @@
-import { Card, TagGroup, Tag, Table } from '@fjlaubscher/matter';
+import { TagGroup, Tag, Table } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
+
+// components
+import Card from '../card';
 
 // helpers
 import { calculateCost, getColorFromVeterancy } from '../../helpers/unit';
@@ -15,7 +18,7 @@ const ListUnitCard = ({ listUnit }: Props) => {
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   return (
-    <Card title={listUnit.profile.name}>
+    <Card title={listUnit.profile.name} description={`${calculatedCost}pts`}>
       <Table headings={[{ text: '' }, { text: '' }]}>
         <tr>
           <td>Composition</td>
@@ -66,7 +69,6 @@ const ListUnitCard = ({ listUnit }: Props) => {
             {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount}pts)
           </Tag>
         ))}
-        <Tag variant="warning">{calculatedCost}pts</Tag>
       </TagGroup>
     </Card>
   );

@@ -1,10 +1,11 @@
 import { useMemo } from 'react';
 import { FaFileAlt } from 'react-icons/fa';
-import { Card, IconButton, Image, Stack, Stat } from '@fjlaubscher/matter';
+import { IconButton, Grid, Stack, Stat } from '@fjlaubscher/matter';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
 import ArmyUnitCard from '../../components/army/unit-card';
+import Card from '../../components/card';
 import ContentsModal from '../../components/contents-modal';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
@@ -13,8 +14,7 @@ import Section from '../../components/section';
 import useArmy from '../../helpers/use-army';
 import { formatDate } from '../../helpers/date';
 import { capitalize, slugify } from '../../helpers/text';
-
-import styles from './army.module.scss';
+import BackButton from '../../components/button/back';
 
 const Army = () => {
   const { key } = useParams();
@@ -59,20 +59,20 @@ const Army = () => {
       {army && contents && units && (
         <Stack direction="column">
           <ContentsModal items={contents} />
-          <Stack className={styles.header} direction="column">
-            <Image className={styles.image} src={army.image} alt={army.name} />
-            <Stack id="army" className={styles.rules} direction="column">
-              <Stat
-                title="Army"
-                value={army.name}
-                description={`Last updated: ${formatDate(units.lastUpdated)}`}
-              />
+          <Stack direction="column">
+            <Stat
+              title="Army"
+              value={army.name}
+              description={`Last updated: ${formatDate(units.lastUpdated)}`}
+            />
+            <BackButton to="/rules/armies" />
+            <Grid simple>
               {army.rules.map((rule, i) => (
                 <Card key={`army-rule-${i}`} title={rule.name}>
                   <p>{rule.description}</p>
                 </Card>
               ))}
-            </Stack>
+            </Grid>
           </Stack>
           {Object.keys(units)
             .filter((k) => k !== 'lastUpdated')
