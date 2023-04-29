@@ -115,10 +115,13 @@ const AppLayout = ({
     >
       <Helmet>
         <title>{title} | Barracks</title>
-        <meta property="og:title" content={`${title} | Crusader`} />
+        <meta property="og:title" content={`${title} | Barracks`} />
         {description && <meta name="description" content={description} />}
         {description && <meta property="og:description" content={description} />}
-        {image && <meta property="og:image" content={image} />}
+        <meta
+          property="og:image"
+          content={image || 'https://barracks.skinnerhammer.club/android-icon.png'}
+        />
       </Helmet>
       {children}
     </Layout>

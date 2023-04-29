@@ -1,18 +1,19 @@
 import { Alert, Stack, TagGroup, Tag, useLocalStorage, Stat } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // components
+import BackButton from '../../components/button/back';
 import Card from '../../components/card';
 import Layout from '../../components/layout';
 
 // helpers
 import { formatDate } from '../../helpers/date';
 import { ARMIES } from '../../helpers/storage';
-import BackButton from '../../components/button/back';
+
+import styles from './rules.module.scss';
 
 const Armies = () => {
-  const navigate = useNavigate();
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
 
   const armyKeys = useMemo(
@@ -21,11 +22,11 @@ const Armies = () => {
   );
 
   return (
-    <Layout title="Armies">
+    <Layout title="Armies" description="View the Bolt Action units and rules of each army.">
       <Stack direction="column">
         <Stat
           title="Barracks"
-          value="Armies"
+          value="Army Rules"
           description={`Last updated: ${formatDate(armies?.lastUpdated)}`}
         />
         <BackButton to="/rules" />
@@ -40,19 +41,17 @@ const Armies = () => {
         </Alert>
         {armies &&
           armyKeys.map((key) => (
-            <Card
-              key={key}
-              title={armies[key].name}
-              onClick={() => navigate(`/rules/armies/${key}`)}
-            >
-              <TagGroup>
-                {armies[key].rules.map((rule, i) => (
-                  <Tag variant="info" key={`rule-${i}`}>
-                    {rule.name}
-                  </Tag>
-                ))}
-              </TagGroup>
-            </Card>
+            <Link key={key} className={styles.link} to={`/rules/armies/${key}`}>
+              <Card key={key} title={armies[key].name} role="link">
+                <TagGroup>
+                  {armies[key].rules.map((rule, i) => (
+                    <Tag variant="info" key={`rule-${i}`}>
+                      {rule.name}
+                    </Tag>
+                  ))}
+                </TagGroup>
+              </Card>
+            </Link>
           ))}
       </Stack>
     </Layout>

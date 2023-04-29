@@ -36,14 +36,17 @@ const SpecialRules = () => {
     return undefined;
   }, [category, data, key]);
 
+  const categoryName = category.slice(0, category.length - 1);
+  const title = `${categoryName} Special Rules`;
+
   return (
-    <Layout title="Rules" isLoading={loading}>
+    <Layout title={title} description={`View the ${title}`} isLoading={loading}>
       {key && data && (
         <Stack direction="column">
           {contents && <ContentsModal items={contents} />}
           <Stat
-            title="Rules"
-            value={`${category.slice(0, category.length - 1)} Special Rules`}
+            title="Barracks"
+            value={title}
             description={`Last updated: ${formatDate(data?.lastUpdated)}`}
           />
           <BackButton to="/rules" />

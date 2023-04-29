@@ -20,9 +20,10 @@ const Card = ({
   onCopyClick,
   onDeleteClick,
   title,
-  description
+  description,
+  role
 }: Props) => (
-  <MatterCard className={classnames(styles.card, className)} onClick={onClick}>
+  <MatterCard className={classnames(styles.card, className)} onClick={onClick} role={role}>
     <Stack className={styles.header} direction="row">
       <Stack className={styles.title} direction="column">
         <span>{title}</span>

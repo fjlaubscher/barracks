@@ -18,7 +18,7 @@ const NotFound = () => {
   }, []);
 
   return (
-    <Layout title="Not Found">
+    <Layout title="Not Found" description="The page you're looking for doesn't exist!">
       <div className={styles.content}>
         <GiBarracks className={styles.notFound} />
       </div>

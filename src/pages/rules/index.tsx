@@ -16,7 +16,11 @@ const Rules = () => {
   const { data, loading } = useCore();
 
   return (
-    <Layout title="Rules" isLoading={loading}>
+    <Layout
+      title="Rules"
+      description="View the core and special rules of Bolt Action 2nd edition."
+      isLoading={loading}
+    >
       <Stack direction="column">
         <Stat
           title="Barracks"

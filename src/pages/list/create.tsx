@@ -62,6 +62,7 @@ const CreateList = () => {
     <FormProvider {...form}>
       <Layout
         title="New List"
+        description="Create a new list with Barracks."
         action={
           <IconButton
             disabled={!isValid || isSubmitting}

@@ -89,7 +89,11 @@ const QuickReferenceRules = () => {
   const { data, loading } = useCore();
 
   return (
-    <Layout title="Rules" isLoading={loading}>
+    <Layout
+      title="Core Rules"
+      description="View the core rules of Bolt Action 2nd edition."
+      isLoading={loading}
+    >
       {data && (
         <Stack className={styles.rules} direction="column">
           <ContentsModal items={CONTENTS} />

@@ -48,7 +48,8 @@ const Army = () => {
 
   return (
     <Layout
-      title="Army"
+      title={army?.name || 'Army'}
+      description={`View the Bolt Action units and rules of ${army?.name}.`}
       action={
         <IconButton onClick={() => navigate(`/list?army=${key}`)}>
           <FaFileAlt />
@@ -61,7 +62,7 @@ const Army = () => {
           <ContentsModal items={contents} />
           <Stack direction="column">
             <Stat
-              title="Army"
+              title="Army Rules"
               value={army.name}
               description={`Last updated: ${formatDate(units.lastUpdated)}`}
             />
