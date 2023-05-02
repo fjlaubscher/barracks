@@ -14,7 +14,7 @@ import UnitCard from '../../components/unit/card';
 // helpers
 import useArmy from '../../helpers/use-army';
 import useList from '../../helpers/use-list';
-import { calculateOrderDice } from '../../helpers/list';
+import { calculateOrderDice, shareListImage } from '../../helpers/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
@@ -95,6 +95,20 @@ const EditList = () => {
     [list, setList, toast]
   );
 
+  const handleImageShare = useCallback(async () => {
+    if (list) {
+      const result = await shareListImage(list);
+      if (result.success) {
+        toast({
+          text: 'List shared.',
+          variant: 'success'
+        });
+      } else {
+        toast({ text: 'Unable to share list.', variant: 'error' });
+      }
+    }
+  }, [list, totalOrderDice]);
+
   return (
     <Layout
       title="List"
@@ -104,6 +118,7 @@ const EditList = () => {
         </IconButton>
       }
       isLoading={loading}
+      onShareClick={handleImageShare}
     >
       {army && list && units && (
         <>
