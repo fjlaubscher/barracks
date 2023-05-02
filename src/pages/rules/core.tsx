@@ -176,7 +176,7 @@ const QuickReferenceRules = () => {
               <tr>
                 <td>6</td>
                 <td className={styles.italics}>Down</td>
-                <td className={styles.stretch}>No move/fire, but gain an extra -1 to be hit</td>
+                <td className={styles.stretch}>No move/fire, but gain an extra -2 to be hit</td>
               </tr>
             </Table>
             <Card id="orders-fubar" title="FUBAR!">

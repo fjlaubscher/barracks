@@ -428,7 +428,7 @@
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)",
           "Tough Fighters",
-          "Behind Enemy Lines - When Outflanking, units of Chindits ignore the -1 modifier to the Order test for coming onto the table.",
+          "Behind Enemy Lines - When Outflanking, units of Commandos ignore the -1 modifier to the Order test for coming onto the table.",
           "Vickers K Gun - When shooting add +1 shot compared to a regular LMG."
         ]
       },
@@ -729,7 +729,7 @@
           }
         ],
         "composition": "4 soldiers",
-        "weapons": "1 Plaform-mounted heavy automatic cannon",
+        "weapons": "1 Platform-mounted heavy automatic cannon",
         "options": [],
         "rules": [
           "Team weapon",

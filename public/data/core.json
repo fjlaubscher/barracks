@@ -20,6 +20,26 @@
     {
       "type": "Fire on the move",
       "modifier": "-1"
+    },
+    {
+      "type": "Team weapon reduced to 1 crew member",
+      "modifier": "-1"
+    },
+    {
+      "type": "Target is a small team (1 or 2 soldiers)",
+      "modifier": "-1"
+    },
+    {
+      "type": "Target is in soft cover",
+      "modifier": "-1"
+    },
+    {
+      "type": "Target is in hard cover",
+      "modifier": "-2"
+    },
+    {
+      "type": "Target is Down (infantry / artillery only)",
+      "modifier": "-2"
     }
   ],
   "damage": {
@@ -352,7 +372,7 @@
       },
       {
         "name": "Flamethrower",
-        "description": "Flamethrowers never suffer the to-hit penalties for cover and if the target is <i>Down</i>. This makes flamethrowers especially effective against troops in bunkers or behind cover, as well as troops lying flat on the ground, which is not a good defence against flaming liquids being sprayed on the area.<br/>If you score a hit with a flamethrower the number of hits is multiplied into D6 (or D6+1 in the case ofvehicle-mounted flamethrower). Roll for damage in the usual manner.<br/>Flamethrowers always hit the top armour of vehicles - this represents the tendency of burning liquid to seep through hatches and other openings. Also, flamethrowers don't rely on kinetic energy to penetrate a target's armour, so they don't suffer the -1 Pen penalty when firing at long range.<br/><br/>The gun shield rule does not apply when shooting at artillery targets with a flamethrower. The extra protection rule does not apply when shooting at targets inside buildings with a flamethrower. In both cases neither building nor gun shield offers any additional protection against a flamethrower. Any unit hit by a flamethrower takes 1 pin marker because it has been hit, and a further D3 pin markers to account for the unbridled terror unleashed upon it, for a total of D3+1 pin markers on the target. The target of a flamethrower must always check its morale once firing has been worked out and pin markers allocated as described above. Note that a morale check is required regardless of the number of casualties caused and even if no damage has been suffered at all. A unit failing this check is destroyed immediately - its morale completely shattered. Vehicles failing their morale in this way are abandoned and considered destroyed.<br/><br/>After shooting with an infantry man-pack flamethrower, roll a D6. On a result of 1 the flamethrower has run out of fuel and is now useless. If this happens the entire flamethrower team is removed as if it had fallen casualty. Although this might seem harsh, it does reflect the extreme risks run by troops carrying flamethrowers and introduces a level of unpredictability that balances the weapon's effectiveness. After shooting with a vehicle-mounted flamethrower, roll a D6 (or a dice for each flamethrower if the vehicle has more than one). On a result of 1 that flamethrower has run out of fuel and is now useless. This does not otherwise affect the vehicle. When rolling on the damage effects chart against a vehicle equipped with flamethrowers, add an extra +1 to the roll to represent the increased risk from carrying around so much volatile fuel for the flamethrower."
+        "description": "Flamethrowers never suffer the to-hit penalties for cover and if the target is <i>Down</i>. This makes flamethrowers especially effective against troops in bunkers or behind cover, as well as troops lying flat on the ground, which is not a good defence against flaming liquids being sprayed on the area.<br/>If you score a hit with a flamethrower the number of hits is multiplied into D6 (or D6+1 in the case of vehicle-mounted flamethrower). Roll for damage in the usual manner.<br/>Flamethrowers always hit the top armour of vehicles - this represents the tendency of burning liquid to seep through hatches and other openings. Also, flamethrowers don't rely on kinetic energy to penetrate a target's armour, so they don't suffer the -1 Pen penalty when firing at long range.<br/><br/>The gun shield rule does not apply when shooting at artillery targets with a flamethrower. The extra protection rule does not apply when shooting at targets inside buildings with a flamethrower. In both cases neither building nor gun shield offers any additional protection against a flamethrower. Any unit hit by a flamethrower takes 1 pin marker because it has been hit, and a further D3 pin markers to account for the unbridled terror unleashed upon it, for a total of D3+1 pin markers on the target. The target of a flamethrower must always check its morale once firing has been worked out and pin markers allocated as described above. Note that a morale check is required regardless of the number of casualties caused and even if no damage has been suffered at all. A unit failing this check is destroyed immediately - its morale completely shattered. Vehicles failing their morale in this way are abandoned and considered destroyed.<br/><br/>After shooting with an infantry man-pack flamethrower, roll a D6. On a result of 1 the flamethrower has run out of fuel and is now useless. If this happens the entire flamethrower team is removed as if it had fallen casualty. Although this might seem harsh, it does reflect the extreme risks run by troops carrying flamethrowers and introduces a level of unpredictability that balances the weapon's effectiveness. After shooting with a vehicle-mounted flamethrower, roll a D6 (or a dice for each flamethrower if the vehicle has more than one). On a result of 1 that flamethrower has run out of fuel and is now useless. This does not otherwise affect the vehicle. When rolling on the damage effects chart against a vehicle equipped with flamethrowers, add an extra +1 to the roll to represent the increased risk from carrying around so much volatile fuel for the flamethrower."
       },
       {
         "name": "HE (High Explosive)",
@@ -384,7 +404,7 @@
       },
       {
         "name": "Team Weapon",
-        "description": "This special rule (often shortened to just 'team') indicates that the weapon requires two or more men to shoot at full effect. There are three types of team weapons - squad-based team weapons (team weapons imbedded inside infantry squads, like a squad LMG); support team weapons (which form an infantry unit of their own, such as a medium machine gun team or a bazooka team); and artillery team weapons.<br/><br/>Team weapons normally have a crew of two, three or more members, comprising one man to fire the weapon and a number of loaders or other crewmen to help operate it, move it about, carry ammunition or act as lookouts. All the crew members are fully occupied whether carrying equipment, serving the weapon, or keeping watch.<br/>A team weapon shoots at full effectiveness so long as there are at least two men to serve it. A minimum of two crew is always needed to fire at full effect. If only one man remains to serve a team weapon then the weapon can still be fired but suffers a -1 'to hit' penalty."
+        "description": "This special rule (often shortened to just 'team') indicates that the weapon requires two or more men to shoot at full effect. There are three types of team weapons - squad-based team weapons (team weapons embedded inside infantry squads, like a squad LMG); support team weapons (which form an infantry unit of their own, such as a medium machine gun team or a bazooka team); and artillery team weapons.<br/><br/>Team weapons normally have a crew of two, three or more members, comprising one man to fire the weapon and a number of loaders or other crewmen to help operate it, move it about, carry ammunition or act as lookouts. All the crew members are fully occupied whether carrying equipment, serving the weapon, or keeping watch.<br/>A team weapon shoots at full effectiveness so long as there are at least two men to serve it. A minimum of two crew is always needed to fire at full effect. If only one man remains to serve a team weapon then the weapon can still be fired but suffers a -1 'to hit' penalty."
       },
       {
         "name": "Support Team Weapon",

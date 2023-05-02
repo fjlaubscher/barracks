@@ -10,7 +10,7 @@ With features such as point calculation, force organization, and customizable ar
 
 ## Getting Started
 
-This project uses Yarn for it's dependency management.
+This project uses Yarn for its dependency management.
 You need to install yarn first if you do not have it.
 
 ```

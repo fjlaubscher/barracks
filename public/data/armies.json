@@ -10,7 +10,7 @@
       },
       {
         "name": "Initiative Training",
-        "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troopers takes over the squad and leads it just as effectively as before. To repesent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
+        "description": "If an infantry squad's NCO is killed then roll a D6. On the score of a 1, the NCO is removed as normal. On the roll of a 2 or more, one of the other troopers takes over the squad and leads it just as effectively as before. To represent this leave the NCO in place and remove any other model instead. If the NCO is successfully replaced the unit does not suffer the usual -1 morale penalty for losing it's NCO."
       },
       {
         "name": "Hitler's Buzzsaw",
@@ -31,7 +31,7 @@
         "description": "A US forward air observer unit can call an air strike twice instead of once per game."
       },
       {
-        "name": "Fire and Manouvre",
+        "name": "Fire and Manoeuvre",
         "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
       },
       {
@@ -58,15 +58,15 @@
       },
       {
         "name": "A National Characteristic",
-        "description": "Any British army - whatever its national make-up - can choose any one of the following rules to reresent it as you - its commander - chooses to see it. The only limit is that you can only choose one rule - and that rule applies to the whole army."
+        "description": "Any British army - whatever its national make-up - can choose any one of the following rules to represent it as you - its commander - chooses to see it. The only limit is that you can only choose one rule - and that rule applies to the whole army."
       },
       {
         "name": "National Characteristic: Up and 'at 'em",
-        "description": "If the army has this rule then any order given to make an assault is automatically treated as having been passed - the unit is assumed to have rolled whatever order die score is needed to pass its order. This rule does not apply to Inexperienced troops - including any units taht start out as 'Green'."
+        "description": "If the army has this rule then any order given to make an assault is automatically treated as having been passed - the unit is assumed to have rolled whatever order die score is needed to pass its order. This rule does not apply to Inexperienced troops - including any units that start out as 'Green'."
       },
       {
         "name": "National Characteristic: Blood Curdling Charge",
-        "description": "If the army has this special rule then enemy units cannot react to an assault by shooting at them. This rule does not apply to Inexperienced troops - including any units taht start out as 'Green'."
+        "description": "If the army has this special rule then enemy units cannot react to an assault by shooting at them. This rule does not apply to Inexperienced troops - including any units that start out as 'Green'."
       },
       {
         "name": "National Characteristic: Tough as Boots",
@@ -74,7 +74,7 @@
       },
       {
         "name": "National Characteristic - Rapid Fire",
-        "description": "If the army has this special rule then all rifle armed Regular and Veteran infantry units roll bonus dice when shooting. For every three soldiers shooting rifles, roll one bonus die. These extra shots can be assumed to come from any of the soliders fighting."
+        "description": "If the army has this special rule then all rifle armed Regular and Veteran infantry units roll bonus dice when shooting. For every three soldiers shooting rifles, roll one bonus die. These extra shots can be assumed to come from any of the soldiers fighting."
       },
       {
         "name": "National Characteristic - Vengeance",
