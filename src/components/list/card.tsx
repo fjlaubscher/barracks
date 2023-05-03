@@ -19,7 +19,7 @@ const ListCard = ({ list, onDeleteClick }: Props) => {
   return (
     <Card
       title={list.name}
-      description={`${list.points}pts`}
+      description={`${list.points} pts`}
       onClick={() => navigate(`/list/${list.key}`)}
       onDeleteClick={onDeleteClick}
       role="link"

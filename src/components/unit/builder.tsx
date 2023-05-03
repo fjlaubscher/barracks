@@ -146,7 +146,9 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
         <NumberField
           className={styles.option}
           key={`unit-${selectedUnitIndex}-${i}`}
-          label={o.name}
+          label={`${o.name} (${o.cost[memoedListUnit.veterancy]} ${
+            o.cost[memoedListUnit.veterancy] > 1 ? 'pts' : 'pt'
+          })`}
           name={`unit-${selectedUnitIndex}-${i}`}
           maximum={o.max}
           value={selectedOptions[i] || 0}

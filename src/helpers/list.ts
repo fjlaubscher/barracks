@@ -16,9 +16,9 @@ export const calculateOrderDice = (list: Barracks.List) => {
 };
 
 export const buildTextList = (list: Barracks.List): string => {
-  let text = `*${ARMY_NAME_MAPPING[list.army]} - ${list.name}*\nPoints: ${
-    list.points
-  }\nOrder Dice: ${calculateOrderDice(list)}\n\n`;
+  let text = `*${ARMY_NAME_MAPPING[list.army]} - ${list.name}*\n_${calculateOrderDice(
+    list
+  )} Order Dice / ${list.points} pts_\n\n`;
 
   Object.keys(list.units).forEach((type) => {
     Object.keys(list.units[type]).forEach((role) => {
@@ -27,9 +27,9 @@ export const buildTextList = (list: Barracks.List): string => {
 
         list.units[type][role].forEach((unit) => {
           if (unit.unit.name === unit.profile.name) {
-            text += `${unit.profile.name} - ${unit.points}\n`;
+            text += `${unit.profile.name} - ${unit.points} pts\n`;
           } else {
-            text += `${unit.unit.name}: ${unit.profile.name} - ${unit.points}\n`;
+            text += `${unit.unit.name}: ${unit.profile.name} - ${unit.points} pts\n`;
           }
 
           text += `- ${capitalize(unit.veterancy)}\n`;
@@ -56,9 +56,10 @@ const renderListToCanvas = (list: Barracks.List): Promise<Blob> =>
       ? JSON.parse(storedSettings)
       : DEFAULT_SETTINGS;
 
+    const heightByOrderDice = totalOrderDice * 90;
     const canvas = document.getElementById('canvas') as HTMLCanvasElement;
     canvas.width = 600;
-    canvas.height = totalOrderDice * 62;
+    canvas.height = heightByOrderDice > 600 ? heightByOrderDice : 600;
     const context = canvas.getContext('2d');
 
     if (context) {
@@ -73,18 +74,18 @@ const renderListToCanvas = (list: Barracks.List): Promise<Blob> =>
       context.fillStyle = settings.accentColor;
       context.fillText(list.name, padding, lastY);
 
-      canvas.setAttribute('dir', 'rtl');
-      context.fillText(`${list.points}pts`, canvas.width - padding, lastY);
-      canvas.setAttribute('dir', 'ltr');
+      context.textAlign = 'right';
+      context.fillText(`${list.points} pts`, canvas.width - padding, lastY);
+      context.textAlign = 'left';
       lastY += 24;
 
       context.font = '14px Roboto';
       context.fillStyle = '#b0b0b0';
-      context.fillText(capitalize(list.army), padding, lastY);
+      context.fillText(ARMY_NAME_MAPPING[list.army], padding, lastY);
 
-      canvas.setAttribute('dir', 'rtl');
-      context.fillText(`${totalOrderDice} :Order Dice`, canvas.width - padding, lastY);
-      canvas.setAttribute('dir', 'ltr');
+      context.textAlign = 'right';
+      context.fillText(`${totalOrderDice} Order Dice`, canvas.width - padding, lastY);
+      context.textAlign = 'left';
       lastY += 20;
 
       Object.keys(list.units).forEach((type) => {
@@ -96,15 +97,28 @@ const renderListToCanvas = (list: Barracks.List): Promise<Blob> =>
 
             context.font = '24px Roboto';
             context.fillStyle = '#fafafa';
+            context.textAlign = 'left';
             context.fillText(role, padding, lastY);
             lastY += 48;
 
             context.font = '18px Roboto';
             context.fillStyle = '#fafafa';
-            list.units[type][role].forEach((unit) => {
-              let text = `(${capitalize(unit.veterancy)}) ${unit.profile.name} - ${unit.points}`;
-              context.fillText(text, padding, lastY);
-              lastY += 26;
+            list.units[type][role].forEach((unit, index) => {
+              context.textAlign = 'left';
+              context.fillText(capitalize(unit.veterancy), padding, lastY);
+
+              const profileWidth = context.measureText(unit.profile.name).width;
+              const center = canvas.width / 2 - profileWidth / 2;
+              context.fillText(unit.profile.name, center, lastY);
+
+              context.textAlign = 'right';
+              context.fillText(`${unit.points} pts`, canvas.width - padding, lastY);
+
+              if (index < list.units[type][role].length - 1) {
+                lastY += 40;
+              } else {
+                lastY += 20;
+              }
             });
           }
         });

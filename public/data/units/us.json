@@ -113,16 +113,62 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Regular Infantry Squad",
+        "name": "Inexperienced Infantry Squad",
         "profiles": [
           {
-            "name": "Regular Infantry Squad",
+            "name": "Inexperienced Infantry Squad",
+            "cost": {
+              "inexperienced": 42
+            }
+          }
+        ],
+        "composition": "1 NCO and 5 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "inexperienced": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Regular Infantry Squad (Early / Mid-War)",
+        "profiles": [
+          {
+            "name": "Regular Infantry Squad (Early / Mid-War)",
             "cost": {
               "regular": 50
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
+        "composition": "1 NCO and 5 soldiers",
         "weapons": "Rifles",
         "options": [
           {
@@ -130,14 +176,14 @@
             "cost": {
               "regular": 10
             },
-            "max": 7
+            "max": 6
           },
           {
             "name": "SMG",
             "cost": {
               "regular": 3
             },
-            "max": 2
+            "max": 1
           },
           {
             "name": "BAR",
@@ -159,34 +205,62 @@
         ]
       },
       {
-        "name": "Rangers, Airborne, Marines or Veteran Infantry Squad",
+        "name": "Regular Infantry Squad (Late-War)",
         "profiles": [
           {
-            "name": "Rangers Squad",
+            "name": "Regular Infantry Squad (Late-War)",
             "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Airborne Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Marines Squad",
-            "cost": {
-              "veteran": 65
-            }
-          },
-          {
-            "name": "Veteran Infantry",
-            "cost": {
-              "veteran": 65
+              "regular": 50
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
+        "composition": "1 NCO and 5 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "regular": 5
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Veteran Infantry Squad",
+        "profiles": [
+          {
+            "name": "Veteran Infantry Squad",
+            "cost": {
+              "veteran": 78
+            }
+          }
+        ],
+        "composition": "1 NCO and 5 soldiers",
         "weapons": "Rifles",
         "options": [
           {
@@ -194,14 +268,14 @@
             "cost": {
               "veteran": 13
             },
-            "max": 7
+            "max": 6
           },
           {
             "name": "SMG",
             "cost": {
               "veteran": 3
             },
-            "max": 5
+            "max": 4
           },
           {
             "name": "BAR",
@@ -209,6 +283,13 @@
               "veteran": 5
             },
             "max": 2
+          },
+          {
+            "name": "Tough Fighters",
+            "cost": {
+              "veteran": 1
+            },
+            "max": 12
           },
           {
             "name": "Anti-tank grenades",
@@ -219,53 +300,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)"
-        ]
-      },
-      {
-        "name": "Inexperienced Infantry Squad",
-        "profiles": [
-          {
-            "name": "Inexperienced Infantry",
-            "cost": {
-              "inexperienced": 35
-            }
-          }
-        ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
-        "options": [
-          {
-            "name": "Additional soldier",
-            "cost": {
-              "inexperienced": 7
-            },
-            "max": 7
-          },
-          {
-            "name": "SMG",
-            "cost": {
-              "inexperienced": 3
-            },
-            "max": 2
-          },
-          {
-            "name": "BAR",
-            "cost": {
-              "inexperienced": 5
-            },
-            "max": 1
-          },
-          {
-            "name": "Anti-tank grenades",
-            "cost": {
-              "inexperienced": 2
-            },
-            "max": 12
-          }
-        ],
-        "rules": [
-          "Tank Hunters (if anti-tank grenades taken)"
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Tough Fighters (if option is taken)"
         ]
       },
       {
@@ -324,6 +360,271 @@
         ],
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Paratrooper Squad",
+        "profiles": [
+          {
+            "name": "Paratrooper Squad",
+            "cost": {
+              "veteran": 78
+            }
+          }
+        ],
+        "composition": "1 NCO and 5 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Glider Squad",
+        "profiles": [
+          {
+            "name": "Glider Squad",
+            "cost": {
+              "regular": 60,
+              "veteran": 78
+            }
+          }
+        ],
+        "composition": "1 NCO and 5 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "Ranger Squad",
+        "profiles": [
+          {
+            "name": "Ranger Squad",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Rangers Lead The Way! - Units of Rangers are allowed to make a Run move after both sides have finished set-up, but before the first turn of the game. During this move, the unit cannot assault enemy units, and cannot be targeted by enemies in Ambush."
+        ]
+      },
+      {
+        "name": "US Marine Squad (Early-War)",
+        "profiles": [
+          {
+            "name": "US Marine Squad (Early-War)",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": "1 NCO and 4 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 3
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "regular": 5
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 8
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
+      },
+      {
+        "name": "US Marine Squad (Mid / Late-War)",
+        "profiles": [
+          {
+            "name": "US Marine Squad (Mid / Late-War)",
+            "cost": {
+              "regular": 70,
+              "veteran": 81
+            }
+          }
+        ],
+        "composition": "1 NCO and 6 soldiers",
+        "weapons": "Rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 3
+          },
+          {
+            "name": "Pistol",
+            "cost": {
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 3
+          },
+          {
+            "name": "Shotgun",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 12
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Shotgun - Range: 18\", Shots: 1, Pen: N/A, Special: Assault"
         ]
       },
       {
@@ -581,10 +882,10 @@
         "rules": []
       },
       {
-        "name": "M4 Sherman (75mm)",
+        "name": "M4A1 Sherman 75mm",
         "profiles": [
           {
-            "name": "M4 Sherman (75mm)",
+            "name": "M4A1 Sherman 75mm",
             "cost": {
               "inexperienced": 156,
               "regular": 195,
@@ -593,8 +894,17 @@
           }
         ],
         "composition": "1 M4 Sherman (75mm)",
-        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "weapons": "1 Gyro-stabilised turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
         "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          },
           {
             "name": "Pintle-mounted HMG",
             "cost": {
@@ -605,49 +915,19 @@
             "max": 1
           },
           {
-            "name": "105mm medium howitzer - replaces AT gun",
+            "name": "Remove 'Easily Catches Fire' rule",
             "cost": {
-              "inexperienced": 0,
-              "regular": 0,
-              "veteran": 0
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
             },
             "max": 1
           }
         ],
         "damage": "9+ (medium tank)",
         "rules": [
-          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
+          "Easily Catches Fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
           "HE - instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
-        ]
-      },
-      {
-        "name": "M4 Sherman (76mm)",
-        "profiles": [
-          {
-            "name": "M4 Sherman (76mm)",
-            "cost": {
-              "inexperienced": 188,
-              "regular": 235,
-              "veteran": 282
-            }
-          }
-        ],
-        "composition": "1 M4 Sherman (76mm)",
-        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-        "options": [
-          {
-            "name": "Pintle-mounted HMG",
-            "cost": {
-              "inexperienced": 25,
-              "regular": 25,
-              "veteran": 25
-            },
-            "max": 1
-          }
-        ],
-        "damage": "9+ (medium tank)",
-        "rules": [
-          "Easily catches fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test"
         ]
       }
     ],
@@ -912,7 +1192,7 @@
         ],
         "damage": "7+ (armoured carrier)",
         "transport": "12 soldiers",
-        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
+        "tow": "Any anti-tank gun or anti-aircraft gun; light or medium howitzer.",
         "rules": [
           "Open-topped"
         ]

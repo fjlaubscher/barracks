@@ -22,7 +22,7 @@ const UnitCard = ({ listUnit, onClick, onCopyClick, onDeleteClick }: Props) => {
   return (
     <Card
       title={listUnit.profile.name}
-      description={`${calculatedCost}pts`}
+      description={`${calculatedCost} pts`}
       onClick={onClick}
       onCopyClick={onCopyClick}
       onDeleteClick={onDeleteClick}
@@ -34,7 +34,7 @@ const UnitCard = ({ listUnit, onClick, onCopyClick, onDeleteClick }: Props) => {
         {listUnit.options.map((o, i) => (
           <Tag key={`option-${i}`}>
             {o.amount > 1 ? `${o.amount} x ` : ''}
-            {o.option.name} ({o.option.cost[listUnit.veterancy] * o.amount}pts)
+            {o.option.name}
           </Tag>
         ))}
       </TagGroup>

@@ -113,10 +113,10 @@
     ],
     "Infantry Squads and Teams": [
       {
-        "name": "Regular Infantry Section (Early War)",
+        "name": "Regular Infantry Section (Early-War)",
         "profiles": [
           {
-            "name": "Regular Infantry Section (Early War)",
+            "name": "Regular Infantry Section (Early-War)",
             "cost": {
               "regular": 50
             }
@@ -152,10 +152,10 @@
         ]
       },
       {
-        "name": "Regular Infantry Section (Mid - Late War)",
+        "name": "Regular Infantry Section (Mid / Late-War)",
         "profiles": [
           {
-            "name": "Regular Infantry Section (Mid - Late War)",
+            "name": "Regular Infantry Section (Mid / Late-War)",
             "cost": {
               "regular": 50
             }
@@ -198,10 +198,10 @@
         ]
       },
       {
-        "name": "Veteran Infantry Section (Early - Mid War)",
+        "name": "Veteran Infantry Section (Early / Mid-War)",
         "profiles": [
           {
-            "name": "Veteran Infantry Section (Early - Mid War)",
+            "name": "Veteran Infantry Section (Early / Mid-War)",
             "cost": {
               "veteran": 65
             }
@@ -244,10 +244,10 @@
         ]
       },
       {
-        "name": "Veteran Infantry Section (Late War)",
+        "name": "Veteran Infantry Section (Late-War)",
         "profiles": [
           {
-            "name": "Veteran Infantry Section (Late War)",
+            "name": "Veteran Infantry Section (Late-War)",
             "cost": {
               "veteran": 65
             }
@@ -333,7 +333,63 @@
         ],
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)",
-          "Stubborn. If forced to check morale when reduced to half strength then always test on full morale ignoring any pin markers."
+          "Stubborn. If forced to check morale then always test on full morale value, ignoring any pin markers."
+        ]
+      },
+      {
+        "name": "SAS Infantry Section",
+        "profiles": [
+          {
+            "name": "SAS Infantry Section",
+            "cost": {
+              "veteran": 72
+            }
+          }
+        ],
+        "composition": "1 NCO and 3 soldiers",
+        "weapons": "Pistols and rifles",
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 18
+            },
+            "max": 4
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 8
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Vickers K LMG",
+            "cost": {
+              "veteran": 25
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 8
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Who Dares Wins! - Units of SAS have the Fanatics special rule.",
+          "Behind Enemy Lines - When Outflanking, units of SAS ignore the -1 modifier for coming onto the table.",
+          "Vickers K LMG - A Vickers K LMG shoots with +1 dice compared to a regular LMG."
         ]
       },
       {
@@ -399,7 +455,7 @@
           {
             "name": "SMG",
             "cost": {
-              "veteran": 3
+              "veteran": 2
             },
             "max": 10
           },
@@ -433,10 +489,10 @@
         ]
       },
       {
-        "name": "Inexperienced Infantry Section (Early War)",
+        "name": "Inexperienced Infantry Section (Early-War)",
         "profiles": [
           {
-            "name": "Inexperienced Infantry Section (Early War)",
+            "name": "Inexperienced Infantry Section (Early-War)",
             "cost": {
               "inexperienced": 35
             }
@@ -472,10 +528,10 @@
         ]
       },
       {
-        "name": "Inexperienced Infantry Section (Mid - Late War)",
+        "name": "Inexperienced Infantry Section (Mid / Late-War)",
         "profiles": [
           {
-            "name": "Inexperienced Infantry Section (Mid - Late War)",
+            "name": "Inexperienced Infantry Section (Mid / Late-War)",
             "cost": {
               "inexperienced": 35
             }
