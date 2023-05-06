@@ -66,7 +66,7 @@ const CONTENTS = {
     },
     {
       text: 'Weapons',
-      href: '#damage-value'
+      href: '#weapons'
     },
     {
       text: 'HE Shots',

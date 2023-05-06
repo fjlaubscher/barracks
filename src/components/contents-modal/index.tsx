@@ -19,7 +19,14 @@ const ContentsModal = ({ items, visible }: Props) => {
       <IconButton className={styles.contentsButton} onClick={() => setShowModal(!showModal)}>
         <FaLayerGroup />
       </IconButton>
-      <Modal visible={showModal}>
+      <Modal
+        visible={showModal}
+        onOverlayClick={(event) => {
+          event.stopPropagation();
+          setShowModal(false);
+        }}
+        onClose={() => setShowModal(false)}
+      >
         <ul className={styles.contents}>
           {Object.keys(items).map((key) => (
             <li key={`contents-${key}`}>
