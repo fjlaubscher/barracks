@@ -27,6 +27,9 @@ const ListCard = ({ list, onDeleteClick }: Props) => {
       <TagGroup>
         <Tag variant="info">{ARMY_NAME_MAPPING[list.army]}</Tag>
         <Tag>{formatDate(list.created)}</Tag>
+        <Tag variant={list.public ? 'warning' : undefined}>
+          {list.public ? 'Public' : 'Private'}
+        </Tag>
       </TagGroup>
     </Card>
   );

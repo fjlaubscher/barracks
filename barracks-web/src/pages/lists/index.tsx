@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { Alert, IconButton, Stack, Stat, useLocalStorage } from '@fjlaubscher/matter';
+import { IconButton, Stack, Stat, useLocalStorage } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
@@ -36,13 +36,10 @@ const Lists = () => {
     >
       <Stack direction="column">
         <Stat title="Barracks" value="Army Lists" />
-        {hasLists ? (
+        {hasLists &&
           lists?.map((list) => (
             <ListCard key={list.key} list={list} onDeleteClick={() => handleListDelete(list.key)} />
-          ))
-        ) : (
-          <Alert variant="warning">You don&apos;t have any lists yet.</Alert>
-        )}
+          ))}
       </Stack>
     </Layout>
   );

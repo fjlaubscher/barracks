@@ -47,7 +47,8 @@ const CreateList = () => {
         key: crypto.randomUUID(),
         created: new Date().toISOString(),
         points: 0,
-        units: LIST_UNITS_TEMPLATE
+        units: LIST_UNITS_TEMPLATE,
+        public: false
       };
 
       setLists(lists ? [newList, ...lists] : [newList]);

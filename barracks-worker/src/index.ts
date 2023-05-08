@@ -2,29 +2,33 @@ export interface Env {
   NAMESPACE: KVNamespace;
 }
 
+const withCORS = (body?: BodyInit | null, init?: ResponseInit) =>
+  new Response(body, {
+    ...init,
+    headers: {
+      ...init?.headers,
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
+    }
+  });
+
 const getList = async (env: Env, slug: string) => {
   try {
     const list = await env.NAMESPACE.get(slug);
     if (list) {
-      return new Response(list, {
+      return withCORS(list, {
         headers: {
-          'Access-Control-Allow-Origin': '*',
           'Content-Type': 'application/json'
         }
       });
     } else {
-      return new Response(undefined, {
-        headers: {
-          'Access-Control-Allow-Origin': '*'
-        },
+      return withCORS(undefined, {
         status: 404
       });
     }
   } catch (ex: any) {
-    return new Response(ex.message, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
+    return withCORS(ex.message, {
       status: 500
     });
   }
@@ -33,17 +37,13 @@ const getList = async (env: Env, slug: string) => {
 const createList = async (env: Env, input: Barracks.PublicList) => {
   try {
     await env.NAMESPACE.put(input.slug, JSON.stringify(input));
-    return new Response(JSON.stringify(input), {
+    return withCORS(JSON.stringify(input), {
       headers: {
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
       }
     });
   } catch (ex: any) {
-    return new Response(ex.message, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
+    return withCORS(ex.message, {
       status: 500
     });
   }
@@ -52,17 +52,13 @@ const createList = async (env: Env, input: Barracks.PublicList) => {
 const deleteList = async (env: Env, slug: string) => {
   try {
     await env.NAMESPACE.delete(slug);
-    return new Response(JSON.stringify({ success: true }), {
+    return withCORS(JSON.stringify({ success: true }), {
       headers: {
-        'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
       }
     });
   } catch (ex: any) {
-    return new Response(ex.message, {
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      },
+    return withCORS(ex.message, {
       status: 500
     });
   }
@@ -81,11 +77,14 @@ export default {
         return createList(env, input as Barracks.PublicList);
       case 'DELETE':
         return deleteList(env, slug);
-      default:
-        return new Response(undefined, {
+      case 'OPTIONS':
+        return withCORS(undefined, {
           headers: {
-            'Access-Control-Allow-Origin': '*'
-          },
+            Allow: 'GET, POST, DELETE, OPTIONS'
+          }
+        });
+      default:
+        return withCORS(undefined, {
           status: 405
         });
     }

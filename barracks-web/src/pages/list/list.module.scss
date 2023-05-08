@@ -33,10 +33,14 @@
 }
 
 .actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: 1rem;
 
-  @media (min-width: breakpoints.$tablet) {
-    flex-direction: row !important;
-    justify-content: space-between;
+  .toggle {
+    align-items: flex-end;
   }
 }

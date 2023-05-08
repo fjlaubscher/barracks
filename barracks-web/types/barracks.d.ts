@@ -73,6 +73,7 @@ declare namespace Barracks {
     units: List.Units;
     points: number;
     limit: number;
+    public: boolean;
   }
 
   interface PublicList {
