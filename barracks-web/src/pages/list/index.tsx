@@ -6,10 +6,13 @@ import { parseISO, format } from 'date-fns';
 
 // components
 import Card from '../../components/card';
+import Damage from '../../components/rules/damage';
+import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
 import ListUnitCard from '../../components/unit/list-card';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
+import Weapons from '../../components/rules/weapons';
 
 // helpers
 import useArmy from '../../helpers/use-army';
@@ -145,6 +148,15 @@ const List = () => {
                   <p>{rule.description}</p>
                 </Card>
               ))}
+            </Section>
+            <Section id="army-rules" title="Rules" description="Damage Value">
+              <Damage damage={data.damage} />
+            </Section>
+            <Section id="army-rules" title="Rules" description="Hit Modifiers">
+              <Hit hits={data.hit} />
+            </Section>
+            <Section id="army-rules" title="Rules" description="Weapons">
+              <Weapons weapons={data.weapons} />
             </Section>
           </Stack>
         </>
