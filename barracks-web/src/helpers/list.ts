@@ -186,7 +186,7 @@ export const createPublicList = async (input: Barracks.PublicList) => {
     const data = await response.json();
     if (data) {
       const list = data as Barracks.PublicList;
-      return `${window.location.host}/public-list/${list.slug}`;
+      return `${window.location.protocol}//${window.location.host}/public-list/${list.slug}`;
     }
   }
 
