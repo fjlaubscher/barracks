@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+barracks-web/.env
+barracks-worker/wrangler.toml

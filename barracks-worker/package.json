@@ -1,0 +1,24 @@
+{
+  "name": "barracks-worker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fjlaubscher/barracks.git"
+  },
+  "author": "Francois Laubscher",
+  "license": "MIT",
+  "scripts": {
+    "start": "wrangler dev",
+    "build": "wrangler publish",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+  },
+  "dependencies": {
+    "wrangler": "^2.19.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230419.0",
+    "typescript": "^5.0.4"
+  }
+}
