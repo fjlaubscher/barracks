@@ -62,7 +62,10 @@ const List = () => {
         createdBy: settings?.username || DEFAULT_SETTINGS.username,
         createdDate: list.created,
         slug: list.key,
-        list
+        list: {
+          ...list,
+          public: true
+        }
       });
       if (publicUrl) {
         setList({ ...list, public: true });

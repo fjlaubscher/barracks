@@ -1,7 +1,11 @@
 // https://usehooks.com/useAsync/
 import { useCallback, useEffect, useState } from 'react';
 
-const useAsync = <T, E = string>(asyncFunction: () => Promise<T>, immediate = true) => {
+const useAsync = <T, E = string>(
+  asyncFunction: () => Promise<T>,
+  immediate = true,
+  deps?: React.DependencyList
+) => {
   const [status, setStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle');
   const [value, setValue] = useState<T | null>(null);
   const [error, setError] = useState<E | null>(null);
@@ -23,7 +27,7 @@ const useAsync = <T, E = string>(asyncFunction: () => Promise<T>, immediate = tr
         setError(error);
         setStatus('error');
       });
-  }, [asyncFunction]);
+  }, [asyncFunction, deps]);
 
   // Call execute if we want to fire it right away.
   // Otherwise execute can be called later, such as

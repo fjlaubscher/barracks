@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { Stat, Stack, useToast, Button, useLocalStorage } from '@fjlaubscher/matter';
@@ -12,7 +12,6 @@ import Section from '../../components/section';
 // helpers
 import useArmy from '../../helpers/use-army';
 import useAsync from '../../helpers/use-async';
-import useCore from '../../helpers/use-core';
 import { calculateOrderDice, getPublicList } from '../../helpers/list';
 import { LISTS } from '../../helpers/storage';
 
@@ -23,9 +22,12 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const { status: listStatus, value: publicList } = useAsync(() => getPublicList(key!));
+  const {
+    status: listStatus,
+    value: publicList,
+    execute: fetchPublicList
+  } = useAsync(() => getPublicList(key!), false, [key]);
   const { army, loading: loadingArmy } = useArmy(publicList?.list.army);
-  const { data, loading: loadingCore } = useCore();
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
 
   const handleImport = useCallback(() => {
@@ -60,13 +62,19 @@ const List = () => {
     return false;
   }, [publicList, lists]);
 
+  useEffect(() => {
+    if (key) {
+      fetchPublicList();
+    }
+  }, [key]);
+
   if (listStatus === 'success' && !publicList) {
     return <Navigate to="/404" />;
   }
 
   return (
-    <Layout title="Public List" isLoading={loadingCore || loadingArmy || listStatus === 'pending'}>
-      {army && data && publicList && (
+    <Layout title="Public List" isLoading={loadingArmy || listStatus === 'pending'}>
+      {army && publicList && (
         <>
           <Stack direction="row">
             <Stats>
