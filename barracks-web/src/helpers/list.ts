@@ -1,7 +1,8 @@
+import { capitalize, slugify } from '@fjlaubscher/matter';
+
 import { ARMY_NAME_MAPPING } from './data';
-import { capitalize, slugify } from './text';
-import { SETTINGS } from './storage';
-import { DEFAULT_SETTINGS } from './settings';
+import { SETTINGS } from '../data/storage';
+import { DEFAULT_SETTINGS } from '../data/settings';
 
 export const calculateOrderDice = (list: Barracks.List) => {
   let orderDice = 0;

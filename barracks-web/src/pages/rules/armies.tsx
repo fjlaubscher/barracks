@@ -8,8 +8,8 @@ import Card from '../../components/card';
 import Layout from '../../components/layout';
 
 // helpers
+import { ARMIES } from '../../data/storage';
 import { formatDate } from '../../helpers/date';
-import { ARMIES } from '../../helpers/storage';
 
 import styles from './rules.module.scss';
 

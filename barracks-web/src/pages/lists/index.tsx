@@ -8,7 +8,7 @@ import Layout from '../../components/layout';
 import ListCard from '../../components/list/card';
 
 // helpers
-import { LISTS } from '../../helpers/storage';
+import { LISTS } from '../../data/storage';
 
 const Lists = () => {
   const navigate = useNavigate();

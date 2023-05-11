@@ -1,20 +1,19 @@
 import { useMemo } from 'react';
 import { FaFileAlt } from 'react-icons/fa';
-import { IconButton, Grid, Stack, Stat } from '@fjlaubscher/matter';
+import { IconButton, Grid, Stack, Stat, capitalize, slugify } from '@fjlaubscher/matter';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
 import ArmyUnitCard from '../../components/army/unit-card';
+import BackButton from '../../components/button/back';
 import Card from '../../components/card';
 import ContentsModal from '../../components/contents-modal';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
 
 // helpers
-import useArmy from '../../helpers/use-army';
+import useArmy from '../../data/use-army';
 import { formatDate } from '../../helpers/date';
-import { capitalize, slugify } from '../../helpers/text';
-import BackButton from '../../components/button/back';
 
 const Army = () => {
   const { key } = useParams();

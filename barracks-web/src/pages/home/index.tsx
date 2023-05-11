@@ -1,4 +1,4 @@
-import { FaBookOpen, FaCog, FaFileAlt } from 'react-icons/fa';
+import { FaBookOpen, FaCog } from 'react-icons/fa';
 import { GiTank } from 'react-icons/gi';
 import { Link, useNavigate } from 'react-router-dom';
 import { IconButton, Stack, Stat } from '@fjlaubscher/matter';

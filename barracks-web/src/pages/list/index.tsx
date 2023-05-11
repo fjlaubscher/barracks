@@ -1,7 +1,15 @@
 import { useCallback, useMemo } from 'react';
 import { FaClone, FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, useToast, Button, useLocalStorage } from '@fjlaubscher/matter';
+import {
+  Stat,
+  IconButton,
+  Stack,
+  useToast,
+  Button,
+  useLocalStorage,
+  useAsync
+} from '@fjlaubscher/matter';
 
 // components
 import Card from '../../components/card';
@@ -15,10 +23,11 @@ import Toggle from '../../components/toggle';
 import Weapons from '../../components/rules/weapons';
 
 // helpers
-import useArmy from '../../helpers/use-army';
-import useAsync from '../../helpers/use-async';
-import useCore from '../../helpers/use-core';
-import useList from '../../helpers/use-list';
+import useArmy from '../../data/use-army';
+import useCore from '../../data/use-core';
+import useList from '../../data/use-list';
+import { DEFAULT_SETTINGS } from '../../data/settings';
+import { SETTINGS } from '../../data/storage';
 import { formatDate } from '../../helpers/date';
 import {
   buildTextList,
@@ -27,8 +36,6 @@ import {
   createPublicList,
   deletePublicList
 } from '../../helpers/list';
-import { DEFAULT_SETTINGS } from '../../helpers/settings';
-import { SETTINGS } from '../../helpers/storage';
 
 import styles from './list.module.scss';
 
@@ -109,8 +116,8 @@ const List = () => {
     }
   }, [list, totalOrderDice]);
 
-  const { execute: sharePublicLink } = useAsync(handlePublicShare, false);
-  const { execute: deletePublicLink } = useAsync(handlePublicDelete, false);
+  const { execute: sharePublicLink } = useAsync(handlePublicShare, [], false);
+  const { execute: deletePublicLink } = useAsync(handlePublicDelete, [], false);
 
   return (
     <Layout

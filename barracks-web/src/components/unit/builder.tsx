@@ -1,12 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { SelectField, Stack } from '@fjlaubscher/matter';
+import { SelectField, Stack, capitalize } from '@fjlaubscher/matter';
 import { useRecoilState } from 'recoil';
 
 // components
 import NumberField from '../field/number';
-
-// helpers
-import { capitalize } from '../../helpers/text';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';

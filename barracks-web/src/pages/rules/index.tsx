@@ -1,5 +1,5 @@
 import { Stack, Stat } from '@fjlaubscher/matter';
-import { GiFlagObjective, GiPistolGun, GiTank } from 'react-icons/gi';
+import { GiPistolGun, GiTank } from 'react-icons/gi';
 import { FaBookOpen, FaFlag, FaUsers } from 'react-icons/fa';
 
 // components
@@ -7,10 +7,8 @@ import Layout from '../../components/layout';
 import LinkButton from '../../components/button/link';
 
 // helpers
+import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
-import useCore from '../../helpers/use-core';
-
-import styles from './rules.module.scss';
 
 const Rules = () => {
   const { data, loading } = useCore();

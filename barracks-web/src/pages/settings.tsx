@@ -1,4 +1,4 @@
-import { useLocalStorage, useToast, IconButton, Alert } from '@fjlaubscher/matter';
+import { useLocalStorage, useToast, IconButton, slugify } from '@fjlaubscher/matter';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -9,9 +9,8 @@ import SettingsForm from '../components/settings/form';
 import Layout from '../components/layout';
 
 // helpers
-import { DEFAULT_SETTINGS, overrideStyles } from '../helpers/settings';
-import { SETTINGS } from '../helpers/storage';
-import { slugify } from '../helpers/text';
+import { DEFAULT_SETTINGS, overrideStyles } from '../data/settings';
+import { SETTINGS } from '../data/storage';
 
 const Settings = () => {
   const navigate = useNavigate();

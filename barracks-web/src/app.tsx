@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Loader } from '@fjlaubscher/matter';
 
 // helpers
-import useAppMount from './helpers/use-app-mount';
+import useAppMount from './data/use-app-mount';
 
 import Routes from './routes';
 

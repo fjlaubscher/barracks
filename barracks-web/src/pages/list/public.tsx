@@ -1,8 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Stat, Stack, useToast, Button, useLocalStorage } from '@fjlaubscher/matter';
-import { format, parseISO } from 'date-fns';
+import { Stat, Stack, useToast, Button, useLocalStorage, useAsync } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
@@ -11,11 +10,11 @@ import Stats from '../../components/stats';
 import Section from '../../components/section';
 
 // helpers
-import useArmy from '../../helpers/use-army';
-import useAsync from '../../helpers/use-async';
-import useCore from '../../helpers/use-core';
+import useArmy from '../../data/use-army';
+import useCore from '../../data/use-core';
+import { LISTS } from '../../data/storage';
+import { formatDate } from '../../helpers/date';
 import { calculateOrderDice, getPublicList } from '../../helpers/list';
-import { LISTS } from '../../helpers/storage';
 
 import styles from './list.module.scss';
 
@@ -24,7 +23,7 @@ const PublicList = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const { status: listStatus, value: publicList } = useAsync(() => getPublicList(key!));
+  const { status: listStatus, value: publicList } = useAsync(() => getPublicList(key!), [key]);
   const { army, loading: loadingArmy } = useArmy(publicList?.list.army);
   const { data, loading: loadingCore } = useCore();
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
@@ -74,10 +73,7 @@ const PublicList = () => {
               <Stat
                 title={army.name}
                 value={publicList.list.name}
-                description={`@${publicList.createdBy} - ${format(
-                  parseISO(publicList.createdDate),
-                  'yyyy-MM-dd'
-                )}`}
+                description={`@${publicList.createdBy} - ${formatDate(publicList.createdDate)}`}
               />
               <Stat
                 title="Points"

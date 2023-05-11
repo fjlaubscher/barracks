@@ -1,4 +1,4 @@
-import { TagGroup, Tag, Table } from '@fjlaubscher/matter';
+import { TagGroup, Tag, Table, capitalize } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 
 // components
@@ -6,7 +6,6 @@ import Card from '../card';
 
 // helpers
 import { calculateCost, getColorFromVeterancy } from '../../helpers/unit';
-import { capitalize } from '../../helpers/text';
 
 import styles from './unit.module.scss';
 

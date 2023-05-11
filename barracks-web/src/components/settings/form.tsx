@@ -6,7 +6,7 @@ import { Alert, Button, Form, InputField } from '@fjlaubscher/matter';
 import Section from '../section';
 
 // helpers
-import { DEFAULT_SETTINGS } from '../../helpers/settings';
+import { DEFAULT_SETTINGS } from '../../data/settings';
 
 import styles from './settings.module.scss';
 

@@ -12,8 +12,8 @@ import Stats from '../../components/stats';
 import UnitCard from '../../components/unit/card';
 
 // helpers
-import useArmy from '../../helpers/use-army';
-import useList from '../../helpers/use-list';
+import useArmy from '../../data/use-army';
+import useList from '../../data/use-list';
 import { calculateOrderDice, shareListImage } from '../../helpers/list';
 
 // state

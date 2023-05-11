@@ -1,4 +1,4 @@
-import { Stack, Stat } from '@fjlaubscher/matter';
+import { Stack, Stat, capitalize, slugify } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -9,9 +9,8 @@ import Layout from '../../components/layout';
 import Section from '../../components/section';
 
 // helpers
+import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
-import { capitalize, slugify } from '../../helpers/text';
-import useCore from '../../helpers/use-core';
 
 import styles from './rules.module.scss';
 

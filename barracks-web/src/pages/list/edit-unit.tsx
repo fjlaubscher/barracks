@@ -11,8 +11,8 @@ import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
 
 // helpers
-import useList from '../../helpers/use-list';
-import useArmy from '../../helpers/use-army';
+import useList from '../../data/use-list';
+import useArmy from '../../data/use-army';
 import { calculateCost } from '../../helpers/unit';
 
 // state

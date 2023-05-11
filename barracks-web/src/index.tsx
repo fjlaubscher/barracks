@@ -9,8 +9,8 @@ import './styles/global.scss';
 
 import App from './app';
 
-import { SETTINGS } from './helpers/storage';
-import { DEFAULT_SETTINGS, overrideStyles } from './helpers/settings';
+import { SETTINGS } from './data/storage';
+import { DEFAULT_SETTINGS, overrideStyles } from './data/settings';
 
 const settings = localStorage.getItem(SETTINGS);
 if (!settings) {

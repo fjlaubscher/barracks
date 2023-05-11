@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Stat, Stack, useToast, Button, useLocalStorage } from '@fjlaubscher/matter';
+import { Stat, Stack, useToast, Button, useLocalStorage, useAsync } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
@@ -10,10 +10,9 @@ import Stats from '../../components/stats';
 import Section from '../../components/section';
 
 // helpers
-import useArmy from '../../helpers/use-army';
-import useAsync from '../../helpers/use-async';
+import useArmy from '../../data/use-army';
+import { LISTS } from '../../data/storage';
 import { calculateOrderDice, getPublicList } from '../../helpers/list';
-import { LISTS } from '../../helpers/storage';
 
 import styles from './public-list.module.scss';
 
@@ -26,7 +25,7 @@ const List = () => {
     status: listStatus,
     value: publicList,
     execute: fetchPublicList
-  } = useAsync(() => getPublicList(key!), false, [key]);
+  } = useAsync(() => getPublicList(key!), [key], false);
   const { army, loading: loadingArmy } = useArmy(publicList?.list.army);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
 

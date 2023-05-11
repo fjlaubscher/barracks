@@ -9,7 +9,7 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // helpers
-import { ARMIES, LISTS } from '../../helpers/storage';
+import { ARMIES, LISTS } from '../../data/storage';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
 
 const CreateList = () => {
