@@ -1,0 +1,50 @@
+@use "@fjlaubscher/matter/src/styles/breakpoints";
+
+.avatar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 50%;
+  outline: 0;
+  background-color: var(--color-light-surface);
+  color: inherit;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  .image {
+    border-radius: 50%;
+    width: 2rem;
+  }
+
+  .name {
+    display: none;
+    font-size: 0.8rem;
+    font-weight: bold;
+    white-space: nowrap;
+
+    @media (min-width: breakpoints.$tablet) {
+      display: block;
+      padding-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: breakpoints.$tablet) {
+    padding: 0.5rem 0.75rem;
+    border-radius: 500px;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-dark-surface);
+  }
+}
+
+.cancel {
+  background-color: var(--color-light-surface);
+  color: var(--color-light-text);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-dark-surface);
+    color: var(--color-dark-text);
+  }
+}

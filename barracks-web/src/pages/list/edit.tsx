@@ -1,7 +1,7 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, useToast } from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, useToast, useLocalStorage, useAsync } from '@fjlaubscher/matter';
 import { parseISO, format } from 'date-fns';
 import { useSetRecoilState } from 'recoil';
 
@@ -14,7 +14,8 @@ import UnitCard from '../../components/unit/card';
 // helpers
 import useArmy from '../../data/use-army';
 import useList from '../../data/use-list';
-import { calculateOrderDice, shareListImage } from '../../helpers/list';
+import { USER } from '../../data/storage';
+import { buildTextList, calculateOrderDice, createPublicList } from '../../helpers/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
@@ -25,10 +26,23 @@ const EditList = () => {
   const navigate = useNavigate();
   const setUnitBuilderPayload = useSetRecoilState(UnitBuilderAtom);
 
+  const [user] = useLocalStorage<Barracks.User>(USER);
   const [list, setList] = useList(key!);
   const { army, units, loading } = useArmy(list!.army);
 
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
+
+  const handleShareList = useCallback(async () => {
+    if (list) {
+      const text = buildTextList(list);
+      await navigator.clipboard.writeText(text);
+
+      toast({
+        text: 'List copied to clipboard.',
+        variant: 'success'
+      });
+    }
+  }, [toast, list]);
 
   const handleListUnitAdd = useCallback(
     (type: string, role: string) => {
@@ -95,19 +109,23 @@ const EditList = () => {
     [list, setList, toast]
   );
 
-  const handleImageShare = useCallback(async () => {
-    if (list) {
-      const result = await shareListImage(list);
-      if (result.success) {
-        toast({
-          text: 'List shared.',
-          variant: 'success'
-        });
-      } else {
-        toast({ text: 'Unable to share list.', variant: 'error' });
-      }
+  const handleListSync = useCallback(async () => {
+    if (user && list) {
+      await createPublicList({
+        createdBy: user.id,
+        slug: list.key,
+        createdDate: list.created,
+        list
+      });
     }
-  }, [list, totalOrderDice]);
+  }, [user, list]);
+  const { status, execute: syncPublicList } = useAsync(handleListSync, [], false);
+
+  useEffect(() => {
+    if (list && list.public) {
+      syncPublicList();
+    }
+  }, [list]);
 
   return (
     <Layout
@@ -118,7 +136,7 @@ const EditList = () => {
         </IconButton>
       }
       isLoading={loading}
-      onShareClick={handleImageShare}
+      onShareClick={handleShareList}
     >
       {army && list && units && (
         <>

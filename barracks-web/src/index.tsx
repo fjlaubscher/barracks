@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
 import { SWRConfig } from 'swr';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 import './styles/global.scss';
 
@@ -29,7 +30,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
                 fetch(resource, init).then((res) => res.json())
             }}
           >
-            <App />
+            <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
+              <App />
+            </GoogleOAuthProvider>
           </SWRConfig>
         </ToastProvider>
       </RecoilRoot>

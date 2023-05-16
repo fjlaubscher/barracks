@@ -1,15 +1,7 @@
 import { useCallback, useMemo } from 'react';
-import { FaClone, FaEdit } from 'react-icons/fa';
+import { FaEdit } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
-import {
-  Stat,
-  IconButton,
-  Stack,
-  useToast,
-  Button,
-  useLocalStorage,
-  useAsync
-} from '@fjlaubscher/matter';
+import { Stat, IconButton, Stack, useToast, useLocalStorage, useAsync } from '@fjlaubscher/matter';
 
 // components
 import Card from '../../components/card';
@@ -26,13 +18,11 @@ import Weapons from '../../components/rules/weapons';
 import useArmy from '../../data/use-army';
 import useCore from '../../data/use-core';
 import useList from '../../data/use-list';
-import { DEFAULT_SETTINGS } from '../../data/settings';
-import { SETTINGS } from '../../data/storage';
+import { SETTINGS, USER } from '../../data/storage';
 import { formatDate } from '../../helpers/date';
 import {
   buildTextList,
   calculateOrderDice,
-  shareListImage,
   createPublicList,
   deletePublicList
 } from '../../helpers/list';
@@ -45,13 +35,14 @@ const List = () => {
   const navigate = useNavigate();
 
   const [settings] = useLocalStorage<Barracks.Settings>(SETTINGS);
+  const [user] = useLocalStorage<Barracks.User>(USER);
   const { data, loading: loadingCore } = useCore();
   const [list, setList] = useList(key!);
   const { army, loading: loadingArmy } = useArmy(list?.army);
 
   const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
 
-  const handleCopyList = useCallback(async () => {
+  const handleShareList = useCallback(async () => {
     if (list) {
       const text = buildTextList(list);
       await navigator.clipboard.writeText(text);
@@ -64,9 +55,9 @@ const List = () => {
   }, [toast, list]);
 
   const handlePublicShare = useCallback(async () => {
-    if (list) {
-      const publicUrl = await createPublicList({
-        createdBy: settings?.username || DEFAULT_SETTINGS.username,
+    if (user && list) {
+      const publicList = await createPublicList({
+        createdBy: user?.id || `barracks-user-${crypto.randomUUID()}`,
         createdDate: list.created,
         slug: list.key,
         list: {
@@ -74,22 +65,20 @@ const List = () => {
           public: true
         }
       });
-      if (publicUrl) {
+      if (publicList) {
         setList({ ...list, public: true });
-        await navigator.clipboard.writeText(publicUrl);
-
         toast({
-          text: 'Public link copied to clipboard.',
+          text: 'List made public.',
           variant: 'success'
         });
       }
     }
-  }, [toast, list, setList, settings]);
+  }, [user, toast, list, setList, settings]);
 
-  const handlePublicDelete = useCallback(async () => {
+  const handleRemovePublicList = useCallback(async () => {
     if (list) {
-      const isPrivate = await deletePublicList(list.key);
-      if (isPrivate) {
+      const result = await deletePublicList(list.key);
+      if (result) {
         setList({
           ...list,
           public: false
@@ -100,24 +89,10 @@ const List = () => {
         });
       }
     }
-  }, [toast, list, setList]);
-
-  const handleImageShare = useCallback(async () => {
-    if (list) {
-      const result = await shareListImage(list);
-      if (result.success) {
-        toast({
-          text: 'List shared.',
-          variant: 'success'
-        });
-      } else {
-        toast({ text: 'Unable to share list.', variant: 'error' });
-      }
-    }
-  }, [list, totalOrderDice]);
+  }, [toast, list, setList, settings]);
 
   const { execute: sharePublicLink } = useAsync(handlePublicShare, [], false);
-  const { execute: deletePublicLink } = useAsync(handlePublicDelete, [], false);
+  const { execute: removePublicLink } = useAsync(handleRemovePublicList, [], false);
 
   return (
     <Layout
@@ -128,7 +103,7 @@ const List = () => {
         </IconButton>
       }
       isLoading={loadingCore || loadingArmy}
-      onShareClick={handleImageShare}
+      onShareClick={handleShareList}
     >
       {army && data && list && (
         <>
@@ -146,23 +121,22 @@ const List = () => {
               />
             </Stats>
           </Stack>
-          <div className={styles.actions}>
-            <Button className={styles.button} leftIcon={<FaClone />} onClick={handleCopyList}>
-              Copy to clipboard
-            </Button>
-            <Toggle
-              className={styles.toggle}
-              label={list.public ? 'Public' : 'Private'}
-              defaultChecked={list.public}
-              onChange={(e) => {
-                if (e.currentTarget.checked) {
-                  sharePublicLink();
-                } else {
-                  deletePublicLink();
-                }
-              }}
-            />
-          </div>
+          {user && (
+            <Stack direction="column" className={styles.actions}>
+              <Toggle
+                className={styles.toggle}
+                label={list.public ? 'Public' : 'Private'}
+                defaultChecked={list.public}
+                onChange={(e) => {
+                  if (e.currentTarget.checked) {
+                    sharePublicLink();
+                  } else {
+                    removePublicLink();
+                  }
+                }}
+              />
+            </Stack>
+          )}
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) =>

@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { Alert, Button, Form, InputField } from '@fjlaubscher/matter';
+import { Button, Form, InputField } from '@fjlaubscher/matter';
 
 // components
 import Section from '../section';
@@ -29,14 +29,6 @@ const SettingsForm = ({ onSubmit }: Props) => {
 
   return (
     <Form className={styles.form} id="settings-form" onSubmit={handleSubmit(onSubmit)}>
-      <Alert variant="info">Your username is used when sharing lists publicly.</Alert>
-      <InputField
-        label="Username"
-        type="text"
-        errorMessage={errors.username ? 'Required' : undefined}
-        {...register('username', { required: true })}
-        required
-      />
       <Section title="Settings" description="Theme">
         <InputField
           label="Primary Colour"

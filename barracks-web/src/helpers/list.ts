@@ -41,6 +41,7 @@ export const buildTextList = (list: Barracks.List): string => {
           }
 
           text += '\n';
+          text += `${window.location.protocol}//${window.location.host}/public-list/${list.key}`;
         });
       }
     });
@@ -186,8 +187,22 @@ export const createPublicList = async (input: Barracks.PublicList) => {
   if (response.ok) {
     const data = await response.json();
     if (data) {
-      const list = data as Barracks.PublicList;
-      return `${window.location.protocol}//${window.location.host}/public-list/${list.slug}`;
+      return data as Barracks.PublicList;
+    }
+  }
+
+  return undefined;
+};
+
+export const getPublicLists = async (username: string) => {
+  const response = await fetch(`${import.meta.env.VITE_WORKER_URL}/lists/${username}`, {
+    method: 'GET'
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    if (data) {
+      return data as Barracks.PublicList[];
     }
   }
 

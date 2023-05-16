@@ -2,6 +2,10 @@ export interface Env {
   NAMESPACE: KVNamespace;
 }
 
+interface ListsByUser {
+  [key: string]: Barracks.PublicList;
+}
+
 const withCORS = (body?: BodyInit | null, init?: ResponseInit) =>
   new Response(body, {
     ...init,
@@ -34,9 +38,42 @@ const getList = async (env: Env, slug: string) => {
   }
 };
 
+const getLists = async (env: Env, slug: string) => {
+  try {
+    const list = await env.NAMESPACE.list();
+    const keys = list.keys.filter((l) => l.metadata?.createdBy === slug).map((l) => l.name);
+
+    const lists: Barracks.PublicList[] = [];
+
+    for (let i = 0; i < keys.length; i++) {
+      const key = keys[i];
+      const list = await env.NAMESPACE.get(key);
+      lists.push(JSON.parse(list));
+    }
+
+    if (lists) {
+      return withCORS(JSON.stringify(lists), {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+    } else {
+      return withCORS(undefined, {
+        status: 404
+      });
+    }
+  } catch (ex: any) {
+    return withCORS(ex.message, {
+      status: 500
+    });
+  }
+};
+
 const createList = async (env: Env, input: Barracks.PublicList) => {
   try {
-    await env.NAMESPACE.put(input.slug, JSON.stringify(input));
+    await env.NAMESPACE.put(input.slug, JSON.stringify(input), {
+      metadata: { createdBy: input.createdBy }
+    });
     return withCORS(JSON.stringify(input), {
       headers: {
         'Content-Type': 'application/json'
@@ -67,11 +104,12 @@ const deleteList = async (env: Env, slug: string) => {
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const parts = request.url.split('/');
+    const path = parts[parts.length - 2];
     const slug = parts[parts.length - 1];
 
     switch (request.method) {
       case 'GET':
-        return getList(env, slug);
+        return path === 'lists' ? getLists(env, slug) : getList(env, slug);
       case 'POST':
         const input = await request.json();
         return createList(env, input as Barracks.PublicList);

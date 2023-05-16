@@ -9,7 +9,8 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // helpers
-import { ARMIES, LISTS } from '../../data/storage';
+import { ARMIES, LISTS, USER } from '../../data/storage';
+import { createPublicList } from '../../helpers/list';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
 
 const CreateList = () => {
@@ -19,6 +20,7 @@ const CreateList = () => {
 
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+  const [user] = useLocalStorage<Barracks.User>(USER);
 
   const armyKeys = useMemo(
     () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
@@ -41,21 +43,30 @@ const CreateList = () => {
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(
-    (values: Omit<ListFormValues, 'armyId'>) => {
+    async (values: Omit<ListFormValues, 'armyId'>) => {
       const newList: Barracks.List = {
         ...values,
         key: crypto.randomUUID(),
         created: new Date().toISOString(),
         points: 0,
         units: LIST_UNITS_TEMPLATE,
-        public: false
+        public: !!user
       };
+
+      if (user) {
+        await createPublicList({
+          createdBy: user.id,
+          slug: newList.key,
+          createdDate: newList.created,
+          list: newList
+        });
+      }
 
       setLists(lists ? [newList, ...lists] : [newList]);
       toast({ text: 'List created.', variant: 'success' });
       navigate(`/list/${newList.key}/edit`);
     },
-    [lists, setLists, toast, navigate]
+    [user, lists, setLists, toast, navigate]
   );
 
   return (

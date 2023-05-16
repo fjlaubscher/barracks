@@ -86,7 +86,12 @@ declare namespace Barracks {
   interface Settings {
     primaryColor: string;
     accentColor: string;
-    username: string;
+  }
+
+  interface User {
+    id: string;
+    name: string;
+    avatar: string;
   }
 }
 

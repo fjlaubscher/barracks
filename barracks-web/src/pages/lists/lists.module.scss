@@ -1,0 +1,15 @@
+.alert {
+  margin-bottom: 0;
+}
+
+.header {
+  align-items: center;
+
+  > div:nth-child(2) {
+    height: auto !important;
+
+    iframe {
+      margin: 0 !important;
+    }
+  }
+}

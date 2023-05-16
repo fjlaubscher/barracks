@@ -9,13 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VITE_WORKER_URL: ${{secrets.WORKER_URL}}
+      VITE_OAUTH_CLIENT_ID: ${{secrets.OAUTH_CLIENT_ID}}
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
       with:
         node-version: 16
     - run: sudo apt-get install rsync
-    - run: echo -e "VITE_WORKER_URL=$WORKER_URL" > .env
+    - run: echo -e "VITE_WORKER_URL=$WORKER_URL\r\nVITE_OAUTH_CLIENT_ID=$OAUTH_CLIENT_ID" > .env
     - run: npm install -g yarn
     - run: yarn install
     - run: yarn build

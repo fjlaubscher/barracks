@@ -1,4 +1,4 @@
-import { useLocalStorage, useToast, IconButton, slugify } from '@fjlaubscher/matter';
+import { useLocalStorage, useToast, IconButton, Alert, Button } from '@fjlaubscher/matter';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
@@ -29,7 +29,7 @@ const Settings = () => {
 
   const handleSubmit = useCallback(
     (values: Barracks.Settings) => {
-      setSettings({ ...values, username: slugify(values.username) });
+      setSettings({ ...values });
       overrideStyles({ primaryColor: values.primaryColor, accentColor: values.accentColor });
 
       toast({

@@ -1,7 +1,6 @@
 export const DEFAULT_SETTINGS: Barracks.Settings = {
   primaryColor: '#426f6f',
-  accentColor: '#32cd8c',
-  username: `barracks-user-${crypto.randomUUID()}`
+  accentColor: '#32cd8c'
 };
 
 export const overrideStyles = (

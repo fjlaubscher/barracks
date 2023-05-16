@@ -11,8 +11,9 @@ import Section from '../../components/section';
 
 // helpers
 import useArmy from '../../data/use-army';
-import { LISTS } from '../../data/storage';
+import { LISTS, USER } from '../../data/storage';
 import { calculateOrderDice, getPublicList } from '../../helpers/list';
+import { formatDate } from '../../helpers/date';
 
 import styles from './public-list.module.scss';
 
@@ -28,6 +29,7 @@ const List = () => {
   } = useAsync(() => getPublicList(key!), [key], false);
   const { army, loading: loadingArmy } = useArmy(publicList?.list.army);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+  const [user] = useLocalStorage<Barracks.User>(USER);
 
   const handleImport = useCallback(() => {
     if (publicList) {
@@ -48,7 +50,7 @@ const List = () => {
   }, [publicList, lists, setLists, toast, navigate]);
 
   const totalOrderDice = useMemo(
-    () => (publicList ? calculateOrderDice(publicList?.list) : 0),
+    () => (publicList ? calculateOrderDice(publicList.list) : 0),
     [publicList]
   );
 
@@ -60,6 +62,8 @@ const List = () => {
 
     return false;
   }, [publicList, lists]);
+
+  const isListCreator = user?.id === publicList?.createdBy;
 
   useEffect(() => {
     if (key) {
@@ -80,7 +84,7 @@ const List = () => {
               <Stat
                 title={army.name}
                 value={publicList.list.name}
-                description={`Created by @${publicList.createdBy}`}
+                description={`${formatDate(publicList.createdDate)}`}
               />
               <Stat
                 title="Points"
@@ -89,14 +93,18 @@ const List = () => {
               />
             </Stats>
           </Stack>
-          <Button
-            leftIcon={<FaDownload />}
-            className={styles.copyButton}
-            onClick={handleImport}
-            disabled={isListImported}
-          >
-            Import list
-          </Button>
+          <Stack className={styles.actions} direction="column">
+            {!isListCreator && (
+              <Button
+                leftIcon={<FaDownload />}
+                className={styles.copyButton}
+                onClick={handleImport}
+                disabled={isListImported}
+              >
+                Import list
+              </Button>
+            )}
+          </Stack>
           {Object.keys(publicList.list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(publicList.list.units[type]).map((role, i) =>
