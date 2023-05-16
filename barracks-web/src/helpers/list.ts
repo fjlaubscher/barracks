@@ -41,11 +41,14 @@ export const buildTextList = (list: Barracks.List): string => {
           }
 
           text += '\n';
-          text += `${window.location.protocol}//${window.location.host}/public-list/${list.key}`;
         });
       }
     });
   });
+
+  if (list.public) {
+    text += `${window.location.protocol}//${window.location.host}/public-list/${list.key}`;
+  }
 
   return text;
 };
