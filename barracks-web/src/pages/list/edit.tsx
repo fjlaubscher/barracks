@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo } from 'react';
 import { FaEye } from 'react-icons/fa';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Stat, IconButton, Stack, useToast, useLocalStorage, useAsync } from '@fjlaubscher/matter';
-import { parseISO, format } from 'date-fns';
 import { useSetRecoilState } from 'recoil';
 
 // components
@@ -14,12 +13,13 @@ import UnitCard from '../../components/unit/card';
 // helpers
 import useArmy from '../../data/use-army';
 import useList from '../../data/use-list';
+import { createPublicList } from '../../data/use-public-list';
 import { USER } from '../../data/storage';
+import { formatDate } from '../../helpers/date';
 import { buildTextList, calculateOrderDice } from '../../helpers/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
-import { createPublicList } from '../../data/use-public-list';
 
 const EditList = () => {
   const toast = useToast();
@@ -149,12 +149,12 @@ const EditList = () => {
               <Stat
                 title={army.name}
                 value={list.name}
-                description={`Created on ${format(parseISO(list.created), 'yyyy-MM-dd')}`}
+                description={`Created on ${formatDate(list.created)}`}
               />
               <Stat
                 title="Points"
                 value={`${list.points}/${list.limit}`}
-                description={`${totalOrderDice} Order Dice`}
+                description={`Order Dice: ${totalOrderDice}`}
               />
             </Stats>
           </Stack>

@@ -1,5 +1,4 @@
 import useSWR from 'swr';
-import { useAsync } from '@fjlaubscher/matter';
 
 export const createPublicList = async (input: Barracks.PublicList) => {
   const response = await fetch(import.meta.env.VITE_WORKER_URL, {

@@ -108,7 +108,7 @@ const List = () => {
               <Stat
                 title={army.name}
                 value={list.name}
-                description={`${formatDate(list.created)}`}
+                description={`Created on ${formatDate(list.created)}`}
               />
               <Stat
                 title="Points"

@@ -18,10 +18,14 @@ const Avatar = ({ user, onSignOut }: Props) => {
         <img className={styles.image} src={user.avatar} alt={user.name} />
         <span className={styles.name}>{user.name}</span>
       </button>
-      <Modal visible={showModal} onClose={() => setShowModal(false)}>
+      <Modal
+        visible={showModal}
+        onOverlayClick={() => setShowModal(false)}
+        onClose={() => setShowModal(false)}
+      >
         <Stack direction="column">
           <span>Would you like to sign out?</span>
-          <Stack direction="row">
+          <Stack className={styles.buttons} direction="row">
             <Button
               className={styles.cancel}
               type="button"

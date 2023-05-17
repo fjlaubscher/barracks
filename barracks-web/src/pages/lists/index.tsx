@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack, Stat, useLocalStorage, useToast } from '@fjlaubscher/matter';
@@ -20,26 +20,11 @@ import styles from './lists.module.scss';
 const Lists = () => {
   const toast = useToast();
   const navigate = useNavigate();
-  const { isLoading } = usePublicLists();
 
-  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+  const [hasSynced, setHasSynced] = useState(false);
+  const [lists, setLists, deleteLists] = useLocalStorage<Barracks.List[]>(LISTS);
   const [user, setUser, deleteUser] = useLocalStorage<Barracks.User>(USER);
-  const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
-
-  const handleGoogleSignIn = useCallback(
-    (credentials: CredentialResponse) => {
-      if (credentials.credential) {
-        const decodedUser = jwtDecode(credentials.credential) as { [key: string]: string };
-        setUser({
-          id: decodedUser.sub,
-          name: decodedUser.name,
-          avatar: decodedUser.picture
-        });
-        toast({ variant: 'success', text: 'Signed in with Google.' });
-      }
-    },
-    [setUser]
-  );
+  const { lists: publicLists, isLoading } = usePublicLists(user?.id);
 
   const handleOAuthError = useCallback(() => {
     toast({
@@ -62,6 +47,36 @@ const Lists = () => {
     [lists, setLists]
   );
 
+  const handleSync = useCallback(() => {
+    const privateLists = lists ? lists.filter((l) => !l.public) : [];
+    const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
+
+    setLists([...listsByUser, ...privateLists]);
+    setHasSynced(true);
+  }, [publicLists, lists, setLists]);
+
+  const handleGoogleSignIn = useCallback(
+    (credentials: CredentialResponse) => {
+      if (credentials.credential) {
+        const decodedUser = jwtDecode(credentials.credential) as { [key: string]: string };
+        setUser({
+          id: decodedUser.sub,
+          name: decodedUser.name,
+          avatar: decodedUser.picture
+        });
+        toast({ variant: 'success', text: 'Signed in with Google.' });
+      }
+    },
+    [setUser, handleSync]
+  );
+
+  useEffect(() => {
+    if (user && publicLists && !hasSynced) {
+      handleSync();
+    }
+  }, [user, publicLists, hasSynced, handleSync]);
+
+  const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
   const hasLists = lists && lists.length > 0;
 
   return (
@@ -83,7 +98,13 @@ const Lists = () => {
         <Stack className={styles.header} direction="row">
           <Stat title="Barracks" value="Army Lists" />
           {user ? (
-            <Avatar user={user} onSignOut={() => deleteUser()} />
+            <Avatar
+              user={user}
+              onSignOut={() => {
+                deleteLists();
+                deleteUser();
+              }}
+            />
           ) : (
             <GoogleLogin
               shape="circle"
