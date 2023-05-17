@@ -18,14 +18,10 @@ import Weapons from '../../components/rules/weapons';
 import useArmy from '../../data/use-army';
 import useCore from '../../data/use-core';
 import useList from '../../data/use-list';
-import { SETTINGS, USER } from '../../data/storage';
+import { createPublicList, deletePublicList } from '../../data/use-public-list';
+import { USER } from '../../data/storage';
 import { formatDate } from '../../helpers/date';
-import {
-  buildTextList,
-  calculateOrderDice,
-  createPublicList,
-  deletePublicList
-} from '../../helpers/list';
+import { buildTextList, calculateOrderDice } from '../../helpers/list';
 
 import styles from './list.module.scss';
 
@@ -34,7 +30,6 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const [settings] = useLocalStorage<Barracks.Settings>(SETTINGS);
   const [user] = useLocalStorage<Barracks.User>(USER);
   const { data, loading: loadingCore } = useCore();
   const [list, setList] = useList(key!);
@@ -54,8 +49,8 @@ const List = () => {
     }
   }, [toast, list]);
 
-  const handlePublicShare = useCallback(async () => {
-    if (user && list) {
+  const { execute: sharePublicLink } = useAsync(
+    async (list: Barracks.List) => {
       const publicList = await createPublicList({
         createdBy: user?.id || `barracks-user-${crypto.randomUUID()}`,
         createdDate: list.created,
@@ -72,11 +67,13 @@ const List = () => {
           variant: 'success'
         });
       }
-    }
-  }, [user, toast, list, setList, settings]);
+    },
+    [user, toast, setList],
+    false
+  );
 
-  const handleRemovePublicList = useCallback(async () => {
-    if (list) {
+  const { execute: removePublicLink } = useAsync(
+    async (list: Barracks.List) => {
       const result = await deletePublicList(list.key);
       if (result) {
         setList({
@@ -88,11 +85,10 @@ const List = () => {
           variant: 'success'
         });
       }
-    }
-  }, [toast, list, setList, settings]);
-
-  const { execute: sharePublicLink } = useAsync(handlePublicShare, [], false);
-  const { execute: removePublicLink } = useAsync(handleRemovePublicList, [], false);
+    },
+    [setList, toast],
+    false
+  );
 
   return (
     <Layout
@@ -129,9 +125,9 @@ const List = () => {
                 defaultChecked={list.public}
                 onChange={(e) => {
                   if (e.currentTarget.checked) {
-                    sharePublicLink();
+                    sharePublicLink(list);
                   } else {
-                    removePublicLink();
+                    removePublicLink(list);
                   }
                 }}
               />

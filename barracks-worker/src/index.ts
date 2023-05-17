@@ -2,10 +2,6 @@ export interface Env {
   NAMESPACE: KVNamespace;
 }
 
-interface ListsByUser {
-  [key: string]: Barracks.PublicList;
-}
-
 const withCORS = (body?: BodyInit | null, init?: ResponseInit) =>
   new Response(body, {
     ...init,
@@ -40,7 +36,7 @@ const getList = async (env: Env, slug: string) => {
 
 const getLists = async (env: Env, slug: string) => {
   try {
-    const list = await env.NAMESPACE.list();
+    const list = await env.NAMESPACE.list<{ createdBy: string }>();
     const keys = list.keys.filter((l) => l.metadata?.createdBy === slug).map((l) => l.name);
 
     const lists: Barracks.PublicList[] = [];
@@ -48,7 +44,9 @@ const getLists = async (env: Env, slug: string) => {
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const list = await env.NAMESPACE.get(key);
-      lists.push(JSON.parse(list));
+      if (list) {
+        lists.push(JSON.parse(list));
+      }
     }
 
     if (lists) {
@@ -102,7 +100,7 @@ const deleteList = async (env: Env, slug: string) => {
 };
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(request: Request, env: Env): Promise<Response> {
     const parts = request.url.split('/');
     const path = parts[parts.length - 2];
     const slug = parts[parts.length - 1];

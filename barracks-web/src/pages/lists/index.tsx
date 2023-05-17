@@ -1,15 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import {
-  Alert,
-  IconButton,
-  Stack,
-  Stat,
-  useAsync,
-  useLocalStorage,
-  useToast
-} from '@fjlaubscher/matter';
+import { Alert, IconButton, Stack, Stat, useLocalStorage, useToast } from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
 
@@ -20,13 +12,16 @@ import ListCard from '../../components/list/card';
 
 // helpers
 import { LISTS, USER } from '../../data/storage';
-import { getPublicLists, deletePublicList } from '../../helpers/list';
+import { deletePublicList } from '../../data/use-public-list';
+import usePublicLists from '../../data/use-public-lists';
 
 import styles from './lists.module.scss';
 
 const Lists = () => {
-  const navigate = useNavigate();
   const toast = useToast();
+  const navigate = useNavigate();
+  const { isLoading } = usePublicLists();
+
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
   const [user, setUser, deleteUser] = useLocalStorage<Barracks.User>(USER);
   const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
@@ -45,17 +40,6 @@ const Lists = () => {
     },
     [setUser]
   );
-
-  const handleSyncLists = useCallback(async () => {
-    if (user) {
-      const publicLists = await getPublicLists(user.id);
-      const privateLists = lists ? lists.filter((l) => !l.public) : [];
-      const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
-      setLists([...listsByUser, ...privateLists]);
-    }
-
-    return undefined;
-  }, [user, lists, setLists]);
 
   const handleOAuthError = useCallback(() => {
     toast({
@@ -78,13 +62,7 @@ const Lists = () => {
     [lists, setLists]
   );
 
-  const { status, execute: syncLists } = useAsync(handleSyncLists, [], false);
-
   const hasLists = lists && lists.length > 0;
-
-  useEffect(() => {
-    syncLists();
-  }, []);
 
   return (
     <Layout
@@ -94,12 +72,14 @@ const Lists = () => {
           <FaPlus />
         </IconButton>
       }
-      isLoading={status === 'pending'}
+      isLoading={isLoading}
     >
       <Stack direction="column">
-        <Alert className={styles.alert} variant="info">
-          You can sync your public lists across devices by signing in with Google.
-        </Alert>
+        {!user && (
+          <Alert className={styles.alert} variant="info">
+            You can sync your public lists across devices by signing in with Google.
+          </Alert>
+        )}
         <Stack className={styles.header} direction="row">
           <Stat title="Barracks" value="Army Lists" />
           {user ? (

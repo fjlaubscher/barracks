@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { Stat, Stack, useToast, Button, useLocalStorage, useAsync } from '@fjlaubscher/matter';
+import { Stat, Stack, useToast, Button, useLocalStorage } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
@@ -11,8 +11,9 @@ import Section from '../../components/section';
 
 // helpers
 import useArmy from '../../data/use-army';
+import usePublicList from '../../data/use-public-list';
 import { LISTS, USER } from '../../data/storage';
-import { calculateOrderDice, getPublicList } from '../../helpers/list';
+import { calculateOrderDice } from '../../helpers/list';
 import { formatDate } from '../../helpers/date';
 
 import styles from './public-list.module.scss';
@@ -22,11 +23,7 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const {
-    status: listStatus,
-    value: publicList,
-    execute: fetchPublicList
-  } = useAsync(() => getPublicList(key!), [key], false);
+  const { isLoading: loadingPublicList, list: publicList } = usePublicList(key);
   const { army, loading: loadingArmy } = useArmy(publicList?.list.army);
   const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
   const [user] = useLocalStorage<Barracks.User>(USER);
@@ -65,18 +62,12 @@ const List = () => {
 
   const isListCreator = user?.id === publicList?.createdBy;
 
-  useEffect(() => {
-    if (key) {
-      fetchPublicList();
-    }
-  }, [key]);
-
-  if (listStatus === 'success' && !publicList) {
+  if (!loadingPublicList && !publicList) {
     return <Navigate to="/404" />;
   }
 
   return (
-    <Layout title="Public List" isLoading={loadingArmy || listStatus === 'pending'}>
+    <Layout title="Public List" isLoading={loadingPublicList || loadingArmy}>
       {army && publicList && (
         <>
           <Stack direction="row">

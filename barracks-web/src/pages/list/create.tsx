@@ -9,8 +9,8 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // helpers
+import { createPublicList } from '../../data/use-public-list';
 import { ARMIES, LISTS, USER } from '../../data/storage';
-import { createPublicList } from '../../helpers/list';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
 
 const CreateList = () => {

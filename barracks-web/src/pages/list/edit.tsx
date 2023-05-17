@@ -15,10 +15,11 @@ import UnitCard from '../../components/unit/card';
 import useArmy from '../../data/use-army';
 import useList from '../../data/use-list';
 import { USER } from '../../data/storage';
-import { buildTextList, calculateOrderDice, createPublicList } from '../../helpers/list';
+import { buildTextList, calculateOrderDice } from '../../helpers/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
+import { createPublicList } from '../../data/use-public-list';
 
 const EditList = () => {
   const toast = useToast();
@@ -109,21 +110,24 @@ const EditList = () => {
     [list, setList, toast]
   );
 
-  const handleListSync = useCallback(async () => {
-    if (user && list) {
-      await createPublicList({
-        createdBy: user.id,
-        slug: list.key,
-        createdDate: list.created,
-        list
-      });
-    }
-  }, [user, list]);
-  const { status, execute: syncPublicList } = useAsync(handleListSync, [], false);
+  const { execute: syncPublicList } = useAsync(
+    async (list: Barracks.List) => {
+      if (user) {
+        await createPublicList({
+          createdBy: user.id,
+          slug: list.key,
+          createdDate: list.created,
+          list
+        });
+      }
+    },
+    [user],
+    false
+  );
 
   useEffect(() => {
     if (list && list.public) {
-      syncPublicList();
+      syncPublicList(list);
     }
   }, [list]);
 
