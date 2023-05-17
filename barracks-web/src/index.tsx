@@ -5,6 +5,7 @@ import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
 import { SWRConfig } from 'swr';
 import { GoogleOAuthProvider } from '@react-oauth/google';
+import { Analytics } from '@vercel/analytics/react';
 
 import './styles/global.scss';
 
@@ -19,6 +20,8 @@ if (!settings) {
 }
 overrideStyles(settings ? JSON.parse(settings) : DEFAULT_SETTINGS);
 
+const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -32,6 +35,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           >
             <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
               <App />
+              <Analytics mode={isProduction ? 'production' : 'development'} />
             </GoogleOAuthProvider>
           </SWRConfig>
         </ToastProvider>
