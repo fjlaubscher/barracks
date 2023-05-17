@@ -1,22 +1,17 @@
-import { useCallback, useEffect, useMemo } from 'react';
+import { useCallback } from 'react';
 import { FaEye } from 'react-icons/fa';
-import { useNavigate, useParams } from 'react-router-dom';
-import { Stat, IconButton, Stack, useToast, useLocalStorage, useAsync } from '@fjlaubscher/matter';
+import { useNavigate, useParams, Navigate } from 'react-router-dom';
+import { IconButton, useToast } from '@fjlaubscher/matter';
 import { useSetRecoilState } from 'recoil';
 
 // components
-import Layout from '../../components/layout';
+import ListLayout from '../../components/layout/list';
 import Section from '../../components/section';
-import Stats from '../../components/stats';
 import UnitCard from '../../components/unit/card';
 
-// helpers
+// data
 import useArmy from '../../data/use-army';
 import useList from '../../data/use-list';
-import { createPublicList } from '../../data/use-public-list';
-import { USER } from '../../data/storage';
-import { formatDate } from '../../helpers/date';
-import { buildTextList, calculateOrderDice } from '../../helpers/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
@@ -27,23 +22,8 @@ const EditList = () => {
   const navigate = useNavigate();
   const setUnitBuilderPayload = useSetRecoilState(UnitBuilderAtom);
 
-  const [user] = useLocalStorage<Barracks.User>(USER);
-  const [list, setList] = useList(key!);
-  const { army, units, loading } = useArmy(list!.army);
-
-  const totalOrderDice = useMemo(() => (list ? calculateOrderDice(list) : 0), [list]);
-
-  const handleShareList = useCallback(async () => {
-    if (list) {
-      const text = buildTextList(list);
-      await navigator.clipboard.writeText(text);
-
-      toast({
-        text: 'List copied to clipboard.',
-        variant: 'success'
-      });
-    }
-  }, [toast, list]);
+  const { data: list, isLoading, createOrUpdate, isOwner } = useList(key);
+  const { army, units } = useArmy(list?.army);
 
   const handleListUnitAdd = useCallback(
     (type: string, role: string) => {
@@ -64,14 +44,14 @@ const EditList = () => {
   );
 
   const handleListUnitCopy = useCallback(
-    (type: string, role: string, listUnit: Barracks.List.Unit) => {
+    async (type: string, role: string, listUnit: Barracks.List.Unit) => {
       if (list) {
         const newUnit: Barracks.List.Unit = {
           ...listUnit,
           key: `${type}-${role}-${list.units[type][role].length + 1}`
         };
 
-        setList({
+        await createOrUpdate({
           ...list,
           points: list.points + newUnit.points,
           units: {
@@ -86,13 +66,13 @@ const EditList = () => {
         toast({ text: `${listUnit.unit.name} duplicated.`, variant: 'success' });
       }
     },
-    [list, setList, toast]
+    [list, createOrUpdate, toast]
   );
 
   const handleListUnitDelete = useCallback(
-    (type: string, role: string, listUnit: Barracks.List.Unit, index: number) => {
+    async (type: string, role: string, listUnit: Barracks.List.Unit, index: number) => {
       if (list) {
-        setList({
+        await createOrUpdate({
           ...list,
           points: list.points - listUnit.points,
           units: {
@@ -107,57 +87,24 @@ const EditList = () => {
         toast({ text: `${listUnit.unit.name} deleted.`, variant: 'success' });
       }
     },
-    [list, setList, toast]
+    [list, createOrUpdate, toast]
   );
 
-  const { execute: syncPublicList } = useAsync(
-    async (list: Barracks.List) => {
-      if (user) {
-        await createPublicList({
-          createdBy: user.id,
-          slug: list.key,
-          createdDate: list.created,
-          list
-        });
-      }
-    },
-    [user],
-    false
-  );
-
-  useEffect(() => {
-    if (list && list.public) {
-      syncPublicList(list);
-    }
-  }, [list]);
+  if (!isLoading && list && !isOwner) {
+    return <Navigate to={`/list/${list.key}`} />;
+  }
 
   return (
-    <Layout
-      title="List"
+    <ListLayout
       action={
         <IconButton onClick={() => navigate(`/list/${key}`)}>
           <FaEye />
         </IconButton>
       }
-      isLoading={loading}
-      onShareClick={handleShareList}
+      list={list}
     >
       {army && list && units && (
         <>
-          <Stack direction="row">
-            <Stats>
-              <Stat
-                title={army.name}
-                value={list.name}
-                description={`Created on ${formatDate(list.created)}`}
-              />
-              <Stat
-                title="Points"
-                value={`${list.points}/${list.limit}`}
-                description={`Order Dice: ${totalOrderDice}`}
-              />
-            </Stats>
-          </Stack>
           {Object.keys(list.units).map((type) => (
             <div key={`unit-type-${type}`}>
               {Object.keys(list.units[type]).map((role, i) => (
@@ -186,7 +133,7 @@ const EditList = () => {
           ))}
         </>
       )}
-    </Layout>
+    </ListLayout>
   );
 };
 

@@ -12,7 +12,7 @@ import ListCard from '../../components/list/card';
 
 // helpers
 import { LISTS, USER } from '../../data/storage';
-import { deletePublicList } from '../../data/use-public-list';
+import { deletePublicList } from '../../data/use-list';
 import usePublicLists from '../../data/use-public-lists';
 
 import styles from './lists.module.scss';

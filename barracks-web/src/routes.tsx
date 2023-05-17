@@ -7,7 +7,6 @@ const AddListUnit = lazy(() => import('./pages/list/unit'));
 const EditListUnit = lazy(() => import('./pages/list/edit-unit'));
 const List = lazy(() => import('./pages/list'));
 const Lists = lazy(() => import('./pages/lists'));
-const PublicList = lazy(() => import('./pages/public-list'));
 const Rules = lazy(() => import('./pages/rules'));
 const Armies = lazy(() => import('./pages/rules/armies'));
 const Army = lazy(() => import('./pages/rules/army'));
@@ -28,7 +27,6 @@ const AppRoutes = () => (
     <Route path="/list/:key/unit/:index" element={<EditListUnit />} />
     <Route path="/list/:key/unit" element={<AddListUnit />} />
     <Route path="/list/:key" element={<List />} />
-    <Route path="/public-list/:key" element={<PublicList />} />
     <Route path="/lists" element={<Lists />} />
     <Route path="/list" element={<CreateList />} />
     <Route path="/settings" element={<Settings />} />

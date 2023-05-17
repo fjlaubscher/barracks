@@ -9,9 +9,9 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // helpers
-import { createPublicList } from '../../data/use-public-list';
-import { ARMIES, LISTS, USER } from '../../data/storage';
+import { ARMIES, USER } from '../../data/storage';
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
+import useList from '../../data/use-list';
 
 const CreateList = () => {
   const [search] = useSearchParams();
@@ -19,8 +19,8 @@ const CreateList = () => {
   const toast = useToast();
 
   const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
-  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
   const [user] = useLocalStorage<Barracks.User>(USER);
+  const { createOrUpdate } = useList();
 
   const armyKeys = useMemo(
     () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
@@ -53,27 +53,18 @@ const CreateList = () => {
         public: !!user
       };
 
-      if (user) {
-        await createPublicList({
-          createdBy: user.id,
-          slug: newList.key,
-          createdDate: newList.created,
-          list: newList
-        });
-      }
-
-      setLists(lists ? [newList, ...lists] : [newList]);
+      await createOrUpdate(newList);
       toast({ text: 'List created.', variant: 'success' });
       navigate(`/list/${newList.key}/edit`);
     },
-    [user, lists, setLists, toast, navigate]
+    [user, toast, navigate]
   );
 
   return (
     <FormProvider {...form}>
       <Layout
-        title="New List"
-        description="Create a new list with Barracks."
+        title="Army List"
+        description="Create a new army list with Barracks."
         action={
           <IconButton
             disabled={!isValid || isSubmitting}

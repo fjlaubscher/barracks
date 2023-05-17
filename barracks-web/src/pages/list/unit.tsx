@@ -25,10 +25,10 @@ const AddListUnit = () => {
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
-  const [list, setList] = useList(key!);
+  const { data: list, createOrUpdate } = useList(key);
   const { units, loading } = useArmy(list?.army || '');
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
     if (!list || !unit) {
       return undefined;
     }
@@ -39,7 +39,7 @@ const AddListUnit = () => {
       points: calculateCost(unit)
     };
 
-    setList({
+    await createOrUpdate({
       ...list,
       points: list.points + newUnit.points,
       units: {

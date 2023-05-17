@@ -2,7 +2,7 @@ import { capitalize } from '@fjlaubscher/matter';
 
 import { ARMY_NAME_MAPPING } from './data';
 
-export const calculateOrderDice = (list: Barracks.List) => {
+export const calculateOrderDice = (list?: Barracks.List) => {
   let orderDice = 0;
 
   if (list) {
@@ -14,7 +14,9 @@ export const calculateOrderDice = (list: Barracks.List) => {
   return orderDice;
 };
 
-export const buildTextList = (list: Barracks.List): string => {
+export const buildTextList = (list?: Barracks.List): string => {
+  if (!list) return '';
+
   let text = `*${ARMY_NAME_MAPPING[list.army]} - ${list.name}*\n_${calculateOrderDice(
     list
   )} Order Dice / ${list.points} pts_\n\n`;
@@ -45,7 +47,7 @@ export const buildTextList = (list: Barracks.List): string => {
   });
 
   if (list.public) {
-    text += `${window.location.protocol}//${window.location.host}/public-list/${list.key}`;
+    text += `${window.location.protocol}//${window.location.host}/list/${list.key}`;
   }
 
   return text;
