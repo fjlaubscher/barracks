@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import type { ReactNode } from 'react';
-import { Stat, Stack, useToast } from '@fjlaubscher/matter';
+import { Stat, Stack } from '@fjlaubscher/matter';
 
 // components
 import Card from '../../components/card';
@@ -17,7 +17,7 @@ import useCore from '../../data/use-core';
 
 // helpers
 import { formatDate } from '../../helpers/date';
-import { buildTextList, calculateOrderDice } from '../../helpers/list';
+import { shareList, calculateOrderDice } from '../../helpers/list';
 
 import styles from './layout.module.scss';
 
@@ -29,22 +29,12 @@ interface Props {
 }
 
 const ListLayout = ({ action, children, list, showRules = false }: Props) => {
-  const toast = useToast();
-
   const { data, loading: loadingCore } = useCore();
   const { army, loading: loadingArmy } = useArmy(list?.army);
 
   const totalOrderDice = useMemo(() => calculateOrderDice(list), [list]);
 
-  const handleShareList = useCallback(async () => {
-    const text = buildTextList(list);
-    await navigator.clipboard.writeText(text);
-
-    toast({
-      text: 'List copied to clipboard.',
-      variant: 'success'
-    });
-  }, [toast, list]);
+  const handleShareList = useCallback(async () => shareList(list), [list]);
 
   return (
     <Layout

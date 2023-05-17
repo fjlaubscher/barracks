@@ -46,9 +46,19 @@ export const buildTextList = (list?: Barracks.List): string => {
     });
   });
 
-  if (list.public) {
-    text += `${window.location.protocol}//${window.location.host}/list/${list.key}`;
-  }
-
   return text;
+};
+
+export const shareList = async (list?: Barracks.List) => {
+  const listUrl = list
+    ? `${window.location.protocol}//${window.location.host}/list/${list.key}`
+    : undefined;
+  const shareData: ShareData = {
+    text: buildTextList(list),
+    title: list ? `${ARMY_NAME_MAPPING[list.army]} - ${list.name}` : 'Army List',
+    url: listUrl
+  };
+  if (navigator.canShare(shareData)) {
+    await navigator.share(shareData);
+  }
 };
