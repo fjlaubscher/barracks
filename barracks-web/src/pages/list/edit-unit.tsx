@@ -25,10 +25,10 @@ const EditListUnit = () => {
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
-  const [list, setList] = useList(key!);
-  const { units, loading } = useArmy(list?.army || '');
+  const { data: list, isLoading, createOrUpdate } = useList(key);
+  const { units, loading } = useArmy(list?.army);
 
-  const handleSubmit = useCallback(() => {
+  const handleSubmit = useCallback(async () => {
     if (!list || !unit || !index) {
       return undefined;
     }
@@ -41,7 +41,7 @@ const EditListUnit = () => {
     const newUnits: Barracks.List.Units = { ...list.units };
     newUnits[type][role][parsedIndex] = { ...unit, points: newCost };
 
-    setList({
+    await createOrUpdate({
       ...list,
       points: listPoints + newCost,
       units: { ...newUnits }
@@ -91,7 +91,7 @@ const EditListUnit = () => {
   return (
     <Layout
       title="Edit Unit"
-      isLoading={loading}
+      isLoading={loading || isLoading}
       action={
         <IconButton variant="info" onClick={handleSubmit}>
           <FaSave />
