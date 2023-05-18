@@ -120,7 +120,7 @@ const AppLayout = ({
         {description && <meta property="og:description" content={description} />}
         <meta
           property="og:image"
-          content={image || 'https://barracks.skinnerhammer.club/android-icon.png'}
+          content={image || 'https://barracks.francoislaubscher.dev/android-icon.png'}
         />
       </Helmet>
       {children}
