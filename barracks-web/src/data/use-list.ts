@@ -57,7 +57,7 @@ const useList = (key?: string) => {
         setLists([updatedList]);
       }
 
-      if (user?.id && publicList?.createdBy === user.id) {
+      if (user?.id) {
         setIsUpdating(true);
 
         if (updatedList.public) {
