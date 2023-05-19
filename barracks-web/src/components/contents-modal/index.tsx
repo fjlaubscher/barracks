@@ -8,25 +8,19 @@ interface Props {
   items: {
     [key: string]: Barracks.ItemLink[];
   };
-  visible?: boolean;
 }
 
-const ContentsModal = ({ items, visible }: Props) => {
-  const [showModal, setShowModal] = useState(visible ?? false);
+const ContentsModal = ({ items }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <IconButton className={styles.contentsButton} onClick={() => setShowModal(!showModal)}>
-        <FaLayerGroup />
-      </IconButton>
-      <Modal
-        visible={showModal}
-        onOverlayClick={(event) => {
-          event.stopPropagation();
-          setShowModal(false);
-        }}
-        onClose={() => setShowModal(false)}
-      >
+      {!isOpen && (
+        <IconButton className={styles.contentsButton} onClick={() => setIsOpen(true)}>
+          <FaLayerGroup />
+        </IconButton>
+      )}
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
         <ul className={styles.contents}>
           {Object.keys(items).map((key) => (
             <li key={`contents-${key}`}>
@@ -34,7 +28,7 @@ const ContentsModal = ({ items, visible }: Props) => {
               <ul>
                 {items[key].map((item, i) => (
                   <li key={`contents-${key}-${i}`}>
-                    <a href={item.href} onClick={() => setShowModal(false)}>
+                    <a href={item.href} onClick={() => setIsOpen(false)}>
                       {item.text}
                     </a>
                   </li>

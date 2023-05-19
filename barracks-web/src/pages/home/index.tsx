@@ -1,4 +1,4 @@
-import { FaBookOpen, FaCog } from 'react-icons/fa';
+import { FaBookOpen, FaCog, FaInfoCircle } from 'react-icons/fa';
 import { GiTank } from 'react-icons/gi';
 import { Link, useNavigate } from 'react-router-dom';
 import { IconButton, Stack, Stat } from '@fjlaubscher/matter';
@@ -8,12 +8,10 @@ import Layout from '../../components/layout';
 
 import styles from './home.module.scss';
 
-const DESCRIPTION = `
-Barracks is a Bolt Action assistant app designed to enhance your gaming experience by providing a user-friendly interface for managing your army list and tracking unit stats.
-With features such as point calculation, force organization, and customizable army lists, Barracks streamlines the preparation process and allows you to focus on strategy and tactics during gameplay.
+const DESCRIPTION = `As a fellow tabletop gaming enthusiast, I'm thrilled to introduce you to Barracks — a personal hobby project of mine designed to enhance your experience with Warlord Games' popular wargame, Bolt Action.
+Barracks is an open-source app built entirely on web technologies, providing you with an intuitive and convenient platform for two essential aspects of the game: rules references and army list building.
 
-Barracks is not associated with or endorsed by Warlord Games, the publisher of Bolt Action.
-`;
+Barracks is not associated with or endorsed by Warlord Games, the publisher of Bolt Action.`;
 
 const Home = () => {
   const navigate = useNavigate();
@@ -31,13 +29,17 @@ const Home = () => {
       <Stack className={styles.home} direction="column">
         <Stat title="Barracks" value="Home" description="Welcome to Barracks!" />
         <Stack className={styles.tiles} direction="column">
+          <Link className={styles.tile} to="/about">
+            <FaInfoCircle />
+            <span>What is Barracks?</span>
+          </Link>
           <Link className={styles.tile} to="/rules">
             <FaBookOpen />
             <span>Need help with the rules?</span>
           </Link>
           <Link className={styles.tile} to="/lists">
             <GiTank />
-            <span>Army Lists</span>
+            <span>Manage your army lists</span>
           </Link>
         </Stack>
       </Stack>

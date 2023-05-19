@@ -58,11 +58,11 @@
 }
 
 .cancel {
-  background-color: var(--color-light-surface);
+  background-color: var(--color-light-border);
   color: var(--color-light-text);
 
   @media (prefers-color-scheme: dark) {
-    background-color: var(--color-dark-surface);
+    background-color: var(--color-dark-border);
     color: var(--color-dark-text);
   }
 }

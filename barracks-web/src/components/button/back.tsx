@@ -11,7 +11,8 @@ interface Props {
 }
 
 const BackButton = ({ to, text }: Props) => (
-  <LinkButton className={styles.back} leftIcon={<FaArrowLeft />} to={to}>
+  <LinkButton className={styles.back} to={to}>
+    <FaArrowLeft />
     {text || 'Back'}
   </LinkButton>
 );

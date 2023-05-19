@@ -1,4 +1,4 @@
-import { TagGroup, Tag, Table, capitalize } from '@fjlaubscher/matter';
+import { TagGroup, Tag, Stack, capitalize } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 
 // components
@@ -18,57 +18,55 @@ const ListUnitCard = ({ listUnit }: Props) => {
 
   return (
     <Card title={listUnit.profile.name} description={`${calculatedCost} pts`}>
-      <Table headings={[{ text: '' }, { text: '' }]}>
-        <tr>
-          <td>Composition</td>
-          <td>{listUnit.unit.composition}</td>
-        </tr>
-        <tr>
-          <td>Weapons</td>
-          <td>{listUnit.unit.weapons}</td>
-        </tr>
+      <Stack direction="column">
+        <div className={styles.section}>
+          <h4>Composition</h4>
+          <p>{listUnit.unit.composition}</p>
+        </div>
+        <div className={styles.section}>
+          <h4>Weapons</h4>
+          <p>{listUnit.unit.weapons}</p>
+        </div>
         {listUnit.unit.damage && (
-          <tr>
-            <td>Damage Value</td>
-            <td>{listUnit.unit.damage}</td>
-          </tr>
+          <div className={styles.section}>
+            <h4>Damage Value</h4>
+            <p>{listUnit.unit.damage}</p>
+          </div>
         )}
         {listUnit.unit.transport && (
-          <tr>
-            <td>Transport</td>
-            <td>{listUnit.unit.transport}</td>
-          </tr>
+          <div className={styles.section}>
+            <h4>Transport</h4>
+            <p>{listUnit.unit.transport}</p>
+          </div>
         )}
         {listUnit.unit.tow && (
-          <tr>
-            <td>Tow</td>
-            <td>{listUnit.unit.tow}</td>
-          </tr>
+          <div className={styles.section}>
+            <h4>Tow</h4>
+            <p>{listUnit.unit.tow}</p>
+          </div>
         )}
         {listUnit.unit.rules.length > 0 ? (
-          <tr>
-            <td>Special Rules</td>
-            <td>
-              <ul className={styles.rules}>
-                {listUnit.unit.rules.map((rule, i) => (
-                  <li key={`rule-${i}`}>{rule}</li>
-                ))}
-              </ul>
-            </td>
-          </tr>
+          <div className={styles.section}>
+            <h4>Special Rules</h4>
+            <ul className={styles.rules}>
+              {listUnit.unit.rules.map((rule, i) => (
+                <li key={`rule-${i}`}>{rule}</li>
+              ))}
+            </ul>
+          </div>
         ) : undefined}
-      </Table>
-      <TagGroup>
-        <Tag variant={getColorFromVeterancy(listUnit.veterancy)}>
-          {capitalize(listUnit.veterancy)}
-        </Tag>
-        {listUnit.options.map((o, i) => (
-          <Tag key={`option-${i}`}>
-            {o.amount > 1 ? `${o.amount} x ` : ''}
-            {o.option.name}
+        <TagGroup>
+          <Tag variant={getColorFromVeterancy(listUnit.veterancy)}>
+            {capitalize(listUnit.veterancy)}
           </Tag>
-        ))}
-      </TagGroup>
+          {listUnit.options.map((o, i) => (
+            <Tag key={`option-${i}`}>
+              {o.amount > 1 ? `${o.amount} x ` : ''}
+              {o.option.name}
+            </Tag>
+          ))}
+        </TagGroup>
+      </Stack>
     </Card>
   );
 };

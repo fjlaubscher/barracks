@@ -34,7 +34,7 @@
 }
 
 .list {
-  font-size: 0.9rem;
+  font-size: 1rem;
   padding-left: 1.5rem;
 
   li {
@@ -57,7 +57,7 @@
 }
 
 .keywords {
-  font-size: 0.9rem;
+  font-size: 1rem;
 
   ul {
     font-size: inherit;
@@ -74,4 +74,11 @@
   display: block;
   width: 100%;
   text-decoration: none;
+}
+
+.linkButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1rem;
 }

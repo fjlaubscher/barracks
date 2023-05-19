@@ -5,7 +5,7 @@
   width: auto;
   position: fixed;
   z-index: 2;
-  bottom: 4.5rem;
+  bottom: 6rem;
   right: 1rem;
 
   @media (min-width: breakpoints.$tablet) {
@@ -15,6 +15,7 @@
 }
 
 .contents {
+  width: 100%;
   margin: 0;
   padding-left: 0;
   list-style: none;
@@ -24,21 +25,33 @@
     color: colors.$accent;
   }
 
-  > li > ul {
-    padding-top: 0.5rem;
+  > li {
+    padding-left: 0;
+    font-weight: bold;
 
-    li:not(:last-child) {
-      margin-bottom: 0.5rem;
+    > ul {
+      padding-left: 1.5rem;
+      padding-top: 0.5rem;
+
+      > li {
+        font-weight: normal;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      padding-bottom: 1rem;
+      border-bottom: 1px solid colors.$light-surface;
+      margin-bottom: 1rem;
+
+      @media (prefers-color-scheme: dark) {
+        border-bottom-color: colors.$dark-surface;
+      }
     }
   }
 
-  > li:not(:last-child) {
-    padding-bottom: 1rem;
-    border-bottom: 1px solid colors.$light-surface;
-    margin-bottom: 1rem;
 
-    @media (prefers-color-scheme: dark) {
-      border-bottom-color: colors.$dark-surface;
-    }
-  }
 }

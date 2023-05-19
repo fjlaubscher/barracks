@@ -1,25 +1,29 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useToast, IconButton, useLocalStorage } from '@fjlaubscher/matter';
+import { Alert, Stack, useToast, IconButton } from '@fjlaubscher/matter';
 import { FormProvider, useForm } from 'react-hook-form';
 import { FaSave } from 'react-icons/fa';
+import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
-// helpers
+// data
 import { ARMIES, USER } from '../../data/storage';
-import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
 import useList from '../../data/use-list';
+
+// helpers
+import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
+import styles from '../lists/lists.module.scss';
 
 const CreateList = () => {
   const [search] = useSearchParams();
   const navigate = useNavigate();
   const toast = useToast();
 
-  const [armies] = useLocalStorage<Barracks.Armies>(ARMIES);
-  const [user] = useLocalStorage<Barracks.User>(USER);
+  const armies = useReadLocalStorage<Barracks.Armies>(ARMIES);
+  const user = useReadLocalStorage<Barracks.User>(USER);
   const { createOrUpdate } = useList();
 
   const armyKeys = useMemo(
@@ -49,15 +53,14 @@ const CreateList = () => {
         key: crypto.randomUUID(),
         created: new Date().toISOString(),
         points: 0,
-        units: LIST_UNITS_TEMPLATE,
-        public: !!user
+        units: LIST_UNITS_TEMPLATE
       };
 
       await createOrUpdate(newList);
       toast({ text: 'List created.', variant: 'success' });
       navigate(`/list/${newList.key}/edit`);
     },
-    [user, toast, navigate]
+    [toast, navigate]
   );
 
   return (
@@ -77,7 +80,12 @@ const CreateList = () => {
           </IconButton>
         }
       >
-        {armies && <ListForm armies={armies} onSubmit={handleSubmit} />}
+        <Stack direction="column">
+          <Alert className={styles.alert} variant="info">
+            When you share a public army list via link, anyone can view it!
+          </Alert>
+          {armies && <ListForm armies={armies} onSubmit={handleSubmit} isPublicAllowed={!!user} />}
+        </Stack>
       </Layout>
     </FormProvider>
   );

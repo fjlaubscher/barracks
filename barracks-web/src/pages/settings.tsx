@@ -1,8 +1,9 @@
-import { useLocalStorage, useToast, IconButton } from '@fjlaubscher/matter';
+import { useToast, IconButton } from '@fjlaubscher/matter';
 import { useCallback } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FaSave } from 'react-icons/fa';
+import { useLocalStorage } from 'usehooks-ts';
 
 // components
 import SettingsForm from '../components/settings/form';
@@ -16,7 +17,10 @@ const Settings = () => {
   const navigate = useNavigate();
   const toast = useToast();
 
-  const [settings, setSettings] = useLocalStorage<Barracks.Settings>(SETTINGS);
+  const [settings, setSettings] = useLocalStorage<Barracks.Settings | undefined>(
+    SETTINGS,
+    undefined
+  );
 
   const form = useForm<Barracks.Settings>({
     mode: 'onChange',

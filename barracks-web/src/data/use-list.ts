@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useLocalStorage } from '@fjlaubscher/matter';
+import { useLocalStorage } from 'usehooks-ts';
 import useSWR from 'swr';
 
 // helpers
@@ -28,8 +28,8 @@ export const deletePublicList = async (key: string) => {
 
 const useList = (key?: string) => {
   const [isUpdating, setIsUpdating] = useState(false);
-  const [user] = useLocalStorage<Barracks.User>(USER);
-  const [lists, setLists] = useLocalStorage<Barracks.List[]>(LISTS);
+  const [user] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
+  const [lists, setLists] = useLocalStorage<Barracks.List[] | undefined>(LISTS, undefined);
   const localList = useMemo(
     () => (lists ? lists.filter((l) => l.key === key)[0] : undefined),
     [lists]
@@ -69,14 +69,14 @@ const useList = (key?: string) => {
               ...updatedList
             }
           });
-        } else {
+        } else if (localList?.public && !updatedList.public) {
           await deletePublicList(updatedList.key);
         }
 
         setIsUpdating(false);
       }
     },
-    [publicList, lists, setLists, isUpdating, setIsUpdating]
+    [publicList, localList, lists, setLists, isUpdating, setIsUpdating]
   );
 
   return {

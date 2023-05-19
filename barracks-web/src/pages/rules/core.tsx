@@ -407,9 +407,11 @@ const QuickReferenceRules = () => {
               </Table>
             </Card>
             <Card id="movement-reverse" title="Reverse Moves">
-              A vehicle can reverse straight backwards at up to half its standard <i>advance</i>{' '}
-              rate unless it is a <strong>recce</strong> vehicle. A recce vehicle can reverse at its
-              full <i>advance</i> rate and can manoeuvre as if driving forward.
+              <p>
+                A vehicle can reverse straight backwards at up to half its standard <i>advance</i>{' '}
+                rate unless it is a <strong>recce</strong> vehicle. A recce vehicle can reverse at
+                its full <i>advance</i> rate and can manoeuvre as if driving forward.
+              </p>
             </Card>
           </Section>
           <Section id="shooting" title="Rules" description="Shooting">

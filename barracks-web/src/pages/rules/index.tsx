@@ -1,6 +1,6 @@
 import { Stack, Stat } from '@fjlaubscher/matter';
 import { GiPistolGun, GiTank } from 'react-icons/gi';
-import { FaBookOpen, FaFlag, FaUsers } from 'react-icons/fa';
+import { FaBookOpen, FaFlag, FaUsers, FaChevronRight } from 'react-icons/fa';
 
 // components
 import Layout from '../../components/layout';
@@ -9,6 +9,8 @@ import LinkButton from '../../components/button/link';
 // helpers
 import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
+
+import styles from './rules.module.scss';
 
 const Rules = () => {
   const { data, loading } = useCore();
@@ -26,20 +28,30 @@ const Rules = () => {
           description={`Last updated: ${formatDate(data?.lastUpdated)}`}
         />
         <Stack direction="column">
-          <LinkButton leftIcon={<FaBookOpen />} to="/rules/core">
+          <LinkButton className={styles.linkButton} to="/rules/core">
+            <FaBookOpen />
             Core Rules
+            <FaChevronRight />
           </LinkButton>
-          <LinkButton leftIcon={<FaFlag />} to="/rules/armies">
+          <LinkButton className={styles.linkButton} to="/rules/armies">
+            <FaFlag />
             Army Rules
+            <FaChevronRight />
           </LinkButton>
-          <LinkButton leftIcon={<FaUsers />} to="/rules/units">
+          <LinkButton className={styles.linkButton} to="/rules/units">
+            <FaUsers />
             Unit Special Rules
+            <FaChevronRight />
           </LinkButton>
-          <LinkButton leftIcon={<GiTank />} to="/rules/vehicles">
+          <LinkButton className={styles.linkButton} to="/rules/vehicles">
+            <GiTank />
             Vehicle Special Rules
+            <FaChevronRight />
           </LinkButton>
-          <LinkButton leftIcon={<GiPistolGun />} to="/rules/weapons">
+          <LinkButton className={styles.linkButton} to="/rules/weapons">
+            <GiPistolGun />
             Weapon Special Rules
+            <FaChevronRight />
           </LinkButton>
         </Stack>
       </Stack>

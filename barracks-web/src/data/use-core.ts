@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useLocalStorage } from '@fjlaubscher/matter';
+import { useLocalStorage } from 'usehooks-ts';
 import useSWR from 'swr';
 
 // helpers
@@ -9,7 +9,10 @@ const useCore = () => {
   const [hasSynced, setHasSynced] = useState(false);
   const { data, isLoading } = useSWR<Barracks.Core>(`/data/core.json`);
 
-  const [offlineData, setOfflineData] = useLocalStorage<Barracks.Core>(CORE_DATA);
+  const [offlineData, setOfflineData] = useLocalStorage<Barracks.Core | undefined>(
+    CORE_DATA,
+    undefined
+  );
 
   const coreData = useMemo(() => (data ? offlineData : undefined), [data]);
 

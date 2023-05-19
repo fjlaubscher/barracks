@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
 import { Link, useLocation } from 'react-router-dom';
-import { FaBookOpen, FaShareAlt } from 'react-icons/fa';
+import { FaBookOpen, FaShareAlt, FaChevronRight } from 'react-icons/fa';
 import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';
@@ -69,45 +69,45 @@ const AppLayout = ({
       action={action}
       title={title}
       home={
-        <Link to="/">
+        <Link className={styles.home} to="/">
           <GiBarracks />
         </Link>
       }
       menu={
         <>
           <LinkButton
-            leftIcon={<GiBarracks />}
             className={classnames(styles.action, pathname === '/' ? styles.active : undefined)}
             to="/"
           >
-            Home
+            <GiBarracks /> Home
+            <FaChevronRight className={styles.chevron} />
           </LinkButton>
           <LinkButton
-            leftIcon={<GiTank />}
             className={classnames(
               styles.action,
               pathname.includes('/list') ? styles.active : undefined
             )}
             to="/lists"
           >
+            <GiTank />
             Army Lists
+            <FaChevronRight className={styles.chevron} />
           </LinkButton>
           <LinkButton
-            leftIcon={<FaBookOpen />}
             className={classnames(
               styles.action,
               pathname.includes('/rules') ? styles.active : undefined
             )}
             to="/rules"
           >
+            <FaBookOpen />
             Rules
+            <FaChevronRight className={styles.chevron} />
           </LinkButton>
-          <Button
-            leftIcon={<FaShareAlt />}
-            className={styles.action}
-            onClick={onShareClick || handleShare}
-          >
+          <Button className={styles.action} onClick={onShareClick || handleShare}>
+            <FaShareAlt />
             Share
+            <FaChevronRight className={styles.chevron} />
           </Button>
         </>
       }
@@ -116,8 +116,8 @@ const AppLayout = ({
       <Helmet>
         <title>{title} | Barracks</title>
         <meta property="og:title" content={`${title} | Barracks`} />
-        {description && <meta name="description" content={description} />}
-        {description && <meta property="og:description" content={description} />}
+        <meta property="description" content={description} />
+        <meta property="og:description" content={description} />
         <meta
           property="og:image"
           content={image || 'https://barracks.francoislaubscher.dev/android-icon.png'}

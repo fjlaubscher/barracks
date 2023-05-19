@@ -18,14 +18,10 @@
 
     .title {
       color: colors.$accent;
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin-bottom: 0.2rem;
-      font-weight: 500;
+      font-weight: bold;
       text-transform: capitalize;
-
-      @media (prefers-color-scheme: dark) {
-        font-weight: normal;
-      }
     }
 
     .description {

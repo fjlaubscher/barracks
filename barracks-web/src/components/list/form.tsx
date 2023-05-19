@@ -1,6 +1,10 @@
 import { useController, useFormContext } from 'react-hook-form';
-import { Form, InputField, SelectField } from '@fjlaubscher/matter';
+import { Field, Form, InputField, SelectField } from '@fjlaubscher/matter';
 import { useCallback, useMemo } from 'react';
+import type { ChangeEvent } from 'react';
+
+// components
+import Toggle from '../toggle';
 
 export interface FormValues {
   army: string;
@@ -8,14 +12,16 @@ export interface FormValues {
   name: string;
   notes: string;
   limit: number;
+  public: boolean;
 }
 
 interface Props {
   armies: Barracks.Armies;
   onSubmit: (values: Omit<FormValues, 'armyId'>) => void;
+  isPublicAllowed: boolean;
 }
 
-const ListForm = ({ armies, onSubmit }: Props) => {
+const ListForm = ({ armies, onSubmit, isPublicAllowed }: Props) => {
   const {
     register,
     handleSubmit,
@@ -40,19 +46,37 @@ const ListForm = ({ armies, onSubmit }: Props) => {
     control,
     name: 'army'
   });
+  const { field: publicField } = useController({
+    control,
+    name: 'public',
+    defaultValue: isPublicAllowed
+  });
 
   const handleArmySelect = useCallback(
-    (index: number) => {
-      const selectedKey = armyKeys[index];
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      const index = parseInt(e.target.value);
 
-      armyField.onChange(selectedKey);
-      armyIdField.onChange(index);
+      if (!isNaN(index)) {
+        const selectedKey = armyKeys[index];
+
+        armyField.onChange(selectedKey);
+        armyIdField.onChange(index);
+      }
     },
     [armyIdField, armyField, armies]
   );
 
   return (
     <Form id="list-form" onSubmit={handleSubmit(onSubmit)}>
+      {isPublicAllowed && (
+        <Field>
+          <Toggle
+            label={publicField.value ? 'Public' : 'Private'}
+            onChange={(e) => publicField.onChange(e.target.checked)}
+            defaultChecked
+          />
+        </Field>
+      )}
       <InputField
         label="Name"
         type="text"
@@ -67,6 +91,7 @@ const ListForm = ({ armies, onSubmit }: Props) => {
         label="Army"
         value={armyIdField.value}
         onChange={handleArmySelect}
+        required
       />
       <InputField
         label="Points Limit"

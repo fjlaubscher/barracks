@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { SelectField, Stack, capitalize } from '@fjlaubscher/matter';
 import { useRecoilState } from 'recoil';
 
@@ -107,6 +107,17 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     } as Barracks.List.Unit;
   }, [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]);
 
+  const handleSelectOnChange = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>, onChange: (value: number) => void) => {
+      const value = parseInt(e.target.value);
+
+      if (!isNaN(value)) {
+        onChange(value);
+      }
+    },
+    []
+  );
+
   useEffect(() => {
     setUnitBuilderPayload((payload) => ({ ...payload, unit: memoedListUnit }));
   }, [memoedListUnit, setUnitBuilderPayload]);
@@ -117,16 +128,18 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
         label="Unit"
         name="unit"
         value={selectedUnitIndex}
-        onChange={handleSelectedUnitChange}
+        onChange={(e) => handleSelectOnChange(e, handleSelectedUnitChange)}
         options={unitOptions}
+        required
       />
       {unitProfileOptions.length > 1 ? (
         <SelectField
           label="Profile"
           name="profile"
           value={selectedProfileIndex}
-          onChange={setSelectedProfileIndex}
+          onChange={(e) => handleSelectOnChange(e, setSelectedProfileIndex)}
           options={unitProfileOptions}
+          required
         />
       ) : undefined}
       {unitVeterancyOptions.length > 1 ? (
@@ -134,8 +147,9 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           label="Veterancy"
           name="veterancy"
           value={selectedVeterancyIndex}
-          onChange={setSelectedVeterancyIndex}
+          onChange={(e) => handleSelectOnChange(e, setSelectedVeterancyIndex)}
           options={unitVeterancyOptions}
+          required
         />
       ) : undefined}
       {units[selectedUnitIndex].options.length > 0 ? <h3>Options</h3> : undefined}

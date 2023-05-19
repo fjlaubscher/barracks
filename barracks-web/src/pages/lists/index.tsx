@@ -1,9 +1,11 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useMemo } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { Alert, IconButton, Stack, Stat, useLocalStorage, useToast } from '@fjlaubscher/matter';
+import { Alert, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import jwtDecode from 'jwt-decode';
+import { useLocalStorage } from 'usehooks-ts';
+import { isBefore, isEqual, parseISO } from 'date-fns';
 
 // components
 import Avatar from '../../components/avatar';
@@ -22,8 +24,8 @@ const Lists = () => {
   const navigate = useNavigate();
 
   const [hasSynced, setHasSynced] = useState(false);
-  const [lists, setLists, deleteLists] = useLocalStorage<Barracks.List[]>(LISTS);
-  const [user, setUser, deleteUser] = useLocalStorage<Barracks.User>(USER);
+  const [storedLists, setLists] = useLocalStorage<Barracks.List[] | undefined>(LISTS, undefined);
+  const [user, setUser] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
   const { lists: publicLists, isLoading } = usePublicLists(user?.id);
 
   const handleOAuthError = useCallback(() => {
@@ -35,25 +37,25 @@ const Lists = () => {
 
   const handleListDelete = useCallback(
     async (key: string) => {
-      if (lists) {
-        const list = lists.filter((l) => l.key === key)[0];
+      if (storedLists) {
+        const list = storedLists.filter((l) => l.key === key)[0];
         if (list.public) {
           await deletePublicList(list.key);
         }
 
-        setLists(lists.filter((l) => l.key !== key));
+        setLists(storedLists.filter((l) => l.key !== key));
       }
     },
-    [lists, setLists]
+    [storedLists, setLists]
   );
 
   const handleSync = useCallback(() => {
-    const privateLists = lists ? lists.filter((l) => !l.public) : [];
+    const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
     const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
 
     setLists([...listsByUser, ...privateLists]);
     setHasSynced(true);
-  }, [publicLists, lists, setLists]);
+  }, [publicLists, storedLists, setLists]);
 
   const handleGoogleSignIn = useCallback(
     (credentials: CredentialResponse) => {
@@ -69,6 +71,21 @@ const Lists = () => {
     },
     [setUser, handleSync]
   );
+
+  const lists = useMemo(() => {
+    return storedLists
+      ? storedLists.sort((a, b) => {
+          const dateA = parseISO(a.created);
+          const dateB = parseISO(b.created);
+
+          if (isEqual(dateA, dateB)) {
+            return 0;
+          }
+
+          return isBefore(dateA, dateB) ? 1 : -1;
+        })
+      : [];
+  }, [storedLists]);
 
   useEffect(() => {
     if (user && publicLists && !hasSynced) {
@@ -101,8 +118,8 @@ const Lists = () => {
             <Avatar
               user={user}
               onSignOut={() => {
-                deleteLists();
-                deleteUser();
+                localStorage.removeItem(LISTS);
+                localStorage.removeItem(USER);
               }}
             />
           ) : (

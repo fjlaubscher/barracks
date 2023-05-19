@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
+const About = lazy(() => import('./pages/about'));
 const CreateList = lazy(() => import('./pages/list/create'));
 const EditList = lazy(() => import('./pages/list/edit'));
 const AddListUnit = lazy(() => import('./pages/list/unit'));
@@ -30,6 +31,7 @@ const AppRoutes = () => (
     <Route path="/lists" element={<Lists />} />
     <Route path="/list" element={<CreateList />} />
     <Route path="/settings" element={<Settings />} />
+    <Route path="/about" element={<About />} />
     <Route path="/" element={<Home />} />
     <Route path="*" element={<NotFound />} />
   </Routes>

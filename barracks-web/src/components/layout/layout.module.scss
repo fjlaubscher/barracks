@@ -1,6 +1,8 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
-@use '@fjlaubscher/matter/src/styles/colors';
-@use '@fjlaubscher/matter/src/styles/variants';
+
+.home {
+  font-size: 1.5rem;
+}
 
 .action {
   display: flex;
@@ -8,49 +10,57 @@
   align-items: center;
   text-decoration: none;
   font-size: 0.75rem;
-  color: colors.$light-text;
-  background-color: colors.$light-surface;
-  padding: 0.5rem 0;
+  color: var(--color-light-text);
+  background-color: var(--color-light-surface);
+  padding: 0;
   box-shadow: none;
   border-radius: 0;
   gap: 0;
 
+  &.active {
+    color: var(--color-accent);
+  }
+
+  .chevron {
+    display: none;
+  }
+
   svg {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 0.5rem;
   }
 
   @media (prefers-color-scheme: dark) {
-    color: colors.$dark-text;
-    background-color: colors.$dark-surface;
+    color: var(--color-dark-text);
+    background-color: var(--color-dark-surface);
   }
 
   @media (min-width: breakpoints.$desktop) {
-    display: grid;
-    grid-template-columns: 15% auto 15%;
+    flex-direction: row;
+    justify-content: space-between;
     gap: 1rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1rem;
     border: 0;
     font-size: 1rem;
-    margin-bottom: 1rem;
     border-radius: 0.5rem;
     background-color: var(--color-light-border);
+
+    &.active {
+      background-color: var(--color-accent);
+      color: var(--color-dark-text);
+    }
 
     svg {
       font-size: 1rem;
       margin-bottom: 0;
     }
 
+    .chevron {
+      display: block;
+    }
+
     @media (prefers-color-scheme: dark) {
       background-color: var(--color-dark-border);
     }
-  }
-}
-
-.rules {
-  margin-top: 1rem;
-
-  table {
-    margin-bottom: 0;
   }
 }

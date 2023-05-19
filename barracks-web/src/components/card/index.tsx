@@ -25,45 +25,47 @@ const Card = ({
   role
 }: Props) => (
   <MatterCard id={id} className={classnames(styles.card, className)} onClick={onClick} role={role}>
-    <Stack className={styles.header} direction="row">
-      <Stack className={styles.title} direction="column">
-        <span>{title}</span>
-        {description && <span className={styles.description}>{description}</span>}
-      </Stack>
-      {onCopyClick || onDeleteClick ? (
-        <Stack className={styles.buttons} direction="row">
-          {onCopyClick && (
-            <IconButton
-              className={styles.button}
-              variant="error"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (onCopyClick) {
-                  onCopyClick();
-                }
-              }}
-            >
-              <FaClone />
-            </IconButton>
-          )}
-          {onDeleteClick && (
-            <IconButton
-              className={styles.button}
-              variant="error"
-              onClick={(e) => {
-                e.stopPropagation();
-                if (onDeleteClick) {
-                  onDeleteClick();
-                }
-              }}
-            >
-              <FaTrash />
-            </IconButton>
-          )}
+    <Stack direction="column">
+      <Stack className={styles.header} direction="row">
+        <Stack className={styles.title} direction="column">
+          <span>{title}</span>
+          {description && <span className={styles.description}>{description}</span>}
         </Stack>
-      ) : undefined}
+        {onCopyClick || onDeleteClick ? (
+          <Stack className={styles.buttons} direction="row">
+            {onCopyClick && (
+              <IconButton
+                className={styles.button}
+                variant="error"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onCopyClick) {
+                    onCopyClick();
+                  }
+                }}
+              >
+                <FaClone />
+              </IconButton>
+            )}
+            {onDeleteClick && (
+              <IconButton
+                className={styles.button}
+                variant="error"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onDeleteClick) {
+                    onDeleteClick();
+                  }
+                }}
+              >
+                <FaTrash />
+              </IconButton>
+            )}
+          </Stack>
+        ) : undefined}
+      </Stack>
+      {children}
     </Stack>
-    {children}
   </MatterCard>
 );
 

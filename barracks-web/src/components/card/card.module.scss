@@ -1,22 +1,23 @@
+
+
 .card {
   cursor: pointer;
-  padding: 0.5rem 0.5rem 0.5rem 1rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  font-size: 0.9rem;
 
   table {
-    margin-bottom: 0.5rem;
+    thead th, tbody td {
+      font-size: 0.9rem;
+      padding: 0.25rem;
+    }
   }
 
   .header {
     align-items: flex-start;
     justify-content: space-between;
-    margin-bottom: 0.5rem;
 
     .title {
-      padding-top: 0.5rem;
       gap: 0.25rem;
       overflow: hidden;
 
@@ -48,5 +49,9 @@
     width: auto;
     font-size: 0.9rem;
     background-color: transparent;
+  }
+
+  p {
+    margin: 0;
   }
 }
