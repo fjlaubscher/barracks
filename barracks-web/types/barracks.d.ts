@@ -83,9 +83,10 @@ declare namespace Barracks {
     slug: string;
   }
 
-  interface Settings {
+  interface Theme {
     primaryColor: string;
     accentColor: string;
+    mode: 'system' | 'dark' | 'light';
   }
 
   interface User {

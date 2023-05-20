@@ -6,12 +6,12 @@ import { Button, Form, InputField } from '@fjlaubscher/matter';
 import Section from '../section';
 
 // helpers
-import { DEFAULT_SETTINGS } from '../../data/settings';
+import { DEFAULT_THEME } from '../../data/settings';
 
 import styles from './settings.module.scss';
 
 interface Props {
-  onSubmit: (values: Barracks.Settings) => void;
+  onSubmit: (values: Barracks.Theme) => void;
 }
 
 const SettingsForm = ({ onSubmit }: Props) => {
@@ -20,11 +20,11 @@ const SettingsForm = ({ onSubmit }: Props) => {
     handleSubmit,
     formState: { errors },
     setValue
-  } = useFormContext<Barracks.Settings>();
+  } = useFormContext<Barracks.Theme>();
 
   const handleThemeReset = useCallback(() => {
-    setValue('primaryColor', DEFAULT_SETTINGS.primaryColor);
-    setValue('accentColor', DEFAULT_SETTINGS.accentColor);
+    setValue('primaryColor', DEFAULT_THEME.primaryColor);
+    setValue('accentColor', DEFAULT_THEME.accentColor);
   }, [setValue]);
 
   return (

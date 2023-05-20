@@ -10,29 +10,26 @@ import SettingsForm from '../components/settings/form';
 import Layout from '../components/layout';
 
 // helpers
-import { DEFAULT_SETTINGS, overrideStyles } from '../data/settings';
+import { DEFAULT_THEME, overrideStyles } from '../data/settings';
 import { SETTINGS } from '../data/storage';
 
 const Settings = () => {
-  const navigate = useNavigate();
   const toast = useToast();
+  const navigate = useNavigate();
 
-  const [settings, setSettings] = useLocalStorage<Barracks.Settings | undefined>(
-    SETTINGS,
-    undefined
-  );
+  const [settings, setSettings] = useLocalStorage<Barracks.Theme | undefined>(SETTINGS, undefined);
 
-  const form = useForm<Barracks.Settings>({
+  const form = useForm<Barracks.Theme>({
     mode: 'onChange',
     defaultValues: {
-      ...DEFAULT_SETTINGS,
+      ...DEFAULT_THEME,
       ...settings
     }
   });
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(
-    (values: Barracks.Settings) => {
+    (values: Barracks.Theme) => {
       setSettings({ ...values });
       overrideStyles({ primaryColor: values.primaryColor, accentColor: values.accentColor });
 
@@ -55,7 +52,6 @@ const Settings = () => {
             loading={isSubmitting}
             type="submit"
             form="settings-form"
-            variant="accent"
           >
             <FaSave />
           </IconButton>

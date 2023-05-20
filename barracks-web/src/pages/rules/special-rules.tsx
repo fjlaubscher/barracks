@@ -1,4 +1,4 @@
-import { Stack, Stat, capitalize, slugify } from '@fjlaubscher/matter';
+import { Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -43,12 +43,21 @@ const SpecialRules = () => {
       {key && data && (
         <Stack direction="column">
           {contents && <ContentsModal items={contents} />}
-          <Stat
-            title="Barracks"
-            value={title}
-            description={`Last updated: ${formatDate(data?.lastUpdated)}`}
-          />
-          <BackButton to="/rules" />
+          <div className={styles.hero}>
+            <Stack direction="column">
+              <Stat
+                title="Barracks"
+                value={title}
+                description={`Last updated: ${formatDate(data?.lastUpdated)}`}
+              />
+              <BackButton to="/rules" />
+            </Stack>
+            <Image
+              className={styles.book}
+              src="/images/bolt-action.jpg"
+              alt="Bolt Action 2nd Edition"
+            />
+          </div>
           {data.rules[key].map((r, i) => (
             <Section key={`rule-${i}`} id={slugify(r.name)} title={category} description={r.name}>
               <div

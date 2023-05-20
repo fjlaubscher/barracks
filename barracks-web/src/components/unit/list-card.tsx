@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import Card from '../card';
 
 // helpers
-import { calculateCost, getColorFromVeterancy } from '../../helpers/unit';
+import { calculateCost } from '../../helpers/unit';
 
 import styles from './unit.module.scss';
 
@@ -17,7 +17,10 @@ const ListUnitCard = ({ listUnit }: Props) => {
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   return (
-    <Card title={listUnit.profile.name} description={`${calculatedCost} pts`}>
+    <Card
+      title={listUnit.profile.name}
+      description={`${capitalize(listUnit.veterancy)} | ${calculatedCost} pts`}
+    >
       <Stack direction="column">
         <div className={styles.section}>
           <h4>Composition</h4>
@@ -56,11 +59,8 @@ const ListUnitCard = ({ listUnit }: Props) => {
           </div>
         ) : undefined}
         <TagGroup>
-          <Tag variant={getColorFromVeterancy(listUnit.veterancy)}>
-            {capitalize(listUnit.veterancy)}
-          </Tag>
           {listUnit.options.map((o, i) => (
-            <Tag key={`option-${i}`}>
+            <Tag key={`option-${i}`} variant="info">
               {o.amount > 1 ? `${o.amount} x ` : ''}
               {o.option.name}
             </Tag>

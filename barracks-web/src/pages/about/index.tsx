@@ -1,4 +1,6 @@
-import { Stack, Stat } from '@fjlaubscher/matter';
+import { useNavigate } from 'react-router-dom';
+import { IconButton, Stack, Stat } from '@fjlaubscher/matter';
+import { FaGithub } from 'react-icons/fa';
 
 // components
 import Layout from '../../components/layout';
@@ -11,10 +13,22 @@ Barracks is an open-source app built entirely on web technologies, providing you
 Barracks is not associated with or endorsed by Warlord Games, the publisher of Bolt Action.`;
 
 const About = () => {
+  const navigate = useNavigate();
+
   return (
-    <Layout title="About" description={DESCRIPTION}>
+    <Layout
+      title="About"
+      description={DESCRIPTION}
+      action={
+        <a href="https://github.com/fjlaubscher/barracks" target="_blank">
+          <IconButton>
+            <FaGithub />
+          </IconButton>
+        </a>
+      }
+    >
       <Stack className={styles.about} direction="column">
-        <Stat title="Barracks" value="About" description="What is Barracks?" />
+        <Stat title="Barracks" value="What is Barracks?" />
         <p>
           As a fellow tabletop gaming enthusiast, I'm thrilled to introduce you to Barracks — a
           personal hobby project of mine designed to enhance your experience with Warlord Games'

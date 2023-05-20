@@ -93,7 +93,7 @@ const EditListUnit = () => {
       title="Edit Unit"
       isLoading={loading || isLoading}
       action={
-        <IconButton variant="info" onClick={handleSubmit}>
+        <IconButton onClick={handleSubmit}>
           <FaSave />
         </IconButton>
       }

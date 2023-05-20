@@ -63,7 +63,7 @@ const AddListUnit = () => {
       title="Add Unit"
       isLoading={loading}
       action={
-        <IconButton disabled={!unit} variant="info" onClick={handleSubmit}>
+        <IconButton disabled={!unit} onClick={handleSubmit}>
           <FaSave />
         </IconButton>
       }

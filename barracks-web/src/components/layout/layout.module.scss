@@ -1,7 +1,19 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
 
 .home {
-  font-size: 1.5rem;
+  font-size: 2rem;
+}
+
+.navAction {
+  padding-right: 0.25rem;
+
+  button {
+    box-shadow: none;
+    background-color: transparent;
+    color: var(--color-dark-text);
+    font-size: 1.5rem;
+    padding: 0;
+  }
 }
 
 .action {
@@ -26,7 +38,7 @@
   }
 
   svg {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: 0.5rem;
   }
 

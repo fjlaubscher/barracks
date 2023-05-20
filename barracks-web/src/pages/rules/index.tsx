@@ -1,16 +1,18 @@
 import { Stack, Stat } from '@fjlaubscher/matter';
+import { Link } from 'react-router-dom';
 import { GiPistolGun, GiTank } from 'react-icons/gi';
-import { FaBookOpen, FaFlag, FaUsers, FaChevronRight } from 'react-icons/fa';
+import { FaBookOpen, FaFlag, FaUsers } from 'react-icons/fa';
 
 // components
+import Tile from '../../components/tile';
+import TileGroup from '../../components/tile/group';
 import Layout from '../../components/layout';
-import LinkButton from '../../components/button/link';
+
+// data
+import useCore from '../../data/use-core';
 
 // helpers
-import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
-
-import styles from './rules.module.scss';
 
 const Rules = () => {
   const { data, loading } = useCore();
@@ -27,33 +29,23 @@ const Rules = () => {
           value="Rules"
           description={`Last updated: ${formatDate(data?.lastUpdated)}`}
         />
-        <Stack direction="column">
-          <LinkButton className={styles.linkButton} to="/rules/core">
-            <FaBookOpen />
-            Core Rules
-            <FaChevronRight />
-          </LinkButton>
-          <LinkButton className={styles.linkButton} to="/rules/armies">
-            <FaFlag />
-            Army Rules
-            <FaChevronRight />
-          </LinkButton>
-          <LinkButton className={styles.linkButton} to="/rules/units">
-            <FaUsers />
-            Unit Special Rules
-            <FaChevronRight />
-          </LinkButton>
-          <LinkButton className={styles.linkButton} to="/rules/vehicles">
-            <GiTank />
-            Vehicle Special Rules
-            <FaChevronRight />
-          </LinkButton>
-          <LinkButton className={styles.linkButton} to="/rules/weapons">
-            <GiPistolGun />
-            Weapon Special Rules
-            <FaChevronRight />
-          </LinkButton>
-        </Stack>
+        <TileGroup>
+          <Link to="/rules/core">
+            <Tile text="Core Rules" icon={<FaBookOpen />} />
+          </Link>
+          <Link to="/rules/armies">
+            <Tile text="Army Rules" icon={<FaFlag />} />
+          </Link>
+          <Link to="/rules/units">
+            <Tile text="Unit Special Rules" icon={<FaUsers />} />
+          </Link>
+          <Link to="/rules/vehicles">
+            <Tile text="Vehicle Special Rules" icon={<GiTank />} />
+          </Link>
+          <Link to="/rules/weapons">
+            <Tile text="Weapon Special Rules" icon={<GiPistolGun />} />
+          </Link>
+        </TileGroup>
       </Stack>
     </Layout>
   );

@@ -19,17 +19,14 @@ const ListCard = ({ list, onDeleteClick }: Props) => {
   return (
     <Card
       title={list.name}
-      description={`${list.points} pts`}
+      description={`${ARMY_NAME_MAPPING[list.army]} | ${list.points} pts`}
       onClick={() => navigate(`/list/${list.key}/edit`)}
       onDeleteClick={onDeleteClick}
       role="link"
     >
       <TagGroup>
-        <Tag variant="info">{ARMY_NAME_MAPPING[list.army]}</Tag>
-        <Tag>{formatDate(list.created)}</Tag>
-        <Tag variant={list.public ? 'warning' : undefined}>
-          {list.public ? 'Public' : 'Private'}
-        </Tag>
+        <Tag variant="info">{formatDate(list.created)}</Tag>
+        {list.public && <Tag variant="success">Public</Tag>}
       </TagGroup>
     </Card>
   );

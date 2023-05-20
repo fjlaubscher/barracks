@@ -8,9 +8,9 @@ export const calculateCost = (listUnit: Omit<Barracks.List.Unit, 'key' | 'points
 export const getColorFromVeterancy = (veterancy: string) => {
   switch (veterancy) {
     case 'inexperienced':
-      return 'warning';
+      return 'error';
     case 'regular':
-      return 'info';
+      return 'accent';
     case 'veteran':
       return 'success';
   }

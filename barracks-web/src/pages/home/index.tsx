@@ -5,8 +5,8 @@ import { IconButton, Stack, Stat } from '@fjlaubscher/matter';
 
 // components
 import Layout from '../../components/layout';
-
-import styles from './home.module.scss';
+import Tile from '../../components/tile';
+import TileGroup from '../../components/tile/group';
 
 const DESCRIPTION = `As a fellow tabletop gaming enthusiast, I'm thrilled to introduce you to Barracks — a personal hobby project of mine designed to enhance your experience with Warlord Games' popular wargame, Bolt Action.
 Barracks is an open-source app built entirely on web technologies, providing you with an intuitive and convenient platform for two essential aspects of the game: rules references and army list building.
@@ -26,22 +26,19 @@ const Home = () => {
         </IconButton>
       }
     >
-      <Stack className={styles.home} direction="column">
+      <Stack direction="column">
         <Stat title="Barracks" value="Home" description="Welcome to Barracks!" />
-        <Stack className={styles.tiles} direction="column">
-          <Link className={styles.tile} to="/about">
-            <FaInfoCircle />
-            <span>What is Barracks?</span>
+        <TileGroup>
+          <Link to="/lists">
+            <Tile icon={<GiTank />} text="Army Lists" />
           </Link>
-          <Link className={styles.tile} to="/rules">
-            <FaBookOpen />
-            <span>Need help with the rules?</span>
+          <Link to="/rules">
+            <Tile icon={<FaBookOpen />} text="Rules" />
           </Link>
-          <Link className={styles.tile} to="/lists">
-            <GiTank />
-            <span>Manage your army lists</span>
+          <Link to="/about">
+            <Tile icon={<FaInfoCircle />} text="What is Barracks?" />
           </Link>
-        </Stack>
+        </TileGroup>
       </Stack>
     </Layout>
   );

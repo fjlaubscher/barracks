@@ -1,12 +1,12 @@
-import { Alert, Stack, TagGroup, Tag, Stat } from '@fjlaubscher/matter';
+import { Stack, Stat, Image } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import BackButton from '../../components/button/back';
-import Card from '../../components/card';
 import Layout from '../../components/layout';
+import TileGroup from '../../components/tile/group';
 
 // helpers
 import { ARMIES } from '../../data/storage';
@@ -24,15 +24,6 @@ const Armies = () => {
 
   return (
     <Layout title="Armies" description="View the Bolt Action units and rules of each army.">
-      <Alert title="🚧 Don't see everything?" variant="info">
-        Currently, Barracks only includes the units and their rules, as they're requested by you!
-        <br />
-        <br />
-        Have a specific unit you'd like added?
-        <a href="https://github.com/fjlaubscher/barracks/issues" target="_blank">
-          https://github.com/fjlaubscher/barracks/issues
-        </a>
-      </Alert>
       <Stack direction="column">
         <Stat
           title="Barracks"
@@ -40,20 +31,14 @@ const Armies = () => {
           description={`Last updated: ${formatDate(armies?.lastUpdated)}`}
         />
         <BackButton to="/rules" />
-        {armies &&
-          armyKeys.map((key) => (
-            <Link key={key} className={styles.link} to={`/rules/armies/${key}`}>
-              <Card key={key} title={armies[key].name} role="link">
-                <TagGroup>
-                  {armies[key].rules.map((rule, i) => (
-                    <Tag variant="info" key={`rule-${i}`}>
-                      {rule.name}
-                    </Tag>
-                  ))}
-                </TagGroup>
-              </Card>
-            </Link>
-          ))}
+        <TileGroup>
+          {armies &&
+            armyKeys.map((key) => (
+              <Link key={key} className={styles.link} to={`/rules/armies/${key}`}>
+                <Image src={armies[key].image} alt={armies[key].name} />
+              </Link>
+            ))}
+        </TileGroup>
       </Stack>
     </Layout>
   );

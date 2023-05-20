@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { FaBookOpen, FaShareAlt, FaChevronRight } from 'react-icons/fa';
 import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
@@ -31,8 +31,8 @@ const AppLayout = ({
   isLoading,
   onShareClick
 }: Props) => {
-  const { pathname } = useLocation();
   const toast = useToast();
+  const { pathname } = useLocation();
 
   const handleShare = useCallback(async () => {
     try {
@@ -66,8 +66,8 @@ const AppLayout = ({
 
   return (
     <Layout
-      action={action}
-      title={title}
+      action={<div className={styles.navAction}>{action}</div>}
+      title=""
       home={
         <Link className={styles.home} to="/">
           <GiBarracks />

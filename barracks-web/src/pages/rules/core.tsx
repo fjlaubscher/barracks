@@ -1,4 +1,4 @@
-import { Stack, Stat, Table } from '@fjlaubscher/matter';
+import { Image, Stack, Stat, Table } from '@fjlaubscher/matter';
 
 // components
 import BackButton from '../../components/button/back';
@@ -97,12 +97,21 @@ const QuickReferenceRules = () => {
       {data && (
         <Stack className={styles.rules} direction="column">
           <ContentsModal items={CONTENTS} />
-          <Stat
-            title="Barracks"
-            value="Core Rules"
-            description={`Last updated: ${formatDate(data?.lastUpdated)}`}
-          />
-          <BackButton to="/rules" />
+          <div className={styles.hero}>
+            <Stack direction="column">
+              <Stat
+                title="Barracks"
+                value="Core Rules"
+                description={`Last updated: ${formatDate(data?.lastUpdated)}`}
+              />
+              <BackButton to="/rules" />
+            </Stack>
+            <Image
+              className={styles.book}
+              src="/images/bolt-action.jpg"
+              alt="Bolt Action 2nd Edition"
+            />
+          </div>
           <Section id="turn-sequence" title="Rules" description="The Turn">
             <ol className={styles.list}>
               <li>

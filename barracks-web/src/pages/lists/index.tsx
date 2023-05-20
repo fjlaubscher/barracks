@@ -3,16 +3,16 @@ import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Alert, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
-import jwtDecode from 'jwt-decode';
 import { useLocalStorage } from 'usehooks-ts';
 import { isBefore, isEqual, parseISO } from 'date-fns';
+import jwtDecode from 'jwt-decode';
 
 // components
 import Avatar from '../../components/avatar';
 import Layout from '../../components/layout';
 import ListCard from '../../components/list/card';
 
-// helpers
+// data
 import { LISTS, USER } from '../../data/storage';
 import { deletePublicList } from '../../data/use-list';
 import usePublicLists from '../../data/use-public-lists';

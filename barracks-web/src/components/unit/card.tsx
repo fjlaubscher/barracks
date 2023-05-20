@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import Card from '../card';
 
 // helpers
-import { calculateCost, getColorFromVeterancy } from '../../helpers/unit';
+import { calculateCost } from '../../helpers/unit';
 
 interface Props {
   listUnit: Barracks.List.Unit;
@@ -21,17 +21,14 @@ const UnitCard = ({ listUnit, onClick, onCopyClick, onDeleteClick }: Props) => {
   return (
     <Card
       title={listUnit.profile.name}
-      description={`${calculatedCost} pts`}
+      description={`${capitalize(listUnit.veterancy)} | ${calculatedCost} pts`}
       onClick={onClick}
       onCopyClick={onCopyClick}
       onDeleteClick={onDeleteClick}
     >
       <TagGroup>
-        <Tag variant={getColorFromVeterancy(listUnit.veterancy)}>
-          {capitalize(listUnit.veterancy)}
-        </Tag>
         {listUnit.options.map((o, i) => (
-          <Tag key={`option-${i}`}>
+          <Tag key={`option-${i}`} variant="info">
             {o.amount > 1 ? `${o.amount} x ` : ''}
             {o.option.name}
           </Tag>

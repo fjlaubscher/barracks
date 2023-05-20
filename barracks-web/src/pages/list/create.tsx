@@ -15,7 +15,8 @@ import useList from '../../data/use-list';
 
 // helpers
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
-import styles from '../lists/lists.module.scss';
+
+import styles from './list.module.scss';
 
 const CreateList = () => {
   const [search] = useSearchParams();
@@ -74,13 +75,12 @@ const CreateList = () => {
             loading={isSubmitting}
             type="submit"
             form="list-form"
-            variant="accent"
           >
             <FaSave />
           </IconButton>
         }
       >
-        <Stack direction="column">
+        <Stack className={styles.create} direction="column">
           <Alert className={styles.alert} variant="info">
             When you share a public army list via link, anyone can view it!
           </Alert>

@@ -1,8 +1,8 @@
 {
-  "lastUpdated": "2023-03-24T00:00Z",
+  "lastUpdated": "2023-05-20T00:00Z",
   "germany": {
-    "name": "Germany",
-    "image": "/armies/germany.png",
+    "name": "Armies of Germany",
+    "image": "/images/germany.jpg",
     "rules": [
       {
         "name": "Blitzkrieg",
@@ -22,31 +22,9 @@
       }
     ]
   },
-  "us": {
-    "name": "United States",
-    "image": "/armies/us.png",
-    "rules": [
-      {
-        "name": "Air Superiority",
-        "description": "A US forward air observer unit can call an air strike twice instead of once per game."
-      },
-      {
-        "name": "Fire and Manoeuvre",
-        "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
-      },
-      {
-        "name": "Gyro-Stabilisers",
-        "description": "When a weapon is described as gyro-stabilised in a vehicle's entry, it does not suffer the -1 'to hit' penalty for shooting and moving if the crew are Veteran. This does not apply to vehicles with Inexperienced or Regular crew, nor does it apply to any co-axial machine gun."
-      },
-      {
-        "name": "Modern Communications",
-        "description": "When units take an order test to move from reserve onto the table, do not apply the usual -1 penalty, but use their basic Morale value instead."
-      }
-    ]
-  },
   "great-britain": {
-    "name": "Great Britain",
-    "image": "/armies/great-britain.png",
+    "name": "Armies of Great Britain",
+    "image": "/images/great-britain.jpg",
     "rules": [
       {
         "name": "Artillery Support",
@@ -82,9 +60,23 @@
       }
     ]
   },
+  "imperial-japan": {
+    "name": "Armies of Imperial Japan",
+    "image": "/images/imperial-japan.jpg",
+    "rules": [
+      {
+        "name": "Death Before Dishonour",
+        "description": "Every unit in this list has the fanatics special rule, as described. In addition, infantry and artillery units automatically pass morale checks for being assaulted by enemy tanks (note that artillery pieces are still destroyed as normal)."
+      },
+      {
+        "name": "Banzai Charge",
+        "description": "If a Japanese infantry unit is ordered to Run towards (or assault) the closest visible enemy, any order test for that move is automatically passed, as if the unit had rolled a double one."
+      }
+    ]
+  },
   "soviet-union": {
-    "name": "Soviet Union",
-    "image": "/armies/soviet-union.png",
+    "name": "Armies of the Soviet Union",
+    "image": "/images/soviet-union.jpg",
     "rules": [
       {
         "name": "The Great Patriotic War",
@@ -104,17 +96,25 @@
       }
     ]
   },
-  "imperial-japan": {
-    "name": "Imperial Japan",
-    "image": "/armies/imperial-japan.png",
+  "us": {
+    "name": "Armies of the United States",
+    "image": "/images/us.jpg",
     "rules": [
       {
-        "name": "Death Before Dishonour",
-        "description": "Every unit in this list has the fanatics special rule, as described. In addition, infantry and artillery units automatically pass morale checks for being assaulted by enemy tanks (note that artillery pieces are still destroyed as normal)."
+        "name": "Air Superiority",
+        "description": "A US forward air observer unit can call an air strike twice instead of once per game."
       },
       {
-        "name": "Banzai Charge",
-        "description": "If a Japanese infantry unit is ordered to Run towards (or assault) the closest visible enemy, any order test for that move is automatically passed, as if the unit had rolled a double one."
+        "name": "Fire and Manoeuvre",
+        "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
+      },
+      {
+        "name": "Gyro-Stabilisers",
+        "description": "When a weapon is described as gyro-stabilised in a vehicle's entry, it does not suffer the -1 'to hit' penalty for shooting and moving if the crew are Veteran. This does not apply to vehicles with Inexperienced or Regular crew, nor does it apply to any co-axial machine gun."
+      },
+      {
+        "name": "Modern Communications",
+        "description": "When units take an order test to move from reserve onto the table, do not apply the usual -1 penalty, but use their basic Morale value instead."
       }
     ]
   }

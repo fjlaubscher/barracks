@@ -6,12 +6,12 @@ import type { CardProps } from '@fjlaubscher/matter';
 
 import styles from './card.module.scss';
 
-type Props = Omit<CardProps, 'children'> & {
+type Props = {
   children?: ReactNode;
   description?: string;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
-};
+} & Omit<CardProps, 'children'>;
 
 const Card = ({
   id,
@@ -36,7 +36,6 @@ const Card = ({
             {onCopyClick && (
               <IconButton
                 className={styles.button}
-                variant="error"
                 onClick={(e) => {
                   e.stopPropagation();
                   if (onCopyClick) {
@@ -50,7 +49,6 @@ const Card = ({
             {onDeleteClick && (
               <IconButton
                 className={styles.button}
-                variant="error"
                 onClick={(e) => {
                   e.stopPropagation();
                   if (onDeleteClick) {

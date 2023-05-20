@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import { FaFileAlt } from 'react-icons/fa';
-import { IconButton, Grid, Stack, Stat, capitalize, slugify } from '@fjlaubscher/matter';
+import { IconButton, Grid, Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 
 // components
@@ -14,6 +14,8 @@ import Section from '../../components/section';
 // helpers
 import useArmy from '../../data/use-army';
 import { formatDate } from '../../helpers/date';
+
+import styles from './rules.module.scss';
 
 const Army = () => {
   const { key } = useParams();
@@ -49,6 +51,7 @@ const Army = () => {
     <Layout
       title={army?.name || 'Army'}
       description={`View the Bolt Action units and rules of ${army?.name}.`}
+      image={army ? `https://barracks.francoislaubscher.dev${army.image}` : undefined}
       action={
         <IconButton onClick={() => navigate(`/list?army=${key}`)}>
           <FaFileAlt />
@@ -60,19 +63,26 @@ const Army = () => {
         <Stack direction="column">
           <ContentsModal items={contents} />
           <Stack direction="column">
-            <Stat
-              title="Army Rules"
-              value={army.name}
-              description={`Last updated: ${formatDate(units.lastUpdated)}`}
-            />
-            <BackButton to="/rules/armies" />
-            <Grid simple>
-              {army.rules.map((rule, i) => (
-                <Card key={`army-rule-${i}`} title={rule.name}>
-                  <p>{rule.description}</p>
-                </Card>
-              ))}
-            </Grid>
+            <div id="army" className={styles.hero}>
+              <Stack direction="column">
+                <Stat
+                  title="Barracks"
+                  value={army.name}
+                  description={`Last updated: ${formatDate(units.lastUpdated)}`}
+                />
+                <BackButton to="/rules/armies" />
+              </Stack>
+              <Image className={styles.book} src={army.image} alt={army.name} />
+            </div>
+            <Section title="Army Special Rules" description={army.name}>
+              <Grid className={styles.rulesGrid} simple>
+                {army.rules.map((rule, i) => (
+                  <Card key={`army-rule-${i}`} title={rule.name}>
+                    <p>{rule.description}</p>
+                  </Card>
+                ))}
+              </Grid>
+            </Section>
           </Stack>
           {Object.keys(units)
             .filter((k) => k !== 'lastUpdated')

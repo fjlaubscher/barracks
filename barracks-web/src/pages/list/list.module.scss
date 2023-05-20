@@ -24,3 +24,13 @@
     align-items: flex-end;
   }
 }
+
+.create {
+  .alert {
+    margin-bottom: 0;
+  }
+
+  form {
+    max-width: none;
+  }
+}

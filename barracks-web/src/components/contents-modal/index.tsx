@@ -16,7 +16,11 @@ const ContentsModal = ({ items }: Props) => {
   return (
     <>
       {!isOpen && (
-        <IconButton className={styles.contentsButton} onClick={() => setIsOpen(true)}>
+        <IconButton
+          className={styles.contentsButton}
+          onClick={() => setIsOpen(true)}
+          variant="accent"
+        >
           <FaLayerGroup />
         </IconButton>
       )}

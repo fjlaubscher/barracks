@@ -13,14 +13,15 @@ const Armies = lazy(() => import('./pages/rules/armies'));
 const Army = lazy(() => import('./pages/rules/army'));
 const CoreRules = lazy(() => import('./pages/rules/core'));
 const SpecialRules = lazy(() => import('./pages/rules/special-rules'));
-const Home = lazy(() => import('./pages/home'));
-const NotFound = lazy(() => import('./pages/not-found'));
 const Settings = lazy(() => import('./pages/settings'));
+const NotFound = lazy(() => import('./pages/not-found'));
+const Home = lazy(() => import('./pages/home'));
 
 const AppRoutes = () => (
   <Routes>
     <Route path="/rules/:key" element={<SpecialRules />} />
     <Route path="/rules/core" element={<CoreRules />} />
+    #00AD46
     <Route path="/rules/armies/:key" element={<Army />} />
     <Route path="/rules/armies" element={<Armies />} />
     <Route path="/rules" element={<Rules />} />

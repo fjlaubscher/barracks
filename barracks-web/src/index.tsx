@@ -11,14 +11,13 @@ import './styles/global.scss';
 
 import App from './app';
 
-import { SETTINGS } from './data/storage';
-import { DEFAULT_SETTINGS, overrideStyles } from './data/settings';
+import { SETTINGS, THEME } from './data/storage';
+import { DEFAULT_THEME, overrideStyles } from './data/settings';
 
-const settings = localStorage.getItem(SETTINGS);
-if (!settings) {
-  localStorage.setItem(SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
-}
-overrideStyles(settings ? JSON.parse(settings) : DEFAULT_SETTINGS);
+localStorage.removeItem(SETTINGS);
+
+const theme = localStorage.getItem(THEME);
+overrideStyles(theme ? JSON.parse(THEME) : DEFAULT_THEME);
 
 const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 
