@@ -1,5 +1,12 @@
 @import '@fjlaubscher/matter/src/styles/global';
 
+:root {
+  --color-light-background: var(--color-dark-background);
+  --color-light-surface: var(--color-dark-surface);
+  --color-light-border: var(--color-dark-border);
+  --color-light-text: var(--color-dark-text);
+}
+
 h1,
 h2,
 h3,

@@ -1,5 +1,5 @@
 import { FaEdit } from 'react-icons/fa';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 
 // components
@@ -19,7 +19,7 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const { data, createOrUpdate, isOwner } = useList(key);
+  const { data, createOrUpdate, isOwner, isLoading } = useList(key);
 
   const handleListVisibility = useCallback(
     async (mode: 'private' | 'public') => {
@@ -36,6 +36,10 @@ const List = () => {
     },
     [toast, data, createOrUpdate]
   );
+
+  if (!isLoading && data?.public === false && !isOwner) {
+    return <Navigate to="/404" />;
+  }
 
   return (
     <ListLayout

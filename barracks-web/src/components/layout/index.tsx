@@ -57,10 +57,7 @@ const AppLayout = ({
         });
       }
     } catch (ex: any) {
-      toast({
-        variant: 'error',
-        text: ex.message || 'Unable to share'
-      });
+      // do nothing
     }
   }, [pathname, toast]);
 

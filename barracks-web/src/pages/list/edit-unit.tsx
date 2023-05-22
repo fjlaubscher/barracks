@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
@@ -22,6 +22,7 @@ const EditListUnit = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const { key, index } = useParams();
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
@@ -33,6 +34,7 @@ const EditListUnit = () => {
       return undefined;
     }
 
+    setIsUpdating(true);
     const parsedIndex = parseInt(index);
     const oldCost = calculateCost(list.units[type][role][parsedIndex]);
     const newCost = calculateCost(unit);
@@ -46,9 +48,12 @@ const EditListUnit = () => {
       points: listPoints + newCost,
       units: { ...newUnits }
     });
+
+    setIsUpdating(false);
     toast({ text: `${unit.unit.name} updated.`, variant: 'success' });
+
     navigate(`/list/${key}/edit`);
-  }, [list, type, role, navigate, unit, index]);
+  }, [list, type, role, navigate, unit, index, setIsUpdating]);
 
   const builderInitialValues = useMemo(() => {
     if (index && units && unit) {
@@ -93,7 +98,7 @@ const EditListUnit = () => {
       title="Edit Unit"
       isLoading={loading || isLoading}
       action={
-        <IconButton onClick={handleSubmit}>
+        <IconButton onClick={handleSubmit} loading={isUpdating}>
           <FaSave />
         </IconButton>
       }

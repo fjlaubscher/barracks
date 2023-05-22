@@ -38,7 +38,7 @@ const NumberField = ({
       ) : undefined}
     </div>
     <div className={styles.buttons}>
-      <Button disabled={value === minimum} onClick={() => onChange(value - step)}>
+      <Button variant="error" disabled={value === minimum} onClick={() => onChange(value - step)}>
         <FaMinus />
       </Button>
       <input
@@ -49,7 +49,7 @@ const NumberField = ({
         placeholder={placeholder}
         value={value}
       />
-      <Button disabled={value === maximum} onClick={() => onChange(value + step)}>
+      <Button variant="success" disabled={value === maximum} onClick={() => onChange(value + step)}>
         <FaPlus />
       </Button>
     </div>

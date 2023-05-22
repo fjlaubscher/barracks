@@ -7,6 +7,7 @@ import { ARMIES } from './storage';
 
 const useAppMount = () => {
   const [hasSynced, setHasSynced] = useState(false);
+
   const { data: armies, isLoading } = useSWR<Barracks.Armies>('/data/armies.json');
   const [, setOfflineArmies] = useLocalStorage<Barracks.Armies | undefined>(ARMIES, undefined);
 

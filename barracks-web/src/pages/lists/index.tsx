@@ -24,9 +24,12 @@ const Lists = () => {
   const navigate = useNavigate();
 
   const [hasSynced, setHasSynced] = useState(false);
-  const [storedLists, setLists] = useLocalStorage<Barracks.List[] | undefined>(LISTS, undefined);
+  const [storedLists, setStoredLists] = useLocalStorage<Barracks.List[] | undefined>(
+    LISTS,
+    undefined
+  );
   const [user, setUser] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
-  const { lists: publicLists, isLoading } = usePublicLists(user?.id);
+  const { lists: publicLists, isLoading, refresh } = usePublicLists(user?.id);
 
   const handleOAuthError = useCallback(() => {
     toast({
@@ -36,26 +39,32 @@ const Lists = () => {
   }, [toast]);
 
   const handleListDelete = useCallback(
-    async (key: string) => {
+    (key: string) => {
       if (storedLists) {
         const list = storedLists.filter((l) => l.key === key)[0];
         if (list.public) {
-          await deletePublicList(list.key);
+          // deliberately ignore the promise
+          deletePublicList(key);
+          setHasSynced(false);
         }
 
-        setLists(storedLists.filter((l) => l.key !== key));
+        setStoredLists(storedLists.filter((l) => l.key !== key));
+        toast({ variant: 'success', text: 'List deleted.' });
       }
     },
-    [storedLists, setLists]
+    [storedLists, setHasSynced, setStoredLists, toast]
   );
 
-  const handleSync = useCallback(() => {
-    const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
-    const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
+  const handleSync = useCallback(async () => {
+    if (storedLists) {
+      const freshPublicLists = await refresh(undefined, { revalidate: true });
+      const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
+      const listsByUser = freshPublicLists ? freshPublicLists.map((l) => l.list) : [];
 
-    setLists([...listsByUser, ...privateLists]);
-    setHasSynced(true);
-  }, [publicLists, storedLists, setLists]);
+      setStoredLists([...privateLists, ...listsByUser]);
+      setHasSynced(true);
+    }
+  }, [storedLists, hasSynced, setHasSynced, setStoredLists, refresh]);
 
   const handleGoogleSignIn = useCallback(
     (credentials: CredentialResponse) => {
@@ -66,10 +75,11 @@ const Lists = () => {
           name: decodedUser.name,
           avatar: decodedUser.picture
         });
+        setHasSynced(false);
         toast({ variant: 'success', text: 'Signed in with Google.' });
       }
     },
-    [setUser, handleSync]
+    [setUser]
   );
 
   const lists = useMemo(() => {
@@ -88,13 +98,14 @@ const Lists = () => {
   }, [storedLists]);
 
   useEffect(() => {
-    if (user && publicLists && !hasSynced) {
+    if (!hasSynced) {
       handleSync();
     }
-  }, [user, publicLists, hasSynced, handleSync]);
+  }, []);
 
   const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
   const hasLists = lists && lists.length > 0;
+  const syncText = user ? (isLoading ? 'Syncing...' : 'Synced') : undefined;
 
   return (
     <Layout
@@ -104,7 +115,6 @@ const Lists = () => {
           <FaPlus />
         </IconButton>
       }
-      isLoading={isLoading}
     >
       <Stack direction="column">
         {!user && (
@@ -113,7 +123,7 @@ const Lists = () => {
           </Alert>
         )}
         <Stack className={styles.header} direction="row">
-          <Stat title="Barracks" value="Army Lists" />
+          <Stat title="Barracks" value="Army Lists" description={syncText} />
           {user ? (
             <Avatar
               user={user}

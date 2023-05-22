@@ -51,7 +51,7 @@ const EditList = () => {
           key: `${type}-${role}-${list.units[type][role].length + 1}`
         };
 
-        await createOrUpdate({
+        const updatedList = await createOrUpdate({
           ...list,
           points: list.points + newUnit.points,
           units: {
@@ -72,7 +72,7 @@ const EditList = () => {
   const handleListUnitDelete = useCallback(
     async (type: string, role: string, listUnit: Barracks.List.Unit, index: number) => {
       if (list) {
-        await createOrUpdate({
+        const updatedList = await createOrUpdate({
           ...list,
           points: list.points - listUnit.points,
           units: {

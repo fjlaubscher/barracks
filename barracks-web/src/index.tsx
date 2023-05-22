@@ -10,6 +10,7 @@ import { Analytics } from '@vercel/analytics/react';
 import './styles/global.scss';
 
 import App from './app';
+import ErrorBoundary from './components/error-boundary';
 
 import { SETTINGS, THEME } from './data/storage';
 import { DEFAULT_THEME, overrideStyles } from './data/settings';
@@ -24,21 +25,23 @@ const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
-      <RecoilRoot>
-        <ToastProvider>
-          <SWRConfig
-            value={{
-              fetcher: (resource: RequestInfo | URL, init?: RequestInit) =>
-                fetch(resource, init).then((res) => res.json())
-            }}
-          >
-            <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
-              <App />
-              <Analytics mode={isProduction ? 'production' : 'development'} />
-            </GoogleOAuthProvider>
-          </SWRConfig>
-        </ToastProvider>
-      </RecoilRoot>
+      <ErrorBoundary>
+        <RecoilRoot>
+          <ToastProvider>
+            <SWRConfig
+              value={{
+                fetcher: (resource: RequestInfo | URL, init?: RequestInit) =>
+                  fetch(resource, init).then((res) => res.json())
+              }}
+            >
+              <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
+                <App />
+                <Analytics mode={isProduction ? 'production' : 'development'} />
+              </GoogleOAuthProvider>
+            </SWRConfig>
+          </ToastProvider>
+        </RecoilRoot>
+      </ErrorBoundary>
     </BrowserRouter>
   </React.StrictMode>
 );

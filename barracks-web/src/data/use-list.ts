@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
+import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 import useSWR from 'swr';
 
 // helpers
@@ -28,12 +28,14 @@ export const deletePublicList = async (key: string) => {
 
 const useList = (key?: string) => {
   const [isUpdating, setIsUpdating] = useState(false);
-  const [user] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
   const [lists, setLists] = useLocalStorage<Barracks.List[] | undefined>(LISTS, undefined);
+  const user = useReadLocalStorage<Barracks.User>(USER);
+
   const localList = useMemo(
     () => (lists ? lists.filter((l) => l.key === key)[0] : undefined),
-    [lists]
+    [lists, key]
   );
+
   const shouldFetch = useMemo(() => {
     if (key && !localList) {
       return true;
@@ -44,9 +46,11 @@ const useList = (key?: string) => {
     return false;
   }, [user, key, localList]);
 
-  const { data: publicList, isLoading } = useSWR<Barracks.PublicList>(
-    shouldFetch ? `${import.meta.env.VITE_WORKER_URL}/${key}` : null
-  );
+  const {
+    data: publicList,
+    isLoading,
+    mutate
+  } = useSWR<Barracks.PublicList>(shouldFetch ? `${import.meta.env.VITE_WORKER_URL}/${key}` : null);
 
   const handleCreateOrUpdate = useCallback(
     async (updatedList: Barracks.List) => {
@@ -58,29 +62,24 @@ const useList = (key?: string) => {
       }
 
       if (user?.id) {
-        setIsUpdating(true);
-
+        // deliberately ignore the promise and just make sure it's done
         if (updatedList.public) {
-          await createOrUpdatePublicList({
+          createOrUpdatePublicList({
             createdBy: user.id,
             slug: updatedList.key,
             createdDate: updatedList.created,
-            list: {
-              ...updatedList
-            }
+            list: updatedList
           });
-        } else if (localList?.public && !updatedList.public) {
-          await deletePublicList(updatedList.key);
+        } else {
+          deletePublicList(updatedList.key);
         }
-
-        setIsUpdating(false);
       }
     },
-    [publicList, localList, lists, setLists, isUpdating, setIsUpdating]
+    [publicList, localList, lists, setLists, user]
   );
 
   return {
-    data: publicList?.list || localList,
+    data: localList || publicList?.list,
     isLoading,
     isUpdating,
     createOrUpdate: handleCreateOrUpdate,
