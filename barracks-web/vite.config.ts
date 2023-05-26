@@ -31,14 +31,27 @@ export default defineConfig({
         background_color: '#ea7317',
         icons: [
           {
-            src: '/android-icon-192x192.png',
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
             src: '/android-icon.png',
             sizes: '1024x1024',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'maskable any'
+          }
+        ],
+        shortcuts: [
+          {
+            name: 'New Army List',
+            url: '/list',
+            icons: []
+          },
+          {
+            name: 'Army Lists',
+            url: '/lists',
+            icons: []
+          },
+          {
+            name: 'Rules',
+            url: '/rules',
+            icons: []
           }
         ]
       }
