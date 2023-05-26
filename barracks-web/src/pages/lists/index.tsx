@@ -56,14 +56,12 @@ const Lists = () => {
   );
 
   const handleSync = useCallback(async () => {
-    if (storedLists) {
-      const freshPublicLists = await refresh(undefined, { revalidate: true });
-      const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
-      const listsByUser = freshPublicLists ? freshPublicLists.map((l) => l.list) : [];
+    const freshPublicLists = await refresh(undefined, { revalidate: true });
+    const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
+    const listsByUser = freshPublicLists ? freshPublicLists.map((l) => l.list) : [];
 
-      setStoredLists([...privateLists, ...listsByUser]);
-      setHasSynced(true);
-    }
+    setStoredLists([...privateLists, ...listsByUser]);
+    setHasSynced(true);
   }, [storedLists, hasSynced, setHasSynced, setStoredLists, refresh]);
 
   const handleGoogleSignIn = useCallback(
