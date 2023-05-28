@@ -21,7 +21,6 @@ const AppRoutes = () => (
   <Routes>
     <Route path="/rules/:key" element={<SpecialRules />} />
     <Route path="/rules/core" element={<CoreRules />} />
-    #00AD46
     <Route path="/rules/armies/:key" element={<Army />} />
     <Route path="/rules/armies" element={<Armies />} />
     <Route path="/rules" element={<Rules />} />

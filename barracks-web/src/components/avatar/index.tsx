@@ -19,8 +19,9 @@ const Avatar = ({ user, onSignOut }: Props) => {
         <span className={styles.name}>{user.name}</span>
       </button>
       <Modal open={showModal} onClose={() => setShowModal(false)}>
-        <Stack direction="column">
-          <span>Would you like to sign out?</span>
+        <Stack className={styles.modal} direction="column">
+          <h4>Would you like to sign out?</h4>
+          <p>By signing out, all army lists on your device will be deleted.</p>
           <Stack className={styles.buttons} direction="row">
             <Button className={styles.cancel} type="button" onClick={() => setShowModal(false)}>
               <FaUndo />

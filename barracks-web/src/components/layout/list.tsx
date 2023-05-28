@@ -43,20 +43,18 @@ const ListLayout = ({ action, children, list, showRules = false }: Props) => {
       isLoading={!list || loadingCore || loadingArmy}
       onShareClick={handleShareList}
     >
-      <Stack direction="row">
-        <Stats>
-          <Stat
-            title={army?.name || 'Army'}
-            value={list?.name || 'List Name'}
-            description={`Created on ${formatDate(list?.created)}`}
-          />
-          <Stat
-            title="Points"
-            value={`${list?.points}/${list?.limit}`}
-            description={`Order Dice: ${totalOrderDice}`}
-          />
-        </Stats>
-      </Stack>
+      <Stats className={styles.stats}>
+        <Stat
+          title={army?.name || 'Army'}
+          value={list?.name || 'List Name'}
+          description={`Created on ${formatDate(list?.created)}`}
+        />
+        <Stat
+          title="Points"
+          value={`${list?.points}/${list?.limit}`}
+          description={`Order Dice: ${totalOrderDice}`}
+        />
+      </Stats>
       {children}
       {army && data && showRules && (
         <Stack className={styles.rules} direction="column">

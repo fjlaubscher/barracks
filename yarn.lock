@@ -1181,8 +1181,8 @@
   integrity sha512-qU25Ma1I3NqTSHJUOKi9sAH1/Mzuvlke0ioMJRthLXKm7JiSKVwFghlGbDLOO2sARECGhja4xYfRAZNPAkooYg==
 
 "@fjlaubscher/matter@fjlaubscher/matter":
-  version "3.2.0"
-  resolved "https://codeload.github.com/fjlaubscher/matter/tar.gz/fe6f1fbf53b2515daf7778c20f01619504f873c6"
+  version "3.2.1"
+  resolved "https://codeload.github.com/fjlaubscher/matter/tar.gz/9b4efae0123f4f578d21376d54e828a2db2ac0b7"
 
 "@iarna/toml@^2.2.5":
   version "2.2.5"

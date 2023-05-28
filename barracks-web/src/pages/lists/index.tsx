@@ -1,9 +1,18 @@
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import { Alert, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
+import {
+  Alert,
+  Grid,
+  InputField,
+  IconButton,
+  Stack,
+  Stat,
+  useToast,
+  SelectField
+} from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
-import { useLocalStorage } from 'usehooks-ts';
+import { useLocalStorage, useDebounce } from 'usehooks-ts';
 import { isBefore, isEqual, parseISO } from 'date-fns';
 import jwtDecode from 'jwt-decode';
 
@@ -23,13 +32,14 @@ const Lists = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const [hasSynced, setHasSynced] = useState(false);
   const [storedLists, setStoredLists] = useLocalStorage<Barracks.List[] | undefined>(
     LISTS,
     undefined
   );
   const [user, setUser] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
   const { lists: publicLists, isLoading, refresh } = usePublicLists(user?.id);
+  const [searchTerm, setSearchTerm] = useState('');
+  const debouncedSearchTerm = useDebounce<string>(searchTerm, 250);
 
   const handleOAuthError = useCallback(() => {
     toast({
@@ -45,61 +55,74 @@ const Lists = () => {
         if (list.public) {
           // deliberately ignore the promise
           deletePublicList(key);
-          setHasSynced(false);
         }
 
         setStoredLists(storedLists.filter((l) => l.key !== key));
         toast({ variant: 'success', text: 'List deleted.' });
       }
     },
-    [storedLists, setHasSynced, setStoredLists, toast]
+    [storedLists, setStoredLists, toast]
   );
-
-  const handleSync = useCallback(async () => {
-    const freshPublicLists = await refresh(undefined, { revalidate: true });
-    const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
-    const listsByUser = freshPublicLists ? freshPublicLists.map((l) => l.list) : [];
-
-    setStoredLists([...privateLists, ...listsByUser]);
-    setHasSynced(true);
-  }, [storedLists, hasSynced, setHasSynced, setStoredLists, refresh]);
 
   const handleGoogleSignIn = useCallback(
     (credentials: CredentialResponse) => {
       if (credentials.credential) {
         const decodedUser = jwtDecode(credentials.credential) as { [key: string]: string };
+
         setUser({
           id: decodedUser.sub,
           name: decodedUser.name,
           avatar: decodedUser.picture
         });
-        setHasSynced(false);
+
         toast({ variant: 'success', text: 'Signed in with Google.' });
       }
     },
     [setUser]
   );
 
-  const lists = useMemo(() => {
-    return storedLists
-      ? storedLists.sort((a, b) => {
-          const dateA = parseISO(a.created);
-          const dateB = parseISO(b.created);
+  const handleSignOut = useCallback(() => {
+    setUser(undefined);
+    setStoredLists(undefined);
+    toast({ variant: 'success', text: 'Signed out successfully.' });
+  }, [toast, setStoredLists, setUser]);
 
-          if (isEqual(dateA, dateB)) {
-            return 0;
-          }
+  const handleListsSync = useCallback(
+    (publicLists?: Barracks.PublicList[]) => {
+      const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
+      const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
 
-          return isBefore(dateA, dateB) ? 1 : -1;
-        })
-      : [];
-  }, [storedLists]);
+      setStoredLists([...privateLists, ...listsByUser]);
+    },
+    [storedLists, setStoredLists]
+  );
 
   useEffect(() => {
-    if (!hasSynced) {
-      handleSync();
+    handleListsSync(publicLists);
+  }, [publicLists]);
+
+  const lists = useMemo(() => {
+    if (storedLists) {
+      const filteredLists = debouncedSearchTerm
+        ? storedLists.filter((l) =>
+            l.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
+          )
+        : storedLists;
+
+      return filteredLists.sort((a, b) => {
+        const dateA = parseISO(a.created);
+        const dateB = parseISO(b.created);
+
+        if (isEqual(dateA, dateB)) {
+          return 0;
+        }
+
+        return isBefore(dateA, dateB) ? 1 : -1;
+      });
     }
-  }, []);
+
+    return [];
+  }, [storedLists, debouncedSearchTerm]);
 
   const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
   const hasLists = lists && lists.length > 0;
@@ -123,13 +146,7 @@ const Lists = () => {
         <Stack className={styles.header} direction="row">
           <Stat title="Barracks" value="Army Lists" description={syncText} />
           {user ? (
-            <Avatar
-              user={user}
-              onSignOut={() => {
-                localStorage.removeItem(LISTS);
-                localStorage.removeItem(USER);
-              }}
-            />
+            <Avatar user={user} onSignOut={handleSignOut} />
           ) : (
             <GoogleLogin
               shape="circle"
@@ -140,10 +157,25 @@ const Lists = () => {
             />
           )}
         </Stack>
-        {hasLists &&
-          lists?.map((list) => (
-            <ListCard key={list.key} list={list} onDeleteClick={() => handleListDelete(list.key)} />
-          ))}
+        <Grid className={styles.filters}>
+          <InputField
+            type="search"
+            label="Search"
+            onChange={(e) => setSearchTerm(e.currentTarget.value)}
+            required
+          />
+        </Grid>
+        {hasLists && (
+          <Grid simple>
+            {lists?.map((list) => (
+              <ListCard
+                key={list.key}
+                list={list}
+                onDeleteClick={() => handleListDelete(list.key)}
+              />
+            ))}
+          </Grid>
+        )}
       </Stack>
     </Layout>
   );
