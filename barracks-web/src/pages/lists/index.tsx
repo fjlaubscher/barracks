@@ -1,16 +1,7 @@
 import { useCallback, useEffect, useState, useMemo } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-import {
-  Alert,
-  Grid,
-  InputField,
-  IconButton,
-  Stack,
-  Stat,
-  useToast,
-  SelectField
-} from '@fjlaubscher/matter';
+import { Alert, Grid, InputField, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { useLocalStorage, useDebounce } from 'usehooks-ts';
 import { isBefore, isEqual, parseISO } from 'date-fns';
@@ -37,7 +28,7 @@ const Lists = () => {
     undefined
   );
   const [user, setUser] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
-  const { lists: publicLists, isLoading, refresh } = usePublicLists(user?.id);
+  const { lists: publicLists, isLoading } = usePublicLists(user?.id);
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce<string>(searchTerm, 250);
 

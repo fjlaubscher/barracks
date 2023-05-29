@@ -95,7 +95,7 @@ const QuickReferenceRules = () => {
       isLoading={loading}
     >
       {data && (
-        <Stack className={styles.rules} direction="column">
+        <Stack direction="column">
           <ContentsModal items={CONTENTS} />
           <div className={styles.hero}>
             <Stack direction="column">

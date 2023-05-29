@@ -1,6 +1,7 @@
+import { useCallback, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
+import { IconButton, SelectField, Stack, useToast } from '@fjlaubscher/matter';
 
 // components
 import ListLayout from '../../components/layout/list';
@@ -12,13 +13,13 @@ import Toggle from '../../components/toggle';
 import useList from '../../data/use-list';
 
 import styles from './list.module.scss';
-import { useCallback } from 'react';
 
 const List = () => {
   const toast = useToast();
   const { key } = useParams();
   const navigate = useNavigate();
 
+  const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>('standard');
   const { data, createOrUpdate, isOwner, isLoading } = useList(key);
 
   const handleListVisibility = useCallback(
@@ -51,16 +52,26 @@ const List = () => {
       list={data}
       showRules
     >
-      {isOwner && (
-        <Stack direction="column" className={styles.actions}>
+      <Stack direction="row" className={styles.actions}>
+        <SelectField
+          label="Display Mode"
+          options={[
+            { value: 'standard', description: 'Standard' },
+            { value: 'verbose', description: 'Detailed' }
+          ]}
+          value={displayMode}
+          onChange={(e) => setDisplayMode(e.currentTarget.value as Barracks.List.DisplayMode)}
+          required
+        />
+        {isOwner && (
           <Toggle
             className={styles.toggle}
             label={data?.public ? 'Public' : 'Private'}
             defaultChecked={data?.public}
             onChange={(e) => handleListVisibility(e.currentTarget.checked ? 'public' : 'private')}
           />
-        </Stack>
-      )}
+        )}
+      </Stack>
       {data &&
         Object.keys(data.units).map((type) => (
           <div key={`unit-type-${type}`}>
@@ -68,7 +79,11 @@ const List = () => {
               data.units[type][role].length > 0 ? (
                 <Section key={`${type}-role-${i}`} title={type} description={role}>
                   {data.units[type][role].map((unit, i) => (
-                    <ListUnitCard key={`list-unit-${i}`} listUnit={unit} />
+                    <ListUnitCard
+                      key={`list-unit-${i}`}
+                      listUnit={unit}
+                      displayMode={displayMode}
+                    />
                   ))}
                 </Section>
               ) : undefined

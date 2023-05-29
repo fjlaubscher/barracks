@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 import useSWR from 'swr';
 
@@ -27,7 +27,6 @@ export const deletePublicList = async (key: string) => {
 };
 
 const useList = (key?: string) => {
-  const [isUpdating, setIsUpdating] = useState(false);
   const [lists, setLists] = useLocalStorage<Barracks.List[] | undefined>(LISTS, undefined);
   const user = useReadLocalStorage<Barracks.User>(USER);
 
@@ -46,11 +45,9 @@ const useList = (key?: string) => {
     return false;
   }, [user, key, localList]);
 
-  const {
-    data: publicList,
-    isLoading,
-    mutate
-  } = useSWR<Barracks.PublicList>(shouldFetch ? `${import.meta.env.VITE_WORKER_URL}/${key}` : null);
+  const { data: publicList, isLoading } = useSWR<Barracks.PublicList>(
+    shouldFetch ? `${import.meta.env.VITE_WORKER_URL}/${key}` : null
+  );
 
   const handleCreateOrUpdate = useCallback(
     async (updatedList: Barracks.List) => {
@@ -81,7 +78,6 @@ const useList = (key?: string) => {
   return {
     data: localList || publicList?.list,
     isLoading,
-    isUpdating,
     createOrUpdate: handleCreateOrUpdate,
     isOwner: publicList ? publicList.createdBy === user?.id : true
   };

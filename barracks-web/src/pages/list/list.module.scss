@@ -18,7 +18,13 @@
 }
 
 .actions {
+  justify-content: space-between;
   margin-bottom: 1rem;
+
+  > div:nth-child(1) {
+    max-width: breakpoints.$max-form-width;
+    width: 100%;
+  }
 
   .toggle {
     align-items: flex-end;

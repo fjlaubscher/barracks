@@ -117,6 +117,7 @@ declare namespace Barracks.Core {
 }
 
 declare namespace Barracks.List {
+  type DisplayMode = 'standard' | 'verbose';
   interface UnitOption {
     option: Barracks.UnitOption;
     amount: number;
