@@ -10,7 +10,7 @@ import { UnitBuilderAtom } from '../../state/unit-builder';
 
 import styles from './unit.module.scss';
 
-interface Props {
+export interface Props {
   units: Barracks.Unit[];
   initialValues?: {
     unitIndex: number;
@@ -25,7 +25,8 @@ interface SelectedOptions {
 }
 
 const UnitBuilder = ({ units, initialValues }: Props) => {
-  const [{ unit: listUnit }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+  const [payload, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+  const { unit: listUnit } = payload;
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>(
     initialValues?.options || {}
@@ -119,7 +120,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
   );
 
   useEffect(() => {
-    setUnitBuilderPayload((payload) => ({ ...payload, unit: memoedListUnit }));
+    setUnitBuilderPayload({ ...payload, unit: memoedListUnit });
   }, [memoedListUnit, setUnitBuilderPayload]);
 
   return (
@@ -131,6 +132,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
         onChange={(e) => handleSelectOnChange(e, handleSelectedUnitChange)}
         options={unitOptions}
         required
+        data-testid="unit-builder-unit"
       />
       {unitProfileOptions.length > 1 ? (
         <SelectField
@@ -140,6 +142,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           onChange={(e) => handleSelectOnChange(e, setSelectedProfileIndex)}
           options={unitProfileOptions}
           required
+          data-testid="unit-builder-profile"
         />
       ) : undefined}
       {unitVeterancyOptions.length > 1 ? (
@@ -150,6 +153,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           onChange={(e) => handleSelectOnChange(e, setSelectedVeterancyIndex)}
           options={unitVeterancyOptions}
           required
+          data-testid="unit-builder-veterancy"
         />
       ) : undefined}
       {units[selectedUnitIndex].options.length > 0 ? <h3>Options</h3> : undefined}
@@ -164,6 +168,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           maximum={o.max}
           value={selectedOptions[i] || 0}
           onChange={(value) => handleUnitOptionChange(i, value)}
+          data-testid={`unit-builder-option-${i}`}
         />
       ))}
     </Stack>

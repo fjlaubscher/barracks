@@ -3,7 +3,7 @@ import { Button, Field } from '@fjlaubscher/matter';
 
 import styles from './field.module.scss';
 
-interface Props {
+export interface Props {
   className?: string;
   placeholder?: string;
   errorMessage?: string;
@@ -28,17 +28,28 @@ const NumberField = ({
   minimum = 0,
   maximum = -1
 }: Props) => (
-  <Field className={className} error={errorMessage}>
+  <Field className={className} error={errorMessage} data-testid="number-field">
     <div className={styles.labels}>
-      <label htmlFor={name}>{label}</label>
+      <label htmlFor={name} data-testid="number-field-label">
+        {label}
+      </label>
       {maximum > 1 && value !== maximum ? (
-        <span onClick={() => onChange(maximum)} className={styles.max}>
+        <span
+          onClick={() => onChange(maximum)}
+          className={styles.max}
+          data-testid="number-field-max"
+        >
           Max
         </span>
       ) : undefined}
     </div>
     <div className={styles.buttons}>
-      <Button variant="error" disabled={value === minimum} onClick={() => onChange(value - step)}>
+      <Button
+        variant="error"
+        disabled={value === minimum}
+        onClick={() => onChange(value - step)}
+        data-testid="number-field-decrease"
+      >
         <FaMinus />
       </Button>
       <input
@@ -48,8 +59,14 @@ const NumberField = ({
         type="number"
         placeholder={placeholder}
         value={value}
+        data-testid="number-field-input"
       />
-      <Button variant="success" disabled={value === maximum} onClick={() => onChange(value + step)}>
+      <Button
+        variant="success"
+        disabled={value === maximum}
+        onClick={() => onChange(value + step)}
+        data-testid="number-field-increase"
+      >
         <FaPlus />
       </Button>
     </div>

@@ -6,11 +6,17 @@ import type { CardProps } from '@fjlaubscher/matter';
 
 import styles from './card.module.scss';
 
-type Props = {
+export type Props = {
   children?: ReactNode;
   description?: string;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
+  testIds?: {
+    card?: string;
+    title?: string;
+    copyButton?: string;
+    deleteButton?: string;
+  };
 } & Omit<CardProps, 'children'>;
 
 const Card = ({
@@ -22,12 +28,19 @@ const Card = ({
   onDeleteClick,
   title,
   description,
-  role
+  role,
+  testIds
 }: Props) => (
-  <MatterCard id={id} className={classnames(styles.card, className)} onClick={onClick} role={role}>
+  <MatterCard
+    id={id}
+    className={classnames(styles.card, className)}
+    onClick={onClick}
+    role={role}
+    data-testid={testIds?.card}
+  >
     <Stack direction="column">
       <Stack className={styles.header} direction="row">
-        <Stack className={styles.title} direction="column">
+        <Stack className={styles.title} direction="column" data-testid={testIds?.title}>
           <span>{title}</span>
           {description && <span className={styles.description}>{description}</span>}
         </Stack>
@@ -42,6 +55,7 @@ const Card = ({
                     onCopyClick();
                   }
                 }}
+                data-testid={testIds?.copyButton}
               >
                 <FaClone />
               </IconButton>
@@ -55,6 +69,7 @@ const Card = ({
                     onDeleteClick();
                   }
                 }}
+                data-testid={testIds?.deleteButton}
               >
                 <FaTrash />
               </IconButton>

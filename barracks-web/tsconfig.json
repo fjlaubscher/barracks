@@ -2,7 +2,11 @@
   "compilerOptions": {
     "target": "ESNext",
     "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -14,11 +18,18 @@
     "resolveJsonModule": true,
     "isolatedModules": false,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": [
+      "vitest/globals"
+    ]
   },
   "include": [
     "src",
     "types"
   ],
-  "references": [{ "path": "./tsconfig.node.json"}]
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
