@@ -9,7 +9,7 @@ import { calculateCost } from '../../helpers/unit';
 
 import styles from './unit.module.scss';
 
-interface Props {
+export interface Props {
   listUnit: Barracks.List.Unit;
   displayMode?: Barracks.List.DisplayMode;
 }
@@ -21,34 +21,38 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
     <Card
       title={listUnit.profile.name}
       description={`${capitalize(listUnit.veterancy)} | ${calculatedCost} pts`}
+      testIds={{
+        title: 'list-unit-card-title',
+        description: 'list-unit-card-description'
+      }}
     >
       <Stack direction="column">
         {displayMode === 'verbose' && (
           <>
             <div className={styles.section}>
               <h4>Composition</h4>
-              <p>{listUnit.unit.composition}</p>
+              <p data-testid="list-unit-card-composition">{listUnit.unit.composition}</p>
             </div>
             <div className={styles.section}>
               <h4>Weapons</h4>
-              <p>{listUnit.unit.weapons}</p>
+              <p data-testid="list-unit-card-weapons">{listUnit.unit.weapons}</p>
             </div>
             {listUnit.unit.damage && (
               <div className={styles.section}>
                 <h4>Damage Value</h4>
-                <p>{listUnit.unit.damage}</p>
+                <p data-testid="list-unit-card-damage">{listUnit.unit.damage}</p>
               </div>
             )}
             {listUnit.unit.transport && (
               <div className={styles.section}>
                 <h4>Transport</h4>
-                <p>{listUnit.unit.transport}</p>
+                <p data-testid="list-unit-card-transport">{listUnit.unit.transport}</p>
               </div>
             )}
             {listUnit.unit.tow && (
               <div className={styles.section}>
                 <h4>Tow</h4>
-                <p>{listUnit.unit.tow}</p>
+                <p data-testid="list-unit-card-tow">{listUnit.unit.tow}</p>
               </div>
             )}
             {listUnit.unit.rules.length > 0 ? (
@@ -56,7 +60,9 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
                 <h4>Special Rules</h4>
                 <ul className={styles.rules}>
                   {listUnit.unit.rules.map((rule, i) => (
-                    <li key={`rule-${i}`}>{rule}</li>
+                    <li key={`rule-${i}`} data-testid="list-unit-card-rule">
+                      {rule}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -65,7 +71,7 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
         )}
         <TagGroup>
           {listUnit.options.map((o, i) => (
-            <Tag key={`option-${i}`} variant="info">
+            <Tag key={`option-${i}`} variant="info" data-testid="list-unit-card-option">
               {o.amount > 1 ? `${o.amount} x ` : ''}
               {o.option.name}
             </Tag>

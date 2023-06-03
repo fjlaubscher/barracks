@@ -1,3 +1,4 @@
+import { transformToListUnit } from '../../helpers/unit';
 import type { UnitBuilderPayload } from '../../state/unit-builder';
 
 export const MOCK_UNITS: Barracks.Unit[] = [
@@ -166,3 +167,5 @@ export const DEFAULT_UNIT_BUILDER_PAYLOAD: UnitBuilderPayload = {
   type: 'infantry',
   role: 'Infantry Squads and Teams'
 };
+
+export const MOCK_LIST_UNIT = transformToListUnit(MOCK_UNITS[0], 0, 0, { 0: 1 });

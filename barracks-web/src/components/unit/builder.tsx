@@ -5,10 +5,17 @@ import { useRecoilState } from 'recoil';
 // components
 import NumberField from '../field/number';
 
+// helpers
+import { transformToListUnit } from '../../helpers/unit';
+
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
 
 import styles from './unit.module.scss';
+
+type SelectedOptions = {
+  [index: number]: number;
+};
 
 export interface Props {
   units: Barracks.Unit[];
@@ -18,10 +25,6 @@ export interface Props {
     veterancyIndex: number;
     options: SelectedOptions;
   };
-}
-
-interface SelectedOptions {
-  [index: number]: number;
 }
 
 const UnitBuilder = ({ units, initialValues }: Props) => {
@@ -85,28 +88,16 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     [selectedOptions, setSelectedOptions]
   );
 
-  const memoedListUnit = useMemo(() => {
-    const unit = units[selectedUnitIndex];
-    const profile = unit.profiles[selectedProfileIndex];
-    const veterancy = Object.keys(profile.cost)[selectedVeterancyIndex];
-
-    const options = Object.keys(selectedOptions).map((key) => {
-      const index = parseInt(key);
-      const amount = selectedOptions[index];
-      const option = unit.options[index];
-
-      return { option, amount } as Barracks.List.UnitOption;
-    });
-
-    return {
-      key: '',
-      unit,
-      options,
-      points: 0,
-      profile,
-      veterancy
-    } as Barracks.List.Unit;
-  }, [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]);
+  const memoedListUnit = useMemo(
+    () =>
+      transformToListUnit(
+        units[selectedUnitIndex],
+        selectedProfileIndex,
+        selectedVeterancyIndex,
+        selectedOptions
+      ),
+    [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]
+  );
 
   const handleSelectOnChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>, onChange: (value: number) => void) => {
@@ -168,7 +159,6 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           maximum={o.max}
           value={selectedOptions[i] || 0}
           onChange={(value) => handleUnitOptionChange(i, value)}
-          data-testid={`unit-builder-option-${i}`}
         />
       ))}
     </Stack>

@@ -11,29 +11,12 @@ const useRecoilStateMock = useRecoilState as Mock;
 
 // helpers
 import { TestWrapper } from '../../helpers/test';
+import { transformToListUnit } from '../../helpers/unit';
 
 import UnitBuilder from './builder';
 import type { Props } from './builder';
 
 import { DEFAULT_UNIT_BUILDER_PAYLOAD, MOCK_UNITS } from './mock';
-
-const transformToListUnit = (
-  unit: Barracks.Unit,
-  profileIndex = 0,
-  veterancyIndex = 0
-): Barracks.List.Unit => {
-  const profile = unit.profiles[profileIndex];
-  const veterancy = Object.keys(profile.cost)[veterancyIndex];
-
-  return {
-    key: '',
-    unit,
-    options: [],
-    profile,
-    points: 0,
-    veterancy
-  };
-};
 
 const DEFAULT_PAYLOAD = {
   ...DEFAULT_UNIT_BUILDER_PAYLOAD,
@@ -124,6 +107,35 @@ describe('UnitBuilder', () => {
         act(() => fireEvent.change(select, { target: { value: veterancyIndex } }));
 
         const expectedListUnit = transformToListUnit(MOCK_UNITS[0], 0, veterancyIndex);
+        expect(setStateMock).toHaveBeenCalledWith({
+          ...DEFAULT_UNIT_BUILDER_PAYLOAD,
+          unit: expectedListUnit
+        });
+      });
+    });
+  });
+
+  describe('when options are present', () => {
+    it('renders the options', () => {
+      arrangeTest();
+
+      const optionFields = screen.queryAllByTestId('number-field');
+      expect(optionFields.length).toEqual(MOCK_UNITS[0].options.length);
+    });
+
+    describe('and an option is added', () => {
+      it('updates recoil state with the selected option', () => {
+        const setStateMock = vi.fn();
+        useRecoilStateMock.mockReturnValue([DEFAULT_PAYLOAD, setStateMock]);
+        arrangeTest();
+
+        const firstOption = screen.queryAllByTestId('number-field')[0];
+        const addButton = firstOption.querySelector(
+          'button[data-testid="number-field-increase"]'
+        ) as Element;
+        act(() => fireEvent.click(addButton));
+
+        const expectedListUnit = transformToListUnit(MOCK_UNITS[0], 0, 0, { 0: 1 });
         expect(setStateMock).toHaveBeenCalledWith({
           ...DEFAULT_UNIT_BUILDER_PAYLOAD,
           unit: expectedListUnit

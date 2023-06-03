@@ -14,6 +14,7 @@ export type Props = {
   testIds?: {
     card?: string;
     title?: string;
+    description?: string;
     copyButton?: string;
     deleteButton?: string;
   };
@@ -40,9 +41,13 @@ const Card = ({
   >
     <Stack direction="column">
       <Stack className={styles.header} direction="row">
-        <Stack className={styles.title} direction="column" data-testid={testIds?.title}>
-          <span>{title}</span>
-          {description && <span className={styles.description}>{description}</span>}
+        <Stack className={styles.title} direction="column">
+          <span data-testid={testIds?.title}>{title}</span>
+          {description && (
+            <span className={styles.description} data-testid={testIds?.description}>
+              {description}
+            </span>
+          )}
         </Stack>
         {onCopyClick || onDeleteClick ? (
           <Stack className={styles.buttons} direction="row">
