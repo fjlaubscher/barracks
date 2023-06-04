@@ -1,6 +1,7 @@
 @use "@fjlaubscher/matter/src/styles/breakpoints";
 
 .group {
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -25,10 +26,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
   width: 100%;
+  aspect-ratio: 1;
   padding: 1rem;
-  aspect-ratio: 1 / 1;
   background-color: var(--color-light-surface);
   border-radius: 0.5rem;
   text-decoration: none;
