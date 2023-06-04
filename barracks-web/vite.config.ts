@@ -49,17 +49,38 @@ export default defineConfig({
           {
             name: 'New Army List',
             url: '/list',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/new-list.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
           },
           {
             name: 'Army Lists',
             url: '/lists',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/lists.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
           },
           {
             name: 'Rules',
             url: '/rules',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/rules.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
           }
         ],
         screenshots: [
