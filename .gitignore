@@ -23,4 +23,5 @@ dist-ssr
 *.sln
 *.sw?
 barracks-web/.env
+barracks-web/coverage/
 barracks-worker/wrangler.toml

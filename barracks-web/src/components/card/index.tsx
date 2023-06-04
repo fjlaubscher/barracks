@@ -6,11 +6,18 @@ import type { CardProps } from '@fjlaubscher/matter';
 
 import styles from './card.module.scss';
 
-type Props = {
+export type Props = {
   children?: ReactNode;
   description?: string;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
+  testIds?: {
+    card?: string;
+    title?: string;
+    description?: string;
+    copyButton?: string;
+    deleteButton?: string;
+  };
 } & Omit<CardProps, 'children'>;
 
 const Card = ({
@@ -22,14 +29,25 @@ const Card = ({
   onDeleteClick,
   title,
   description,
-  role
+  role,
+  testIds
 }: Props) => (
-  <MatterCard id={id} className={classnames(styles.card, className)} onClick={onClick} role={role}>
+  <MatterCard
+    id={id}
+    className={classnames(styles.card, className)}
+    onClick={onClick}
+    role={role}
+    data-testid={testIds?.card}
+  >
     <Stack direction="column">
       <Stack className={styles.header} direction="row">
         <Stack className={styles.title} direction="column">
-          <span>{title}</span>
-          {description && <span className={styles.description}>{description}</span>}
+          <span data-testid={testIds?.title}>{title}</span>
+          {description && (
+            <span className={styles.description} data-testid={testIds?.description}>
+              {description}
+            </span>
+          )}
         </Stack>
         {onCopyClick || onDeleteClick ? (
           <Stack className={styles.buttons} direction="row">
@@ -42,6 +60,7 @@ const Card = ({
                     onCopyClick();
                   }
                 }}
+                data-testid={testIds?.copyButton}
               >
                 <FaClone />
               </IconButton>
@@ -55,6 +74,7 @@ const Card = ({
                     onDeleteClick();
                   }
                 }}
+                data-testid={testIds?.deleteButton}
               >
                 <FaTrash />
               </IconButton>

@@ -8,7 +8,8 @@
   "scripts": {
     "build": "yarn workspace barracks-web build",
     "start": "yarn workspace barracks-web start",
-    "format": "yarn workspaces run format"
+    "format": "yarn workspaces run format",
+    "test": "yarn workspace barracks-web test"
   },
   "resolutions": {
     "puppeteer": "^13"

@@ -5,12 +5,19 @@ import { useRecoilState } from 'recoil';
 // components
 import NumberField from '../field/number';
 
+// helpers
+import { transformToListUnit } from '../../helpers/unit';
+
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
 
 import styles from './unit.module.scss';
 
-interface Props {
+type SelectedOptions = {
+  [index: number]: number;
+};
+
+export interface Props {
   units: Barracks.Unit[];
   initialValues?: {
     unitIndex: number;
@@ -20,12 +27,9 @@ interface Props {
   };
 }
 
-interface SelectedOptions {
-  [index: number]: number;
-}
-
 const UnitBuilder = ({ units, initialValues }: Props) => {
-  const [{ unit: listUnit }, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+  const [payload, setUnitBuilderPayload] = useRecoilState(UnitBuilderAtom);
+  const { unit: listUnit } = payload;
 
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>(
     initialValues?.options || {}
@@ -84,28 +88,16 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     [selectedOptions, setSelectedOptions]
   );
 
-  const memoedListUnit = useMemo(() => {
-    const unit = units[selectedUnitIndex];
-    const profile = unit.profiles[selectedProfileIndex];
-    const veterancy = Object.keys(profile.cost)[selectedVeterancyIndex];
-
-    const options = Object.keys(selectedOptions).map((key) => {
-      const index = parseInt(key);
-      const amount = selectedOptions[index];
-      const option = unit.options[index];
-
-      return { option, amount } as Barracks.List.UnitOption;
-    });
-
-    return {
-      key: '',
-      unit,
-      options,
-      points: 0,
-      profile,
-      veterancy
-    } as Barracks.List.Unit;
-  }, [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]);
+  const memoedListUnit = useMemo(
+    () =>
+      transformToListUnit(
+        units[selectedUnitIndex],
+        selectedProfileIndex,
+        selectedVeterancyIndex,
+        selectedOptions
+      ),
+    [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]
+  );
 
   const handleSelectOnChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>, onChange: (value: number) => void) => {
@@ -119,7 +111,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
   );
 
   useEffect(() => {
-    setUnitBuilderPayload((payload) => ({ ...payload, unit: memoedListUnit }));
+    setUnitBuilderPayload({ ...payload, unit: memoedListUnit });
   }, [memoedListUnit, setUnitBuilderPayload]);
 
   return (
@@ -131,6 +123,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
         onChange={(e) => handleSelectOnChange(e, handleSelectedUnitChange)}
         options={unitOptions}
         required
+        data-testid="unit-builder-unit"
       />
       {unitProfileOptions.length > 1 ? (
         <SelectField
@@ -140,6 +133,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           onChange={(e) => handleSelectOnChange(e, setSelectedProfileIndex)}
           options={unitProfileOptions}
           required
+          data-testid="unit-builder-profile"
         />
       ) : undefined}
       {unitVeterancyOptions.length > 1 ? (
@@ -150,6 +144,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           onChange={(e) => handleSelectOnChange(e, setSelectedVeterancyIndex)}
           options={unitVeterancyOptions}
           required
+          data-testid="unit-builder-veterancy"
         />
       ) : undefined}
       {units[selectedUnitIndex].options.length > 0 ? <h3>Options</h3> : undefined}

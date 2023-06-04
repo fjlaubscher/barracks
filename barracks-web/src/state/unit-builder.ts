@@ -1,6 +1,6 @@
 import { atom } from 'recoil';
 
-interface UnitBuilderPayload {
+export interface UnitBuilderPayload {
   type: string;
   role: string;
   unit: Barracks.List.Unit | undefined;

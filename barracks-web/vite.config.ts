@@ -4,6 +4,14 @@ import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './test.setup.ts',
+    // you might want to disable it, if you don't have tests that rely on CSS
+    // since parsing CSS is slow
+    css: true
+  },
   plugins: [
     react(),
     VitePWA({
@@ -41,17 +49,52 @@ export default defineConfig({
           {
             name: 'New Army List',
             url: '/list',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/new-list.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
           },
           {
             name: 'Army Lists',
             url: '/lists',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/lists.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
           },
           {
             name: 'Rules',
             url: '/rules',
-            icons: []
+            icons: [
+              {
+                src: '/images/shortcuts/rules.png',
+                sizes: '96x96',
+                type: 'image/png',
+                purpose: 'maskable any'
+              }
+            ]
+          }
+        ],
+        screenshots: [
+          { src: '/images/screenshots/rules.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/armies.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/army-rules.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/lists.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/list.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/list-edit.png', sizes: '414x896', type: 'image/png' }
+        ],
+        related_applications: [
+          {
+            platform: 'webapp',
+            url: 'https://barracks.francoislaubscher.dev/manifest.webmanifest'
           }
         ]
       }
