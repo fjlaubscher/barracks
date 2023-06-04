@@ -61,6 +61,20 @@ export default defineConfig({
             url: '/rules',
             icons: []
           }
+        ],
+        screenshots: [
+          { src: '/images/screenshots/rules.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/armies.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/army-rules.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/lists.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/list.png', sizes: '414x896', type: 'image/png' },
+          { src: '/images/screenshots/list-edit.png', sizes: '414x896', type: 'image/png' }
+        ],
+        related_applications: [
+          {
+            platform: 'webapp',
+            url: 'https://barracks.francoislaubscher.dev/manifest.webmanifest'
+          }
         ]
       }
     })
