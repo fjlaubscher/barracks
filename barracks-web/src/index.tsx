@@ -6,6 +6,7 @@ import { ToastProvider } from '@fjlaubscher/matter';
 import { SWRConfig } from 'swr';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { Analytics } from '@vercel/analytics/react';
+import EasySpeech from 'easy-speech';
 
 import './styles/global.scss';
 
@@ -17,8 +18,11 @@ const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 
 localStorage.removeItem(TTS_READY);
 
-if ('onvoiceschanged' in speechSynthesis) {
-  speechSynthesis.onvoiceschanged = () => localStorage.setItem(TTS_READY, 'true');
+const result = EasySpeech.detect();
+if (result.speechSynthesis && result.speechSynthesisUtterance) {
+  EasySpeech.init({ maxTimeout: 5000, interval: 250 })
+    .then(() => console.debug('load complete'))
+    .catch((e: any) => console.error(e));
 }
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

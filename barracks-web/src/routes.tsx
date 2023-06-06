@@ -1,5 +1,6 @@
 import { lazy, useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import EasySpeech from 'easy-speech';
 
 const About = lazy(() => import('./pages/about'));
 const CreateList = lazy(() => import('./pages/list/create'));
@@ -29,9 +30,7 @@ const AppRoutes = () => {
       setDeferredLocation(location);
     }
 
-    if (speechSynthesis.speaking) {
-      speechSynthesis.cancel();
-    }
+    EasySpeech.cancel();
   }, [location, setDeferredLocation]);
 
   return (

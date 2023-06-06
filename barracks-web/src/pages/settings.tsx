@@ -1,9 +1,10 @@
 import { useToast, IconButton } from '@fjlaubscher/matter';
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FaSave } from 'react-icons/fa';
 import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
+import EasySpeech from 'easy-speech';
 
 // components
 import SettingsForm from '../components/settings/form';
@@ -11,18 +12,16 @@ import Layout from '../components/layout';
 
 // helpers
 import { DEFAULT_SETTINGS } from '../data/settings';
-import { SETTINGS, TTS_READY } from '../data/storage';
+import { SETTINGS } from '../data/storage';
 
 const Settings = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const isTTSReady = useReadLocalStorage<boolean>(TTS_READY);
   const [settings, setSettings] = useLocalStorage<Barracks.Settings | undefined>(
     SETTINGS,
     undefined
   );
-  const [voiceOptions, setVoiceOptions] = useState<matter.Option[]>([]);
 
   const form = useForm<Barracks.Settings>({
     mode: 'onChange',
@@ -46,8 +45,8 @@ const Settings = () => {
     [setSettings, toast, navigate]
   );
 
-  const handleOnVoicesReady = useCallback(() => {
-    const voices = speechSynthesis.getVoices();
+  const voiceOptions = useMemo(() => {
+    const voices: SpeechSynthesisVoice[] = EasySpeech.voices();
     const options: matter.Option[] = [];
 
     for (let i = 0; i < voices.length; i++) {
@@ -60,12 +59,8 @@ const Settings = () => {
       }
     }
 
-    setVoiceOptions(options);
-  }, [setVoiceOptions]);
-
-  useEffect(() => {
-    handleOnVoicesReady();
-  }, [isTTSReady]);
+    return options;
+  }, []);
 
   return (
     <FormProvider {...form}>
@@ -81,7 +76,6 @@ const Settings = () => {
             <FaSave />
           </IconButton>
         }
-        isLoading={isTTSReady !== true}
       >
         <SettingsForm voices={voiceOptions} onSubmit={handleSubmit} />
       </Layout>
