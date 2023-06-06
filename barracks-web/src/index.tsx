@@ -11,8 +11,15 @@ import './styles/global.scss';
 
 import App from './app';
 import ErrorBoundary from './components/error-boundary';
+import { TTS_READY } from './data/storage';
 
 const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
+
+localStorage.removeItem(TTS_READY);
+
+if ('onvoiceschanged' in speechSynthesis) {
+  speechSynthesis.onvoiceschanged = () => localStorage.setItem(TTS_READY, 'true');
+}
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

@@ -9,7 +9,7 @@
   "author": "Francois Laubscher",
   "license": "MIT",
   "scripts": {
-    "start": "vite",
+    "start": "vite --host",
     "build": "tsc && vite build",
     "postbuild": "react-snap",
     "preview": "vite preview",

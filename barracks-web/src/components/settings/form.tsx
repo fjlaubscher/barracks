@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback } from 'react';
 import type { ChangeEvent } from 'react';
 import { useController, useFormContext } from 'react-hook-form';
 import { Form, SelectField } from '@fjlaubscher/matter';
@@ -12,13 +12,12 @@ import { speakText } from '../../helpers/speech-synthesis';
 import styles from './settings.module.scss';
 
 interface Props {
+  voices: matter.Option[];
   onSubmit: (values: Barracks.Settings) => void;
 }
 
-const SettingsForm = ({ onSubmit }: Props) => {
+const SettingsForm = ({ voices, onSubmit }: Props) => {
   const { handleSubmit, control } = useFormContext<Barracks.Settings>();
-  const [voiceOptions, setVoiceOptions] = useState<matter.Option[]>([]);
-
   const { field: voiceField } = useController({ name: 'voice', control });
 
   const handleVoiceChange = useCallback(
@@ -30,30 +29,13 @@ const SettingsForm = ({ onSubmit }: Props) => {
     [voiceField]
   );
 
-  const handleOnVoicesReady = useCallback(() => {
-    const voices = speechSynthesis.getVoices();
-    const options = voices
-      .filter((v) => v.lang === 'en-GB' || v.lang === 'en-US')
-      .map((v, i) => ({ value: i, description: v.name } as matter.Option));
-
-    setVoiceOptions(options);
-  }, [setVoiceOptions]);
-
-  useEffect(() => {
-    if (speechSynthesis.onvoiceschanged) {
-      speechSynthesis.onvoiceschanged = handleOnVoicesReady;
-    } else {
-      handleOnVoicesReady();
-    }
-  }, []);
-
   return (
     <Form className={styles.form} id="settings-form" onSubmit={handleSubmit(onSubmit)}>
       <Section title="Settings" description="Theme">
         <SelectField
           label="Speech To Text: Voice"
           name="voice"
-          options={voiceOptions}
+          options={voices}
           value={voiceField.value}
           onChange={handleVoiceChange}
           required

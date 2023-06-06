@@ -1,9 +1,9 @@
 import { useToast, IconButton } from '@fjlaubscher/matter';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FaSave } from 'react-icons/fa';
-import { useLocalStorage } from 'usehooks-ts';
+import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import SettingsForm from '../components/settings/form';
@@ -11,16 +11,18 @@ import Layout from '../components/layout';
 
 // helpers
 import { DEFAULT_SETTINGS } from '../data/settings';
-import { SETTINGS } from '../data/storage';
+import { SETTINGS, TTS_READY } from '../data/storage';
 
 const Settings = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
+  const isTTSReady = useReadLocalStorage<boolean>(TTS_READY);
   const [settings, setSettings] = useLocalStorage<Barracks.Settings | undefined>(
     SETTINGS,
     undefined
   );
+  const [voiceOptions, setVoiceOptions] = useState<matter.Option[]>([]);
 
   const form = useForm<Barracks.Settings>({
     mode: 'onChange',
@@ -44,6 +46,27 @@ const Settings = () => {
     [setSettings, toast, navigate]
   );
 
+  const handleOnVoicesReady = useCallback(() => {
+    const voices = speechSynthesis.getVoices();
+    const options: matter.Option[] = [];
+
+    for (let i = 0; i < voices.length; i++) {
+      // do this specifically in a for loop to not lose track of the index
+      if (voices[i].lang.includes('en')) {
+        options.push({
+          value: i,
+          description: `${voices[i].localService ? '(Local)' : '(Remote)'} ${voices[i].name}`
+        });
+      }
+    }
+
+    setVoiceOptions(options);
+  }, [setVoiceOptions]);
+
+  useEffect(() => {
+    handleOnVoicesReady();
+  }, [isTTSReady]);
+
   return (
     <FormProvider {...form}>
       <Layout
@@ -58,8 +81,9 @@ const Settings = () => {
             <FaSave />
           </IconButton>
         }
+        isLoading={isTTSReady !== true}
       >
-        <SettingsForm onSubmit={handleSubmit} />
+        <SettingsForm voices={voiceOptions} onSubmit={handleSubmit} />
       </Layout>
     </FormProvider>
   );
