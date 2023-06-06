@@ -1,11 +1,15 @@
 .card {
-  cursor: pointer;
+  &.isClickable {
+    cursor: pointer;
+  }
+
   padding: 1rem;
   display: flex;
   flex-direction: column;
 
   table {
-    thead th, tbody td {
+    thead th,
+    tbody td {
       font-size: 0.9rem;
       padding: 0.25rem;
     }

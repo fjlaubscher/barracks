@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
-import { FaTrash, FaClone } from 'react-icons/fa';
+import { FaTrash, FaClone, FaVolumeUp } from 'react-icons/fa';
 import { Card as MatterCard, Stack, IconButton } from '@fjlaubscher/matter';
 import type { CardProps } from '@fjlaubscher/matter';
 
@@ -11,12 +11,14 @@ export type Props = {
   description?: string;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
+  onSpeakClick?: () => void;
   testIds?: {
     card?: string;
     title?: string;
     description?: string;
     copyButton?: string;
     deleteButton?: string;
+    speakButton?: string;
   };
 } & Omit<CardProps, 'children'>;
 
@@ -27,6 +29,7 @@ const Card = ({
   onClick,
   onCopyClick,
   onDeleteClick,
+  onSpeakClick,
   title,
   description,
   role,
@@ -34,7 +37,7 @@ const Card = ({
 }: Props) => (
   <MatterCard
     id={id}
-    className={classnames(styles.card, className)}
+    className={classnames(styles.card, onClick && styles.isClickable, className)}
     onClick={onClick}
     role={role}
     data-testid={testIds?.card}
@@ -49,7 +52,7 @@ const Card = ({
             </span>
           )}
         </Stack>
-        {onCopyClick || onDeleteClick ? (
+        {onCopyClick || onDeleteClick || onSpeakClick ? (
           <Stack className={styles.buttons} direction="row">
             {onCopyClick && (
               <IconButton
@@ -77,6 +80,20 @@ const Card = ({
                 data-testid={testIds?.deleteButton}
               >
                 <FaTrash />
+              </IconButton>
+            )}
+            {onSpeakClick && (
+              <IconButton
+                className={styles.button}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (onSpeakClick) {
+                    onSpeakClick();
+                  }
+                }}
+                data-testid={testIds?.speakButton}
+              >
+                <FaVolumeUp />
               </IconButton>
             )}
           </Stack>

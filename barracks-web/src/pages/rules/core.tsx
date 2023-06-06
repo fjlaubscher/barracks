@@ -346,7 +346,7 @@ const QuickReferenceRules = () => {
               </Table>
               <ul className={styles.keys}>
                 <li>
-                  <strong>OK</strong> - The unit can move through the terrain without hindrance –
+                  <strong>OK</strong> - The unit can move through the terrain without hindrance -
                   this is the default or normal rate for all kinds of troops over open ground.
                 </li>
                 <li>

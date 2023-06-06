@@ -12,14 +12,6 @@ import './styles/global.scss';
 import App from './app';
 import ErrorBoundary from './components/error-boundary';
 
-import { SETTINGS, THEME } from './data/storage';
-import { DEFAULT_THEME, overrideStyles } from './data/settings';
-
-localStorage.removeItem(SETTINGS);
-
-const theme = localStorage.getItem(THEME);
-overrideStyles(theme ? JSON.parse(THEME) : DEFAULT_THEME);
-
 const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

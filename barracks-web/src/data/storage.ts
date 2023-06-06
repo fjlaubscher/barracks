@@ -6,6 +6,4 @@ export const LISTS = 'BARRACKS_LISTS';
 
 export const SETTINGS = 'BARRACKS_SETTINGS';
 
-export const THEME = 'BARRACKS_THEME';
-
 export const USER = 'BARRACKS_USER';

@@ -9,7 +9,7 @@ import useAppMount from './data/use-app-mount';
 
 import Routes from './routes';
 
-const Router = () => {
+const App = () => {
   const { loading } = useAppMount();
 
   const fallback = (
@@ -26,4 +26,4 @@ const Router = () => {
   );
 };
 
-export default Router;
+export default App;

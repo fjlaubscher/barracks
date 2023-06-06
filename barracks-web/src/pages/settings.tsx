@@ -10,28 +10,30 @@ import SettingsForm from '../components/settings/form';
 import Layout from '../components/layout';
 
 // helpers
-import { DEFAULT_THEME, overrideStyles } from '../data/settings';
+import { DEFAULT_SETTINGS } from '../data/settings';
 import { SETTINGS } from '../data/storage';
 
 const Settings = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const [settings, setSettings] = useLocalStorage<Barracks.Theme | undefined>(SETTINGS, undefined);
+  const [settings, setSettings] = useLocalStorage<Barracks.Settings | undefined>(
+    SETTINGS,
+    undefined
+  );
 
-  const form = useForm<Barracks.Theme>({
+  const form = useForm<Barracks.Settings>({
     mode: 'onChange',
     defaultValues: {
-      ...DEFAULT_THEME,
+      ...DEFAULT_SETTINGS,
       ...settings
     }
   });
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(
-    (values: Barracks.Theme) => {
+    (values: Barracks.Settings) => {
       setSettings({ ...values });
-      overrideStyles({ primaryColor: values.primaryColor, accentColor: values.accentColor });
 
       toast({
         variant: 'success',

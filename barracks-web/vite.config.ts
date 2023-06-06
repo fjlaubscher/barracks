@@ -34,7 +34,7 @@ export default defineConfig({
       manifest: {
         name: 'Barracks',
         short_name: 'Barracks',
-        description: 'Barracks is a free and open-source Bolt Action assistant.',
+        description: 'Barracks is a free and open-source Bolt Action assistant app.',
         theme_color: '#ea7317',
         background_color: '#ea7317',
         icons: [

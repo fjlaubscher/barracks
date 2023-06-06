@@ -1,52 +1,63 @@
-import { useCallback } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { Button, Form, InputField } from '@fjlaubscher/matter';
+import { useCallback, useEffect, useState } from 'react';
+import type { ChangeEvent } from 'react';
+import { useController, useFormContext } from 'react-hook-form';
+import { Form, SelectField } from '@fjlaubscher/matter';
 
 // components
 import Section from '../section';
 
 // helpers
-import { DEFAULT_THEME } from '../../data/settings';
+import { speakText } from '../../helpers/speech-synthesis';
 
 import styles from './settings.module.scss';
 
 interface Props {
-  onSubmit: (values: Barracks.Theme) => void;
+  onSubmit: (values: Barracks.Settings) => void;
 }
 
 const SettingsForm = ({ onSubmit }: Props) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    setValue
-  } = useFormContext<Barracks.Theme>();
+  const { handleSubmit, control } = useFormContext<Barracks.Settings>();
+  const [voiceOptions, setVoiceOptions] = useState<matter.Option[]>([]);
 
-  const handleThemeReset = useCallback(() => {
-    setValue('primaryColor', DEFAULT_THEME.primaryColor);
-    setValue('accentColor', DEFAULT_THEME.accentColor);
-  }, [setValue]);
+  const { field: voiceField } = useController({ name: 'voice', control });
+
+  const handleVoiceChange = useCallback(
+    (e: ChangeEvent<HTMLSelectElement>) => {
+      const index = parseInt(e.currentTarget.value);
+      voiceField.onChange(index);
+      speakText('Barracks is a free and open-source Bolt Action assistant app.', index);
+    },
+    [voiceField]
+  );
+
+  const handleOnVoicesReady = useCallback(() => {
+    const voices = speechSynthesis.getVoices();
+    const options = voices
+      .filter((v) => v.lang === 'en-GB' || v.lang === 'en-US')
+      .map((v, i) => ({ value: i, description: v.name } as matter.Option));
+
+    setVoiceOptions(options);
+  }, [setVoiceOptions]);
+
+  useEffect(() => {
+    if (speechSynthesis.onvoiceschanged) {
+      speechSynthesis.onvoiceschanged = handleOnVoicesReady;
+    } else {
+      handleOnVoicesReady();
+    }
+  }, []);
 
   return (
     <Form className={styles.form} id="settings-form" onSubmit={handleSubmit(onSubmit)}>
       <Section title="Settings" description="Theme">
-        <InputField
-          label="Primary Colour"
-          type="color"
-          errorMessage={errors.primaryColor ? 'Required' : undefined}
-          {...register('primaryColor', { required: true })}
+        <SelectField
+          label="Speech To Text: Voice"
+          name="voice"
+          options={voiceOptions}
+          value={voiceField.value}
+          onChange={handleVoiceChange}
           required
         />
-        <InputField
-          label="Accent Colour"
-          type="color"
-          errorMessage={errors.accentColor ? 'Required' : undefined}
-          {...register('accentColor', { required: true })}
-          required
-        />
-        <Button type="button" onClick={handleThemeReset}>
-          Reset
-        </Button>
       </Section>
     </Form>
   );
