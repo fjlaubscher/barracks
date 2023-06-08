@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
@@ -18,14 +18,16 @@ const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 
 localStorage.removeItem(TTS_READY);
 
-const result = EasySpeech.detect();
-if (result.speechSynthesis && result.speechSynthesisUtterance) {
-  EasySpeech.init({ maxTimeout: 5000, interval: 250 })
-    .then(() => console.debug('load complete'))
-    .catch((e: any) => console.error(e));
+if (navigator.userAgent !== 'ReactSnap') {
+  const result = EasySpeech.detect();
+  if (result.speechSynthesis && result.speechSynthesisUtterance) {
+    EasySpeech.init({ maxTimeout: 5000, interval: 250 })
+      .then(() => console.debug('load complete'))
+      .catch((e: any) => console.error(e));
+  }
 }
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+const BarracksApp = () => (
   <React.StrictMode>
     <BrowserRouter>
       <ErrorBoundary>
@@ -48,3 +50,5 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     </BrowserRouter>
   </React.StrictMode>
 );
+
+createRoot(document.getElementById('root') as HTMLElement).render(<BarracksApp />);

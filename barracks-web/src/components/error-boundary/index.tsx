@@ -10,25 +10,27 @@ import styles from './error-boundary.module.scss';
 type Props = {
   children: ReactNode;
 };
-type State = { hasError: boolean; error?: Error; errorInfo?: ErrorInfo };
+type State = { error?: Error; errorInfo?: ErrorInfo };
+
+const SILENCED_ERRORS = ['EasySpeech: not initialized. Run EasySpeech.init() first'];
 
 class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { hasError: false, error: undefined, errorInfo: undefined };
+    this.state = { error: undefined, errorInfo: undefined };
   }
 
   static getDerivedStateFromError(error: Error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true, error };
-  }
+    if (!SILENCED_ERRORS.includes(error.message)) {
+      // Update state so the next render will show the fallback UI.
+      return { error };
+    }
 
-  componentDidCatch(error: Error, info: ErrorInfo) {
-    this.setState({ error, errorInfo: info });
+    return {};
   }
 
   render() {
-    if (this.state.hasError) {
+    if (this.state.error) {
       // You can render any custom fallback UI
       return (
         <Layout title="Error">
@@ -45,7 +47,7 @@ class ErrorBoundary extends Component<Props, State> {
                 </a>
               </p>
             </Alert>
-            <h4 className={styles.title}>{this.state.error?.message || 'Generic Error'}</h4>
+            <h4 className={styles.title}>{this.state.error.message || 'Generic Error'}</h4>
             <code className={styles.code}>{this.state.errorInfo?.componentStack}</code>
           </Stack>
         </Layout>

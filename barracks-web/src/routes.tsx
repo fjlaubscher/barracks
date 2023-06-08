@@ -30,7 +30,9 @@ const AppRoutes = () => {
       setDeferredLocation(location);
     }
 
-    EasySpeech.cancel();
+    if (navigator.userAgent !== 'ReactSnap') {
+      EasySpeech.cancel();
+    }
   }, [location, setDeferredLocation]);
 
   return (
