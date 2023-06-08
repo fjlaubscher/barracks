@@ -1,22 +1,24 @@
 import { useEffect, useState } from 'react';
-import { useLocalStorage } from 'usehooks-ts';
 import useSWR from 'swr';
+
+// hooks
+import useIndexedDB from './indexed-db/hooks';
 
 // storage
 import { ARMIES } from './storage';
+import { ARMY_OBJECT_STORE } from './indexed-db/config';
 
 const useAppMount = () => {
   const [hasSynced, setHasSynced] = useState(false);
-
+  const { persist } = useIndexedDB(ARMY_OBJECT_STORE, ARMIES);
   const { data: armies, isLoading } = useSWR<Barracks.Armies>('/data/armies.json');
-  const [, setOfflineArmies] = useLocalStorage<Barracks.Armies | undefined>(ARMIES, undefined);
 
   useEffect(() => {
     if (!hasSynced && armies) {
-      setOfflineArmies(armies);
+      persist(armies);
       setHasSynced(true);
     }
-  }, [hasSynced, setHasSynced, armies, setOfflineArmies]);
+  }, [hasSynced, setHasSynced, armies, persist]);
 
   return { loading: isLoading };
 };
