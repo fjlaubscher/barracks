@@ -10,7 +10,7 @@ import Section from '../../components/section';
 import Toggle from '../../components/toggle';
 
 // data
-import useList from '../../data/use-list';
+import useList from '../../data/list';
 
 import styles from './list.module.scss';
 

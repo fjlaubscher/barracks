@@ -1,10 +1,5 @@
-import {
-  DATABASE_NAME,
-  DATABASE_VERSION,
-  ARMY_OBJECT_STORE,
-  CORE_OBJECT_STORE,
-  SPECIAL_RULES_OBJECT_STORE
-} from './config';
+const DATABASE_NAME = 'BARRACKS';
+const DATABASE_VERSION = parseInt(import.meta.env.VITE_BARRACKS_VERSION.replace(/./g, '') || '0');
 
 const getDBConnection = (): Promise<IDBDatabase> =>
   new Promise((resolve, reject) => {
@@ -12,23 +7,30 @@ const getDBConnection = (): Promise<IDBDatabase> =>
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
     request.onupgradeneeded = () => {
-      request.result.createObjectStore(ARMY_OBJECT_STORE);
-      request.result.createObjectStore(CORE_OBJECT_STORE);
-      request.result.createObjectStore(SPECIAL_RULES_OBJECT_STORE);
+      request.result.createObjectStore('ARMY');
+      request.result.createObjectStore('ARMIES');
+      request.result.createObjectStore('CORE');
+      request.result.createObjectStore('SPECIAL_RULES');
     };
   });
 
-export const createOrUpdateAsync = async <T>(storeName: string, key: string, value: T) => {
-  const connection = await getDBConnection();
-  const transaction = connection.transaction(storeName, 'readwrite');
-  const objectStore = transaction.objectStore(storeName);
+export const createOrUpdateAsync = <T>(storeName: string, key: string | undefined, value: T) =>
+  new Promise<void>(async (resolve, reject) => {
+    if (!key) {
+      return reject('Invalid key provided');
+    }
 
-  objectStore.put(value, key);
-  connection.close();
-};
+    const connection = await getDBConnection();
+    const transaction = connection.transaction(storeName, 'readwrite');
+    const objectStore = transaction.objectStore(storeName);
 
-export const getByKeyAsync = async <T>(storeName: string, key?: string): Promise<T | undefined> =>
-  new Promise(async (resolve, reject) => {
+    objectStore.put(value, key);
+    connection.close();
+    resolve();
+  });
+
+export const getByKeyAsync = <T>(storeName: string, key?: string): Promise<T | undefined> =>
+  new Promise<T>(async (resolve, reject) => {
     if (!key) {
       return reject('Invalid key provided');
     }
@@ -52,8 +54,8 @@ export const getByKeyAsync = async <T>(storeName: string, key?: string): Promise
     };
   });
 
-export const getKeysAsync = async (storeName: string): Promise<string[]> =>
-  new Promise(async (resolve, reject) => {
+export const getKeysAsync = (storeName: string): Promise<string[]> =>
+  new Promise<string[]>(async (resolve, reject) => {
     const connection = await getDBConnection();
     const transaction = connection.transaction(storeName, 'readonly');
     transaction.onerror = () => {
@@ -76,8 +78,8 @@ export const getKeysAsync = async (storeName: string): Promise<string[]> =>
   });
 
 export const destroy = () =>
-  new Promise((resolve, reject) => {
+  new Promise<void>((resolve, reject) => {
     const request = indexedDB.deleteDatabase(DATABASE_NAME);
-    request.onsuccess = () => resolve(request.result);
+    request.onsuccess = () => resolve();
     request.onerror = () => reject(request.error);
   });

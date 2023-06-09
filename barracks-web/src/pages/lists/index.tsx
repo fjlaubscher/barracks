@@ -14,7 +14,7 @@ import ListCard from '../../components/list/card';
 
 // data
 import { LISTS, USER } from '../../data/storage';
-import { deletePublicList } from '../../data/use-list';
+import { deletePublicList } from '../../data/list';
 import usePublicLists from '../../data/use-public-lists';
 
 import styles from './lists.module.scss';

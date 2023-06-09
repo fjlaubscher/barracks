@@ -11,7 +11,7 @@ import UnitCard from '../../components/unit/card';
 
 // data
 import useArmy from '../../data/use-army';
-import useList from '../../data/use-list';
+import useList from '../../data/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';

@@ -11,7 +11,7 @@ import ListForm, { FormValues as ListFormValues } from '../../components/list/fo
 
 // data
 import { ARMIES, USER } from '../../data/storage';
-import useList from '../../data/use-list';
+import useList from '../../data/list';
 
 // helpers
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
