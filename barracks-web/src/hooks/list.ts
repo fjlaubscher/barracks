@@ -11,7 +11,7 @@ import { useObjectStore, useObjectStoreWithKey } from './indexed-db';
 export const useLists = () => {
   const user = useReadLocalStorage<Barracks.User>(USER);
   const [isSyncing, setIsSyncing] = useState(false);
-  const { data, isLoading } = useSWR<Barracks.PublicList[]>(
+  const { data, isLoading, mutate } = useSWR<Barracks.PublicList[]>(
     user?.id ? `${import.meta.env.VITE_WORKER_URL}/lists/${user.id}` : null
   );
   const {
@@ -30,12 +30,29 @@ export const useLists = () => {
         }),
         {} as Barracks.Lists
       );
-
       await setLists(listsToSync);
       setIsSyncing(false);
     },
-    [setLists]
+    [setLists, setIsSyncing]
   );
+
+  const handleDeleteList = useCallback(
+    async (key: string) => {
+      if (lists) {
+        setIsSyncing(true);
+        await deletePublicList(key);
+
+        const newLists = { ...lists };
+        delete newLists[key];
+
+        await setLists(newLists);
+        setIsSyncing(false);
+      }
+    },
+    [lists, setLists, setIsSyncing]
+  );
+
+  const handleDeleteAll = useCallback(async () => {}, [mutate, setIsSyncing]);
 
   useEffect(() => {
     if (data) {
@@ -46,7 +63,9 @@ export const useLists = () => {
   return {
     data: lists,
     loading: isLoading || loadingLists || isSyncing,
-    persist: setLists
+    persist: setLists,
+    deleteByKey: handleDeleteList,
+    deleteAll: handleDeleteAll
   };
 };
 
@@ -63,26 +82,26 @@ export const useList = (key?: string) => {
 
   const handlePersist = useCallback(
     async (updatedList: Barracks.List) => {
-      setList(updatedList);
-
       if (user?.id) {
         // deliberately ignore the promise and just make sure it's done
         if (updatedList.public) {
-          createOrUpdatePublicList({
+          await createOrUpdatePublicList({
             createdBy: user.id,
             slug: updatedList.key,
             createdDate: updatedList.created,
             list: updatedList
           });
         } else {
-          deletePublicList(updatedList.key);
+          await deletePublicList(updatedList.key);
         }
       }
+
+      setList(updatedList);
     },
     [user]
   );
 
-  const listData = list || data?.list;
+  const listData = data ? data.list : list;
 
   return {
     data: listData,

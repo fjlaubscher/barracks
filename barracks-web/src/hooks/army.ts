@@ -20,14 +20,15 @@ export const useArmies = () => {
   };
 };
 
-const useArmy = (key?: string) => {
+export const useArmy = (key?: string) => {
+  const { loading: loadingArmies } = useArmies();
+  const { data: army, loading: loadingArmy } = useObjectStoreWithKey<Barracks.Army>('ARMIES', key);
   const { data, isLoading } = useSWR<Barracks.Units>(key ? `/data/units/${key}.json` : null);
-  const { data: army, loading: loadingArmy } = useObjectStoreWithKey('ARMY', key);
   const {
     data: units,
     loading: loadingUnits,
     persist: setUnits
-  } = useObjectStoreWithKey('ARMY', key);
+  } = useObjectStoreWithKey<Barracks.Units>('ARMY', key);
 
   useEffect(() => {
     if (data) {
@@ -35,7 +36,5 @@ const useArmy = (key?: string) => {
     }
   }, [data]);
 
-  return { loading: isLoading || loadingArmy || loadingUnits, army, units: units };
+  return { army, units, loading: isLoading || loadingArmy || loadingArmies || loadingUnits };
 };
-
-export default useArmy;

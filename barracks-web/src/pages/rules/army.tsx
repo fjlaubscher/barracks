@@ -12,16 +12,18 @@ import Layout from '../../components/layout';
 import Section from '../../components/section';
 
 // helpers
-import useArmy from '../../data/use-army';
 import { formatDate } from '../../helpers/date';
 import { speakText } from '../../helpers/speech-synthesis';
+
+// hooks
+import { useArmy } from '../../hooks/army';
 
 import styles from './rules.module.scss';
 
 const Army = () => {
   const { key } = useParams();
   const navigate = useNavigate();
-  const { loading, army, units } = useArmy(key!);
+  const { army, units, loading } = useArmy(key);
 
   const contents = useMemo(() => {
     if (army && units) {

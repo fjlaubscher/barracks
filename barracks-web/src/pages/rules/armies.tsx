@@ -9,13 +9,15 @@ import Layout from '../../components/layout';
 import TileGroup from '../../components/tile/group';
 
 // helpers
-import { ARMIES } from '../../data/storage';
 import { formatDate } from '../../helpers/date';
+
+// hooks
+import { useArmies } from '../../hooks/army';
 
 import styles from './rules.module.scss';
 
 const Armies = () => {
-  const armies = useReadLocalStorage<Barracks.Armies>(ARMIES);
+  const { data: armies, loading: loadingArmies } = useArmies();
 
   const armyKeys = useMemo(
     () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
@@ -23,7 +25,11 @@ const Armies = () => {
   );
 
   return (
-    <Layout title="Armies" description="View the Bolt Action units and rules of each army.">
+    <Layout
+      title="Armies"
+      description="View the Bolt Action units and rules of each army."
+      isLoading={loadingArmies}
+    >
       <Stack direction="column">
         <Stat
           title="Barracks"

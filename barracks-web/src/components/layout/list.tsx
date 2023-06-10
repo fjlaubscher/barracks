@@ -11,13 +11,13 @@ import Stats from '../../components/stats';
 import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
 
-// data
-import useArmy from '../../data/use-army';
-import useCore from '../../data/use-core';
-
 // helpers
 import { formatDate } from '../../helpers/date';
 import { shareList, calculateOrderDice } from '../../helpers/list';
+
+// hooks
+import { useArmy } from '../../hooks/army';
+import useCore from '../../hooks/core';
 
 import styles from './layout.module.scss';
 

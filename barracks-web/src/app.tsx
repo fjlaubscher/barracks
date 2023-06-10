@@ -4,22 +4,16 @@ import { Loader } from '@fjlaubscher/matter';
 // components
 import Layout from './components/layout';
 
-// helpers
-import useAppMount from './data/use-app-mount';
-
 import Routes from './routes';
 
 const App = () => {
-  const { loading } = useAppMount();
-
   const fallback = (
     <Layout title="" isLoading>
       <Loader />
     </Layout>
   );
-  return loading ? (
-    fallback
-  ) : (
+
+  return (
     <Suspense fallback={fallback}>
       <Routes />
     </Suspense>

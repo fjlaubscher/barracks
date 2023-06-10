@@ -9,9 +9,11 @@ import Layout from '../../components/layout';
 import Section from '../../components/section';
 
 // helpers
-import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
 import { speakText } from '../../helpers/speech-synthesis';
+
+// hooks
+import useCore from '../../hooks/core';
 
 import styles from './rules.module.scss';
 

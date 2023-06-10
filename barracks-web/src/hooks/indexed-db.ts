@@ -1,6 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { getByKeyAsync, getKeysAsync, createOrUpdateAsync } from '../data/indexed-db';
+import {
+  getByKeyAsync,
+  getKeysAsync,
+  createOrUpdateAsync,
+  deleteByKeyAsync,
+  destroyAsync
+} from '../data/indexed-db';
 
 export const useObjectStore = <T extends { [key: string]: any }>(
   storeName: Barracks.Data.ObjectStore
@@ -11,17 +17,26 @@ export const useObjectStore = <T extends { [key: string]: any }>(
   const handlePersist = useCallback(
     async (newValue: T) => {
       setLoading(true);
-      const keys = Object.keys(newValue);
+      const newKeys = Object.keys(newValue);
 
-      for (let i = 0; i < keys.length; i++) {
-        const key = keys[i];
+      if (data) {
+        const oldKeys = Object.keys(data).filter((key) => !newKeys.includes(key));
+
+        for (let i = 0; i < oldKeys.length; i++) {
+          const key = oldKeys[i];
+          await deleteByKeyAsync(storeName, key);
+        }
+      }
+
+      for (let i = 0; i < newKeys.length; i++) {
+        const key = newKeys[i];
         await createOrUpdateAsync(storeName, key, newValue[key]);
       }
 
       setLoading(false);
       setData(newValue);
     },
-    [storeName]
+    [data, storeName, setData, setLoading]
   );
 
   const handleRead = useCallback(async () => {
@@ -37,13 +52,20 @@ export const useObjectStore = <T extends { [key: string]: any }>(
 
     setData(storedData as T);
     setLoading(false);
-  }, [storeName]);
+  }, [storeName, setData, setLoading]);
+
+  const handleDestroy = useCallback(async () => {
+    setLoading(true);
+    await destroyAsync();
+    setData(undefined);
+    setLoading(false);
+  }, [storeName, setData, setLoading]);
 
   useEffect(() => {
     handleRead();
   }, []);
 
-  return { data, loading, persist: handlePersist };
+  return { data, loading, persist: handlePersist, destroy: handleDestroy };
 };
 
 export const useObjectStoreWithKey = <T>(storeName: Barracks.Data.ObjectStore, key?: string) => {
@@ -64,12 +86,21 @@ export const useObjectStoreWithKey = <T>(storeName: Barracks.Data.ObjectStore, k
       setData(newData);
       setLoading(false);
     },
-    [storeName, key, setData]
+    [storeName, key, setData, setLoading]
   );
 
-  useEffect(() => {
-    handleRead();
-  }, []);
+  const handleDestroy = useCallback(async () => {
+    setLoading(true);
+    await deleteByKeyAsync(storeName, key);
+    setData(undefined);
+    setLoading(false);
+  }, [storeName, key, setData, setLoading]);
 
-  return { data, loading, persist: handlePersist };
+  useEffect(() => {
+    if (key) {
+      handleRead();
+    }
+  }, [key]);
+
+  return { data, loading, persist: handlePersist, destroy: handleDestroy };
 };

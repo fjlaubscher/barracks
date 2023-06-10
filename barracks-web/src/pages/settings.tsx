@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { FaSave } from 'react-icons/fa';
-import { useLocalStorage, useReadLocalStorage } from 'usehooks-ts';
+import { useLocalStorage } from 'usehooks-ts';
 import EasySpeech from 'easy-speech';
 
 // components
