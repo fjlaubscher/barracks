@@ -9,8 +9,8 @@ import ListUnitCard from '../../components/unit/list-card';
 import Section from '../../components/section';
 import Toggle from '../../components/toggle';
 
-// data
-import useList from '../../data/use-list';
+// hooks
+import { useList } from '../../hooks/list';
 
 import styles from './list.module.scss';
 
@@ -20,13 +20,13 @@ const List = () => {
   const navigate = useNavigate();
 
   const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>('standard');
-  const { data, createOrUpdate, isOwner, isLoading } = useList(key);
+  const { data: list, persist: setList, isOwner, loading: loadingList } = useList(key);
 
   const handleListVisibility = useCallback(
     async (mode: 'private' | 'public') => {
-      if (data) {
-        await createOrUpdate({
-          ...data,
+      if (list) {
+        await setList({
+          ...list,
           public: mode === 'public'
         });
         toast({
@@ -35,21 +35,21 @@ const List = () => {
         });
       }
     },
-    [toast, data, createOrUpdate]
+    [toast, list, setList]
   );
 
-  if (!isLoading && data?.public === false && !isOwner) {
+  if (!loadingList && list?.public === false && !isOwner) {
     return <Navigate to="/404" />;
   }
 
   return (
     <ListLayout
       action={
-        <IconButton disabled={!data} onClick={() => navigate(`/list/${key}/edit`)}>
+        <IconButton disabled={!list} onClick={() => navigate(`/list/${key}/edit`)}>
           <FaEdit />
         </IconButton>
       }
-      list={data}
+      list={list}
       showRules
     >
       <Stack direction="row" className={styles.actions}>
@@ -66,19 +66,19 @@ const List = () => {
         {isOwner && (
           <Toggle
             className={styles.toggle}
-            label={data?.public ? 'Public' : 'Private'}
-            defaultChecked={data?.public}
+            label={list?.public ? 'Public' : 'Private'}
+            defaultChecked={list?.public}
             onChange={(e) => handleListVisibility(e.currentTarget.checked ? 'public' : 'private')}
           />
         )}
       </Stack>
-      {data &&
-        Object.keys(data.units).map((type) => (
+      {list &&
+        Object.keys(list.units).map((type) => (
           <div key={`unit-type-${type}`}>
-            {Object.keys(data.units[type]).map((role, i) =>
-              data.units[type][role].length > 0 ? (
+            {Object.keys(list.units[type]).map((role, i) =>
+              list.units[type][role].length > 0 ? (
                 <Section key={`${type}-role-${i}`} title={type} description={role}>
-                  {data.units[type][role].map((unit, i) => (
+                  {list.units[type][role].map((unit, i) => (
                     <ListUnitCard
                       key={`list-unit-${i}`}
                       listUnit={unit}

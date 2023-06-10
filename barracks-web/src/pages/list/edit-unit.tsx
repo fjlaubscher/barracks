@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
@@ -11,9 +11,11 @@ import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
 
 // helpers
-import useList from '../../data/use-list';
-import useArmy from '../../data/use-army';
 import { calculateCost } from '../../helpers/unit';
+
+// hooks
+import { useArmy } from '../../hooks/army';
+import { useList } from '../../hooks/list';
 
 // state
 import { UnitBuilderAtom } from '../../state/unit-builder';
@@ -22,19 +24,16 @@ const EditListUnit = () => {
   const toast = useToast();
   const navigate = useNavigate();
   const { key, index } = useParams();
-  const [isUpdating, setIsUpdating] = useState(false);
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
-
-  const { data: list, isLoading, createOrUpdate } = useList(key);
-  const { units, loading } = useArmy(list?.army);
+  const { data: list, loading: loadingList, persist: setList } = useList(key);
+  const { units, loading: loadingArmy } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
     if (!list || !unit || !index) {
       return undefined;
     }
 
-    setIsUpdating(true);
     const parsedIndex = parseInt(index);
     const oldCost = calculateCost(list.units[type][role][parsedIndex]);
     const newCost = calculateCost(unit);
@@ -43,17 +42,16 @@ const EditListUnit = () => {
     const newUnits: Barracks.List.Units = { ...list.units };
     newUnits[type][role][parsedIndex] = { ...unit, points: newCost };
 
-    await createOrUpdate({
+    await setList({
       ...list,
       points: listPoints + newCost,
       units: { ...newUnits }
     });
 
-    setIsUpdating(false);
     toast({ text: `${unit.unit.name} updated.`, variant: 'success' });
 
     navigate(`/list/${key}/edit`);
-  }, [list, type, role, navigate, unit, index, setIsUpdating]);
+  }, [list, type, role, navigate, unit, index]);
 
   const builderInitialValues = useMemo(() => {
     if (index && units && unit) {
@@ -96,9 +94,9 @@ const EditListUnit = () => {
   return (
     <Layout
       title="Edit Unit"
-      isLoading={loading || isLoading}
+      isLoading={loadingArmy || loadingList}
       action={
-        <IconButton onClick={handleSubmit} loading={isUpdating}>
+        <IconButton onClick={handleSubmit} loading={loadingList}>
           <FaSave />
         </IconButton>
       }

@@ -11,8 +11,10 @@ import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
 
 // helpers
-import useCore from '../../data/use-core';
 import { formatDate } from '../../helpers/date';
+
+// hooks
+import useCore from '../../hooks/core';
 
 import styles from './rules.module.scss';
 

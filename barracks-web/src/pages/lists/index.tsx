@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useMemo } from 'react';
+import { useCallback, useState, useMemo } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { Alert, Grid, InputField, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
@@ -13,9 +13,10 @@ import Layout from '../../components/layout';
 import ListCard from '../../components/list/card';
 
 // data
-import { LISTS, USER } from '../../data/storage';
-import { deletePublicList } from '../../data/use-list';
-import usePublicLists from '../../data/use-public-lists';
+import { USER } from '../../data/storage';
+
+// hooks
+import { useLists } from '../../hooks/list';
 
 import styles from './lists.module.scss';
 
@@ -23,12 +24,13 @@ const Lists = () => {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const [storedLists, setStoredLists] = useLocalStorage<Barracks.List[] | undefined>(
-    LISTS,
-    undefined
-  );
+  const {
+    data: lists,
+    deleteByKey: deleteList,
+    deleteAll: deleteAllLists,
+    loading: loadingLists
+  } = useLists();
   const [user, setUser] = useLocalStorage<Barracks.User | undefined>(USER, undefined);
-  const { lists: publicLists, isLoading } = usePublicLists(user?.id);
   const [searchTerm, setSearchTerm] = useState('');
   const debouncedSearchTerm = useDebounce<string>(searchTerm, 250);
 
@@ -40,19 +42,11 @@ const Lists = () => {
   }, [toast]);
 
   const handleListDelete = useCallback(
-    (key: string) => {
-      if (storedLists) {
-        const list = storedLists.filter((l) => l.key === key)[0];
-        if (list.public) {
-          // deliberately ignore the promise
-          deletePublicList(key);
-        }
-
-        setStoredLists(storedLists.filter((l) => l.key !== key));
-        toast({ variant: 'success', text: 'List deleted.' });
-      }
+    async (key: string) => {
+      await deleteList(key);
+      toast({ variant: 'success', text: 'List deleted.' });
     },
-    [storedLists, setStoredLists, toast]
+    [toast]
   );
 
   const handleGoogleSignIn = useCallback(
@@ -74,31 +68,18 @@ const Lists = () => {
 
   const handleSignOut = useCallback(() => {
     setUser(undefined);
-    setStoredLists(undefined);
+    deleteAllLists();
     toast({ variant: 'success', text: 'Signed out successfully.' });
-  }, [toast, setStoredLists, setUser]);
+  }, [toast, deleteAllLists, setUser]);
 
-  const handleListsSync = useCallback(
-    (publicLists?: Barracks.PublicList[]) => {
-      const privateLists = storedLists ? storedLists.filter((l) => !l.public) : [];
-      const listsByUser = publicLists ? publicLists.map((l) => l.list) : [];
-
-      setStoredLists([...privateLists, ...listsByUser]);
-    },
-    [storedLists, setStoredLists]
-  );
-
-  useEffect(() => {
-    handleListsSync(publicLists);
-  }, [publicLists]);
-
-  const lists = useMemo(() => {
-    if (storedLists) {
+  const searchedLists = useMemo(() => {
+    if (lists) {
+      const flattenedLists: Barracks.List[] = Object.keys(lists).map((key) => lists[key]);
       const filteredLists = debouncedSearchTerm
-        ? storedLists.filter((l) =>
+        ? flattenedLists.filter((l) =>
             l.name.toLowerCase().includes(debouncedSearchTerm.toLowerCase())
           )
-        : storedLists;
+        : flattenedLists;
 
       return filteredLists.sort((a, b) => {
         const dateA = parseISO(a.created);
@@ -113,11 +94,12 @@ const Lists = () => {
     }
 
     return [];
-  }, [storedLists, debouncedSearchTerm]);
+  }, [lists, debouncedSearchTerm]);
+
+  const hasLists = useMemo(() => (lists ? Object.keys(lists).length > 0 : false), [lists]);
 
   const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
-  const hasLists = lists && lists.length > 0;
-  const syncText = user ? (isLoading ? 'Syncing...' : 'Synced') : undefined;
+  const syncText = user ? (loadingLists ? 'Syncing...' : 'Synced') : undefined;
 
   return (
     <Layout
@@ -158,7 +140,7 @@ const Lists = () => {
         </Grid>
         {hasLists && (
           <Grid simple>
-            {lists?.map((list) => (
+            {searchedLists.map((list) => (
               <ListCard
                 key={list.key}
                 list={list}

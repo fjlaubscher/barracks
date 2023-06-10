@@ -10,8 +10,11 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // data
-import { ARMIES, USER } from '../../data/storage';
-import useList from '../../data/use-list';
+import { USER } from '../../data/storage';
+
+// hooks
+import { useArmies } from '../../hooks/army';
+import { useList } from '../../hooks/list';
 
 // helpers
 import { LIST_UNITS_TEMPLATE } from '../../helpers/data';
@@ -22,10 +25,11 @@ const CreateList = () => {
   const [search] = useSearchParams();
   const navigate = useNavigate();
   const toast = useToast();
+  const listKey = useMemo(() => crypto.randomUUID(), []);
 
-  const armies = useReadLocalStorage<Barracks.Armies>(ARMIES);
   const user = useReadLocalStorage<Barracks.User>(USER);
-  const { createOrUpdate } = useList();
+  const { data: armies, loading: loadingArmies } = useArmies();
+  const { persist: createList } = useList(listKey);
 
   const armyKeys = useMemo(
     () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
@@ -51,17 +55,17 @@ const CreateList = () => {
     async (values: Omit<ListFormValues, 'armyId'>) => {
       const newList: Barracks.List = {
         ...values,
-        key: crypto.randomUUID(),
+        key: listKey,
         created: new Date().toISOString(),
         points: 0,
         units: LIST_UNITS_TEMPLATE
       };
 
-      await createOrUpdate(newList);
+      await createList(newList);
       toast({ text: 'List created.', variant: 'success' });
-      navigate(`/list/${newList.key}/edit`);
+      navigate(`/list/${listKey}/edit`);
     },
-    [toast, navigate]
+    [listKey, createList, toast, navigate]
   );
 
   return (
@@ -79,6 +83,7 @@ const CreateList = () => {
             <FaSave />
           </IconButton>
         }
+        isLoading={loadingArmies}
       >
         <Stack className={styles.create} direction="column">
           <Alert className={styles.alert} variant="info">

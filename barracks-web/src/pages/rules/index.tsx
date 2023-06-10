@@ -8,8 +8,8 @@ import Tile from '../../components/tile';
 import TileGroup from '../../components/tile/group';
 import Layout from '../../components/layout';
 
-// data
-import useCore from '../../data/use-core';
+// hooks
+import useCore from '../../hooks/core';
 
 // helpers
 import { formatDate } from '../../helpers/date';

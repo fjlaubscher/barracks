@@ -10,9 +10,11 @@ import Layout from '../../components/layout';
 import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
 
+// hooks
+import { useArmy } from '../../hooks/army';
+import { useList } from '../../hooks/list';
+
 // helpers
-import useList from '../../data/use-list';
-import useArmy from '../../data/use-army';
 import { calculateCost } from '../../helpers/unit';
 
 // state
@@ -25,8 +27,8 @@ const AddListUnit = () => {
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
-  const { data: list, createOrUpdate } = useList(key);
-  const { units, loading } = useArmy(list?.army || '');
+  const { data: list, persist: setList, loading: loadingList } = useList(key);
+  const { units, loading: loadingArmy } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
     if (!list || !unit) {
@@ -39,7 +41,7 @@ const AddListUnit = () => {
       points: calculateCost(unit)
     };
 
-    await createOrUpdate({
+    await setList({
       ...list,
       points: list.points + newUnit.points,
       units: {
@@ -61,7 +63,7 @@ const AddListUnit = () => {
   return (
     <Layout
       title="Add Unit"
-      isLoading={loading}
+      isLoading={loadingArmy || loadingList}
       action={
         <IconButton disabled={!unit} onClick={handleSubmit}>
           <FaSave />

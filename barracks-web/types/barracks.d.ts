@@ -76,6 +76,10 @@ declare namespace Barracks {
     public: boolean;
   }
 
+  interface Lists {
+    [key: string]: List;
+  }
+
   interface PublicList {
     createdBy: string;
     createdDate: string;
@@ -112,6 +116,10 @@ declare namespace Barracks.Core {
     pen: string;
     rules: string[];
   }
+}
+
+declare namespace Barracks.Data {
+  type ObjectStore = 'ARMY' | 'ARMIES' | 'CORE' | 'LIST' | 'SPECIAL_RULES';
 }
 
 declare namespace Barracks.List {
