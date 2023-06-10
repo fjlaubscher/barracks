@@ -7,6 +7,7 @@ import Card from '../../components/card';
 import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
+import Morale from '../rules/morale';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
@@ -65,13 +66,16 @@ const ListLayout = ({ action, children, list, showRules = false }: Props) => {
               </Card>
             ))}
           </Section>
-          <Section id="army-rules" title="Rules" description="Damage Value">
+          <Section title="Rules" description="Damage Value">
             <Damage damage={data.damage} />
           </Section>
-          <Section id="army-rules" title="Rules" description="Hit Modifiers">
+          <Section title="Rules" description="Hit Modifiers">
             <Hit hits={data.hit} />
           </Section>
-          <Section id="army-rules" title="Rules" description="Weapons">
+          <Section title="Rules" description="Troop Quality and Morale">
+            <Morale />
+          </Section>
+          <Section title="Rules" description="Weapons">
             <Weapons weapons={data.weapons} />
           </Section>
         </Stack>

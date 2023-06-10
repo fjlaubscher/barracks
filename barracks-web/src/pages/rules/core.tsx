@@ -7,6 +7,7 @@ import ContentsModal from '../../components/contents-modal';
 import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
+import Morale from '../../components/rules/morale';
 import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
 
@@ -226,20 +227,7 @@ const QuickReferenceRules = () => {
               </Table>
             </Card>
             <Card id="orders-morale" title="Troop Quality and Morale">
-              <Table headings={[{ text: 'Quality' }, { text: 'Morale', className: styles.center }]}>
-                <tr>
-                  <td className={styles.stretch}>Inexperienced</td>
-                  <td className={styles.center}>8</td>
-                </tr>
-                <tr>
-                  <td className={styles.stretch}>Regular</td>
-                  <td className={styles.center}>9</td>
-                </tr>
-                <tr>
-                  <td className={styles.stretch}>Veteran</td>
-                  <td className={styles.center}>10</td>
-                </tr>
-              </Table>
+              <Morale />
             </Card>
             <Card id="orders-officers" title="Officer Bonuses">
               <Table

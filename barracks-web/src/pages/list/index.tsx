@@ -39,7 +39,7 @@ const List = () => {
   );
 
   if (!loadingList && list?.public === false && !isOwner) {
-    return <Navigate to="/404" />;
+    return null;
   }
 
   return (
