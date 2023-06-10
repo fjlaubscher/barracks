@@ -52,7 +52,7 @@ const CreateList = () => {
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(
-    async (values: Omit<ListFormValues, 'armyId'>) => {
+    async ({ armyId, ...values }: ListFormValues) => {
       const newList: Barracks.List = {
         ...values,
         key: listKey,

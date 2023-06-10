@@ -23,7 +23,7 @@ const EditList = () => {
   const setUnitBuilderPayload = useSetRecoilState(UnitBuilderAtom);
 
   const { data: list, loading: loadingList, persist: setList, isOwner } = useList(key);
-  const { army, units } = useArmy(list?.army);
+  const { units } = useArmy(list?.army);
 
   const handleListUnitAdd = useCallback(
     (type: string, role: string) => {
@@ -94,6 +94,8 @@ const EditList = () => {
     return <Navigate to={`/list/${list.key}`} />;
   }
 
+  const listUnits = list ? list.units : {};
+
   return (
     <ListLayout
       action={
@@ -103,36 +105,30 @@ const EditList = () => {
       }
       list={list}
     >
-      {army && list && units && (
-        <>
-          {Object.keys(list.units).map((type) => (
-            <div key={`unit-type-${type}`}>
-              {Object.keys(list.units[type]).map((role, i) => (
-                <Section
-                  key={`${type}-role-${i}`}
-                  title={type}
-                  description={role}
-                  onAddClick={() => {
-                    if (units && units[type][role].length > 0) {
-                      handleListUnitAdd(type, role);
-                    }
-                  }}
-                >
-                  {list.units[type][role].map((unit, i) => (
-                    <UnitCard
-                      key={`list-unit-${i}`}
-                      listUnit={unit}
-                      onClick={() => handleListUnitEdit(type, role, unit, i)}
-                      onCopyClick={() => handleListUnitCopy(type, role, unit)}
-                      onDeleteClick={() => handleListUnitDelete(type, role, unit, i)}
-                    />
-                  ))}
-                </Section>
+      {Object.keys(listUnits).map((type) => (
+        <div key={`unit-type-${type}`}>
+          {Object.keys(listUnits[type]).map((role, i) => (
+            <Section
+              key={`${type}-role-${i}`}
+              title={type}
+              description={role}
+              onAddClick={() => {
+                handleListUnitAdd(type, role);
+              }}
+            >
+              {listUnits[type][role].map((unit, i) => (
+                <UnitCard
+                  key={`list-unit-${i}`}
+                  listUnit={unit}
+                  onClick={() => handleListUnitEdit(type, role, unit, i)}
+                  onCopyClick={() => handleListUnitCopy(type, role, unit)}
+                  onDeleteClick={() => handleListUnitDelete(type, role, unit, i)}
+                />
               ))}
-            </div>
+            </Section>
           ))}
-        </>
-      )}
+        </div>
+      ))}
     </ListLayout>
   );
 };

@@ -1,5 +1,6 @@
 const DATABASE_NAME = 'BARRACKS';
-const DATABASE_VERSION = 1;
+const DATABASE_VERSION = 2;
+const OBJECT_STORES = ['ARMIES', 'CORE', 'LISTS', 'UNITS', 'SPECIAL_RULES'];
 
 const getDBConnectionAsync = (): Promise<IDBDatabase> =>
   new Promise((resolve, reject) => {
@@ -7,11 +8,15 @@ const getDBConnectionAsync = (): Promise<IDBDatabase> =>
     request.onsuccess = () => resolve(request.result);
     request.onerror = () => reject(request.error);
     request.onupgradeneeded = () => {
-      request.result.createObjectStore('ARMY');
-      request.result.createObjectStore('ARMIES');
-      request.result.createObjectStore('CORE');
-      request.result.createObjectStore('LIST');
-      request.result.createObjectStore('SPECIAL_RULES');
+      for (let i = 0; i < OBJECT_STORES.length; i++) {
+        const storeName = OBJECT_STORES[i];
+
+        if (request.result.objectStoreNames.contains(storeName)) {
+          request.result.deleteObjectStore(storeName);
+        }
+
+        request.result.createObjectStore(storeName);
+      }
     };
   });
 
@@ -85,7 +90,7 @@ export const deleteByKeyAsync = (storeName: string, key?: string) =>
     }
 
     const connection = await getDBConnectionAsync();
-    const transaction = connection.transaction(storeName, 'readonly');
+    const transaction = connection.transaction(storeName, 'readwrite');
     transaction.onerror = () => {
       connection.close();
       return reject(transaction.error);

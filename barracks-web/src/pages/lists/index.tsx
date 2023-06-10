@@ -46,7 +46,7 @@ const Lists = () => {
       await deleteList(key);
       toast({ variant: 'success', text: 'List deleted.' });
     },
-    [toast]
+    [deleteList, toast]
   );
 
   const handleGoogleSignIn = useCallback(
@@ -66,9 +66,9 @@ const Lists = () => {
     [setUser]
   );
 
-  const handleSignOut = useCallback(() => {
+  const handleSignOut = useCallback(async () => {
     setUser(undefined);
-    deleteAllLists();
+    await deleteAllLists();
     toast({ variant: 'success', text: 'Signed out successfully.' });
   }, [toast, deleteAllLists, setUser]);
 
@@ -99,7 +99,7 @@ const Lists = () => {
   const hasLists = useMemo(() => (lists ? Object.keys(lists).length > 0 : false), [lists]);
 
   const { matches: isTabletOrLarger } = window.matchMedia('(min-width: 768px)');
-  const syncText = user ? (loadingLists ? 'Syncing...' : 'Synced') : undefined;
+  const syncText = loadingLists ? 'Syncing...' : 'Synced';
 
   return (
     <Layout

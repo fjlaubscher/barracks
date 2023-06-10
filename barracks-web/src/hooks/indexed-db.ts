@@ -63,7 +63,7 @@ export const useObjectStore = <T extends { [key: string]: any }>(
 
   useEffect(() => {
     handleRead();
-  }, []);
+  }, [storeName]);
 
   return { data, loading, persist: handlePersist, destroy: handleDestroy };
 };

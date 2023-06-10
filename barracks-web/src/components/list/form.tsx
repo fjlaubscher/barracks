@@ -17,7 +17,7 @@ export interface FormValues {
 
 interface Props {
   armies: Omit<Barracks.Armies, 'lastUpdated'>;
-  onSubmit: (values: Omit<FormValues, 'armyId'>) => void;
+  onSubmit: (values: FormValues) => void;
   isPublicAllowed: boolean;
 }
 

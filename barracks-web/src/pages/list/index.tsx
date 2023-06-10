@@ -19,7 +19,7 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>('standard');
+  const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>('verbose');
   const { data: list, persist: setList, isOwner, loading: loadingList } = useList(key);
 
   const handleListVisibility = useCallback(

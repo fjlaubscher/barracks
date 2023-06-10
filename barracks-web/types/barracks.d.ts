@@ -119,7 +119,7 @@ declare namespace Barracks.Core {
 }
 
 declare namespace Barracks.Data {
-  type ObjectStore = 'ARMY' | 'ARMIES' | 'CORE' | 'LIST' | 'SPECIAL_RULES';
+  type ObjectStore = 'ARMIES' | 'CORE' | 'LISTS' | 'UNITS' | 'SPECIAL_RULES';
 }
 
 declare namespace Barracks.List {

@@ -11,14 +11,15 @@ import { useObjectStore, useObjectStoreWithKey } from './indexed-db';
 export const useLists = () => {
   const user = useReadLocalStorage<Barracks.User>(USER);
   const [isSyncing, setIsSyncing] = useState(false);
-  const { data, isLoading, mutate } = useSWR<Barracks.PublicList[]>(
-    user?.id ? `${import.meta.env.VITE_WORKER_URL}/lists/${user.id}` : null
+  const { data, isLoading } = useSWR<Barracks.PublicList[]>(
+    user ? `${import.meta.env.VITE_WORKER_URL}/lists/${user.id}` : null
   );
   const {
     data: lists,
     loading: loadingLists,
-    persist: setLists
-  } = useObjectStore<Barracks.Lists>('LIST');
+    persist: setLists,
+    destroy: deleteLists
+  } = useObjectStore<Barracks.Lists>('LISTS');
 
   const handleSync = useCallback(
     async (publicLists: Barracks.PublicList[]) => {
@@ -40,19 +41,23 @@ export const useLists = () => {
     async (key: string) => {
       if (lists) {
         setIsSyncing(true);
-        await deletePublicList(key);
-
         const newLists = { ...lists };
         delete newLists[key];
 
+        await deletePublicList(key);
         await setLists(newLists);
+
         setIsSyncing(false);
       }
     },
     [lists, setLists, setIsSyncing]
   );
 
-  const handleDeleteAll = useCallback(async () => {}, [mutate, setIsSyncing]);
+  const handleDeleteAll = useCallback(async () => {
+    setIsSyncing(true);
+    await deleteLists();
+    setIsSyncing(false);
+  }, [deleteLists, setIsSyncing]);
 
   useEffect(() => {
     if (data) {
@@ -78,7 +83,7 @@ export const useList = (key?: string) => {
     data: list,
     loading: loadingList,
     persist: setList
-  } = useObjectStoreWithKey<Barracks.List>('LIST', key);
+  } = useObjectStoreWithKey<Barracks.List>('LISTS', key);
 
   const handlePersist = useCallback(
     async (updatedList: Barracks.List) => {
@@ -96,12 +101,12 @@ export const useList = (key?: string) => {
         }
       }
 
-      setList(updatedList);
+      await setList(updatedList);
     },
-    [user]
+    [user, setList]
   );
 
-  const listData = data ? data.list : list;
+  const listData = list || data?.list;
 
   return {
     data: listData,
