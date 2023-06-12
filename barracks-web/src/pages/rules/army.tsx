@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { FaFileAlt } from 'react-icons/fa';
 import { IconButton, Grid, Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 // components
 import ArmyUnitCard from '../../components/army/unit-card';
@@ -47,7 +47,7 @@ const Army = () => {
   }, [army, units]);
 
   if (!loading && !army) {
-    return <Navigate to="/404" />;
+    return null;
   }
 
   return (

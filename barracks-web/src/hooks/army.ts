@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
 
 // helpers
@@ -36,14 +36,19 @@ export const useArmies = () => {
 
 export const useArmy = (key?: string) => {
   const [isSyncing, setIsSyncing] = useState(false);
-  const { loading: loadingArmies } = useArmies();
+  const { loading: loadingArmies, data: armies } = useArmies();
   const { data, isLoading } = useSWR<Barracks.Units>(key ? `/data/units/${key}.json` : null);
-  const { data: army, loading: loadingArmy } = useObjectStoreWithKey<Barracks.Army>('ARMIES', key);
   const {
     data: units,
     loading: loadingUnits,
     persist: setUnits
   } = useObjectStoreWithKey<Barracks.Units>('UNITS', key);
+
+  const canReadFromStore = useMemo(() => !!armies, [armies]);
+  const { data: army, loading: loadingArmy } = useObjectStoreWithKey<Barracks.Army>(
+    'ARMIES',
+    canReadFromStore ? key : undefined
+  );
 
   const handleSync = useCallback(
     async (data: Barracks.Units) => {

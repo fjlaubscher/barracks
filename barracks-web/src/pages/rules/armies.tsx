@@ -1,7 +1,6 @@
 import { Stack, Stat, Image } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
-import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import BackButton from '../../components/button/back';

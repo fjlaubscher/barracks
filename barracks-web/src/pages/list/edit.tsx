@@ -10,7 +10,6 @@ import Section from '../../components/section';
 import UnitCard from '../../components/unit/card';
 
 // hooks
-import { useArmy } from '../../hooks/army';
 import { useList } from '../../hooks/list';
 
 // state
@@ -23,7 +22,6 @@ const EditList = () => {
   const setUnitBuilderPayload = useSetRecoilState(UnitBuilderAtom);
 
   const { data: list, loading: loadingList, persist: setList, isOwner } = useList(key);
-  const { units } = useArmy(list?.army);
 
   const handleListUnitAdd = useCallback(
     (type: string, role: string) => {

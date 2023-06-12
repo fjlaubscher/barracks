@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { FaEdit } from 'react-icons/fa';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IconButton, SelectField, Stack, useToast } from '@fjlaubscher/matter';
 
 // components

@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
 import { FaSave } from 'react-icons/fa';
 import { useRecoilValue } from 'recoil';
@@ -88,7 +88,7 @@ const EditListUnit = () => {
   }, [units, type, role, unit]);
 
   if (!type && !role) {
-    return <Navigate to={`/list/${key}/edit`} />;
+    return null;
   }
 
   return (
