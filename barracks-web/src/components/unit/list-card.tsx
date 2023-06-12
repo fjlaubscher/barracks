@@ -1,21 +1,36 @@
-import { TagGroup, Tag, Stack, capitalize } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
+import classnames from 'classnames';
+import { TagGroup, Tag, Stack, capitalize, Table } from '@fjlaubscher/matter';
 
 // components
 import Card from '../card';
 
 // helpers
-import { calculateCost } from '../../helpers/unit';
+import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
+
+// hooks
+import { useWeapons } from '../../hooks/core';
 
 import styles from './unit.module.scss';
 
 export interface Props {
   listUnit: Barracks.List.Unit;
   displayMode?: Barracks.List.DisplayMode;
+  showWeapons?: boolean;
 }
 
-const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
+const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
+  const { data: weapons } = useWeapons(showWeapons ? listUnit.unit.weapons.keys : []);
+
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
+
+  const composition = useMemo(() => {
+    if (displayMode === 'verbose' && listUnit.unit.composition) {
+      return buildListUnitComposition(listUnit);
+    }
+
+    return undefined;
+  }, [listUnit, displayMode]);
 
   return (
     <Card
@@ -29,13 +44,15 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
       <Stack direction="column">
         {displayMode === 'verbose' && (
           <>
-            <div className={styles.section}>
-              <h4>Composition</h4>
-              <p data-testid="list-unit-card-composition">{listUnit.unit.composition}</p>
-            </div>
+            {composition && (
+              <div className={styles.section}>
+                <h4>Composition</h4>
+                <p data-testid="list-unit-card-composition">{composition}</p>
+              </div>
+            )}
             <div className={styles.section}>
               <h4>Weapons</h4>
-              <p data-testid="list-unit-card-weapons">{listUnit.unit.weapons}</p>
+              <p data-testid="list-unit-card-weapons">{listUnit.unit.weapons.description}</p>
             </div>
             {listUnit.unit.damage && (
               <div className={styles.section}>
@@ -68,6 +85,27 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose' }: Props) => {
               </div>
             ) : undefined}
           </>
+        )}
+        {showWeapons && weapons && (
+          <Table
+            headings={[
+              { text: 'Weapon' },
+              { text: 'Range' },
+              { text: 'Shots' },
+              { text: 'Pen' },
+              { text: 'Rules' }
+            ]}
+          >
+            {weapons.map((weapon, i) => (
+              <tr key={`weapon-type-${i}`}>
+                <td>{weapon.type}</td>
+                <td className={classnames(styles.center, styles.noWrap)}>{weapon.range}</td>
+                <td className={classnames(styles.center, styles.noWrap)}>{weapon.shots}</td>
+                <td className={classnames(styles.center, styles.noWrap)}>{weapon.pen}</td>
+                <td>{weapon.rules.join(', ')}</td>
+              </tr>
+            ))}
+          </Table>
         )}
         <TagGroup>
           {listUnit.options.map((o, i) => (

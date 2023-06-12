@@ -9,7 +9,7 @@ import TileGroup from '../../components/tile/group';
 import Layout from '../../components/layout';
 
 // hooks
-import useCore from '../../hooks/core';
+import { useCore } from '../../hooks/core';
 
 // helpers
 import { formatDate } from '../../helpers/date';

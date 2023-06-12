@@ -55,7 +55,7 @@ describe('Army Unit Card', () => {
     arrangeTest({ unit: MOCK_UNIT });
 
     expect(screen.getByTestId('army-unit-card-composition').querySelector('p')).toHaveTextContent(
-      MOCK_UNIT.composition
+      MOCK_UNIT.composition!.description
     );
   });
 
@@ -63,7 +63,7 @@ describe('Army Unit Card', () => {
     arrangeTest({ unit: MOCK_UNIT });
 
     expect(screen.getByTestId('army-unit-card-weapons').querySelector('p')).toHaveTextContent(
-      MOCK_UNIT.weapons
+      MOCK_UNIT.weapons!.description
     );
   });
 

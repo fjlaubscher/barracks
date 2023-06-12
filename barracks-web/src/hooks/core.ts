@@ -1,10 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import useSWR from 'swr';
 
 // data
 import { useObjectStore } from './indexed-db';
 
-const useCore = () => {
+export const useCore = () => {
   const { data, isLoading } = useSWR<Barracks.Core>(`/data/core.json`);
   const {
     data: coreData,
@@ -18,7 +18,19 @@ const useCore = () => {
     }
   }, [data]);
 
-  return { loading: isLoading || loadingCoreData, data: coreData };
+  return { data: coreData, loading: isLoading || loadingCoreData };
 };
 
-export default useCore;
+export const useWeapons = (keys: string[]) => {
+  const { data: core, loading } = useCore();
+
+  const weapons: Barracks.Core.Weapon[] | undefined = useMemo(() => {
+    if (core && keys.length > 0) {
+      return keys.map((key) => core.weapons[key]);
+    }
+
+    return undefined;
+  }, [core, keys]);
+
+  return { data: weapons, loading };
+};

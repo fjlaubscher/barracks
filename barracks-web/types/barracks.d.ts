@@ -34,8 +34,14 @@ declare namespace Barracks {
   interface Unit {
     name: string;
     profiles: UnitOption[];
-    composition: string;
-    weapons: string;
+    composition?: {
+      description: string;
+      baseSize?: number;
+    };
+    weapons: {
+      description: string;
+      keys: string[];
+    };
     options: UnitOption[];
     rules: string[];
     damage?: string;
@@ -57,7 +63,7 @@ declare namespace Barracks {
       [key: string]: Barracks.Core.Damage[];
     };
     weapons: {
-      [key: string]: Barracks.Core.Weapon[];
+      [key: string]: Barracks.Core.Weapon;
     };
     rules: {
       [key: string]: Barracks.Item[];
@@ -115,6 +121,7 @@ declare namespace Barracks.Core {
     shots: string;
     pen: string;
     rules: string[];
+    heavy: boolean;
   }
 }
 

@@ -13,7 +13,7 @@ import { formatDate } from '../../helpers/date';
 import { speakText } from '../../helpers/speech-synthesis';
 
 // hooks
-import useCore from '../../hooks/core';
+import { useCore } from '../../hooks/core';
 
 import styles from './rules.module.scss';
 
