@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-05-20T00:00Z",
+  "lastUpdated": "2023-06-13T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -38,8 +38,17 @@
             }
           }
         ],
-        "composition": "1 Officer and up to 2 further soldiers",
-        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "composition": {
+          "description": "1 Officer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models.",
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -71,8 +80,17 @@
             }
           }
         ],
-        "composition": "1 Forward Observer and up to 2 further soldiers",
-        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "composition": {
+          "description": "1 Forward Observer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models.",
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -98,8 +116,15 @@
             }
           }
         ],
-        "composition": "1 Medic and up to 2 further soldiers",
-        "weapons": "Pistol or none as depicted on the models.",
+        "composition": {
+          "description": "1 Medic and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models.",
+          "keys": [
+            "pistol"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -122,8 +147,17 @@
             }
           }
         ],
-        "composition": "1 Commissar and up to 2 further soldiers",
-        "weapons": "Pistol, SMG, or rifle as depicted on the models.",
+        "composition": {
+          "description": "1 Commissar and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models.",
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -149,8 +183,16 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -183,8 +225,18 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -234,8 +286,17 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Submachine guns",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Submachine guns",
+          "keys": [
+            "smg",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -277,8 +338,17 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Submachine guns",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Submachine guns",
+          "keys": [
+            "smg",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -325,8 +395,19 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -378,8 +459,19 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -439,8 +531,18 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -485,8 +587,19 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "infantry-flamethrower",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -547,8 +660,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 MMG",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 MMG",
+          "keys": [
+            "mmg"
+          ]
+        },
         "options": [
           {
             "name": "Gun shield",
@@ -579,7 +699,12 @@
           }
         ],
         "composition": "2 soldiers",
-        "weapons": "1 Anti-tank rifle",
+        "weapons": {
+          "description": "1 Anti-tank rifle",
+          "keys": [
+            "anti-tank-rifle"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -597,8 +722,15 @@
             }
           }
         ],
-        "composition": "2 soldiers",
-        "weapons": "1 Rifle",
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Rifle",
+          "keys": [
+            "rifle"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -617,8 +749,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 Medium mortar",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium mortar",
+          "keys": [
+            "medium-mortar"
+          ]
+        },
         "options": [
           {
             "name": "Spotter",
@@ -652,8 +791,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 Light howitzer",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light howitzer",
+          "keys": [
+            "light-howitzer"
+          ]
+        },
         "options": [],
         "rules": [
           "Gun shield",
@@ -676,8 +822,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 Medium anti-tank gun",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium anti-tank gun",
+          "keys": [
+            "medium-at-gun"
+          ]
+        },
         "options": [],
         "rules": [
           "Gun shield",
@@ -699,8 +852,15 @@
             }
           }
         ],
-        "composition": "4 soldiers",
-        "weapons": "1 Platform-mounted heavy automatic cannon",
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Platform-mounted heavy automatic cannon",
+          "keys": [
+            "heavy-automatic-cannon"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -732,8 +892,14 @@
             }
           }
         ],
-        "composition": "1 BT-5 / BT-7 Light Tank",
-        "weapons": "1 Turret-mounted light anti-tank gun with co-axial MMG",
+        "weapons": {
+          "description": "1 Turret-mounted light anti-tank gun with co-axial MMG",
+          "keys": [
+            "mmg",
+            "light-at-gun",
+            "light-howitzer"
+          ]
+        },
         "options": [
           {
             "name": "Light howitzer",
@@ -760,8 +926,13 @@
             }
           }
         ],
-        "composition": "1 T-32/76 Medium Tank",
-        "weapons": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
+        },
         "options": [],
         "damage": "9+ (medium tank)",
         "rules": []
@@ -778,8 +949,13 @@
             }
           }
         ],
-        "composition": "1 T34/85 Medium Tank",
-        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
+        },
         "options": [],
         "damage": "9+ (medium tank)",
         "rules": []
@@ -796,8 +972,13 @@
             }
           }
         ],
-        "composition": "1 IS-2 Heavy Tank",
-        "weapons": "1 Turret-mounted heavy anti-tank gun with co-axial MMG, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted heavy anti-tank gun with co-axial MMG, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
+        },
         "options": [],
         "damage": "10+ (heavy tank)",
         "rules": [
@@ -819,8 +1000,12 @@
             }
           }
         ],
-        "composition": "1 SU-85",
-        "weapons": "1 Casement-mounted forward facing heavy anti-tank gun",
+        "weapons": {
+          "description": "1 Casement-mounted forward facing heavy anti-tank gun",
+          "keys": [
+            "heavy-at-gun"
+          ]
+        },
         "options": [],
         "damage": "8+ (light tank)",
         "rules": []
@@ -839,8 +1024,12 @@
             }
           }
         ],
-        "composition": "1 SU-76",
-        "weapons": "1 Forward facing light howitzer",
+        "weapons": {
+          "description": "1 Forward facing light howitzer",
+          "keys": [
+            "light-howitzer"
+          ]
+        },
         "options": [],
         "damage": "8+ (light tank)",
         "rules": [
@@ -860,8 +1049,12 @@
             }
           }
         ],
-        "composition": "1 Katyusha Rocket Launcher",
-        "weapons": "1 Forward facing Katyusha multiple rocket launcher (heavy mortar)",
+        "weapons": {
+          "description": "1 Forward facing Katyusha multiple rocket launcher (heavy mortar)",
+          "keys": [
+            "heavy-mortar"
+          ]
+        },
         "options": [],
         "damage": "6+ (soft-skinned)",
         "rules": [
@@ -883,8 +1076,13 @@
             }
           }
         ],
-        "composition": "1 Tokarev 4M Quad Maxim on GAZ-AAA Truck",
-        "weapons": "4 turret-mounted MMGs",
+        "weapons": {
+          "description": "4 turret-mounted MMGs",
+          "keys": [
+            "mmg",
+            "heavy-automatic-cannon"
+          ]
+        },
         "options": [
           {
             "name": "Bofors 40mm heavy automatic cannon",
@@ -915,8 +1113,12 @@
             }
           }
         ],
-        "composition": "1 BA-64",
-        "weapons": "1 turreted LMG with 360° arc",
+        "weapons": {
+          "description": "1 turreted LMG with 360° arc",
+          "keys": [
+            "lmg"
+          ]
+        },
         "options": [],
         "damage": "7+ (armoured car)",
         "rules": [
@@ -938,8 +1140,12 @@
             }
           }
         ],
-        "composition": "1 Truck",
-        "weapons": "None",
+        "weapons": {
+          "description": "None",
+          "keys": [
+            "mmg"
+          ]
+        },
         "options": [
           {
             "name": "Pintle-mounted MMG with 360° arc",
@@ -967,8 +1173,13 @@
             }
           }
         ],
-        "composition": "1 GAZ 'Jeep'",
-        "weapons": "None",
+        "weapons": {
+          "description": "None",
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
+        },
         "options": [
           {
             "name": "Pintle-mounted MMG",

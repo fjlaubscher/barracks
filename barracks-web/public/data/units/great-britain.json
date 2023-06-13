@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-05-20T00:00Z",
+  "lastUpdated": "2023-06-12T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -1275,7 +1275,7 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": []
+          "keys": ["mmg", "hmg"]
         },
         "options": [
           {
@@ -1357,7 +1357,7 @@
           }
         ],
         "weapons": {
-          "description": "1 Forward facing LMG",
+          "description": "1 Forward facing hull-mounted LMG",
           "keys": ["lmg", "mmg"]
         },
         "options": [

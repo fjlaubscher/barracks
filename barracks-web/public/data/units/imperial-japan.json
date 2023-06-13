@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-05-20T00:00Z",
+  "lastUpdated": "2023-06-13T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -38,8 +38,17 @@
             }
           }
         ],
-        "composition": "1 Officer and up to 2 further soldiers",
-        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models; The officer may also have a sword",
+        "composition": {
+          "description": "1 Officer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models; The officer may also have a sword",
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -82,8 +91,17 @@
             }
           }
         ],
-        "composition": "1 Forward Observer and up to 2 further soldiers",
-        "weapons": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
+        "composition": {
+          "description": "1 Forward Observer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models",
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -107,8 +125,15 @@
             }
           }
         ],
-        "composition": "1 Medic and up to 2 further soldiers",
-        "weapons": "Pistol or none as depicted on the models.",
+        "composition": {
+          "description": "1 Medic and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models",
+          "keys": [
+            "pistol"
+          ]
+        },
         "options": [
           {
             "name": "Attendant",
@@ -133,8 +158,18 @@
             }
           }
         ],
-        "composition": "1 NCO and 6 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 6 soldiers",
+          "baseSize": 6
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -191,8 +226,18 @@
             }
           }
         ],
-        "composition": "1 NCO and 6 soldiers",
-        "weapons": "Rifles",
+        "composition": {
+          "description": "1 NCO and 6 soldiers",
+          "baseSize": 6
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -237,8 +282,14 @@
             }
           }
         ],
-        "composition": "1 NCO and 4 soldiers",
-        "weapons": "Sharpened bamboo spears",
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Sharpened bamboo spears",
+          "keys": []
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -280,8 +331,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 MMG",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 MMG",
+          "keys": [
+            "mmg"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -300,8 +358,15 @@
             }
           }
         ],
-        "composition": "2 soldiers",
-        "weapons": "1 Anti-tank rifle",
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Anti-tank rifle",
+          "keys": [
+            "anti-tank-rifle"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon"
@@ -318,8 +383,15 @@
             }
           }
         ],
-        "composition": "2 soldiers",
-        "weapons": "1 Rifle",
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Rifle",
+          "keys": [
+            "rifle"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -337,8 +409,15 @@
             }
           }
         ],
-        "composition": "2 soldiers",
-        "weapons": "1 Light mortar",
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light mortar",
+          "keys": [
+            "light-mortar"
+          ]
+        },
         "options": [],
         "rules": [
           "Team weapon",
@@ -358,8 +437,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 Medium mortar",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium mortar",
+          "keys": [
+            "medium-mortar"
+          ]
+        },
         "options": [
           {
             "name": "Spotter",
@@ -393,8 +479,15 @@
             }
           }
         ],
-        "composition": "4 soldiers",
-        "weapons": "1 Light howitzer",
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light howitzer",
+          "keys": [
+            "light-howitzer"
+          ]
+        },
         "options": [
           {
             "name": "Loader",
@@ -427,8 +520,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 Medium anti-tank gun",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium anti-tank gun",
+          "keys": [
+            "medium-at-gun"
+          ]
+        },
         "options": [],
         "rules": [
           "Gun shield",
@@ -450,8 +550,15 @@
             }
           }
         ],
-        "composition": "3 soldiers",
-        "weapons": "1 light automatic cannon",
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light automatic cannon",
+          "keys": [
+            "light-automatic-cannon"
+          ]
+        },
         "options": [
           {
             "name": "Type 2 twin AA cannon",
@@ -485,8 +592,13 @@
             }
           }
         ],
-        "composition": "1 Type 95 Ha-Go Light Tank",
-        "weapons": "1 Turret-mounted light anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted light anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "light-at-gun"
+          ]
+        },
         "options": [],
         "damage": "7+ (armoured carrier)",
         "rules": [
@@ -506,8 +618,13 @@
             }
           }
         ],
-        "composition": "1 Type 97 Chi-Ha Medium Tank",
-        "weapons": "1 Turret-mounted light howitzer, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted light howitzer, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "light-howitzer"
+          ]
+        },
         "options": [],
         "damage": "8+ (light tank)",
         "rules": []
@@ -524,8 +641,13 @@
             }
           }
         ],
-        "composition": "1 Type 97-Kai Shinhoto Chi-Ha Medium Tank",
-        "weapons": "1 Turret-mounted medium anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted medium anti-tank gun, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
+        },
         "options": [],
         "damage": "8+ (light tank)",
         "rules": []
@@ -546,8 +668,12 @@
             }
           }
         ],
-        "composition": "1 Type 98 Anti-Aircraft Truck",
-        "weapons": "1 Platform-mounted light automatic cannon with 360° arc of fire",
+        "weapons": {
+          "description": "1 Platform-mounted light automatic cannon with 360° arc of fire",
+          "keys": [
+            "light-automatic-cannon"
+          ]
+        },
         "options": [],
         "damage": "6+ (soft-skinned)",
         "rules": [
@@ -568,8 +694,12 @@
             }
           }
         ],
-        "composition": "1 Type 94 Tankette",
-        "weapons": "1 turret-mounted MMG",
+        "weapons": {
+          "description": "1 Turret-mounted MMG",
+          "keys": [
+            "mmg"
+          ]
+        },
         "options": [],
         "damage": "7+ (armoured car)",
         "rules": [
@@ -590,8 +720,10 @@
             }
           }
         ],
-        "composition": "1 General Purpose Truck",
-        "weapons": "None",
+        "weapons": {
+          "description": "None",
+          "keys": ["mmg"]
+        },
         "options": [
           {
             "name": "Pintle-mounted MMG covering the forward arc",
@@ -620,8 +752,10 @@
             }
           }
         ],
-        "composition": "1 Type 95 Kurogane",
-        "weapons": "None",
+        "weapons": {
+          "description": "None",
+          "keys": ["mmg"]
+        },
         "options": [
           {
             "name": "Pintle-mounted MMG with 360° arc of",

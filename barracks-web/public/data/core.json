@@ -90,7 +90,9 @@
       "range": "6",
       "shots": "1",
       "pen": "-",
-      "rules": ["Assault"],
+      "rules": [
+        "Assault"
+      ],
       "heavy": false
     },
     "rifle": {
@@ -106,7 +108,19 @@
       "range": "12",
       "shots": "2",
       "pen": "-",
-      "rules": ["Assault"],
+      "rules": [
+        "Assault"
+      ],
+      "heavy": false
+    },
+    "shotgun": {
+      "type": "Shotgun",
+      "range": "18",
+      "shots": "1",
+      "pen": "-",
+      "rules": [
+        "Assault"
+      ],
       "heavy": false
     },
     "automatic-rifle": {
@@ -122,7 +136,9 @@
       "range": "18",
       "shots": "2",
       "pen": "-",
-      "rules": ["Assault"],
+      "rules": [
+        "Assault"
+      ],
       "heavy": false
     },
     "lmg": {
@@ -130,7 +146,9 @@
       "range": "36",
       "shots": "4",
       "pen": "-",
-      "rules": ["Team"],
+      "rules": [
+        "Team"
+      ],
       "heavy": false
     },
     "mmg": {
@@ -138,7 +156,10 @@
       "range": "36",
       "shots": "5",
       "pen": "-",
-      "rules": ["Team", "Fixed"],
+      "rules": [
+        "Team",
+        "Fixed"
+      ],
       "heavy": false
     },
     "hmg": {
@@ -146,7 +167,10 @@
       "range": "36",
       "shots": "3",
       "pen": "+1",
-      "rules": ["Team", "Fixed"],
+      "rules": [
+        "Team",
+        "Fixed"
+      ],
       "heavy": true
     },
     "light-automatic-cannon": {
@@ -154,7 +178,11 @@
       "range": "48",
       "shots": "2",
       "pen": "+2",
-      "rules": ["Team", "Fixed", "HE (1\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (1\")"
+      ],
       "heavy": true
     },
     "heavy-automatic-cannon": {
@@ -162,7 +190,11 @@
       "range": "72",
       "shots": "2",
       "pen": "+3",
-      "rules": ["Team", "Fixed", "HE (1\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (1\")"
+      ],
       "heavy": true
     },
     "anti-tank-rifle": {
@@ -170,7 +202,9 @@
       "range": "36",
       "shots": "1",
       "pen": "+2",
-      "rules": ["Team"],
+      "rules": [
+        "Team"
+      ],
       "heavy": true
     },
     "piat": {
@@ -178,7 +212,10 @@
       "range": "12",
       "shots": "1",
       "pen": "+5",
-      "rules": ["Team", "Shaped Charge"],
+      "rules": [
+        "Team",
+        "Shaped Charge"
+      ],
       "heavy": true
     },
     "bazooka": {
@@ -186,7 +223,10 @@
       "range": "24",
       "shots": "1",
       "pen": "+5",
-      "rules": ["Team", "Shaped Charge"],
+      "rules": [
+        "Team",
+        "Shaped Charge"
+      ],
       "heavy": true
     },
     "panzerschreck": {
@@ -194,7 +234,10 @@
       "range": "24",
       "shots": "1",
       "pen": "+6",
-      "rules": ["Team", "Shaped Charge"],
+      "rules": [
+        "Team",
+        "Shaped Charge"
+      ],
       "heavy": true
     },
     "panzerfaust": {
@@ -202,7 +245,43 @@
       "range": "12",
       "shots": "1",
       "pen": "+6",
-      "rules": ["One-shot", "Shaped Charge"],
+      "rules": [
+        "One-shot",
+        "Shaped Charge"
+      ],
+      "heavy": true
+    },
+    "sturmpistole": {
+      "type": "Sturmpistole",
+      "range": "6",
+      "shots": "1",
+      "pen": "+3",
+      "rules": [
+        "Shaped Charge"
+      ],
+      "heavy": true
+    },
+    "grb-39-ap": {
+      "type": "GrB-39 grenade launcher: Anti-personnel",
+      "range": "6-24",
+      "shots": "1",
+      "pen": "HE",
+      "rules": [
+        "Team",
+        "Indirect fire",
+        "HE (1\")"
+      ],
+      "heavy": true
+    },
+    "grb-39-at": {
+      "type": "GrB-39 grenade launcher: Anti-tank",
+      "range": "24",
+      "shots": "1",
+      "pen": "+3",
+      "rules": [
+        "Team",
+        "Shaped Charge"
+      ],
       "heavy": true
     },
     "light-at-gun": {
@@ -210,7 +289,11 @@
       "range": "48",
       "shots": "1",
       "pen": "+4",
-      "rules": ["Team", "Fixed", "HE (1\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (1\")"
+      ],
       "heavy": true
     },
     "medium-at-gun": {
@@ -218,7 +301,11 @@
       "range": "60",
       "shots": "1",
       "pen": "+5",
-      "rules": ["Team", "Fixed", "HE (1\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (1\")"
+      ],
       "heavy": true
     },
     "heavy-at-gun": {
@@ -226,7 +313,11 @@
       "range": "72",
       "shots": "1",
       "pen": "+6",
-      "rules": ["Team", "Fixed", "HE (2\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (2\")"
+      ],
       "heavy": true
     },
     "super-heavy-at-gun": {
@@ -234,7 +325,11 @@
       "range": "84",
       "shots": "1",
       "pen": "+7",
-      "rules": ["Team", "Fixed", "HE (3\")"],
+      "rules": [
+        "Team",
+        "Fixed",
+        "HE (3\")"
+      ],
       "heavy": true
     },
     "infantry-flamethrower": {
@@ -242,7 +337,10 @@
       "range": "6",
       "shots": "D6",
       "pen": "+3",
-      "rules": ["Team", "Flamethrower"],
+      "rules": [
+        "Team",
+        "Flamethrower"
+      ],
       "heavy": true
     },
     "vehicle-flamethrower": {
@@ -250,7 +348,9 @@
       "range": "12",
       "shots": "D6+1",
       "pen": "+3",
-      "rules": ["Flamethrower"],
+      "rules": [
+        "Flamethrower"
+      ],
       "heavy": true
     },
     "light-mortar": {
@@ -258,7 +358,11 @@
       "range": "12-24",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (1\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (1\")"
+      ],
       "heavy": true
     },
     "medium-mortar": {
@@ -266,7 +370,11 @@
       "range": "12-60",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (2\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (2\")"
+      ],
       "heavy": true
     },
     "heavy-mortar": {
@@ -274,7 +382,11 @@
       "range": "12-72",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (3\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (3\")"
+      ],
       "heavy": true
     },
     "light-howitzer": {
@@ -282,7 +394,11 @@
       "range": "48 (or 24-60)",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (2\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (2\")"
+      ],
       "heavy": true
     },
     "medium-howitzer": {
@@ -290,7 +406,11 @@
       "range": "60 (or 30-72)",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (3\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (3\")"
+      ],
       "heavy": true
     },
     "heavy-howitzer": {
@@ -298,7 +418,11 @@
       "range": "72 (or 36-84)",
       "shots": "1",
       "pen": "HE",
-      "rules": ["Team", "Indirect Fire", "HE (4\")"],
+      "rules": [
+        "Team",
+        "Indirect Fire",
+        "HE (4\")"
+      ],
       "heavy": true
     }
   },

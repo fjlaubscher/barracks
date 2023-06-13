@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-05-20T00:00Z",
+  "lastUpdated": "2023-06-12T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -39,7 +39,12 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "assault-rifle", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "assault-rifle",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -76,7 +81,12 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, rifle, or assault rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "assault-rifle", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "assault-rifle",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -105,7 +115,9 @@
         },
         "weapons": {
           "description": "Pistol or none as depicted on the models.",
-          "keys": ["pistol"]
+          "keys": [
+            "pistol"
+          ]
         },
         "options": [
           {
@@ -135,7 +147,14 @@
           "description": "1 NCO and 4 soldiers",
           "baseSize": 4
         },
-        "weapons": { "description": "Rifles", "keys": ["smg", "rifle", "lmg"] },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -197,7 +216,14 @@
           "description": "1 NCO and 4 soldiers",
           "baseSize": 4
         },
-        "weapons": { "description": "Rifles", "keys": ["smg", "rifle", "lmg"] },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -228,7 +254,9 @@
             "max": 8
           }
         ],
-        "rules": ["Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"]
+        "rules": [
+          "Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"
+        ]
       },
       {
         "name": "Heer Grenadier Squad",
@@ -246,7 +274,13 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "assault-rifle", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -292,7 +326,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Heer Veteran Grenadier Squad",
@@ -310,7 +346,13 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "assault-rifle", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -356,7 +398,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Heer Pioneer Squad",
@@ -374,7 +418,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["infantry-flamethrower", "smg", "rifle", "lmg"]
+          "keys": [
+            "infantry-flamethrower",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -413,7 +462,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Sturmpioniere (Assault Engineer) Squad",
@@ -431,7 +482,16 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["infantry-flamethrower", "panzerfaust", "smg", "rifle", "lmg"]
+          "keys": [
+            "sturmpistole",
+            "infantry-flamethrower",
+            "panzerfaust",
+            "smg",
+            "grb-39-ap",
+            "grb-39-at",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -494,7 +554,7 @@
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)",
           "Sturmpistole: This weapon is treated like a Panzerfaust, except that it only has a range of 6\" and a Pen value of +3. It can, however, be fired normally once a turn and not just once per game.",
-          "GrB-39 grenade launcher (see armies of germany book)"
+          "GrB-39 grenade launcher: Every time the model fires this weapon, you can choose either profiles"
         ]
       },
       {
@@ -511,7 +571,15 @@
           "description": "1 NCO and 4 soldiers",
           "baseSize": 4
         },
-        "weapons": { "description": "Rifles", "keys": ["smg", "assault-rifle", "rifle", "lmg"] },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -563,7 +631,13 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "assault-rifle", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -622,7 +696,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -682,7 +760,13 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "assault-rifle", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -746,7 +830,14 @@
           "description": "1 NCO and 4 soldiers",
           "baseSize": 4
         },
-        "weapons": { "description": "Rifles", "keys": ["smg", "rifle", "lmg"] },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -784,7 +875,10 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Waffen-SS Squad (Late War)",
@@ -804,7 +898,13 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "assault-rifle", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "assault-rifle",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -862,7 +962,9 @@
             "max": 10
           }
         ],
-        "rules": ["Fanatics (if taken)"]
+        "rules": [
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Waffen-SS Pioneers (Late-War)",
@@ -881,7 +983,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["infantry-flamethrower", "smg", "rifle", "lmg"]
+          "keys": [
+            "infantry-flamethrower",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -933,7 +1040,10 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Fanatics (if taken)"
+        ]
       },
       {
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
@@ -961,7 +1071,15 @@
           "description": "1 NCO and 4 soldiers",
           "baseSize": 4
         },
-        "weapons": { "description": "Rifles", "keys": ["panzerfaust", "smg", "rifle", "lmg"] },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Additional soldier",
@@ -1033,7 +1151,12 @@
         "composition": {
           "description": "3 soldiers"
         },
-        "weapons": { "description": "1 LMG", "keys": ["lmg"] },
+        "weapons": {
+          "description": "1 LMG",
+          "keys": [
+            "lmg"
+          ]
+        },
         "options": [
           {
             "name": "Anti-aircraft mount",
@@ -1062,10 +1185,20 @@
             }
           }
         ],
-        "composition": { "description": "3 soldiers" },
-        "weapons": { "description": "1 MMG", "keys": ["mmg"] },
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 MMG",
+          "keys": [
+            "mmg"
+          ]
+        },
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": [
+          "Team weapon",
+          "Fixed"
+        ]
       },
       {
         "name": "Anti-Tank Rifle Team",
@@ -1080,9 +1213,16 @@
           }
         ],
         "composition": "2 soldiers",
-        "weapons": { "description": "1 Anti-tank rifle", "keys": ["anti-tank-rifle"] },
+        "weapons": {
+          "description": "1 Anti-tank rifle",
+          "keys": [
+            "anti-tank-rifle"
+          ]
+        },
         "options": [],
-        "rules": ["Team weapon"]
+        "rules": [
+          "Team weapon"
+        ]
       },
       {
         "name": "Panzerschreck Team",
@@ -1096,10 +1236,20 @@
             }
           }
         ],
-        "composition": { "description": "2 soldiers" },
-        "weapons": { "description": "1 Panzerschreck", "keys": ["panzerschreck"] },
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Panzerschreck",
+          "keys": [
+            "panzerschreck"
+          ]
+        },
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": [
+          "Team weapon",
+          "Shaped charge"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -1112,10 +1262,20 @@
             }
           }
         ],
-        "composition": { "description": "2 soldiers" },
-        "weapons": { "description": "1 Rifle", "keys": ["rifle"] },
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Rifle",
+          "keys": [
+            "rifle"
+          ]
+        },
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": [
+          "Team weapon",
+          "Sniper"
+        ]
       },
       {
         "name": "Flamethrower Team",
@@ -1128,10 +1288,14 @@
             }
           }
         ],
-        "composition": { "description": "2 soldiers" },
+        "composition": {
+          "description": "2 soldiers"
+        },
         "weapons": {
           "description": "1 Infantry flamethrower or 2 one-shot infantry flamethrowers",
-          "keys": ["infantry-flamethrower"]
+          "keys": [
+            "infantry-flamethrower"
+          ]
         },
         "options": [],
         "rules": [
@@ -1152,13 +1316,21 @@
             }
           }
         ],
-        "composition": { "description": "2 soldiers" },
+        "composition": {
+          "description": "2 soldiers"
+        },
         "weapons": {
           "description": "1 Light mortar",
-          "keys": ["light-mortar"]
+          "keys": [
+            "light-mortar"
+          ]
         },
         "options": [],
-        "rules": ["Team weapon", "Indirect fire", "No smoke rounds: This mortar cannot fire smoke"]
+        "rules": [
+          "Team weapon",
+          "Indirect fire",
+          "No smoke rounds: This mortar cannot fire smoke"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -1173,10 +1345,14 @@
             "max": 1
           }
         ],
-        "composition": { "description": "3 soldiers" },
+        "composition": {
+          "description": "3 soldiers"
+        },
         "weapons": {
           "description": "1 Medium mortar",
-          "keys": ["medium-mortar"]
+          "keys": [
+            "medium-mortar"
+          ]
         },
         "options": [
           {
@@ -1189,7 +1365,11 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": [
+          "Team weapon",
+          "Fixed",
+          "Indirect fire"
+        ]
       }
     ]
   },
@@ -1207,10 +1387,22 @@
             }
           }
         ],
-        "composition": { "description": "3 soldiers" },
-        "weapons": { "description": "1 Light howitzer", "keys": ["light-howitzer"] },
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light howitzer",
+          "keys": [
+            "light-howitzer"
+          ]
+        },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       },
       {
         "name": "Medium Artillery",
@@ -1224,8 +1416,15 @@
             }
           }
         ],
-        "composition": { "description": "4 soldiers" },
-        "weapons": { "description": "1 Medium howitzer", "keys": ["medium-howitzer"] },
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium howitzer",
+          "keys": [
+            "medium-howitzer"
+          ]
+        },
         "options": [
           {
             "name": "Spotter",
@@ -1237,7 +1436,12 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -1253,10 +1457,21 @@
             }
           }
         ],
-        "composition": { "description": "4 soldiers" },
-        "weapons": { "description": "1 Heavy anti-tank gun", "keys": ["heavy-at-gun"] },
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Heavy anti-tank gun",
+          "keys": [
+            "heavy-at-gun"
+          ]
+        },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -1272,10 +1487,14 @@
             }
           }
         ],
-        "composition": { "description": "7 soldiers" },
+        "composition": {
+          "description": "7 soldiers"
+        },
         "weapons": {
           "description": "1 Plaform-mounted super-heavy anti-tank gun",
-          "keys": ["super-heavy-at-gun"]
+          "keys": [
+            "super-heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1288,7 +1507,13 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
+        "rules": [
+          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Flak",
+          "Versatile"
+        ]
       }
     ]
   },
@@ -1316,7 +1541,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [],
         "damage": "9+ (medium tank)",
@@ -1354,7 +1582,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1368,7 +1599,9 @@
           }
         ],
         "damage": "9+ (medium tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       },
       {
         "name": "Panther",
@@ -1383,7 +1616,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "super-heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "super-heavy-at-gun"
+          ]
         },
         "options": [],
         "damage": "9+ (medium tank)",
@@ -1404,7 +1640,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "super-heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "super-heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1418,7 +1657,9 @@
           }
         ],
         "damage": "10+ (heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       },
       {
         "name": "Tiger II",
@@ -1433,11 +1674,16 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "super-heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "super-heavy-at-gun"
+          ]
         },
         "options": [],
         "damage": "11+ (super-heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": [
+          "Tiger fear"
+        ]
       }
     ],
     "Tank Destroyers": [
@@ -1471,7 +1717,10 @@
         ],
         "weapons": {
           "description": "1 Casement-mounted forward facing heavy anti-tank gun and 1 remotely operated MMG with 360° arc of fire",
-          "keys": ["mmg", "heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1501,11 +1750,16 @@
         ],
         "weapons": {
           "description": "1 Forward facing heavy anti-tank gun and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       }
     ],
     "Self-Propelled Artillery": [
@@ -1523,7 +1777,10 @@
         ],
         "weapons": {
           "description": "1 Casement-mounted forward facing medium howitzer and 1 remotely operated MMG with 360° arc of fire",
-          "keys": ["mmg", "medium-howitzer"]
+          "keys": [
+            "mmg",
+            "medium-howitzer"
+          ]
         },
         "options": [],
         "damage": "9+ (medium tank)",
@@ -1543,7 +1800,9 @@
         ],
         "weapons": {
           "description": "1 Forward facing Nebelwerfer multiple rocket launcher (treat as heavy mortar)",
-          "keys": ["heavy-mortar"]
+          "keys": [
+            "heavy-mortar"
+          ]
         },
         "options": [
           {
@@ -1557,7 +1816,11 @@
           }
         ],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Indirect fire", "Multiple launcher", "Open-topped"]
+        "rules": [
+          "Indirect fire",
+          "Multiple launcher",
+          "Open-topped"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1575,7 +1838,10 @@
         ],
         "weapons": {
           "description": "1 platform-mounted heavy autocannon (37mm Flak 38) with 360° arc of fire",
-          "keys": ["light-automatic-cannon", "heavy-automatic-cannon"]
+          "keys": [
+            "light-automatic-cannon",
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [
           {
@@ -1589,7 +1855,9 @@
           }
         ],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Flak"]
+        "rules": [
+          "Flak"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -1623,7 +1891,12 @@
         ],
         "weapons": {
           "description": "1 turret-mounted light autocannon and co-axial MMG",
-          "keys": ["anti-tank-rifle", "mmg", "light-automatic-cannon", "light-at-gun"]
+          "keys": [
+            "anti-tank-rifle",
+            "mmg",
+            "light-automatic-cannon",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1676,11 +1949,17 @@
         ],
         "weapons": {
           "description": "1 turret-mounted light autocannon and co-axial MMG",
-          "keys": ["mmg", "light-automatic-cannon"]
+          "keys": [
+            "mmg",
+            "light-automatic-cannon"
+          ]
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce (dual direction steering)", "Open-topped"]
+        "rules": [
+          "Recce (dual direction steering)",
+          "Open-topped"
+        ]
       },
       {
         "name": "SdKfz 234/2 Puma Heavy Armoured Car",
@@ -1696,11 +1975,16 @@
         ],
         "weapons": {
           "description": "1 turret-mounted medium anti-tank gun and co-axial MMG",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce (dual direction steering)"]
+        "rules": [
+          "Recce (dual direction steering)"
+        ]
       }
     ],
     "Transports and Tows": [
@@ -1718,7 +2002,11 @@
         ],
         "weapons": {
           "description": "1 Forward facing pintle-mounted MMG covering the front arc",
-          "keys": ["mmg", "light-at-gun", "light-automatic-cannon"]
+          "keys": [
+            "mmg",
+            "light-at-gun",
+            "light-automatic-cannon"
+          ]
         },
         "options": [
           {
@@ -1752,7 +2040,9 @@
         "damage": "7+ (armoured carrier)",
         "transport": "12 soldiers in basic version - 4 soldiers with either light anti-tank gun or autocannon options added",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light anti-aircraft gun",
-        "rules": ["Open-topped"]
+        "rules": [
+          "Open-topped"
+        ]
       },
       {
         "name": "Truck",
@@ -1768,7 +2058,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": []
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {
@@ -1800,7 +2092,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": []
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {
