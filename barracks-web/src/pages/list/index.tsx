@@ -83,6 +83,7 @@ const List = () => {
                       key={`list-unit-${i}`}
                       listUnit={unit}
                       displayMode={displayMode}
+                      showWeapons
                     />
                   ))}
                 </Section>

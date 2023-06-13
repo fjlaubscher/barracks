@@ -13,8 +13,14 @@ export const MOCK_UNITS: Barracks.Unit[] = [
         }
       }
     ],
-    composition: '1 NCO and 4 soldiers',
-    weapons: 'Rifles',
+    composition: {
+      description: '1 NCO and 4 soldiers',
+      baseSize: 4
+    },
+    weapons: {
+      description: 'Rifles',
+      keys: ['infantry-flamethrower', 'smg', 'rifle', 'automatic-rifle']
+    },
     options: [
       {
         name: 'Additional soldier',
@@ -68,8 +74,14 @@ export const MOCK_UNITS: Barracks.Unit[] = [
         }
       }
     ],
-    composition: '1 NCO and 5 soldiers',
-    weapons: 'Rifles',
+    composition: {
+      description: '1 NCO and 5 soldiers',
+      baseSize: 5
+    },
+    weapons: {
+      description: 'Rifles',
+      keys: ['smg', 'rifle', 'automatic-rifle', 'lmg']
+    },
     options: [
       {
         name: 'Additional soldier',
@@ -119,8 +131,14 @@ export const MOCK_UNITS: Barracks.Unit[] = [
         }
       }
     ],
-    composition: '1 NCO and 5 soldiers',
-    weapons: 'Rifles',
+    composition: {
+      description: '1 NCO and 5 soldiers',
+      baseSize: 5
+    },
+    weapons: {
+      description: 'Rifles',
+      keys: ['smg', 'rifle', 'automatic-rifle', 'lmg']
+    },
     options: [
       {
         name: 'Additional soldier',

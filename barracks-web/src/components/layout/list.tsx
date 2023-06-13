@@ -18,7 +18,7 @@ import { shareList, calculateOrderDice } from '../../helpers/list';
 
 // hooks
 import { useArmy } from '../../hooks/army';
-import useCore from '../../hooks/core';
+import { useCore } from '../../hooks/core';
 
 import styles from './layout.module.scss';
 
@@ -74,9 +74,6 @@ const ListLayout = ({ action, children, list, showRules = false }: Props) => {
           </Section>
           <Section title="Rules" description="Troop Quality and Morale">
             <Morale />
-          </Section>
-          <Section title="Rules" description="Weapons">
-            <Weapons weapons={data.weapons} />
           </Section>
         </Stack>
       )}

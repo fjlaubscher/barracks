@@ -2,8 +2,12 @@ import { capitalize } from '@fjlaubscher/matter';
 import { render, screen } from '@testing-library/react';
 
 // helpers
-import { calculateCost } from '../../helpers/unit';
+import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
 import { TestWrapper } from '../../helpers/test';
+
+vi.mock('../../hooks/core', () => ({
+  useWeapons: vi.fn().mockReturnValue({ data: [] })
+}));
 
 import ListUnitCard from './list-card';
 import type { Props } from './list-card';
@@ -38,8 +42,9 @@ describe('ListUnitCard', () => {
     it('renders the composition', () => {
       arrangeTest({ displayMode: 'verbose' });
 
+      const expectedComposition = buildListUnitComposition(MOCK_LIST_UNIT);
       expect(screen.getByTestId('list-unit-card-composition')).toHaveTextContent(
-        MOCK_LIST_UNIT.unit.composition
+        expectedComposition!
       );
     });
 
@@ -47,7 +52,7 @@ describe('ListUnitCard', () => {
       arrangeTest({ displayMode: 'verbose' });
 
       expect(screen.getByTestId('list-unit-card-weapons')).toHaveTextContent(
-        MOCK_LIST_UNIT.unit.weapons
+        MOCK_LIST_UNIT.unit.weapons!.description
       );
     });
 

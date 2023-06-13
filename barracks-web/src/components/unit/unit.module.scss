@@ -44,3 +44,17 @@
     font-size: inherit;
   }
 }
+
+.noWrap {
+  white-space: nowrap;
+}
+
+.stretch {
+  width: 75%;
+}
+
+.center {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+

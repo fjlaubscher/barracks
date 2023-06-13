@@ -8,8 +8,14 @@ export const MOCK_UNIT: Barracks.Unit = {
       }
     }
   ],
-  composition: '1 NCO and 5 soldiers',
-  weapons: 'Rifles',
+  composition: {
+    description: '1 NCO and 5 soldiers',
+    baseSize: 5
+  },
+  weapons: {
+    description: 'Rifles',
+    keys: ['smg', 'rifle', 'automatic-rifle', 'lmg']
+  },
   options: [
     {
       name: 'Additional soldier',

@@ -15,7 +15,7 @@ import Weapons from '../../components/rules/weapons';
 import { formatDate } from '../../helpers/date';
 
 // hooks
-import useCore from '../../hooks/core';
+import { useCore } from '../../hooks/core';
 
 import styles from './rules.module.scss';
 
