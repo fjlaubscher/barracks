@@ -5,7 +5,6 @@ import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
 import { SWRConfig } from 'swr';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { Analytics } from '@vercel/analytics/react';
 import EasySpeech from 'easy-speech';
 
 import './styles/global.scss';
@@ -13,8 +12,6 @@ import './styles/global.scss';
 import App from './app';
 import ErrorBoundary from './components/error-boundary';
 import { TTS_READY } from './data/storage';
-
-const isProduction = window.location.host === 'barracks.francoislaubscher.dev';
 
 localStorage.removeItem(TTS_READY);
 
@@ -41,7 +38,6 @@ const BarracksApp = () => (
             >
               <GoogleOAuthProvider clientId={import.meta.env.VITE_OAUTH_CLIENT_ID}>
                 <App />
-                <Analytics mode={isProduction ? 'production' : 'development'} />
               </GoogleOAuthProvider>
             </SWRConfig>
           </ToastProvider>

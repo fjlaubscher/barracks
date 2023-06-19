@@ -5,6 +5,7 @@ import EasySpeech from 'easy-speech';
 const About = lazy(() => import('./pages/about'));
 const CreateList = lazy(() => import('./pages/list/create'));
 const EditList = lazy(() => import('./pages/list/edit'));
+const PrintList = lazy(() => import('./pages/list/print'));
 const AddListUnit = lazy(() => import('./pages/list/unit'));
 const EditListUnit = lazy(() => import('./pages/list/edit-unit'));
 const List = lazy(() => import('./pages/list'));
@@ -45,6 +46,7 @@ const AppRoutes = () => {
       <Route path="/list/:key/edit" element={<EditList />} />
       <Route path="/list/:key/unit/:index" element={<EditListUnit />} />
       <Route path="/list/:key/unit" element={<AddListUnit />} />
+      <Route path="/list/:key/print" element={<PrintList />} />
       <Route path="/list/:key" element={<List />} />
       <Route path="/lists" element={<Lists />} />
       <Route path="/list" element={<CreateList />} />

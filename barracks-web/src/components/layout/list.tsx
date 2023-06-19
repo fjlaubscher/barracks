@@ -10,7 +10,6 @@ import Layout from '../../components/layout';
 import Morale from '../rules/morale';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
-import Weapons from '../../components/rules/weapons';
 
 // helpers
 import { formatDate } from '../../helpers/date';
