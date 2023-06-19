@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-06-10T00:00Z",
+  "lastUpdated": "2023-06-19T00:00Z",
   "hit": [
     {
       "type": "Shooting at point blank range",
@@ -497,6 +497,10 @@
       {
         "name": "Green",
         "description": "Green units are inexperienced and given a morale rating of 8. The first time the unit suffers a casualty roll a die. On a roll of a 1 the unit suffers an additional D6 pin markers and goes <i>Down</i> - if it has already taken its action this turn flip the order die to <i>Down</i>; if not then place an order die from the dice bag to show the unit is Down. There is no further effect.<br/><br/>On a roll of 2, 3 or 4 the unit fights on as you would expect - no further account is made of the fact it is green. On a 5 or 6 the unit is immediately up-rated to regular with a morale value of 9 for the rest of the battle."
+      },
+      {
+        "name": "Medics",
+        "description": "If a friendly infantry or artillery unit that has a medic model within 6\" (including the medic and his orderlies), suffers damage from small-arms fire, one die is rolled for each point of damage caused.<br/>On a 6, that casualty is ignored.<br/><br/>Note that a medic cannot be used in cases of <strong>exceptional damage</strong>, against casualties inflicted by <strong>heavy weapons</strong>, or against damage suffered in <strong>close quarter</strong> combat.<br/><br/>Medic units can't fire any weapons or assault into close quarters. They will fight in close quarters if assaulted. In addition, medic units are ignored for the purposes of determining control of objectives."
       },
       {
         "name": "Motorbikes",
