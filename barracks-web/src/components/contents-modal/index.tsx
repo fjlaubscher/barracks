@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { IconButton, Modal } from '@fjlaubscher/matter';
-import { FaLayerGroup } from 'react-icons/fa';
+import { MdFilterList } from 'react-icons/md';
 
 import styles from './contents-modal.module.scss';
 
@@ -21,7 +21,7 @@ const ContentsModal = ({ items }: Props) => {
           onClick={() => setIsOpen(true)}
           variant="accent"
         >
-          <FaLayerGroup />
+          <MdFilterList />
         </IconButton>
       )}
       <Modal open={isOpen} onClose={() => setIsOpen(false)}>

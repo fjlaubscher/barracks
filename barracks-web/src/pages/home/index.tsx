@@ -1,4 +1,4 @@
-import { FaBookOpen, FaCog, FaInfoCircle } from 'react-icons/fa';
+import { MdMenuBook, MdSettings, MdInfo } from 'react-icons/md';
 import { GiTank } from 'react-icons/gi';
 import { Link, useNavigate } from 'react-router-dom';
 import { IconButton, Stack, Stat } from '@fjlaubscher/matter';
@@ -22,7 +22,7 @@ const Home = () => {
       description={DESCRIPTION}
       action={
         <IconButton onClick={() => navigate(`/settings`)}>
-          <FaCog />
+          <MdSettings />
         </IconButton>
       }
     >
@@ -33,10 +33,10 @@ const Home = () => {
             <Tile icon={<GiTank />} text="Army Lists" />
           </Link>
           <Link to="/rules">
-            <Tile icon={<FaBookOpen />} text="Rules" />
+            <Tile icon={<MdMenuBook />} text="Rules" />
           </Link>
           <Link to="/about">
-            <Tile icon={<FaInfoCircle />} text="What is Barracks?" />
+            <Tile icon={<MdInfo />} text="What is Barracks?" />
           </Link>
         </TileGroup>
       </Stack>

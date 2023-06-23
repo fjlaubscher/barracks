@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
-import { FaTrash, FaClone, FaVolumeUp } from 'react-icons/fa';
+import { MdDelete, MdCopyAll, MdVolumeUp } from 'react-icons/md';
 import { Card as MatterCard, Stack, IconButton } from '@fjlaubscher/matter';
 import type { CardProps } from '@fjlaubscher/matter';
 
@@ -65,7 +65,7 @@ const Card = ({
                 }}
                 data-testid={testIds?.copyButton}
               >
-                <FaClone />
+                <MdCopyAll />
               </IconButton>
             )}
             {onDeleteClick && (
@@ -79,7 +79,7 @@ const Card = ({
                 }}
                 data-testid={testIds?.deleteButton}
               >
-                <FaTrash />
+                <MdDelete />
               </IconButton>
             )}
             {onSpeakClick && (
@@ -93,7 +93,7 @@ const Card = ({
                 }}
                 data-testid={testIds?.speakButton}
               >
-                <FaVolumeUp />
+                <MdVolumeUp />
               </IconButton>
             )}
           </Stack>

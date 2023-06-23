@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FaPlus, FaVolumeUp } from 'react-icons/fa';
+import { MdAdd, MdClose, MdVolumeUp } from 'react-icons/md';
 import { IconButton, Stack } from '@fjlaubscher/matter';
 
 import styles from './section.module.scss';
@@ -12,6 +12,7 @@ interface Props {
   description: string;
   onAddClick?: () => void;
   onSpeakClick?: () => void;
+  onBackClick?: () => void;
 }
 
 const Section = ({
@@ -21,7 +22,8 @@ const Section = ({
   title,
   description,
   onAddClick,
-  onSpeakClick
+  onSpeakClick,
+  onBackClick
 }: Props) => (
   <Stack id={id} className={className} direction="column">
     <Stack className={styles.header} direction="row">
@@ -31,12 +33,17 @@ const Section = ({
       </Stack>
       {onAddClick && (
         <IconButton className={styles.action} onClick={onAddClick}>
-          <FaPlus />
+          <MdAdd />
         </IconButton>
       )}
       {onSpeakClick && (
         <IconButton className={styles.action} onClick={onSpeakClick}>
-          <FaVolumeUp />
+          <MdVolumeUp />
+        </IconButton>
+      )}
+      {onBackClick && (
+        <IconButton className={styles.action} onClick={onBackClick}>
+          <MdClose />
         </IconButton>
       )}
     </Stack>

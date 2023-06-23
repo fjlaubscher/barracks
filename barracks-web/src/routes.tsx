@@ -26,9 +26,13 @@ const AppRoutes = () => {
   useEffect(() => {
     // this hack enables the View Transition API with React Router 6
     if (document.startViewTransition) {
-      document.startViewTransition(() => setDeferredLocation(location));
+      document.startViewTransition(() => {
+        setDeferredLocation(location);
+        window.scrollTo(0, 0);
+      });
     } else {
       setDeferredLocation(location);
+      window.scrollTo(0, 0);
     }
 
     if (navigator.userAgent !== 'ReactSnap') {

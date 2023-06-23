@@ -1,5 +1,5 @@
 import { useCallback, useState, useMemo } from 'react';
-import { FaPlus } from 'react-icons/fa';
+import { MdPostAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 import { Alert, Grid, InputField, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
@@ -106,7 +106,7 @@ const Lists = () => {
       title="Army Lists"
       action={
         <IconButton onClick={() => navigate(`/list`)}>
-          <FaPlus />
+          <MdPostAdd />
         </IconButton>
       }
     >

@@ -1,12 +1,12 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IconButton, Stack, useToast } from '@fjlaubscher/matter';
-import { FaSave } from 'react-icons/fa';
+import { IconButton, useToast } from '@fjlaubscher/matter';
+import { MdSave } from 'react-icons/md';
 import { useRecoilValue } from 'recoil';
 
 // components
-import BackButton from '../../components/button/back';
-import Layout from '../../components/layout';
+import ListLayout from '../../components/layout/list';
+import Section from '../../components/section';
 import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
 
@@ -27,7 +27,7 @@ const EditListUnit = () => {
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
   const { data: list, loading: loadingList, persist: setList } = useList(key);
-  const { units, loading: loadingArmy } = useArmy(list?.army);
+  const { units } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
     if (!list || !unit || !index) {
@@ -92,23 +92,21 @@ const EditListUnit = () => {
   }
 
   return (
-    <Layout
-      title="Edit Unit"
-      isLoading={loadingArmy || loadingList}
+    <ListLayout
+      list={list}
       action={
         <IconButton onClick={handleSubmit} loading={loadingList}>
-          <FaSave />
+          <MdSave />
         </IconButton>
       }
     >
-      <Stack direction="column">
-        <BackButton to={`/list/${key}/edit`} />
+      <Section title={type} description={role} onBackClick={() => navigate(`/list/${key}/edit`)}>
         {unit && <UnitListCard listUnit={unit} />}
         {list && units && (
           <UnitBuilder units={units[type][role]} initialValues={builderInitialValues} />
         )}
-      </Stack>
-    </Layout>
+      </Section>
+    </ListLayout>
   );
 };
 

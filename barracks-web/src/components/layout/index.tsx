@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
 import { useLocation, Link } from 'react-router-dom';
-import { FaBookOpen, FaShareAlt, FaChevronRight } from 'react-icons/fa';
+import { MdMenuBook, MdShare, MdChevronRight } from 'react-icons/md';
 import { GiBarracks, GiTank } from 'react-icons/gi';
 import { Helmet } from 'react-helmet';
 import { Button, Layout, useToast } from '@fjlaubscher/matter';
@@ -77,7 +77,7 @@ const AppLayout = ({
             to="/"
           >
             <GiBarracks /> Home
-            <FaChevronRight className={styles.chevron} />
+            <MdChevronRight className={styles.chevron} />
           </LinkButton>
           <LinkButton
             className={classnames(
@@ -88,7 +88,7 @@ const AppLayout = ({
           >
             <GiTank />
             Army Lists
-            <FaChevronRight className={styles.chevron} />
+            <MdChevronRight className={styles.chevron} />
           </LinkButton>
           <LinkButton
             className={classnames(
@@ -97,14 +97,14 @@ const AppLayout = ({
             )}
             to="/rules"
           >
-            <FaBookOpen />
+            <MdMenuBook />
             Rules
-            <FaChevronRight className={styles.chevron} />
+            <MdChevronRight className={styles.chevron} />
           </LinkButton>
           <Button className={styles.action} onClick={onShareClick || handleShare}>
-            <FaShareAlt />
+            <MdShare />
             Share
-            <FaChevronRight className={styles.chevron} />
+            <MdChevronRight className={styles.chevron} />
           </Button>
         </>
       }

@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { FaFileAlt } from 'react-icons/fa';
+import { MdPostAdd } from 'react-icons/md';
 import { IconButton, Grid, Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -57,7 +57,7 @@ const Army = () => {
       image={army ? `https://barracks.francoislaubscher.dev${army.image}` : undefined}
       action={
         <IconButton onClick={() => navigate(`/list?army=${key}`)}>
-          <FaFileAlt />
+          <MdPostAdd />
         </IconButton>
       }
       isLoading={loading}

@@ -18,6 +18,7 @@ declare namespace Barracks {
 
   interface Armies {
     lastUpdated: string;
+
     [key: string]: Army;
   }
 
@@ -51,6 +52,7 @@ declare namespace Barracks {
 
   interface Units {
     lastUpdated: string;
+
     [type: string]: {
       [role: string]: Unit[];
     };
@@ -94,6 +96,8 @@ declare namespace Barracks {
   }
 
   interface Settings {
+    listDisplayMode: Barracks.List.DisplayMode;
+    defaultArmy: number;
     voice: number;
   }
 
@@ -130,7 +134,8 @@ declare namespace Barracks.Data {
 }
 
 declare namespace Barracks.List {
-  type DisplayMode = 'standard' | 'verbose';
+  type DisplayMode = 'minimal' | 'verbose';
+
   interface UnitOption {
     option: Barracks.UnitOption;
     amount: number;

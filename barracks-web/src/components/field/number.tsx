@@ -1,4 +1,4 @@
-import { FaMinus, FaPlus } from 'react-icons/fa';
+import { MdRemove, MdAdd } from 'react-icons/md';
 import { Button, Field } from '@fjlaubscher/matter';
 
 import styles from './field.module.scss';
@@ -50,7 +50,7 @@ const NumberField = ({
         onClick={() => onChange(value - step)}
         data-testid="number-field-decrease"
       >
-        <FaMinus />
+        <MdRemove />
       </Button>
       <input
         id={name}
@@ -67,7 +67,7 @@ const NumberField = ({
         onClick={() => onChange(value + step)}
         data-testid="number-field-increase"
       >
-        <FaPlus />
+        <MdAdd />
       </Button>
     </div>
   </Field>

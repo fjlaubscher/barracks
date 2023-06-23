@@ -1,4 +1,4 @@
-import { FaArrowLeft } from 'react-icons/fa';
+import { MdChevronLeft } from 'react-icons/md';
 
 // components
 import LinkButton from './link';
@@ -12,7 +12,7 @@ interface Props {
 
 const BackButton = ({ to, text }: Props) => (
   <LinkButton className={styles.back} to={to}>
-    <FaArrowLeft />
+    <MdChevronLeft />
     {text || 'Back'}
   </LinkButton>
 );

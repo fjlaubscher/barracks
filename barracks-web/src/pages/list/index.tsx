@@ -1,13 +1,17 @@
 import { useCallback, useState } from 'react';
-import { FaEdit } from 'react-icons/fa';
+import { MdEdit } from 'react-icons/md';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IconButton, SelectField, Stack, useToast } from '@fjlaubscher/matter';
+import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import ListLayout from '../../components/layout/list';
 import ListUnitCard from '../../components/unit/list-card';
 import Section from '../../components/section';
 import Toggle from '../../components/toggle';
+
+// data
+import { SETTINGS } from '../../data/storage';
 
 // hooks
 import { useList } from '../../hooks/list';
@@ -19,7 +23,10 @@ const List = () => {
   const { key } = useParams();
   const navigate = useNavigate();
 
-  const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>('verbose');
+  const settings = useReadLocalStorage<Barracks.Settings | undefined>(SETTINGS);
+  const [displayMode, setDisplayMode] = useState<Barracks.List.DisplayMode>(
+    settings?.listDisplayMode || 'verbose'
+  );
   const { data: list, persist: setList, isOwner, loading: loadingList } = useList(key);
 
   const handleListVisibility = useCallback(
@@ -46,7 +53,7 @@ const List = () => {
     <ListLayout
       action={
         <IconButton disabled={!list} onClick={() => navigate(`/list/${key}/edit`)}>
-          <FaEdit />
+          <MdEdit />
         </IconButton>
       }
       list={list}
@@ -56,7 +63,7 @@ const List = () => {
         <SelectField
           label="Display Mode"
           options={[
-            { value: 'standard', description: 'Standard' },
+            { value: 'minimal', description: 'Minimal' },
             { value: 'verbose', description: 'Detailed' }
           ]}
           value={displayMode}

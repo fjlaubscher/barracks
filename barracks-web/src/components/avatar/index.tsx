@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Stack, Modal } from '@fjlaubscher/matter';
-import { FaSignOutAlt, FaUndo } from 'react-icons/fa';
+import { MdLogout, MdUndo } from 'react-icons/md';
 
 import styles from './avatar.module.scss';
 
@@ -24,7 +24,7 @@ const Avatar = ({ user, onSignOut }: Props) => {
           <p>By signing out, all army lists on your device will be deleted.</p>
           <Stack className={styles.buttons} direction="row">
             <Button className={styles.cancel} type="button" onClick={() => setShowModal(false)}>
-              <FaUndo />
+              <MdUndo />
               Cancel
             </Button>
             <Button
@@ -34,7 +34,7 @@ const Avatar = ({ user, onSignOut }: Props) => {
                 setShowModal(false);
               }}
             >
-              <FaSignOutAlt />
+              <MdLogout />
               Sign Out
             </Button>
           </Stack>

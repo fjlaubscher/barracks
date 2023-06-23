@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { FaEye } from 'react-icons/fa';
+import { MdVisibility } from 'react-icons/md';
 import { useNavigate, useParams, Navigate } from 'react-router-dom';
 import { IconButton, useToast } from '@fjlaubscher/matter';
 import { useSetRecoilState } from 'recoil';
@@ -98,7 +98,7 @@ const EditList = () => {
     <ListLayout
       action={
         <IconButton onClick={() => navigate(`/list/${key}`)}>
-          <FaEye />
+          <MdVisibility />
         </IconButton>
       }
       list={list}

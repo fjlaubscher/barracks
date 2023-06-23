@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 // helpers
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
-import { TestWrapper } from '../../helpers/test';
+import { TestWrapper } from '../../helpers/test-wrapper';
 
 vi.mock('../../hooks/core', () => ({
   useWeapons: vi.fn().mockReturnValue({ data: [] })

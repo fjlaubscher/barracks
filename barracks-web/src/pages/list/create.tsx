@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Alert, Stack, useToast, IconButton } from '@fjlaubscher/matter';
 import { FormProvider, useForm } from 'react-hook-form';
-import { FaSave } from 'react-icons/fa';
+import { MdSave } from 'react-icons/md';
 import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
@@ -10,7 +10,7 @@ import Layout from '../../components/layout';
 import ListForm, { FormValues as ListFormValues } from '../../components/list/form';
 
 // data
-import { USER } from '../../data/storage';
+import { SETTINGS, USER } from '../../data/storage';
 
 // hooks
 import { useArmies } from '../../hooks/army';
@@ -27,7 +27,8 @@ const CreateList = () => {
   const toast = useToast();
   const listKey = useMemo(() => crypto.randomUUID(), []);
 
-  const user = useReadLocalStorage<Barracks.User>(USER);
+  const settings = useReadLocalStorage<Barracks.Settings | undefined>(SETTINGS);
+  const user = useReadLocalStorage<Barracks.User | undefined>(USER);
   const { data: armies, loading: loadingArmies } = useArmies();
   const { persist: createList } = useList(listKey);
 
@@ -47,7 +48,7 @@ const CreateList = () => {
 
   const form = useForm<ListFormValues>({
     mode: 'onChange',
-    defaultValues: { limit: 1000, armyId: armyId, army, notes: '' }
+    defaultValues: { limit: 1000, armyId: settings?.defaultArmy ?? armyId, army, notes: '' }
   });
   const { isValid, isSubmitting } = form.formState;
 
@@ -80,7 +81,7 @@ const CreateList = () => {
             type="submit"
             form="list-form"
           >
-            <FaSave />
+            <MdSave />
           </IconButton>
         }
         isLoading={loadingArmies}

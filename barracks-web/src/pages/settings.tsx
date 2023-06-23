@@ -2,7 +2,7 @@ import { useToast, IconButton } from '@fjlaubscher/matter';
 import { useCallback, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { FaSave } from 'react-icons/fa';
+import { MdSave } from 'react-icons/md';
 import { useLocalStorage } from 'usehooks-ts';
 import EasySpeech from 'easy-speech';
 
@@ -14,6 +14,9 @@ import Layout from '../components/layout';
 import { DEFAULT_SETTINGS } from '../data/settings';
 import { SETTINGS } from '../data/storage';
 
+// hooks
+import { useArmies } from '../hooks/army';
+
 const Settings = () => {
   const toast = useToast();
   const navigate = useNavigate();
@@ -22,6 +25,7 @@ const Settings = () => {
     SETTINGS,
     undefined
   );
+  const { data: armies, loading: loadingArmies } = useArmies();
 
   const form = useForm<Barracks.Settings>({
     mode: 'onChange',
@@ -66,6 +70,7 @@ const Settings = () => {
     <FormProvider {...form}>
       <Layout
         title="Settings"
+        isLoading={loadingArmies}
         action={
           <IconButton
             disabled={!isValid || isSubmitting}
@@ -73,11 +78,11 @@ const Settings = () => {
             type="submit"
             form="settings-form"
           >
-            <FaSave />
+            <MdSave />
           </IconButton>
         }
       >
-        <SettingsForm voices={voiceOptions} onSubmit={handleSubmit} />
+        {armies && <SettingsForm armies={armies} voices={voiceOptions} onSubmit={handleSubmit} />}
       </Layout>
     </FormProvider>
   );

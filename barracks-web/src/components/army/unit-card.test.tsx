@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 
 // helpers
-import { TestWrapper } from '../../helpers/test';
+import { TestWrapper } from '../../helpers/test-wrapper';
 
 import ArmyUnitCard from './unit-card';
 import type { Props } from './unit-card';
