@@ -11,12 +11,11 @@
   "license": "MIT",
   "scripts": {
     "start": "wrangler dev",
-    "build": "wrangler publish",
+    "build": "wrangler deploy",
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@cloudflare/puppeteer": "^0.0.2-alpha",
-    "wrangler": "^2.2.4"
+    "wrangler": "^3.1.1"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230518.0",

@@ -1,5 +1,3 @@
-import puppeteer from '@cloudflare/puppeteer';
-
 import { withCORS } from './helpers';
 
 export const getList = async (env: Env, slug: string) => {
@@ -54,29 +52,6 @@ export const getLists = async (env: Env, slug: string) => {
       status: 500
     });
   }
-};
-
-export const printList = async (env: Env, slug: string) => {
-  const browser = await puppeteer.launch(env.BROWSER);
-  const page = await browser.newPage();
-  await page.goto(`https://barracks.francoislaubscher.dev/list/${slug}/print`, {
-    waitUntil: 'networkidle2'
-  });
-  // @ts-ignore
-  const pdf: Buffer = await page.pdf({
-    path: `${slug}.pdf`,
-    format: 'a4',
-    displayHeaderFooter: false,
-    printBackground: true
-  });
-
-  await browser.close();
-
-  return withCORS(pdf, {
-    headers: {
-      'Content-Type': 'application/octet-stream'
-    }
-  });
 };
 
 export const createList = async (env: Env, input: Barracks.PublicList) => {

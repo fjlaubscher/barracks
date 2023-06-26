@@ -1,12 +1,10 @@
 import { withCORS } from './helpers';
-import { createList, deleteList, getList, getLists, printList } from './list';
+import { createList, deleteList, getList, getLists } from './list';
 
 const handleGET = (env: Env, path: string, slug: string) => {
   switch (path) {
     case 'lists':
       return getLists(env, slug);
-    case 'print':
-      return printList(env, slug);
     default:
       return getList(env, slug);
   }
