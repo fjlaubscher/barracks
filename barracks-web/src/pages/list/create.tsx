@@ -31,29 +31,19 @@ const CreateList = () => {
   const user = useReadLocalStorage<Barracks.User | undefined>(USER);
   const { data: armies, loading: loadingArmies } = useArmies();
   const { persist: createList } = useList(listKey);
-
-  const armyKeys = useMemo(
-    () => (armies ? Object.keys(armies).filter((k) => k !== 'lastUpdated') : []),
-    [armies]
+  const army = useMemo(
+    () => search.get('army') ?? settings?.defaultArmy ?? undefined,
+    [search, settings]
   );
-  const army = useMemo(() => search.get('army') ?? undefined, [search]);
-
-  const armyId = useMemo(() => {
-    if (army) {
-      return armyKeys.indexOf(army);
-    }
-
-    return undefined;
-  }, [army, armyKeys]);
 
   const form = useForm<ListFormValues>({
     mode: 'onChange',
-    defaultValues: { limit: 1000, armyId: settings?.defaultArmy ?? armyId, army, notes: '' }
+    defaultValues: { limit: 1000, army, notes: '' }
   });
   const { isValid, isSubmitting } = form.formState;
 
   const handleSubmit = useCallback(
-    async ({ armyId, ...values }: ListFormValues) => {
+    async (values: ListFormValues) => {
       const newList: Barracks.List = {
         ...values,
         key: listKey,

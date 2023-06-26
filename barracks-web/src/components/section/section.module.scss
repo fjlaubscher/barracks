@@ -1,15 +1,13 @@
-@use '@fjlaubscher/matter/src/styles/colors';
-
 .header {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
-  border-top: 1px solid colors.$light-surface;
-  border-bottom: 1px solid colors.$light-surface;
+  border-top: 1px solid var(--color-light-surface);
+  border-bottom: 1px solid var(--color-light-surface);
 
   @media (prefers-color-scheme: dark) {
-    border-top-color: colors.$dark-surface;
-    border-bottom-color: colors.$dark-surface;
+    border-top-color: var(--color-dark-surface);
+    border-bottom-color: var(--color-dark-surface);
   }
 
   .heading {
@@ -17,11 +15,15 @@
     align-items: flex-start;
 
     .title {
-      color: colors.$accent;
+      color: var(--color-accent);
       font-size: 1rem;
       margin-bottom: 0.2rem;
       font-weight: bold;
       text-transform: capitalize;
+
+      @media print {
+        margin-bottom: 0;
+      }
     }
 
     .description {

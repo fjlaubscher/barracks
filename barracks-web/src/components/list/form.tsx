@@ -1,14 +1,12 @@
 import { useController, useFormContext } from 'react-hook-form';
 import { Field, Form, InputField, SelectField } from '@fjlaubscher/matter';
-import { useCallback, useMemo } from 'react';
-import type { ChangeEvent } from 'react';
+import { useMemo } from 'react';
 
 // components
 import Toggle from '../toggle';
 
 export interface FormValues {
   army: string;
-  armyId: number;
   name: string;
   notes: string;
   limit: number;
@@ -28,20 +26,15 @@ const ListForm = ({ armies, onSubmit, isPublicAllowed }: Props) => {
     formState: { errors },
     control
   } = useFormContext<FormValues>();
-  const armyKeys = useMemo(() => Object.keys(armies).filter((k) => k !== 'lastUpdated'), [armies]);
 
   const armyOptions = useMemo(
     () =>
-      armyKeys.map(
-        (key, index) => ({ value: index, description: armies[key].name } as matter.Option)
-      ),
-    [armies, armyKeys]
+      Object.keys(armies)
+        .filter((k) => k !== 'lastUpdated')
+        .map((key) => ({ value: key, description: armies[key].name } as matter.Option)),
+    [armies]
   );
 
-  const { field: armyIdField } = useController({
-    control,
-    name: 'armyId'
-  });
   const { field: armyField } = useController({
     control,
     name: 'army'
@@ -51,20 +44,6 @@ const ListForm = ({ armies, onSubmit, isPublicAllowed }: Props) => {
     name: 'public',
     defaultValue: isPublicAllowed
   });
-
-  const handleArmySelect = useCallback(
-    (e: ChangeEvent<HTMLSelectElement>) => {
-      const index = parseInt(e.target.value);
-
-      if (!isNaN(index)) {
-        const selectedKey = armyKeys[index];
-
-        armyField.onChange(selectedKey);
-        armyIdField.onChange(index);
-      }
-    },
-    [armyIdField, armyField, armies]
-  );
 
   return (
     <Form id="list-form" onSubmit={handleSubmit(onSubmit)}>
@@ -89,8 +68,8 @@ const ListForm = ({ armies, onSubmit, isPublicAllowed }: Props) => {
         name="army"
         options={armyOptions}
         label="Army"
-        value={armyIdField.value}
-        onChange={handleArmySelect}
+        value={armyField.value}
+        onChange={armyField.onChange}
         required
       />
       <InputField

@@ -1,6 +1,6 @@
 {
   "name": "barracks-worker",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,8 @@
     "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "wrangler": "^2.20.0"
+    "@cloudflare/puppeteer": "^0.0.2-alpha",
+    "wrangler": "^2.2.4"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230518.0",

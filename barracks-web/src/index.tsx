@@ -5,24 +5,11 @@ import { RecoilRoot } from 'recoil';
 import { ToastProvider } from '@fjlaubscher/matter';
 import { SWRConfig } from 'swr';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import EasySpeech from 'easy-speech';
 
 import './styles/global.scss';
 
 import App from './app';
 import ErrorBoundary from './components/error-boundary';
-import { TTS_READY } from './data/storage';
-
-localStorage.removeItem(TTS_READY);
-
-if (navigator.userAgent !== 'ReactSnap') {
-  const result = EasySpeech.detect();
-  if (result.speechSynthesis && result.speechSynthesisUtterance) {
-    EasySpeech.init({ maxTimeout: 5000, interval: 250 })
-      .then(() => console.debug('load complete'))
-      .catch((e: any) => console.error(e));
-  }
-}
 
 const BarracksApp = () => (
   <React.StrictMode>

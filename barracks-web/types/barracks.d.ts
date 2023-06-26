@@ -97,8 +97,7 @@ declare namespace Barracks {
 
   interface Settings {
     listDisplayMode: Barracks.List.DisplayMode;
-    defaultArmy: number;
-    voice: number;
+    defaultArmy: string;
   }
 
   interface User {

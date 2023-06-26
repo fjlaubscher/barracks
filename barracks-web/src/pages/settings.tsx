@@ -4,7 +4,6 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { MdSave } from 'react-icons/md';
 import { useLocalStorage } from 'usehooks-ts';
-import EasySpeech from 'easy-speech';
 
 // components
 import SettingsForm from '../components/settings/form';
@@ -49,23 +48,6 @@ const Settings = () => {
     [setSettings, toast, navigate]
   );
 
-  const voiceOptions = useMemo(() => {
-    const voices: SpeechSynthesisVoice[] = EasySpeech.voices();
-    const options: matter.Option[] = [];
-
-    for (let i = 0; i < voices.length; i++) {
-      // do this specifically in a for loop to not lose track of the index
-      if (voices[i].lang.includes('en')) {
-        options.push({
-          value: i,
-          description: `${voices[i].localService ? '(Local)' : '(Remote)'} ${voices[i].name}`
-        });
-      }
-    }
-
-    return options;
-  }, []);
-
   return (
     <FormProvider {...form}>
       <Layout
@@ -82,7 +64,7 @@ const Settings = () => {
           </IconButton>
         }
       >
-        {armies && <SettingsForm armies={armies} voices={voiceOptions} onSubmit={handleSubmit} />}
+        {armies && <SettingsForm armies={armies} onSubmit={handleSubmit} />}
       </Layout>
     </FormProvider>
   );

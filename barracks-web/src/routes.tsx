@@ -1,15 +1,14 @@
 import { lazy, useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import EasySpeech from 'easy-speech';
 
 const About = lazy(() => import('./pages/about'));
 const CreateList = lazy(() => import('./pages/list/create'));
 const EditList = lazy(() => import('./pages/list/edit'));
-const PrintList = lazy(() => import('./pages/list/print'));
 const AddListUnit = lazy(() => import('./pages/list/unit'));
 const EditListUnit = lazy(() => import('./pages/list/edit-unit'));
 const List = lazy(() => import('./pages/list'));
 const Lists = lazy(() => import('./pages/lists'));
+const PrintList = lazy(() => import('./pages/list/print'));
 const Rules = lazy(() => import('./pages/rules'));
 const Armies = lazy(() => import('./pages/rules/armies'));
 const Army = lazy(() => import('./pages/rules/army'));
@@ -33,10 +32,6 @@ const AppRoutes = () => {
     } else {
       setDeferredLocation(location);
       window.scrollTo(0, 0);
-    }
-
-    if (navigator.userAgent !== 'ReactSnap') {
-      EasySpeech.cancel();
     }
   }, [location, setDeferredLocation]);
 

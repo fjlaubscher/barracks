@@ -1,101 +1,14 @@
-export interface Env {
-  NAMESPACE: KVNamespace;
-}
+import { withCORS } from './helpers';
+import { createList, deleteList, getList, getLists, printList } from './list';
 
-const withCORS = (body?: BodyInit | null, init?: ResponseInit) =>
-  new Response(body, {
-    ...init,
-    headers: {
-      ...init?.headers,
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, DELETE, OPTIONS',
-      'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-    }
-  });
-
-const getList = async (env: Env, slug: string) => {
-  try {
-    const list = await env.NAMESPACE.get(slug);
-    if (list) {
-      return withCORS(list, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-    } else {
-      return withCORS(undefined, {
-        status: 404
-      });
-    }
-  } catch (ex: any) {
-    return withCORS(ex.message, {
-      status: 500
-    });
-  }
-};
-
-const getLists = async (env: Env, slug: string) => {
-  try {
-    const list = await env.NAMESPACE.list<{ createdBy: string }>();
-    const keys = list.keys.filter((l) => l.metadata?.createdBy === slug).map((l) => l.name);
-
-    const lists: Barracks.PublicList[] = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const list = await env.NAMESPACE.get(key);
-      if (list) {
-        lists.push(JSON.parse(list));
-      }
-    }
-
-    if (lists) {
-      return withCORS(JSON.stringify(lists), {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-    } else {
-      return withCORS(undefined, {
-        status: 404
-      });
-    }
-  } catch (ex: any) {
-    return withCORS(ex.message, {
-      status: 500
-    });
-  }
-};
-
-const createList = async (env: Env, input: Barracks.PublicList) => {
-  try {
-    await env.NAMESPACE.put(input.slug, JSON.stringify(input), {
-      metadata: { createdBy: input.createdBy }
-    });
-    return withCORS(JSON.stringify(input), {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  } catch (ex: any) {
-    return withCORS(ex.message, {
-      status: 500
-    });
-  }
-};
-
-const deleteList = async (env: Env, slug: string) => {
-  try {
-    await env.NAMESPACE.delete(slug);
-    return withCORS(JSON.stringify({ success: true }), {
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-  } catch (ex: any) {
-    return withCORS(ex.message, {
-      status: 500
-    });
+const handleGET = (env: Env, path: string, slug: string) => {
+  switch (path) {
+    case 'lists':
+      return getLists(env, slug);
+    case 'print':
+      return printList(env, slug);
+    default:
+      return getList(env, slug);
   }
 };
 
@@ -107,7 +20,7 @@ export default {
 
     switch (request.method) {
       case 'GET':
-        return path === 'lists' ? getLists(env, slug) : getList(env, slug);
+        return handleGET(env, path, slug);
       case 'POST':
         const input = await request.json();
         return createList(env, input as Barracks.PublicList);

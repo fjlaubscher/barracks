@@ -5,8 +5,6 @@
 }
 
 .navAction {
-  padding-right: 0.25rem;
-
   button {
     box-shadow: none;
     background-color: transparent;
@@ -83,4 +81,8 @@
 
 .stats {
   margin-top: 0 !important;
+}
+
+.printButton {
+  margin-bottom: 1rem;
 }

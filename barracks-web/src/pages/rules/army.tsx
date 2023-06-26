@@ -13,7 +13,6 @@ import Section from '../../components/section';
 
 // helpers
 import { formatDate } from '../../helpers/date';
-import { speakText } from '../../helpers/speech-synthesis';
 
 // hooks
 import { useArmy } from '../../hooks/army';
@@ -80,11 +79,7 @@ const Army = () => {
             <Section title="Army Special Rules" description={army.name}>
               <Grid className={styles.rulesGrid} simple>
                 {army.rules.map((rule, i) => (
-                  <Card
-                    key={`army-rule-${i}`}
-                    title={rule.name}
-                    onSpeakClick={() => speakText(rule.description)}
-                  >
+                  <Card key={`army-rule-${i}`} title={rule.name}>
                     <p>{rule.description}</p>
                   </Card>
                 ))}

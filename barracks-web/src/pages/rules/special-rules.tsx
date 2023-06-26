@@ -10,7 +10,6 @@ import Section from '../../components/section';
 
 // helpers
 import { formatDate } from '../../helpers/date';
-import { speakText } from '../../helpers/speech-synthesis';
 
 // hooks
 import { useCore } from '../../hooks/core';
@@ -62,13 +61,7 @@ const SpecialRules = () => {
             />
           </div>
           {data.rules[key].map((r, i) => (
-            <Section
-              key={`rule-${i}`}
-              id={slugify(r.name)}
-              title={category}
-              description={r.name}
-              onSpeakClick={() => speakText(r.description)}
-            >
+            <Section key={`rule-${i}`} id={slugify(r.name)} title={category} description={r.name}>
               <div
                 className={styles.keywords}
                 dangerouslySetInnerHTML={{ __html: r.description }}

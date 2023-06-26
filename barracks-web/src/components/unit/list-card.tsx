@@ -25,12 +25,14 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
 
   const composition = useMemo(() => {
-    if (displayMode === 'verbose' && listUnit.unit.composition) {
+    if (displayMode !== 'minimal' && listUnit.unit.composition) {
       return buildListUnitComposition(listUnit);
     }
 
     return undefined;
   }, [listUnit, displayMode]);
+
+  const showMore = displayMode !== 'minimal';
 
   return (
     <Card
@@ -42,7 +44,7 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
       }}
     >
       <Stack direction="column">
-        {displayMode === 'verbose' && (
+        {showMore && (
           <>
             {composition && (
               <div className={styles.section}>

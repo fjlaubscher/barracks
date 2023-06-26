@@ -11,14 +11,12 @@ export type Props = {
   description?: string;
   onCopyClick?: () => void;
   onDeleteClick?: () => void;
-  onSpeakClick?: () => void;
   testIds?: {
     card?: string;
     title?: string;
     description?: string;
     copyButton?: string;
     deleteButton?: string;
-    speakButton?: string;
   };
 } & Omit<CardProps, 'children'>;
 
@@ -29,7 +27,6 @@ const Card = ({
   onClick,
   onCopyClick,
   onDeleteClick,
-  onSpeakClick,
   title,
   description,
   role,
@@ -52,7 +49,7 @@ const Card = ({
             </span>
           )}
         </Stack>
-        {onCopyClick || onDeleteClick || onSpeakClick ? (
+        {onCopyClick || onDeleteClick ? (
           <Stack className={styles.buttons} direction="row">
             {onCopyClick && (
               <IconButton
@@ -80,20 +77,6 @@ const Card = ({
                 data-testid={testIds?.deleteButton}
               >
                 <MdDelete />
-              </IconButton>
-            )}
-            {onSpeakClick && (
-              <IconButton
-                className={styles.button}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  if (onSpeakClick) {
-                    onSpeakClick();
-                  }
-                }}
-                data-testid={testIds?.speakButton}
-              >
-                <MdVolumeUp />
               </IconButton>
             )}
           </Stack>

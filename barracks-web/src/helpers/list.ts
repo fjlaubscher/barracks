@@ -28,12 +28,12 @@ export const buildTextList = (list?: Barracks.List): string => {
 
         list.units[type][role].forEach((unit) => {
           if (unit.unit.name === unit.profile.name) {
-            text += `${unit.profile.name} - ${unit.points} pts\n`;
+            text += `${unit.profile.name}\n`;
           } else {
-            text += `${unit.unit.name}: ${unit.profile.name} - ${unit.points} pts\n`;
+            text += `${unit.unit.name}: ${unit.profile.name}\n`;
           }
 
-          text += `- ${capitalize(unit.veterancy)}\n`;
+          text += `${capitalize(unit.veterancy)} | ${unit.points} pts\n`;
 
           if (unit.options.length > 0) {
             text += unit.options.map((o) => `- ${o.amount} x ${o.option.name}`).join('\n');

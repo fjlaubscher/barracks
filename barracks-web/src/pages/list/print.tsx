@@ -1,38 +1,24 @@
 import { useParams } from 'react-router-dom';
+import { Loader } from '@fjlaubscher/matter';
 
 // components
-import Section from '../../components/section';
+import PrintList from '../../components/list/print';
 
 // hooks
+import { useArmy } from '../../hooks/army';
+import { useCore } from '../../hooks/core';
 import { useList } from '../../hooks/list';
 
-const PrintList = () => {
+const PrintListPage = () => {
   const { key } = useParams();
 
-  const { data: list, isOwner, loading: loadingList } = useList(key);
+  const { data: core, loading: loadingCore } = useCore();
+  const { data: list, loading: loadingList } = useList(key);
+  const { army, loading: loadingArmy } = useArmy(list?.army);
 
-  if (!loadingList && list?.public === false && !isOwner) {
-    return null;
-  }
+  const isLoading = loadingArmy || loadingCore || loadingList;
 
-  return (
-    <div>
-      {list &&
-        Object.keys(list.units).map((type) => (
-          <div key={`unit-type-${type}`}>
-            {Object.keys(list.units[type]).map((role, i) =>
-              list.units[type][role].length > 0 ? (
-                <Section key={`${type}-role-${i}`} title={type} description={role}>
-                  {list.units[type][role].map((unit, i) => (
-                    <p key={`unit-${i}`}>{unit.profile.name}</p>
-                  ))}
-                </Section>
-              ) : undefined
-            )}
-          </div>
-        ))}
-    </div>
-  );
+  return isLoading ? <Loader /> : <PrintList army={army} core={core} list={list} />;
 };
 
-export default PrintList;
+export default PrintListPage;
