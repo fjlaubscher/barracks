@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-06-13T00:00Z",
+  "lastUpdated": "2023-07-10T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -988,14 +988,14 @@
   "artillery": {
     "Field Artillery": [
       {
-        "name": "75mm Howitzer",
+        "name": "Light Artillery (M1A1)",
         "profiles": [
           {
-            "name": "75mm Howitzer",
+            "name": "Light Artillery (M1A1)",
             "cost": {
-              "inexperienced": 40,
-              "regular": 50,
-              "veteran": 60
+              "inexperienced": 36,
+              "regular": 45,
+              "veteran": 54
             }
           }
         ],
@@ -1010,7 +1010,34 @@
         },
         "options": [],
         "rules": [
-          "Gun shield",
+          "Team weapon",
+          "Fixed",
+          "Howitzer"
+        ]
+      },
+      {
+        "name": "Medium Artillery (M2A1)",
+        "profiles": [
+          {
+            "name": "Medium Artillery (M2A1)",
+            "cost": {
+              "inexperienced": 56,
+              "regular": 70,
+              "veteran": 84
+            }
+          }
+        ],
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium howitzer",
+          "keys": [
+            "medium-howitzer"
+          ]
+        },
+        "options": [],
+        "rules": [
           "Team weapon",
           "Fixed",
           "Howitzer"
@@ -1019,10 +1046,38 @@
     ],
     "Anti-Tank Guns": [
       {
-        "name": "57mm Anti-Tank Gun",
+        "name": "37mm Anti-Tank Gun M3",
         "profiles": [
           {
-            "name": "57mm Anti-Tank Gun",
+            "name": "37mm Anti-Tank Gun M3",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light anti-tank gun",
+          "keys": [
+            "light-at-gun"
+          ]
+        },
+        "options": [],
+        "rules": [
+          "Team weapon",
+          "Gun shield",
+          "Fixed"
+        ]
+      },
+      {
+        "name": "57mm Anti-Tank Gun M1",
+        "profiles": [
+          {
+            "name": "57mm Anti-Tank Gun M1",
             "cost": {
               "inexperienced": 60,
               "regular": 75,
@@ -1302,22 +1357,14 @@
     ],
     "Armoured Cars": [
       {
-        "name": "M8 Greyhound / M20 Scout Car",
+        "name": "M8 Greyhound",
         "profiles": [
           {
             "name": "M8 Greyhound",
             "cost": {
-              "inexperienced": 100,
-              "regular": 125,
-              "veteran": 150
-            }
-          },
-          {
-            "name": "M20 Scout Car",
-            "cost": {
-              "inexperienced": 100,
-              "regular": 125,
-              "veteran": 150
+              "inexperienced": 88,
+              "regular": 110,
+              "veteran": 132
             }
           }
         ],
@@ -1332,15 +1379,6 @@
               "inexperienced": 25,
               "regular": 25,
               "veteran": 25
-            },
-            "max": 1
-          },
-          {
-            "name": "Replace light anti-tank gun and co-axial MMG with pintle-mounted HMG with 360° arc of fire (M20 variant)",
-            "cost": {
-              "inexperienced": -30,
-              "regular": -30,
-              "veteran": -30
             },
             "max": 1
           }
