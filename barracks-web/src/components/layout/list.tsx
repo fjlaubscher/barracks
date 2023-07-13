@@ -10,6 +10,7 @@ import Layout from '../../components/layout';
 import Morale from '../rules/morale';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
+import Weapons from '../rules/weapons';
 
 // helpers
 import { formatDate } from '../../helpers/date';
@@ -22,13 +23,14 @@ import { useCore } from '../../hooks/core';
 import styles from './layout.module.scss';
 
 interface Props {
-  action: ReactNode;
+  action?: ReactNode;
   children: ReactNode;
   list?: Barracks.List;
   showRules?: boolean;
+  showWeapons?: boolean;
 }
 
-const ListLayout = ({ action, children, list, showRules = false }: Props) => {
+const ListLayout = ({ action, children, list, showRules = false, showWeapons = false }: Props) => {
   const { data, loading: loadingCore } = useCore();
   const { army, loading: loadingArmy } = useArmy(list?.army);
 
@@ -74,6 +76,11 @@ const ListLayout = ({ action, children, list, showRules = false }: Props) => {
           <Section title="Rules" description="Troop Quality and Morale">
             <Morale />
           </Section>
+          {showWeapons && (
+            <Section title="Rules" description="Weapons">
+              <Weapons weapons={data.weapons} />
+            </Section>
+          )}
         </Stack>
       )}
     </Layout>

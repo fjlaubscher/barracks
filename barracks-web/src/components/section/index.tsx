@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { MdAdd, MdClose, MdVolumeUp } from 'react-icons/md';
+import { MdAdd, MdClose, MdSave } from 'react-icons/md';
 import { IconButton, Stack } from '@fjlaubscher/matter';
 
 import styles from './section.module.scss';
@@ -11,8 +11,8 @@ interface Props {
   title: string;
   description: string;
   onAddClick?: () => void;
-  onSpeakClick?: () => void;
-  onBackClick?: () => void;
+  onCloseClick?: () => void;
+  onSaveClick?: () => void;
 }
 
 const Section = ({
@@ -22,8 +22,8 @@ const Section = ({
   title,
   description,
   onAddClick,
-  onSpeakClick,
-  onBackClick
+  onCloseClick,
+  onSaveClick
 }: Props) => (
   <Stack id={id} className={className} direction="column">
     <Stack className={styles.header} direction="row">
@@ -31,19 +31,19 @@ const Section = ({
         <span className={styles.title}>{title}</span>
         <span className={styles.description}>{description}</span>
       </Stack>
+      {onCloseClick && (
+        <IconButton className={styles.action} onClick={onCloseClick}>
+          <MdClose />
+        </IconButton>
+      )}
       {onAddClick && (
         <IconButton className={styles.action} onClick={onAddClick}>
           <MdAdd />
         </IconButton>
       )}
-      {onSpeakClick && (
-        <IconButton className={styles.action} onClick={onSpeakClick}>
-          <MdVolumeUp />
-        </IconButton>
-      )}
-      {onBackClick && (
-        <IconButton className={styles.action} onClick={onBackClick}>
-          <MdClose />
+      {onSaveClick && (
+        <IconButton className={styles.action} onClick={onSaveClick}>
+          <MdSave />
         </IconButton>
       )}
     </Stack>

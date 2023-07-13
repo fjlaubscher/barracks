@@ -58,6 +58,7 @@ const List = () => {
       }
       list={list}
       showRules
+      showWeapons={displayMode === 'minimal'}
     >
       <Stack direction="row" className={styles.actions}>
         <SelectField
@@ -90,7 +91,7 @@ const List = () => {
                       key={`list-unit-${i}`}
                       listUnit={unit}
                       displayMode={displayMode}
-                      showWeapons
+                      showWeapons={displayMode === 'verbose'}
                     />
                   ))}
                 </Section>

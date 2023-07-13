@@ -1,7 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IconButton, useToast } from '@fjlaubscher/matter';
-import { MdSave } from 'react-icons/md';
+import { useToast } from '@fjlaubscher/matter';
 import { useRecoilValue } from 'recoil';
 
 // components
@@ -26,7 +25,7 @@ const EditListUnit = () => {
   const { key, index } = useParams();
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
-  const { data: list, loading: loadingList, persist: setList } = useList(key);
+  const { data: list, persist: setList } = useList(key);
   const { units } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
@@ -92,15 +91,13 @@ const EditListUnit = () => {
   }
 
   return (
-    <ListLayout
-      list={list}
-      action={
-        <IconButton onClick={handleSubmit} loading={loadingList}>
-          <MdSave />
-        </IconButton>
-      }
-    >
-      <Section title={type} description={role} onBackClick={() => navigate(`/list/${key}/edit`)}>
+    <ListLayout list={list}>
+      <Section
+        title={type}
+        description={role}
+        onCloseClick={() => navigate(`/list/${key}/edit`)}
+        onSaveClick={handleSubmit}
+      >
         {unit && <UnitListCard listUnit={unit} />}
         {list && units && (
           <UnitBuilder units={units[type][role]} initialValues={builderInitialValues} />
