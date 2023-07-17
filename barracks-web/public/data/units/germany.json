@@ -117,6 +117,44 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Chaplain",
+        "profiles": [
+          {
+            "name": "Chaplain",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 25,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Chaplain"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models.",
+          "keys": [
+            "pistol"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pistol",
+            "cost": {
+              "inexperienced": 1,
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Inspiring Presence: Upon receiving his order die (except for Down), a chaplain may select one friendly unit within 6\" and roll a D6, applying the following modifiers: Inexperienced -1, Veteran +1. On a 4+, the chaplain may remove 1 pin from the selected unit.",
+          "Non-Combatant: The chaplain is there to support the soldiers, not win battles. A chaplain unit cannot be used to claim or contest objectives.",
+          "Self-Defence Only: Clergymen are not soldiers and will not take part in hostile actions - they cannot fire any weapon, nor assault enemy units. However, there is anecdotal evidence of several examples of chaplains who broke regulations to carry a pistol for self-defence only; German chaplains were even issued with a pistol. If your chaplain is equipped with a pistol, it can only be used in close quarters if the enemy assaults him (including firing it at the assaulting enemies as a reaction, if applicable)."
+        ]
       }
     ],
     "Infantry Squads and Teams": [
