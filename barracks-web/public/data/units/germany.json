@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-10T00:00Z",
+  "lastUpdated": "2023-07-17T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -238,6 +238,124 @@
         "rules": [
           "Tank Hunters (if anti-tank grenades taken)",
           "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot."
+        ]
+      },
+      {
+        "name": "Panzergrenadier Squad (Stalingrad)",
+        "profiles": [
+          {
+            "name": "Panzergrenadier Squad (Stalingrad)",
+            "cost": {
+              "regular": 55,
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 11,
+              "veteran": 14
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 4
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Motorised infantry: The Panzergrenadier squad can re-roll any failed order test that is required to mount or dismount a transport vehicle."
+        ]
+      },
+      {
+        "name": "Jäger Squad",
+        "profiles": [
+          {
+            "name": "Jäger Squad",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Mountaineer",
+            "cost": {
+              "regular": 1
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Mountaineers (if taken): This unit treats rough ground as open terrain."
         ]
       },
       {
@@ -1210,8 +1328,8 @@
           "description": "2 soldiers"
         },
         "weapons": {
-          "description": "1 Rifle",
-          "keys": ["rifle"]
+          "description": "Sniper has a rifle and a pistol, spotter has a pistol",
+          "keys": ["pistol", "rifle"]
         },
         "options": [],
         "rules": ["Team weapon", "Sniper"]

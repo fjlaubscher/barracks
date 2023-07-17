@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-10T00:00Z",
+  "lastUpdated": "2023-07-17T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -908,12 +908,23 @@
           "description": "2 soldiers"
         },
         "weapons": {
-          "description": "1 Rifle",
+          "description": "Sniper has a bolt-action rifle and a pistol, spotter has a pistol",
           "keys": [
+            "pistol",
+            "smg",
             "rifle"
           ]
         },
-        "options": [],
+        "options": [
+          {
+            "name": "SMG (replaces pistol)",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 2
+          }
+        ],
         "rules": [
           "Team weapon",
           "Sniper"
@@ -1185,7 +1196,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted light anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "hmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1224,7 +1239,12 @@
         ],
         "weapons": {
           "description": "1 Gyro-stabilised turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "hmg", "medium-at-gun", "medium-howitzer"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "medium-at-gun",
+            "medium-howitzer"
+          ]
         },
         "options": [
           {
@@ -1277,7 +1297,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted heavy anti-tank gun",
-          "keys": ["hmg", "heavy-at-gun"]
+          "keys": [
+            "hmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1311,7 +1334,10 @@
         ],
         "weapons": {
           "description": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
-          "keys": ["hmg", "medium-howitzer"]
+          "keys": [
+            "hmg",
+            "medium-howitzer"
+          ]
         },
         "options": [],
         "damage": "8+ (light tank)",
@@ -1335,7 +1361,10 @@
         ],
         "weapons": {
           "description": "4 Platform-mounted HMGs",
-          "keys": ["hmg", "heavy-automatic-cannon"]
+          "keys": [
+            "hmg",
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [
           {
@@ -1370,7 +1399,11 @@
         ],
         "weapons": {
           "description": "1 Light anti-tank gun and co-axial MMG in an open turret",
-          "keys": ["mmg", "hmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1405,7 +1438,10 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1446,7 +1482,10 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1487,7 +1526,10 @@
         ],
         "weapons": {
           "description": "1 Pintle-mounted HMG with 360° arc of fire",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1539,7 +1581,10 @@
         ],
         "weapons": {
           "description": "2 Pintle-mounted MMGs (1 covering the forward and left arcs, and 1 covering the forward and right arcs)",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
