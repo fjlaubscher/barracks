@@ -23,15 +23,20 @@ const AppRoutes = () => {
   const [deferredLocation, setDeferredLocation] = useState(location);
 
   useEffect(() => {
-    // this hack enables the View Transition API with React Router 6
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
+    if (!location.hash) {
+      // this hack enables the View Transition API with React Router 6
+      if (document.startViewTransition) {
+        document.startViewTransition(() => {
+          setDeferredLocation(location);
+          window.scrollTo(0, 0);
+        });
+      } else {
         setDeferredLocation(location);
         window.scrollTo(0, 0);
-      });
+      }
     } else {
+      // scroll to a specific element on the page, don't scroll to top
       setDeferredLocation(location);
-      window.scrollTo(0, 0);
     }
   }, [location, setDeferredLocation]);
 
