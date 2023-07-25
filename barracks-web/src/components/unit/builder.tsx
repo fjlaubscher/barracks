@@ -42,9 +42,26 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     initialValues?.veterancyIndex || 0
   );
 
-  const unitOptions = useMemo(
-    () => units.map((unit, i) => ({ value: i, description: unit.name } as matter.Option)),
+  const sortedUnits = useMemo(
+    () =>
+      units.sort((a, b) => {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+
+        return 0;
+      }),
     [units]
+  );
+  const unitOptions = useMemo(
+    () => sortedUnits.map((unit, i) => ({ value: i, description: unit.name } as matter.Option)),
+    [sortedUnits]
   );
   const unitProfileOptions = useMemo(
     () =>
@@ -91,12 +108,12 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
   const memoedListUnit = useMemo(
     () =>
       transformToListUnit(
-        units[selectedUnitIndex],
+        sortedUnits[selectedUnitIndex],
         selectedProfileIndex,
         selectedVeterancyIndex,
         selectedOptions
       ),
-    [units, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]
+    [sortedUnits, selectedUnitIndex, selectedProfileIndex, selectedVeterancyIndex, selectedOptions]
   );
 
   const handleSelectOnChange = useCallback(
@@ -147,8 +164,8 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
           data-testid="unit-builder-veterancy"
         />
       ) : undefined}
-      {units[selectedUnitIndex].options.length > 0 ? <h3>Options</h3> : undefined}
-      {units[selectedUnitIndex].options.map((o, i) => (
+      {sortedUnits[selectedUnitIndex].options.length > 0 ? <h3>Options</h3> : undefined}
+      {sortedUnits[selectedUnitIndex].options.map((o, i) => (
         <NumberField
           className={styles.option}
           key={`unit-${selectedUnitIndex}-${i}`}

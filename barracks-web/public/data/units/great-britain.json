@@ -1314,7 +1314,9 @@
             }
           }
         ],
-        "composition": "1 Jeep",
+        "composition": {
+          "description": "1 Jeep"
+        },
         "weapons": {
           "description": "None",
           "keys": ["mmg", "hmg"]

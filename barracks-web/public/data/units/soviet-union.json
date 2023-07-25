@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-24T00:00Z",
+  "lastUpdated": "2023-07-25T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -665,6 +665,53 @@
         ]
       },
       {
+        "name": "People's Militia Squad",
+        "profiles": [
+          {
+            "name": "People's Militia Squad",
+            "cost": {
+              "inexperienced": 35
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier (unarmed)",
+            "cost": {
+              "inexperienced": 4
+            },
+            "max": 7
+          },
+          {
+            "name": "Rifle",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 7
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 11
+          }
+        ],
+        "rules": [
+          "Green",
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Unarmed soldiers neither shoot nor attack in close quarters - their only value is casualties"
+        ]
+      },
+      {
         "name": "Medium Machine Gun Team",
         "profiles": [
           {
@@ -713,7 +760,7 @@
           }
         ],
         "composition": {
-          "composition": "2 soldiers"
+          "description": "2 soldiers"
         },
         "weapons": {
           "description": "1 Anti-tank rifle",
@@ -737,7 +784,7 @@
           }
         ],
         "composition": {
-          "composition": "2 soldiers"
+          "description": "2 soldiers"
         },
         "weapons": {
           "description": "1 Infantry flamethrower",
