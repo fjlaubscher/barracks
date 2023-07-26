@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-25T00:00Z",
+  "lastUpdated": "2023-07-26T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -180,8 +180,8 @@
           }
         ],
         "rules": [
-          "Not One Step Back!",
-          "Inspiring Rhetoric: Aside from watching for political disloyalty, the commissar also helped train and boost the confidence of new soldiers. Inexperienced squads within 6\" of the commissar do not suffer the -1 to hit penalty for being inexperienced."
+          "Inspiring Rhetoric: Aside from watching for political disloyalty, the commissar also helped train and boost the confidence of new soldiers. Inexperienced squads within 6\" of the commissar do not suffer the -1 to hit penalty for being inexperienced.",
+          "Not One Step Back!"
         ]
       }
     ],
@@ -742,9 +742,9 @@
           }
         ],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Gun shield (if fitted) with the same rule as for artillery"
+          "Gun Shield (if fitted) with the same rule as for artillery",
+          "Team Weapon"
         ]
       },
       {
@@ -768,8 +768,8 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Extra selection: You may take up to 3 anti-tank teams as 1 selection in each reinforced platoon"
+          "Team Weapon",
+          "Extra Selection: You may take up to 3 anti-tank teams as 1 selection in each reinforced platoon"
         ]
       },
       {
@@ -802,8 +802,8 @@
         ],
         "rules": [
           "Flamethrower",
-          "Team weapon",
-          "ROKS-2: If this option is chosen then the flamethrower armed soldier cannot be chosen as an 'exceptional damage' result. The flamethrower operator is indistinguishable from an ordinary rifleman."
+          "ROKS-2: If this option is chosen then the flamethrower armed soldier cannot be chosen as an 'exceptional damage' result. The flamethrower operator is indistinguishable from an ordinary rifleman.",
+          "Team Weapon"
         ]
       },
       {
@@ -825,7 +825,7 @@
           "keys": ["rifle"]
         },
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": ["Sniper", "Team Weapon"]
       },
       {
         "name": "Sniper Detachment",
@@ -907,7 +907,7 @@
           "keys": ["light-mortar"]
         },
         "options": [],
-        "rules": ["Team weapon", "Indirect fire"]
+        "rules": ["Indirect Fire", "Team Weapon"]
       },
       {
         "name": "Medium Mortar Team",
@@ -939,7 +939,7 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
       }
     ]
   },
@@ -965,7 +965,7 @@
           "keys": ["light-howitzer"]
         },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
       }
     ],
     "Anti-Tank Guns": [
@@ -989,7 +989,7 @@
           "keys": ["medium-at-gun"]
         },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -1013,7 +1013,7 @@
           "keys": ["heavy-automatic-cannon"]
         },
         "options": [],
-        "rules": ["Team weapon", "Fixed", "Flak"]
+        "rules": ["Fixed", "Flak", "Team Weapon"]
       }
     ]
   },
@@ -1154,8 +1154,8 @@
         "options": [],
         "damage": "10+ (heavy tank)",
         "rules": [
-          "HE - instead of using 2\" template, an IS-2's HE rounds use the 3\" template",
-          "Slow load - an IS-2 tank cannot be given an order until at least one other unit on the same side has already been given orders (whether successfully or not)"
+          "HE: Instead of using 2\" template, an IS-2's HE rounds use the 3\" template",
+          "Slow Load: an IS-2 tank cannot be given an order until at least one other unit on the same side has already been given orders (whether successfully or not)"
         ]
       }
     ],
@@ -1200,7 +1200,7 @@
         },
         "options": [],
         "damage": "8+ (light tank)",
-        "rules": ["Open-topped", "Howitzer"]
+        "rules": ["Howitzer", "Open-Topped"]
       },
       {
         "name": "Katyusha Rocket Launcher",
@@ -1220,7 +1220,7 @@
         },
         "options": [],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Indirect fire", "Multiple launcher"]
+        "rules": ["Indirect Fire", "Multiple Launcher"]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1274,7 +1274,7 @@
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Open-topped", "Recce"]
+        "rules": ["Open-Topped", "Recce"]
       }
     ],
     "Transports and Tows": [

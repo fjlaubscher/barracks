@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-17T00:00Z",
+  "lastUpdated": "2023-07-26T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -536,8 +536,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Stubborn (if option taken)"
+          "Stubborn (if option taken)",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -601,8 +601,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Stubborn"
+          "Stubborn",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -671,8 +671,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Stubborn (if option taken)"
+          "Stubborn (if option taken)",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -736,8 +736,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Rangers Lead The Way! - Units of Rangers are allowed to make a Run move after both sides have finished set-up, but before the first turn of the game. During this move, the unit cannot assault enemy units, and cannot be targeted by enemies in Ambush."
+          "Rangers Lead The Way!: Units of Rangers are allowed to make a Run move after both sides have finished set-up, but before the first turn of the game. During this move, the unit cannot assault enemy units, and cannot be targeted by enemies in Ambush.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -872,8 +872,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Shotgun"
+          "Shotgun",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -899,9 +899,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
+          "Extra Selection: You may take up to three .30 Cal MMGs as one selection in each reinforced platoon.",
           "Fixed",
-          "Extra selection - you may take up to three .30 Cal MMGs as one selection in each reinforced platoon."
+          "Team Weapon"
         ]
       },
       {
@@ -927,8 +927,8 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Shaped charge"
+          "Shaped Charge",
+          "Team Weapon"
         ]
       },
       {
@@ -964,8 +964,8 @@
           }
         ],
         "rules": [
-          "Team weapon",
-          "Sniper"
+          "Sniper",
+          "Team Weapon"
         ]
       },
       {
@@ -990,8 +990,8 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Flamethrower"
+          "Flamethrower",
+          "Team Weapon"
         ]
       },
       {
@@ -1027,9 +1027,9 @@
           }
         ],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Indirect fire"
+          "Indirect Fire",
+          "Team Weapon"
         ]
       }
     ]
@@ -1059,9 +1059,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Howitzer"
+          "Howitzer",
+          "Team Weapon"
         ]
       },
       {
@@ -1087,9 +1087,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Howitzer"
+          "Howitzer",
+          "Team Weapon"
         ]
       }
     ],
@@ -1117,9 +1117,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Gun shield",
-          "Fixed"
+          "Fixed",
+          "Gun Shield",
+          "Team Weapon"
         ]
       },
       {
@@ -1145,9 +1145,9 @@
         },
         "options": [],
         "rules": [
-          "Gun shield",
-          "Team weapon",
-          "Fixed"
+          "Fixed",
+          "Gun Shield",
+          "Team Weapon"
         ]
       }
     ],
@@ -1175,9 +1175,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Flak"
+          "Flak",
+          "Team Weapon"
         ]
       }
     ]
@@ -1216,8 +1216,9 @@
         ],
         "damage": "8+ (light tank)",
         "rules": [
-          "Vulnerable - All shots to the side and reader of the vehicle get an additional +1 penetration modifier.",
-          "Recce, Open-Topped (if option chosen)"
+          "Open-Topped (if option chosen)",
+          "Recce",
+          "Vulnerable: All shots to the side and rear of the vehicle get an additional +1 penetration modifier."
         ]
       },
       {
@@ -1315,8 +1316,8 @@
         ],
         "damage": "9+ (medium tank)",
         "rules": [
-          "Easily Catches Fire: if a roll on the vehicle damage table results in the vehicle catching fire add D3 pin markers rather than just 1 before taking a morale test",
-          "HE - instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
+          "Easily Catches Fire: If a roll on the vehicle damage table results in the vehicle catching fire, add D3 pin markers rather than just 1 before taking a morale test.",
+          "HE: Instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)"
         ]
       }
     ],
@@ -1353,7 +1354,7 @@
         ],
         "damage": "8+ (light tank)",
         "rules": [
-          "Open-topped"
+          "Open-Topped"
         ]
       }
     ],
@@ -1380,7 +1381,7 @@
         "options": [],
         "damage": "8+ (light tank)",
         "rules": [
-          "Open-topped"
+          "Open-Topped"
         ]
       }
     ],
@@ -1417,8 +1418,8 @@
         ],
         "damage": "7+ (armoured car)",
         "rules": [
-          "Open-topped",
-          "Flak"
+          "Flak",
+          "Open-Topped"
         ]
       }
     ],
@@ -1456,7 +1457,7 @@
         ],
         "damage": "7+ (armoured car)",
         "rules": [
-          "Open-topped",
+          "Open-Topped",
           "Recce"
         ]
       }
@@ -1602,7 +1603,7 @@
         "transport": "12 soldiers",
         "tow": "Any anti-tank gun or anti-aircraft gun; light or medium howitzer.",
         "rules": [
-          "Open-topped"
+          "Open-Topped"
         ]
       },
       {

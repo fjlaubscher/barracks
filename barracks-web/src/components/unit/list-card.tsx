@@ -4,12 +4,13 @@ import { TagGroup, Tag, Stack, capitalize, Table } from '@fjlaubscher/matter';
 
 // components
 import Card from '../card';
+import SpecialRules from '../rules/special-rules';
 
 // helpers
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
 
 // hooks
-import { useWeapons } from '../../hooks/core';
+import { useCore, useWeapons } from '../../hooks/core';
 
 import styles from './unit.module.scss';
 
@@ -20,6 +21,7 @@ export interface Props {
 }
 
 const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
+  const { data: core } = useCore();
   const { data: weapons } = useWeapons(showWeapons ? listUnit.unit.weapons.keys : []);
 
   const calculatedCost = useMemo(() => listUnit.points || calculateCost(listUnit), [listUnit]);
@@ -75,16 +77,7 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
               </div>
             )}
             {listUnit.unit.rules.length > 0 ? (
-              <div className={styles.section}>
-                <h4>Special Rules</h4>
-                <ul className={styles.rules}>
-                  {listUnit.unit.rules.map((rule, i) => (
-                    <li key={`rule-${i}`} data-testid="list-unit-card-rule">
-                      {rule}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <SpecialRules className={styles.section} core={core} rules={listUnit.unit.rules} />
             ) : undefined}
           </>
         )}

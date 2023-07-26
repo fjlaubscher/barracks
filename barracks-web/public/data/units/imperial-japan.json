@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-06-13T00:00Z",
+  "lastUpdated": "2023-07-26T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -70,7 +70,7 @@
           }
         ],
         "rules": [
-          "Tough Fighter (officer model with sword only)"
+          "Tough Fighters (officer model with sword only)"
         ]
       },
       {
@@ -314,9 +314,9 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
+          "Bamboo Spears: Models so armed may not shoot but can fight normally in close quarters",
           "Green",
-          "Bamboo spears - models so armed may not shoot but can fight normally in close quarters"
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -342,8 +342,8 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Fixed"
+          "Fixed",
+          "Team Weapon"
         ]
       },
       {
@@ -369,7 +369,7 @@
         },
         "options": [],
         "rules": [
-          "Team weapon"
+          "Team Weapon"
         ]
       },
       {
@@ -394,8 +394,8 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
-          "Sniper"
+          "Sniper",
+          "Team Weapon"
         ]
       },
       {
@@ -420,9 +420,9 @@
         },
         "options": [],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Indirect fire"
+          "Indirect Fire",
+          "Team Weapon"
         ]
       },
       {
@@ -458,9 +458,9 @@
           }
         ],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Indirect fire"
+          "Indirect Fire",
+          "Team Weapon"
         ]
       }
     ]
@@ -500,10 +500,10 @@
           }
         ],
         "rules": [
-          "Gun shield",
-          "Team weapon",
           "Fixed",
-          "Howitzer"
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
         ]
       }
     ],
@@ -531,9 +531,9 @@
         },
         "options": [],
         "rules": [
+          "Fixed",
           "Gun shield",
-          "Team weapon",
-          "Fixed"
+          "Team Weapon"
         ]
       }
     ],
@@ -571,9 +571,9 @@
           }
         ],
         "rules": [
-          "Team weapon",
           "Fixed",
-          "Flak"
+          "Flak",
+          "Team Weapon"
         ]
       }
     ]
@@ -602,8 +602,8 @@
         "options": [],
         "damage": "7+ (armoured carrier)",
         "rules": [
-          "One-man turret. Combining the roles of commander, gunner and loader together and squeezing the man responsible into a one-man turret means it's hard to do different things at once! To represent this it is always necessary to take an order test when issuing an Advance order, even if the tank is not pinned. In addition, you can fire either the main gun or the rear-mounted machine gun, but not both in the same turn.",
-          "Low velocity light anti-tank gun. The Ha-Go's main weapon counts as a light anti-tank gun, but with a penetration rating of +3 instead of the usual +4."
+          "Low Velocity Light Anti-Tank Gun: The Ha-Go's main weapon counts as a light anti-tank gun, but with a penetration rating of +3 instead of the usual +4.",
+          "One-Man Turret: Combining the roles of commander, gunner and loader together and squeezing the man responsible into a one-man turret means it's hard to do different things at once! To represent this it is always necessary to take an order test when issuing an Advance order, even if the tank is not pinned. In addition, you can fire either the main gun or the rear-mounted machine gun, but not both in the same turn."
         ]
       },
       {

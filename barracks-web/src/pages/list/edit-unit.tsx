@@ -53,8 +53,22 @@ const EditListUnit = () => {
   }, [list, type, role, navigate, unit, index]);
 
   const builderInitialValues = useMemo(() => {
-    if (index && units && unit) {
-      const unitIndex = units[type][role].findIndex((u) => u.name === unit.unit.name);
+    if (units && unit) {
+      const unitIndex = units[type][role]
+        .sort((a, b) => {
+          const nameA = a.name.toLowerCase();
+          const nameB = b.name.toLowerCase();
+
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+
+          return 0;
+        })
+        .findIndex((u) => u.name === unit.unit.name);
       const profileIndex = unit.unit.profiles.findIndex((p) => p.name === unit.profile.name);
       const veterancyIndex = Object.keys(unit.unit.profiles[profileIndex].cost).findIndex(
         (c) => c === unit.veterancy

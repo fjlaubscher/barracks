@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-25T00:00Z",
+  "lastUpdated": "2023-07-26T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -214,8 +214,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot."
+          "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -274,8 +274,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot."
+          "Bicycles: Bicycle-mounted infantry follow the same rules as infantry, except when moving entirely on a road, in which case they double their Run move to 24\" (this move cannot be used to assault). In addition, the first time they receive any order other than Run, or if they receive a pinning marker, they dismount and abandon their bicycles for the rest of the game - replace the models with models on foot.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -332,8 +332,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Motorised infantry: The Panzergrenadier squad can re-roll any failed order test that is required to mount or dismount a transport vehicle."
+          "Motorised Infantry: The Panzergrenadier squad can re-roll any failed order test that is required to mount or dismount a transport vehicle.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -392,8 +392,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Mountaineers (if taken): This unit treats rough ground as open terrain."
+          "Mountaineers (if taken): This unit treats rough ground as open terrain.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -444,7 +444,7 @@
             "max": 8
           }
         ],
-        "rules": ["Motorbikes: A mounted squad use the motorbikes rules (see rulebook)"]
+        "rules": ["Motorbikes"]
       },
       {
         "name": "Heer Grenadier Squad",
@@ -717,9 +717,9 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
+          "GrB-39 Grenade Launcher: Every time the model fires this weapon, you can choose either profiles",
           "Sturmpistole: This weapon is treated like a Panzerfaust, except that it only has a range of 6\" and a Pen value of +3. It can, however, be fired normally once a turn and not just once per game.",
-          "GrB-39 grenade launcher: Every time the model fires this weapon, you can choose either profiles"
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -771,8 +771,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Stubborn: Paratroopers don't give in easily! If forced to check their morale, then they always test on their full morale value, ignoring any pin markers."
+          "Stubborn: Paratroopers don't give in easily! If forced to check their morale, then they always test on their full morale value, ignoring any pin markers.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -890,8 +890,8 @@
           }
         ],
         "rules": [
-          "Tank Hunters (if anti-tank grenades taken)",
-          "Skis (if taken): Ski troops ignore movement penalties for snow and other winter conditions"
+          "Skis (if taken): Ski troops ignore movement penalties for snow and other winter conditions",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {
@@ -1015,7 +1015,7 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": ["Fanatics (if taken)", "Tank Hunters (if anti-tank grenades taken)"]
       },
       {
         "name": "Waffen-SS Squad (Late War)",
@@ -1164,7 +1164,7 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Fanatics (if taken)"]
+        "rules": ["Fanatics (if taken)", "Tank Hunters (if anti-tank grenades taken)"]
       },
       {
         "name": "Volkssturm, Osttruppen or Inexperienced Infantry Squad",
@@ -1248,9 +1248,9 @@
           }
         ],
         "rules": [
-          "Volkssturm units can be Green",
           "Osttruppen can be Shirkers",
-          "Tank Hunters (if anti-tank grenades taken)"
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Volkssturm units can be Green"
         ]
       },
       {
@@ -1282,9 +1282,9 @@
           }
         ],
         "rules": [
-          "Team weapon",
           "Fixed (if anti-aircraft mount taken)",
-          "Flak (if anti-aircraft mount taken)"
+          "Flak (if anti-aircraft mount taken)",
+          "Team Weapon"
         ]
       },
       {
@@ -1307,7 +1307,7 @@
           "keys": ["mmg"]
         },
         "options": [],
-        "rules": ["Team weapon", "Fixed"]
+        "rules": ["Fixed", "Team Weapon"]
       },
       {
         "name": "Anti-Tank Rifle Team",
@@ -1327,7 +1327,7 @@
           "keys": ["anti-tank-rifle"]
         },
         "options": [],
-        "rules": ["Team weapon"]
+        "rules": ["Team Weapon"]
       },
       {
         "name": "Panzerschreck Team",
@@ -1349,7 +1349,7 @@
           "keys": ["panzerschreck"]
         },
         "options": [],
-        "rules": ["Team weapon", "Shaped charge"]
+        "rules": ["Shaped Charge", "Team Weapon"]
       },
       {
         "name": "Sniper Team",
@@ -1370,7 +1370,7 @@
           "keys": ["pistol", "rifle"]
         },
         "options": [],
-        "rules": ["Team weapon", "Sniper"]
+        "rules": ["Sniper", "Team Weapon"]
       },
       {
         "name": "Flamethrower Team",
@@ -1393,8 +1393,8 @@
         "options": [],
         "rules": [
           "Flamethrower",
-          "Team weapon (Flammenwerfer)",
-          "One-shot weapon (Einstossflammenwerfer)"
+          "One-shot weapon (Einstossflammenwerfer)",
+          "Team weapon (Flammenwerfer)"
         ]
       },
       {
@@ -1417,7 +1417,7 @@
           "keys": ["light-mortar"]
         },
         "options": [],
-        "rules": ["Team weapon", "Indirect fire", "No smoke rounds: This mortar cannot fire smoke"]
+        "rules": ["Indirect Fire", "No Smoke Rounds: This mortar cannot fire smoke", "Team Weapon"]
       },
       {
         "name": "Medium Mortar Team",
@@ -1450,7 +1450,7 @@
             "max": 1
           }
         ],
-        "rules": ["Team weapon", "Fixed", "Indirect fire"]
+        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
       }
     ]
   },
@@ -1476,7 +1476,7 @@
           "keys": ["light-howitzer"]
         },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
       },
       {
         "name": "Medium Artillery",
@@ -1508,7 +1508,7 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Howitzer"]
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
       }
     ],
     "Anti-Tank Guns": [
@@ -1532,7 +1532,7 @@
           "keys": ["medium-at-gun"]
         },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
       },
       {
         "name": "75mm PaK 40",
@@ -1554,7 +1554,7 @@
           "keys": ["heavy-at-gun"]
         },
         "options": [],
-        "rules": ["Gun shield", "Team weapon", "Fixed"]
+        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -1588,7 +1588,7 @@
             "max": 1
           }
         ],
-        "rules": ["Gun shield", "Team weapon", "Fixed", "Flak", "Versatile"]
+        "rules": ["Fixed", "Flak", "Gun Shield", "Team Weapon", "Versatile"]
       }
     ]
   },
@@ -1621,7 +1621,7 @@
         "options": [],
         "damage": "9+ (medium tank)",
         "rules": [
-          "Reinforced rear armour: The Ausf H and J treat hits against the rear armour as hits against the side armour"
+          "Reinforced Rear Armour: The Ausf H and J treat hits against the rear armour as hits against the side armour"
         ]
       },
       {
@@ -1668,7 +1668,7 @@
           }
         ],
         "damage": "9+ (medium tank)",
-        "rules": ["Tiger fear"]
+        "rules": ["Tiger Fear"]
       },
       {
         "name": "Panther",
@@ -1718,7 +1718,7 @@
           }
         ],
         "damage": "10+ (heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": ["Tiger Fear"]
       },
       {
         "name": "Tiger II",
@@ -1737,7 +1737,7 @@
         },
         "options": [],
         "damage": "11+ (super-heavy tank)",
-        "rules": ["Tiger fear"]
+        "rules": ["Tiger Fear"]
       }
     ],
     "Tank Destroyers": [
@@ -1805,7 +1805,7 @@
         },
         "options": [],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Open-topped"]
+        "rules": ["Open-Topped"]
       }
     ],
     "Self-Propelled Artillery": [
@@ -1857,7 +1857,7 @@
           }
         ],
         "damage": "7+ (armoured carrier)",
-        "rules": ["Indirect fire", "Multiple launcher", "Open-topped"]
+        "rules": ["Indirect Fire", "Multiple Launcher", "Open-Topped"]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1956,10 +1956,10 @@
         ],
         "damage": "7+ (armoured car)",
         "rules": [
-          "Open-topped",
-          "Recce",
           "Flak (SdKfz 222 only)",
-          "Panzerbüchse: Counts as a light anti-tank gun, and in addition its squeeze-bore system means that ranges of up to 12\", its base armour penetration is increased by two to a total of +6, at over half range armour penetration is reduced by two instead of the usual one to a total of +2."
+          "Open-topped",
+          "Panzerbüchse: Counts as a light anti-tank gun, and in addition its squeeze-bore system means that ranges of up to 12\", its base armour penetration is increased by two to a total of +6, at over half range armour penetration is reduced by two instead of the usual one to a total of +2.",
+          "Recce"
         ]
       },
       {
@@ -1980,7 +1980,7 @@
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce (dual direction steering)", "Open-topped"]
+        "rules": ["Open-Topped", "Recce (Dual Direction Steering)"]
       },
       {
         "name": "SdKfz 234/2 Puma Heavy Armoured Car",
@@ -2000,7 +2000,7 @@
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce (dual direction steering)"]
+        "rules": ["Recce (Dual Direction Steering)"]
       }
     ],
     "Transports and Tows": [
@@ -2052,7 +2052,7 @@
         "damage": "7+ (armoured carrier)",
         "transport": "12 soldiers in basic version - 4 soldiers with either light anti-tank gun or autocannon options added",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light anti-aircraft gun",
-        "rules": ["Open-topped"]
+        "rules": ["Open-Topped"]
       },
       {
         "name": "Truck",
