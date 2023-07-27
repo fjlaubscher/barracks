@@ -25,7 +25,7 @@ const SettingsForm = ({ armies, onSubmit }: Props) => {
     () =>
       Object.keys(armies)
         .filter((k) => k !== 'lastUpdated')
-        .map((key, index) => ({ value: key, description: armies[key].name } as matter.Option)),
+        .map((key, index) => ({ value: key, description: armies[key].name }) as matter.Option),
     [armies]
   );
 

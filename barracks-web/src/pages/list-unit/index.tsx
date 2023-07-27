@@ -27,7 +27,7 @@ const AddListUnit = () => {
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
 
   const { data: list, persist: setList } = useList(key);
-  const { units } = useArmy(list?.army);
+  const { army, units } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
     if (!list || !unit) {
@@ -67,7 +67,7 @@ const AddListUnit = () => {
         onCloseClick={() => navigate(`/list/${key}/edit`)}
         onSaveClick={handleSubmit}
       >
-        {unit && <UnitListCard listUnit={unit} />}
+        {unit && <UnitListCard army={army} listUnit={unit} />}
         {list && units && <UnitBuilder units={units[type][role]} />}
       </Section>
     </ListLayout>

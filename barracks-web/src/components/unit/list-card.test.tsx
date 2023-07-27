@@ -6,10 +6,11 @@ import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
 import { TestWrapper } from '../../helpers/test-wrapper';
 
 vi.mock('../../hooks/core', () => ({
+  useCore: vi.fn().mockReturnValue({ data: undefined }),
   useWeapons: vi.fn().mockReturnValue({ data: [] })
 }));
 
-import ListUnitCard from './list-card';
+import UnitListCard from './list-card';
 import type { Props } from './list-card';
 
 import { MOCK_LIST_UNIT } from './mock';
@@ -17,7 +18,11 @@ import { MOCK_LIST_UNIT } from './mock';
 const arrangeTest = (props?: Partial<Props>) =>
   render(
     <TestWrapper>
-      <ListUnitCard listUnit={props?.listUnit || MOCK_LIST_UNIT} displayMode={props?.displayMode} />
+      <UnitListCard
+        army={undefined}
+        listUnit={props?.listUnit || MOCK_LIST_UNIT}
+        displayMode={props?.displayMode}
+      />
     </TestWrapper>
   );
 

@@ -60,14 +60,14 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     [units]
   );
   const unitOptions = useMemo(
-    () => sortedUnits.map((unit, i) => ({ value: i, description: unit.name } as matter.Option)),
+    () => sortedUnits.map((unit, i) => ({ value: i, description: unit.name }) as matter.Option),
     [sortedUnits]
   );
   const unitProfileOptions = useMemo(
     () =>
       listUnit
         ? listUnit.unit.profiles.map(
-            (profile, i) => ({ value: i, description: profile.name } as matter.Option)
+            (profile, i) => ({ value: i, description: profile.name }) as matter.Option
           )
         : [],
     [listUnit]
@@ -76,7 +76,7 @@ const UnitBuilder = ({ units, initialValues }: Props) => {
     () =>
       listUnit
         ? Object.keys(listUnit.profile.cost).map(
-            (veterancy, i) => ({ value: i, description: capitalize(veterancy) } as matter.Option)
+            (veterancy, i) => ({ value: i, description: capitalize(veterancy) }) as matter.Option
           )
         : [],
     [listUnit]

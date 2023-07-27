@@ -9,3 +9,20 @@
     height: auto !important;
   }
 }
+
+.filters {
+  justify-content: space-between;
+  align-items: flex-end;
+
+  > div:nth-child(1) {
+    width: 100%;
+    max-width: 24rem;
+  }
+
+  .newListButton {
+    max-width: 12rem;
+    gap: 1rem;
+    justify-content: start;
+
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-06-19T00:00Z",
+  "lastUpdated": "2023-07-27T00:00Z",
   "hit": [
     {
       "type": "Shooting at point blank range",
@@ -497,6 +497,10 @@
       {
         "name": "Green",
         "description": "Green units are inexperienced and given a morale rating of 8. The first time the unit suffers a casualty roll a die. On a roll of a 1 the unit suffers an additional D6 pin markers and goes <i>Down</i> - if it has already taken its action this turn flip the order die to <i>Down</i>; if not then place an order die from the dice bag to show the unit is Down. There is no further effect.<br/><br/>On a roll of 2, 3 or 4 the unit fights on as you would expect - no further account is made of the fact it is green. On a 5 or 6 the unit is immediately up-rated to regular with a morale value of 9 for the rest of the battle."
+      },
+      {
+        "name": "Gun Shield",
+        "description": "Many guns are equipped with an armoured gun shield to provide protection to the crew. If a gun is equipped with a gun shield, the die roll an enemy requires to score damage for a hit from the front arc of the gun is increased by +1. This means that inexperienced crew sheltering behind a gun shield are damaged on a 4+, regulars on 5+ and veterans on 6+. This die roll is modified by the penetration value of the weapon in the usual way. Note that hits from HE (both direct and indirect fire), flamethrowers and close quarters attacks ignore the gun shield rule."
       },
       {
         "name": "Medics",

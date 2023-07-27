@@ -29,7 +29,7 @@ const SpecialRules = () => {
             ({
               text: r.name,
               href: `#${slugify(r.name)}`
-            } as Barracks.ItemLink)
+            }) as Barracks.ItemLink
         )
       };
     }

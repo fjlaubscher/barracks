@@ -1,6 +1,6 @@
-import { useController, useFormContext } from 'react-hook-form';
-import { Field, Form, InputField, SelectField } from '@fjlaubscher/matter';
 import { useMemo } from 'react';
+import { useController, useFormContext } from 'react-hook-form';
+import { Alert, Field, Form, InputField, SelectField } from '@fjlaubscher/matter';
 
 // components
 import Toggle from '../toggle';
@@ -31,7 +31,7 @@ const ListForm = ({ armies, onSubmit, isPublicAllowed }: Props) => {
     () =>
       Object.keys(armies)
         .filter((k) => k !== 'lastUpdated')
-        .map((key) => ({ value: key, description: armies[key].name } as matter.Option)),
+        .map((key) => ({ value: key, description: armies[key].name }) as matter.Option),
     [armies]
   );
 
