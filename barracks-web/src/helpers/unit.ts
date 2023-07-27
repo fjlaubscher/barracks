@@ -1,9 +1,16 @@
-export const calculateCost = (listUnit: Omit<Barracks.List.Unit, 'key' | 'points'>) =>
-  listUnit.options.reduce(
-    (total, unitOption): number =>
-      total + unitOption.option.cost[listUnit.veterancy] * unitOption.amount,
-    listUnit.profile.cost[listUnit.veterancy]
-  );
+export const calculateCost = (listUnit: Omit<Barracks.List.Unit, 'key' | 'points'>) => {
+  const containsFreeUnit =
+    listUnit.options.filter((o) => o.option.name.toLowerCase() === 'free unit' && o.amount === 1)
+      .length === 1;
+
+  return containsFreeUnit
+    ? 0
+    : listUnit.options.reduce(
+        (total, unitOption): number =>
+          total + unitOption.option.cost[listUnit.veterancy] * unitOption.amount,
+        listUnit.profile.cost[listUnit.veterancy]
+      );
+};
 
 export const buildListUnitComposition = (listUnit: Barracks.List.Unit) => {
   if (!listUnit.unit.composition) {

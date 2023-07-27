@@ -6,7 +6,7 @@ import { useReadLocalStorage } from 'usehooks-ts';
 
 // components
 import ListLayout from '../../components/layout/list';
-import ListUnitCard from '../../components/unit/list-card';
+import UnitListCard from '../../components/unit/list-card';
 import Section from '../../components/section';
 import Toggle from '../../components/toggle';
 
@@ -14,6 +14,7 @@ import Toggle from '../../components/toggle';
 import { SETTINGS } from '../../data/storage';
 
 // hooks
+import { useArmy } from '../../hooks/army';
 import { useList } from '../../hooks/list';
 
 import styles from './list.module.scss';
@@ -28,6 +29,7 @@ const List = () => {
     settings?.listDisplayMode || 'verbose'
   );
   const { data: list, persist: setList, isOwner, loading: loadingList } = useList(key);
+  const { army } = useArmy(list?.army);
 
   const handleListVisibility = useCallback(
     async (mode: 'private' | 'public') => {
@@ -87,8 +89,9 @@ const List = () => {
               list.units[type][role].length > 0 ? (
                 <Section key={`${type}-role-${i}`} title={type} description={role}>
                   {list.units[type][role].map((unit, i) => (
-                    <ListUnitCard
+                    <UnitListCard
                       key={`list-unit-${i}`}
+                      army={army}
                       listUnit={unit}
                       displayMode={displayMode}
                       showWeapons={displayMode === 'verbose'}

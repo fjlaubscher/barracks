@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { Alert, Stack, useToast, IconButton } from '@fjlaubscher/matter';
+import { Stack, useToast, IconButton, Stat, Alert } from '@fjlaubscher/matter';
 import { FormProvider, useForm } from 'react-hook-form';
 import { MdSave } from 'react-icons/md';
 import { useReadLocalStorage } from 'usehooks-ts';
@@ -77,9 +77,11 @@ const CreateList = () => {
         isLoading={loadingArmies}
       >
         <Stack className={styles.create} direction="column">
-          <Alert className={styles.alert} variant="info">
-            When you share a public army list via link, anyone can view it!
-          </Alert>
+          <Stat
+            title="Barracks"
+            value="New Army List"
+            description="Did you know? Public army lists can be shared via link!"
+          />
           {armies && <ListForm armies={armies} onSubmit={handleSubmit} isPublicAllowed={!!user} />}
         </Stack>
       </Layout>

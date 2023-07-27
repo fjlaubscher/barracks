@@ -17,6 +17,10 @@ h4 {
   animation-duration: 0.25s;
 }
 
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.75);
+}
+
 @media print {
   * {
     box-shadow: none;

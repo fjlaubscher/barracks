@@ -6,8 +6,8 @@ import { useRecoilValue } from 'recoil';
 // components
 import ListLayout from '../../components/layout/list';
 import Section from '../../components/section';
-import UnitListCard from '../../components/unit/list-card';
 import UnitBuilder from '../../components/unit/builder';
+import UnitListCard from '../../components/unit/list-card';
 
 // helpers
 import { calculateCost } from '../../helpers/unit';
@@ -26,7 +26,7 @@ const EditListUnit = () => {
 
   const { type, role, unit } = useRecoilValue(UnitBuilderAtom);
   const { data: list, persist: setList } = useList(key);
-  const { units } = useArmy(list?.army);
+  const { army, units } = useArmy(list?.army);
 
   const handleSubmit = useCallback(async () => {
     if (!list || !unit || !index) {
@@ -112,7 +112,7 @@ const EditListUnit = () => {
         onCloseClick={() => navigate(`/list/${key}/edit`)}
         onSaveClick={handleSubmit}
       >
-        {unit && <UnitListCard listUnit={unit} />}
+        {unit && <UnitListCard army={army} listUnit={unit} />}
         {list && units && (
           <UnitBuilder units={units[type][role]} initialValues={builderInitialValues} />
         )}

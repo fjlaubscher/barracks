@@ -6,53 +6,59 @@ import styles from './rules.module.scss';
 
 interface Props {
   className?: string;
+  army?: Barracks.Army;
   core?: Barracks.Core;
   rules: string[];
 }
 
-const SpecialRules = ({ className, core, rules }: Props) => {
+const UnitSpecialRules = ({ className, army, core, rules }: Props) => {
   const [selectedRule, setSelectedRule] = useState<Barracks.Item | undefined>(undefined);
 
   const parsedRules: Barracks.Item[] = useMemo(() => {
-    if (core) {
-      const specialRules: Barracks.Item[] = [];
+    const specialRules: Barracks.Item[] = [];
 
-      for (let i = 0; i < rules.length; i++) {
-        const rule = rules[i];
+    for (let i = 0; i < rules.length; i++) {
+      const rule = rules[i];
+      const hasOwnDescription = rule.includes(':');
 
-        if (rule.includes(':')) {
-          // rule includes a description
-          const [name, description] = rule.split(':');
-          specialRules.push({ name, description });
-        } else {
-          // find the rule in core data
-          let description = '';
-          const ruleTypes = Object.keys(core.rules);
+      if (hasOwnDescription) {
+        const [name, description] = rule.split(':');
+        specialRules.push({ name, description });
+      } else {
+        // try to find the rule in core data
+        let description = '';
+        const ruleTypes = core ? Object.keys(core.rules) : [];
 
-          for (let t = 0; t < ruleTypes.length; t++) {
-            const filteredRules = core.rules[ruleTypes[t]].filter((coreRule) =>
-              rule.toLowerCase().includes(coreRule.name.toLowerCase())
-            );
+        for (let t = 0; t < ruleTypes.length; t++) {
+          const filteredRules = core
+            ? core.rules[ruleTypes[t]].filter((coreRule) =>
+                rule.toLowerCase().includes(coreRule.name.toLowerCase())
+              )
+            : [];
 
-            if (filteredRules.length) {
-              description = filteredRules[0].description;
-              break;
-            }
+          if (filteredRules.length) {
+            description = filteredRules[0].description;
+            break;
           }
-
-          // finally, check the army rules
-          if (!description) {
-          }
-
-          specialRules.push({ name: rule, description });
         }
-      }
 
-      return specialRules;
+        if (!description && army) {
+          // still nothing, check the army rules
+          const filteredRules = army.rules.filter((armyRule) =>
+            rule.toLowerCase().includes(armyRule.name.toLowerCase())
+          );
+
+          if (filteredRules.length) {
+            description = filteredRules[0].description;
+          }
+        }
+
+        specialRules.push({ name: rule, description });
+      }
     }
 
-    return [];
-  }, [core, rules]);
+    return specialRules;
+  }, [army, core, rules]);
 
   return (
     <div className={className}>
@@ -91,4 +97,4 @@ const SpecialRules = ({ className, core, rules }: Props) => {
   );
 };
 
-export default SpecialRules;
+export default UnitSpecialRules;

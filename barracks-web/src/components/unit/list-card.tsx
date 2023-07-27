@@ -4,7 +4,7 @@ import { TagGroup, Tag, Stack, capitalize, Table } from '@fjlaubscher/matter';
 
 // components
 import Card from '../card';
-import SpecialRules from '../rules/special-rules';
+import UnitSpecialRules from '../rules/unit-special-rules';
 
 // helpers
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
@@ -15,12 +15,13 @@ import { useCore, useWeapons } from '../../hooks/core';
 import styles from './unit.module.scss';
 
 export interface Props {
+  army: Barracks.Army | undefined;
   listUnit: Barracks.List.Unit;
   displayMode?: Barracks.List.DisplayMode;
   showWeapons?: boolean;
 }
 
-const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
+const UnitListCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
   const { data: core } = useCore();
   const { data: weapons } = useWeapons(showWeapons ? listUnit.unit.weapons.keys : []);
 
@@ -77,7 +78,11 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
               </div>
             )}
             {listUnit.unit.rules.length > 0 ? (
-              <SpecialRules className={styles.section} core={core} rules={listUnit.unit.rules} />
+              <UnitSpecialRules
+                className={styles.section}
+                core={core}
+                rules={listUnit.unit.rules}
+              />
             ) : undefined}
           </>
         )}
@@ -115,4 +120,4 @@ const ListUnitCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
   );
 };
 
-export default ListUnitCard;
+export default UnitListCard;

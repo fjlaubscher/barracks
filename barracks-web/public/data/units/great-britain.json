@@ -64,7 +64,7 @@
           {
             "name": "Artillery Forward Observer",
             "cost": {
-              "regular": 0,
+              "regular": 100,
               "veteran": 0
             }
           },
@@ -91,6 +91,14 @@
               "veteran": 13
             },
             "max": 2
+          },
+          {
+            "name": "Free Unit",
+            "cost": {
+              "regular": 0,
+              "veteran": 0
+            },
+            "max": 1
           }
         ],
         "rules": []

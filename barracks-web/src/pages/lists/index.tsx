@@ -1,7 +1,16 @@
 import { useCallback, useState, useMemo } from 'react';
 import { MdPostAdd } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { Alert, Grid, InputField, IconButton, Stack, Stat, useToast } from '@fjlaubscher/matter';
+import {
+  Alert,
+  Grid,
+  InputField,
+  IconButton,
+  Stack,
+  Stat,
+  useToast,
+  Button
+} from '@fjlaubscher/matter';
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { useLocalStorage, useDebounce } from 'usehooks-ts';
 import { isBefore, isEqual, parseISO } from 'date-fns';
@@ -105,9 +114,11 @@ const Lists = () => {
     <Layout
       title="Army Lists"
       action={
-        <IconButton onClick={() => navigate(`/list`)}>
-          <MdPostAdd />
-        </IconButton>
+        !isTabletOrLarger ? (
+          <IconButton onClick={() => navigate(`/list`)}>
+            <MdPostAdd />
+          </IconButton>
+        ) : undefined
       }
     >
       <Stack direction="column">
@@ -130,14 +141,25 @@ const Lists = () => {
             />
           )}
         </Stack>
-        <Grid className={styles.filters}>
+        <Stack direction="row" className={styles.filters}>
           <InputField
+            className={styles.search}
             type="search"
             label="Search"
             onChange={(e) => setSearchTerm(e.currentTarget.value)}
             required
           />
-        </Grid>
+          {isTabletOrLarger && (
+            <Button
+              className={styles.newListButton}
+              variant="accent"
+              onClick={() => navigate(`/list`)}
+            >
+              <MdPostAdd />
+              New Army List
+            </Button>
+          )}
+        </Stack>
         {hasLists && (
           <Grid simple>
             {searchedLists.map((list) => (
