@@ -2,6 +2,7 @@
   "name": "barracks",
   "private": true,
   "workspaces": [
+    "barracks-api",
     "barracks-worker",
     "barracks-web"
   ],

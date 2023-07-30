@@ -17,6 +17,25 @@ You need to install yarn first if you do not have it.
 npm install -g yarn
 ```
 
+## Database
+### Using Docker
+```
+docker-compose up -d
+docker exec -i barracks_db_1 /bin/bash -c "PGPASSWORD=postgres psql -U postgres barracks -a" < ./barracks-api/src/sql/init.sql
+```
+
+### Using local Postgres instance
+
+```
+psql -U postgres
+CREATE DATABASE barracks;
+\q
+```
+
+```
+psql -U postgres -d barracks -a -f ./barracks-api/src/sql/init.sql
+```
+
 ## Installing Dependencies
 
 ```
