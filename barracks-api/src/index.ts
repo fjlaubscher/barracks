@@ -1,14 +1,18 @@
 import express from 'express';
 import dotenv from 'dotenv';
-
 dotenv.config();
 
 // api
+import ArmyRouter from './api/army';
+import RuleRouter from './api/rule';
 
 const initAPI = async () => {
   try {
     const app = express();
     app.use(express.json());
+
+    app.use('/api/army', ArmyRouter);
+    app.use('/api/rule', RuleRouter);
 
     app.get('/', (req, res) => {
       res.status(200).send('Barracks API is running');

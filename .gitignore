@@ -23,6 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 barracks-web/.env
+barracks-api/.env
 barracks-web/coverage/
 barracks-worker/wrangler.toml
 volumes

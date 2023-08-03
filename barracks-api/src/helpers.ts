@@ -1,10 +1,6 @@
 const toCamelCase = (input: string) =>
   input.toLowerCase().replace(/[^a-zA-Z0-9]+(.)/g, (m, chr) => chr.toUpperCase());
 
-interface TableRow {
-  [key: string]: string | number | Date | null;
-}
-
 export const mapFromPSQL = <T>(rows: TableRow[]) => {
   return rows.map((r) => {
     const result: any = {};

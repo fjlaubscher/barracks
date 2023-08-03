@@ -21,7 +21,8 @@ npm install -g yarn
 ### Using Docker
 ```
 docker-compose up -d
-docker exec -i barracks_db_1 /bin/bash -c "PGPASSWORD=postgres psql -U postgres barracks -a" < ./barracks-api/src/sql/init.sql
+docker exec -i barracks_db_1 /bin/bash -c "PGPASSWORD=postgres psql -U postgres barracks -a" < ./barracks-api/src/sql/schema.sql
+docker exec -i barracks_db_1 /bin/bash -c "PGPASSWORD=postgres psql -U postgres barracks -a" < ./barracks-api/src/sql/seed.sql
 ```
 
 ### Using local Postgres instance
