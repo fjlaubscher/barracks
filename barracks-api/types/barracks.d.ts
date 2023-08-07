@@ -8,9 +8,22 @@ declare namespace Barracks {
 
   interface Unit {
     id: number;
+    armyId: number;
+    roleId: number;
+    typeId: number;
     name: string;
-    composition: string;
+    description: string;
     models: number;
+  }
+
+  interface UnitRole {
+    id: number;
+    name: string;
+  }
+
+  interface UnitType {
+    id: number;
+    name: string;
   }
 
   interface UnitOption {
@@ -39,17 +52,17 @@ declare namespace Barracks {
 
   interface Weapon {
     id: number;
-    type: string;
+    name: string;
     range: string;
     shots: number;
     pen: string;
     isHeavy: boolean;
   }
 
-  interface UnitProfileWeapon {
+  interface UnitWeapon {
     id: number;
+    unitId: number;
     weaponId: number;
-    unitProfileId: number;
   }
 
   interface Rule {

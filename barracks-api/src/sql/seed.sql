@@ -87,3 +87,16 @@ INSERT INTO rule (name, description) VALUES ('Tank Hunters', 'If a tank hunter u
 INSERT INTO rule (name, description) VALUES ('Team Weapon', 'This special rule (often shortened to just "team") indicates that the weapon requires two or more men to shoot at full effect. There are three types of team weapons - squad-based team weapons (team weapons embedded inside infantry squads, like a squad LMG); support team weapons (which form an infantry unit of their own, such as a medium machine gun team or a bazooka team); and artillery team weapons.<br/><br/>Team weapons normally have a crew of two, three or more members, comprising one man to fire the weapon and a number of loaders or other crewmen to help operate it, move it about, carry ammunition or act as lookouts. All the crew members are fully occupied whether carrying equipment, serving the weapon, or keeping watch.<br/>A team weapon shoots at full effectiveness so long as there are at least two men to serve it. A minimum of two crew is always needed to fire at full effect. If only one man remains to serve a team weapon then the weapon can still be fired but suffers a -1 "to hit" penalty.');
 INSERT INTO rule (name, description) VALUES ('Tough Fighters', 'When a model with this special rule scores a casualty in close quarters against enemy infantry or artillery units, it can immediately make a second damage roll (but not a third if the second damage roll also scores a kill!).');
 INSERT INTO rule (name, description) VALUES ('Turret Rear-Mounted Machine Gun', 'When firing, first select a target for the tank main gun (or co-axial machine gun) and resolve it. Whichever arc the main gun has engaged an enemy, the rear-mounted machine gun can only shoot into the opposite arc.');
+
+-- Unit Type
+INSERT INTO unit_type (name) VALUES ('Headquarters');
+INSERT INTO unit_type (name) VALUES ('Infantry Squads and Teams');
+INSERT INTO unit_type (name) VALUES ('Field Artillery');
+INSERT INTO unit_type (name) VALUES ('Anti-Tank Guns');
+INSERT INTO unit_type (name) VALUES ('Anti-Aircraft Guns');
+INSERT INTO unit_type (name) VALUES ('Tanks');
+INSERT INTO unit_type (name) VALUES ('Tank Destroyers');
+INSERT INTO unit_type (name) VALUES ('Self-Propelled Artillery');
+INSERT INTO unit_type (name) VALUES ('Anti-Aircraft Vehicles');
+INSERT INTO unit_type (name) VALUES ('Armoured Cars');
+INSERT INTO unit_type (name) VALUES ('Transport and Tows');

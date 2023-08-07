@@ -27,17 +27,27 @@ CREATE INDEX ix_army_rule ON army_rule(id);
 CREATE INDEX ix_army_rule_army ON army_rule(army_id);
 CREATE INDEX ix_army_rule_rule ON army_rule(rule_id);
 
+-- Unit Type
+CREATE TABLE unit_type (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(64) NOT NULL
+);
+CREATE INDEX ix_unit_type ON unit_type(id);
+
 -- Unit
 CREATE TABLE unit (
   id SERIAL PRIMARY KEY,
   army_id INTEGER NOT NULL,
+  type_id INTEGER NOT NULL,
   name VARCHAR(64) NOT NULL,
   description VARCHAR(256) NOT NULL,
   models INTEGER NOT NULL,
-  FOREIGN KEY (army_id) REFERENCES army(id) ON DELETE CASCADE
+  FOREIGN KEY (army_id) REFERENCES army(id) ON DELETE CASCADE,
+  FOREIGN KEY (type_id) REFERENCES unit_type(id) ON DELETE CASCADE
 );
 CREATE INDEX ix_unit ON unit(id);
-CREATE INDEX ix_army_unit ON unit(army_id);
+CREATE INDEX ix_unit_army ON unit(army_id);
+CREATE INDEX ix_unit_type ON unit(type_id);
 
 -- UnitRule
 CREATE TABLE unit_rule (
@@ -109,6 +119,18 @@ CREATE TABLE unit_profile (
 );
 CREATE INDEX ix_unit_profile ON unit_profile(id);
 CREATE INDEX ix_unit_profile_unit ON unit_profile(unit_id);
+
+-- UnitWeapon
+CREATE TABLE unit_weapon (
+    id SERIAL PRIMARY KEY,
+    unit_id INTEGER NOT NULL,
+    weapon_id INTEGER NOT NULL,
+    FOREIGN KEY (unit_id) REFERENCES unit(id) ON DELETE CASCADE,
+    FOREIGN KEY (weapon_id) REFERENCES weapon(id) ON DELETE CASCADE
+);
+CREATE INDEX ix_unit_weapon ON unit_weapon(id);
+CREATE INDEX ix_unit_weapon_unit ON unit_weapon(unit_id);
+CREATE INDEX ix_unit_weapon_weapon ON unit_weapon(weapon_id);
 
 -- List
 CREATE TABLE list (

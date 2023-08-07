@@ -1,8 +1,8 @@
-import { Client } from 'pg';
-import { mapFromPSQL } from '../helpers';
+import pg from 'pg';
+import { mapFromPSQL } from '../helpers.js';
 
 export const getArmiesAsync = async () => {
-  const client = new Client();
+  const client = new pg.Client();
   await client.connect();
 
   const { rows } = await client.query<TableRow>('SELECT * from army');
@@ -12,7 +12,7 @@ export const getArmiesAsync = async () => {
 };
 
 export const getArmyByIdAsync = async (id: number) => {
-  const client = new Client();
+  const client = new pg.Client();
   await client.connect();
 
   const query = `

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-06-26T00:00Z",
+  "lastUpdated": "2023-08-07T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -549,6 +549,87 @@
           "Tank Hunters (if anti-tank grenades taken)",
           "Tough Fighters",
           "Vickers K Gun: When shooting add +1 shot compared to a regular LMG."
+        ]
+      },
+      {
+        "name": "Royal Engineers Section",
+        "profiles": [
+          {
+            "name": "Royal Engineers Section",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["infantry-flamethrower", "smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3,
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced":20,
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2,
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 10
+          },
+          {
+            "name": "Stubborn",
+            "cost": {
+              "inexperienced": 1,
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Stubborn (if taken)"
         ]
       },
       {

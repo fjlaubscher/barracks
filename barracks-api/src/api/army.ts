@@ -1,8 +1,8 @@
 import { Router } from 'express';
 
 // db
-import { getArmiesAsync, getArmyByIdAsync } from '../db/army';
-import { getRulesByArmyIdAsync } from '../db/rule';
+import { getArmiesAsync, getArmyByIdAsync } from '../db/army.js';
+import { getRulesByArmyIdAsync } from '../db/rule.js';
 
 const router = Router();
 
