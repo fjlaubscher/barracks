@@ -18,7 +18,7 @@ export const view = (props: HtmlExpressProps<Model>, state: HtmlExpressState) =>
     return html`
       <div class="block">
         <div class="is-flex is-align-items-center is-justify-content-space-between mb-4">
-          <p class="is-size-3">Edit Army</p>
+          <p class="is-size-3">Edit Weapon</p>
           <button type="submit" form="weapon" class="button is-primary">Submit</button>
         </div>
 
@@ -59,11 +59,11 @@ export const view = (props: HtmlExpressProps<Model>, state: HtmlExpressState) =>
       <hr />
       <div class="block">
         <div class="is-flex is-align-items-center is-justify-content-space-between mb-4">
-          <p class="is-size-3">Unit Weapons</p>
-          <button type="submit" form="unit-weapons" class="button is-primary">Submit</button>
+          <p class="is-size-3">Rules</p>
+          <button type="submit" form="weapon-rules" class="button is-primary">Submit</button>
         </div>
 
-        <form id="unit-weapons" method="POST" action="/weapon/${weapon.id}/rules">
+        <form id="weapon-rules" method="POST" action="/weapon/${weapon.id}/rules">
           <div class="is-flex is-flex-wrap-wrap" style="gap: 0.5rem">
             ${rules
               .map(

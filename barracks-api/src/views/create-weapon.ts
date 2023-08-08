@@ -36,7 +36,11 @@ export const view = (props: HtmlExpressProps<undefined>, state: HtmlExpressState
             <input class="input" id="pen" type="text" name="pen" />
           </div>
         </div>
-        <label class="checkbox"><input type="checkbox" name="isHeavy" /> Heavy Weapon</label>
+
+        <div class="field">
+          <label class="checkbox"><input type="checkbox" name="isHeavy" /> Heavy Weapon</label>
+        </div>
+
         <button type="submit" class="button is-primary">Submit</button>
       </form>
     `

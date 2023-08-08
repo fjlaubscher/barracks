@@ -63,3 +63,33 @@ export const createUnitProfileAsync = async (profile: Barracks.UnitProfile) => {
 
   return mapFromPSQL<Barracks.UnitProfile>(rows)[0];
 };
+
+export const updateUnitProfileAsync = async (profile: Barracks.UnitProfile) => {
+  const client = new pg.Client();
+  await client.connect();
+
+  const query = `
+    UPDATE unit_profile
+    SET name = $1,
+        inexperienced_cost = $2,
+        regular_cost = $3,
+        veteran_cost = $4,
+        armour = $5,
+        transport = $6,
+        tow = $7
+    WHERE id = $8
+  `;
+  const { rowCount } = await client.query<TableRow>(query, [
+    profile.name,
+    profile.inexperiencedCost,
+    profile.regularCost,
+    profile.veteranCost,
+    profile.armour,
+    profile.transport,
+    profile.tow,
+    profile.id
+  ]);
+  await client.end();
+
+  return rowCount === 1;
+};

@@ -32,9 +32,10 @@ declare namespace Barracks {
     inexperiencedCost: number | null;
     regularCost: number | null;
     veteranCost: number | null;
-    max: number | null;
+    maxAllowed: number | null;
     weaponId: number | null;
     ruleId: number | null;
+    unitId: number;
     isUnitUpgrade: boolean;
   }
 

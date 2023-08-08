@@ -63,7 +63,11 @@ router.post('/:id', async (req, res) => {
   try {
     const weaponId = Number(req.params.id);
     const payload = req.body as Barracks.Weapon;
-    const updated = await updateWeaponAsync({ ...payload, id: weaponId });
+    const updated = await updateWeaponAsync({
+      ...payload,
+      isHeavy: payload.isHeavy ?? false,
+      id: weaponId
+    });
 
     if (updated) {
       return res.redirect(`/weapon/${weaponId}`);

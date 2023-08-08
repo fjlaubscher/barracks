@@ -13,6 +13,8 @@ import ArmyController from './controllers/army.js';
 import HomeController from './controllers/home.js';
 import RuleController from './controllers/rule.js';
 import UnitController from './controllers/unit.js';
+import UnitOptionController from './controllers/unit-option.js';
+import UnitProfileController from './controllers/unit-profile.js';
 import WeaponController from './controllers/weapon.js';
 
 const initAPI = async () => {
@@ -36,6 +38,8 @@ const initAPI = async () => {
     app.use('/weapon', WeaponController);
     app.use('/unit', UnitController);
     app.use('/rule', RuleController);
+    app.use('/profile', UnitProfileController);
+    app.use('/option', UnitOptionController);
     app.use('/army', ArmyController);
     app.use('/', HomeController);
 

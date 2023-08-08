@@ -19,7 +19,7 @@ export const view = (props: HtmlExpressProps<undefined>, state: HtmlExpressState
         <div class="field">
           <label class="label" for="description">Description</label>
           <div class="control">
-            <textarea id="description" class="textarea" rows="10" name="description" />
+            <textarea id="description" class="textarea" rows="10" name="description"></textarea>
           </div>
         </div>
 

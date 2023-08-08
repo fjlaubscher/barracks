@@ -91,6 +91,7 @@ CREATE TABLE unit_option (
   inexperienced_cost INTEGER,
   regular_cost INTEGER,
   veteran_cost INTEGER,
+  max_allowed INTEGER,
   rule_id INTEGER,
   unit_id INTEGER NOT NULL,
   weapon_id INTEGER,
