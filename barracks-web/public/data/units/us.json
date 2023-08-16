@@ -441,6 +441,22 @@
             "max": 3
           },
           {
+            "name": "Bangalore Torpedoes",
+            "cost": {
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Demolition Charges",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 12
+          },
+          {
             "name": "SMG",
             "cost": {
               "regular": 3,
@@ -473,6 +489,8 @@
           }
         ],
         "rules": [
+          "Bangalore Torpedoes (if taken)",
+          "Demolition Charges (if taken)",
           "Tank Hunters (if anti-tank grenades taken)"
         ]
       },

@@ -1,0 +1,923 @@
+{
+  "lastUpdated": "2023-08-16T00:00Z",
+  "infantry": {
+    "Headquarters": [
+      {
+        "name": "Officer",
+        "profiles": [
+          {
+            "name": "Second Lieutenant",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          },
+          {
+            "name": "First Lieutenant",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          },
+          {
+            "name": "Captain",
+            "cost": {
+              "inexperienced": 95,
+              "regular": 110,
+              "veteran": 125
+            }
+          },
+          {
+            "name": "Major",
+            "cost": {
+              "inexperienced": 135,
+              "regular": 150,
+              "veteran": 165
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Officer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models",
+          "keys": ["pistol", "smg", "rifle"]
+        },
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      },
+      {
+        "name": "Forward Observer",
+        "profiles": [
+          {
+            "name": "Artillery Forward Observer",
+            "cost": {
+              "regular": 100,
+              "veteran": 115
+            }
+          },
+          {
+            "name": "Air Force Forward Observer",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Forward Observer and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol, submachine gun, or rifle as depicted on the models",
+          "keys": ["pistol", "smg", "rifle"]
+        },
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      },
+      {
+        "name": "Medic",
+        "profiles": [
+          {
+            "name": "Medic",
+            "cost": {
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Medic and up to 2 further soldiers"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models",
+          "keys": ["pistol"]
+        },
+        "options": [
+          {
+            "name": "Attendant",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 2
+          }
+        ],
+        "rules": []
+      }
+    ],
+    "Infantry Squads and Teams": [
+      {
+        "name": "Regular Infantry Section",
+        "profiles": [
+          {
+            "name": "Regular Infantry Section",
+            "cost": {
+              "regular": 50
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 11
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Inexperienced Infantry Section",
+        "profiles": [
+          {
+            "name": "Inexperienced Infantry Section",
+            "cost": {
+              "inexperienced": 35
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "inexperienced": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Green",
+            "cost": {
+              "inexperienced": 0
+            },
+            "max": 11
+          },
+          {
+            "name": "Shirkers",
+            "cost": {
+              "inexperienced": -3
+            },
+            "max": 11
+          }
+        ],
+        "rules": ["Green (if taken)", "Shirkers (if taken)"]
+      },
+      {
+        "name": "Bersaglieri Infantry Section",
+        "profiles": [
+          {
+            "name": "Bersaglieri Infantry Section",
+            "cost": {
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 13
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 11
+          },
+          {
+            "name": "Motorcycle",
+            "cost": {
+              "veteran": 5
+            },
+            "max": 11
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Motorbikes"]
+      },
+      {
+        "name": "Machine Gun Team",
+        "profiles": [
+          {
+            "name": "Machine Gun Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 MMG",
+          "keys": ["mmg"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Team Weapon"]
+      },
+      {
+        "name": "Solothurn 20mm Anti-Tank Rifle",
+        "profiles": [
+          {
+            "name": "Solothurn 20mm Anti-Tank Rifle",
+            "cost": {
+              "inexperienced": 21,
+              "regular": 30,
+              "veteran": 39
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Anti-Tank Rifle",
+          "keys": ["anti-tank-rifle"]
+        },
+        "options": [],
+        "rules": ["Team Weapon"]
+      },
+      {
+        "name": "Sniper Team",
+        "profiles": [
+          {
+            "name": "Sniper Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Rifle",
+          "keys": ["rifle"]
+        },
+        "options": [],
+        "rules": ["Sniper", "Team Weapon"]
+      },
+      {
+        "name": "Flamethrower Team",
+        "profiles": [
+          {
+            "name": "Flamethrower Team",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Flamethrower",
+          "keys": ["infantry-flamethrower"]
+        },
+        "options": [],
+        "rules": ["Flamethrower", "Team Weapon"]
+      },
+      {
+        "name": "Guastatori Destruction Group",
+        "profiles": [
+          {
+            "name": "Guastatori Destruction Group",
+            "cost": {
+              "regular": 88,
+              "veteran": 106
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 5 soldiers",
+          "baseSize": 5
+        },
+        "weapons": {
+          "description": "Rifles, Bangalore Torpedoes and Demolition Charges",
+          "keys": ["infantry-flamethrower", "pistol", "rifle"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 13,
+              "veteran": 16
+            },
+            "max": 6
+          },
+          {
+            "name": "Pistol",
+            "cost": {
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 1
+          },
+          {
+            "name": "Flamethrower",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          }
+        ],
+        "rules": [
+          "Bangalore Torpedoes",
+          "Demolition Charges",
+          "Flamethrower (if taken)",
+          "Tank Hunters",
+          "Team Weapon"
+        ]
+      },
+      {
+        "name": "Light Mortar Team",
+        "profiles": [
+          {
+            "name": "Light Mortar Team",
+            "cost": {
+              "inexperienced": 24,
+              "regular": 35,
+              "veteran": 46
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light mortar",
+          "keys": ["light-mortar"]
+        },
+        "options": [],
+        "rules": ["Indirect Fire", "Team Weapon"]
+      },
+      {
+        "name": "Medium Mortar Team",
+        "profiles": [
+          {
+            "name": "Medium Mortar Team",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium mortar",
+          "keys": ["medium-mortar"]
+        },
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
+      }
+    ]
+  },
+  "artillery": {
+    "Field Artillery": [
+      {
+        "name": "Light Artillery",
+        "profiles": [
+          {
+            "name": "Light Artillery",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light howitzer",
+          "keys": ["light-howitzer"]
+        },
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+      },
+      {
+        "name": "Medium Artillery",
+        "profiles": [
+          {
+            "name": "Medium Artillery",
+            "cost": {
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium howitzer",
+          "keys": ["medium-howitzer"]
+        },
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+      },
+      {
+        "name": "Heavy Artillery",
+        "profiles": [
+          {
+            "name": "Heavy Artillery",
+            "cost": {
+              "regular": 115,
+              "veteran": 138
+            }
+          }
+        ],
+        "composition": {
+          "description": "5 soldiers"
+        },
+        "weapons": {
+          "description": "1 Heavy howitzer",
+          "keys": ["heavy-howitzer"]
+        },
+        "options": [
+          {
+            "name": "Spotter",
+            "cost": {
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+      }
+    ],
+    "Anti-Tank Guns": [
+      {
+        "name": "47/32 Elefantino",
+        "profiles": [
+          {
+            "name": "47/32 Elefantino",
+            "cost": {
+              "inexperienced": 36,
+              "regular": 45,
+              "veteran": 54
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light anti-tank gun",
+          "keys": ["light-at-gun"]
+        },
+        "options": [
+          {
+            "name": "Gun Shield",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Fixed", "Gun shield (if taken)", "Team Weapon"]
+      },
+      {
+        "name": "75/39 Anti-Tank Gun",
+        "profiles": [
+          {
+            "name": "75/39 Anti-Tank Gun",
+            "cost": {
+              "inexperienced": 60,
+              "regular": 75,
+              "veteran": 90
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium anti-tank gun",
+          "keys": ["medium-at-gun"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Gun shield", "Team Weapon"]
+      }
+    ],
+    "Anti-Aircraft Guns": [
+      {
+        "name": "Breda 20MM",
+        "profiles": [
+          {
+            "name": "Breda 20MM",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers"
+        },
+        "weapons": {
+          "description": "1 Light automatic cannon",
+          "keys": ["light-automatic-cannon"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Flak", "Team Weapon"]
+      },
+      {
+        "name": "75/46 Dual-Purpose AA Gun",
+        "profiles": [
+          {
+            "name": "75/46 Dual-Purpose AA Gun",
+            "cost": {
+              "inexperienced": 88,
+              "regular": 110,
+              "veteran": 132
+            }
+          }
+        ],
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Heavy Anti-Tank Gun",
+          "keys": ["heavy-at-gun"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Flak", "Team Weapon"]
+      },
+      {
+        "name": "90/53 Dual-Purpose AA Gun",
+        "profiles": [
+          {
+            "name": "90/53 Dual-Purpose AA Gun",
+            "cost": {
+              "inexperienced": 112,
+              "regular": 140,
+              "veteran": 168
+            }
+          }
+        ],
+        "composition": {
+          "description": "5 soldiers"
+        },
+        "weapons": {
+          "description": "1 Super-Heavy Anti-Tank Gun",
+          "keys": ["super-heavy-at-gun"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Flak", "Team Weapon"]
+      }
+    ]
+  },
+  "vehicles": {
+    "Tanks": [
+      {
+        "name": "Fiat 3000 (L5 Series)",
+        "profiles": [
+          {
+            "name": "Fiat 3000 (L5 Series)",
+            "cost": {
+              "inexperienced": 40,
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "2 turret-mounted MMGs",
+          "keys": ["mmg", "light-at-gun"]
+        },
+        "options": [
+          {
+            "name": "Replace MMGs with a Light Anti-Tank Gun",
+            "cost": {
+              "inexperienced": 30,
+              "regular": 30,
+              "veteran": 30
+            },
+            "max": 1
+          }
+        ],
+        "damage": "7+ (tankette)",
+        "rules": [
+          "1-man Turret: It is always necessary to make an order test when issuing an Advance order, even if the tank is not pinned.",
+          "Slow"
+        ]
+      },
+      {
+        "name": "L3/33 Tankette",
+        "profiles": [
+          {
+            "name": "L3/33 Tankette",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "weapons": {
+          "description": "1 forward-facing hull-mounted MMG",
+          "keys": ["mmg"]
+        },
+        "options": [],
+        "damage": "7+ (tankette)",
+        "rules": []
+      },
+      {
+        "name": "L3/35 Tankette",
+        "profiles": [
+          {
+            "name": "L3/35 Tankette",
+            "cost": {
+              "inexperienced": 48,
+              "regular": 60,
+              "veteran": 72
+            }
+          }
+        ],
+        "weapons": {
+          "description": "1 forward-facing hull-mounted MMG",
+          "keys": ["vehicle-flamethrower", "anti-tank-rifle", "mmg", "hmg"]
+        },
+        "options": [
+          {
+            "name": "Replace MMG with 2 MMGs",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Replace MMG with HMG",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Replace MMG with Anti-Tank Rifle",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 1
+          },
+          {
+            "name": "Replace MMG with Flamethrower and co-axial MMG",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 35,
+              "veteran": 35
+            },
+            "max": 1
+          }
+        ],
+        "damage": "7+ (tankette)",
+        "rules": ["Slow (if upgraded with a flamethrower)"]
+      },
+      {
+        "name": "M11/39 Medium Tank",
+        "profiles": [
+          {
+            "name": "M11/39 Medium Tank",
+            "cost": {
+              "inexperienced": 104,
+              "regular": 130,
+              "veteran": 156
+            }
+          }
+        ],
+        "weapons": {
+          "description": "1 Forward-facing hull-mounted light anti-tank gun and 2 turret-mounted MMGs",
+          "keys": ["mmg", "light-at-gun"]
+        },
+        "options": [
+          {
+            "name": "Pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": [
+          "Vulnerable: All shots to the side and rear of the vehicle get an additional +1 penetration modifier."
+        ]
+      }
+    ],
+    "Tank Destroyers": [],
+    "Self-Propelled Artillery": [
+      {
+        "name": "Semovente 75/18",
+        "profiles": [
+          {
+            "name": "Semovente 75/18",
+            "cost": {
+              "inexperienced": 136,
+              "regular": 170,
+              "veteran": 204
+            }
+          }
+        ],
+        "weapons": {
+          "description": "1 Forward-facing hull-mounted medium anti-tank gun",
+          "keys": ["mmg", "medium-at-gun"]
+        },
+        "options": [
+          {
+            "name": "Forward-facing pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          }
+        ],
+        "damage": "9+ (medium tank)",
+        "rules": [
+          "HE: Instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)",
+          "Vulnerable: All shots to the side and rear of the vehicle get an additional +1 penetration modifier."
+        ]
+      }
+    ],
+    "Anti-Aircraft Vehicles": [],
+    "Armoured Cars": [],
+    "Transports and Tows": [
+      {
+        "name": "General Purpose Truck",
+        "profiles": [
+          {
+            "name": "General Purpose Truck",
+            "cost": {
+              "inexperienced": 31,
+              "regular": 39,
+              "veteran": 47
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": ["mmg"]
+        },
+        "options": [
+          {
+            "name": "Forward-facing pintle-mounted MMG",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "12 soldiers",
+        "tow": "Light howitzer; light or medium anti-tank gun; light anti-aircraft gun",
+        "rules": []
+      }
+    ]
+  }
+}

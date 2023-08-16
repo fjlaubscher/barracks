@@ -135,9 +135,7 @@
         },
         "weapons": {
           "description": "Pistol or none as depicted on the models.",
-          "keys": [
-            "pistol"
-          ]
+          "keys": ["pistol"]
         },
         "options": [
           {
@@ -601,6 +599,20 @@
             "max": 5
           },
           {
+            "name": "Bangalore Torpedoes",
+            "cost": {
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Demolition Charges",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 10
+          },
+          {
             "name": "SMG",
             "cost": {
               "veteran": 3
@@ -629,7 +641,11 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Bangalore Torpedoes (if taken)",
+          "Demolition Charges (if taken)",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Sturmpioniere (Assault Engineer) Squad",
@@ -665,6 +681,20 @@
               "veteran": 13
             },
             "max": 5
+          },
+          {
+            "name": "Bangalore Torpedoes",
+            "cost": {
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Demolition Charges",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 10
           },
           {
             "name": "SMG",
@@ -717,6 +747,8 @@
           }
         ],
         "rules": [
+          "Bangalore Torpedoes (if taken)",
+          "Demolition Charges (if taken)",
           "GrB-39 Grenade Launcher: Every time the model fires this weapon, you can choose either profiles",
           "Sturmpistole: This weapon is treated like a Panzerfaust, except that it only has a range of 6\" and a Pen value of +3. It can, however, be fired normally once a turn and not just once per game.",
           "Tank Hunters (if anti-tank grenades taken)"

@@ -582,6 +582,24 @@
             "max": 5
           },
           {
+            "name": "Bangalore Torpedoes",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          },
+          {
+            "name": "Demolition Charges",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 3
+            },
+            "max": 10
+          },
+          {
             "name": "SMG",
             "cost": {
               "inexperienced": 3,
@@ -628,6 +646,8 @@
           }
         ],
         "rules": [
+          "Bangalore Torpedoes (if taken)",
+          "Demolition Charges (if taken)",
           "Tank Hunters (if anti-tank grenades taken)",
           "Stubborn (if taken)"
         ]

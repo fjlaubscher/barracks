@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-25T00:00Z",
+  "lastUpdated": "2023-08-16T00:00Z",
   "germany": {
     "name": "Armies of Germany",
     "image": "/images/germany.jpg",
@@ -71,6 +71,20 @@
       {
         "name": "Banzai Charge",
         "description": "If a Japanese infantry unit is ordered to Run towards (or assault) the closest visible enemy, any order test for that move is automatically passed, as if the unit had rolled a double one."
+      }
+    ]
+  },
+  "italy": {
+    "name": "Armies of Italy",
+    "image": "/images/italy.jpg",
+    "rules": [
+      {
+        "name": "Avanti Savoia!",
+        "description": "At the beginning of each game turn, subtract the number of units lost by the Italian army from the number of units lost by the enemy (keep track of the Order die lost by both sides). If the number is -3 or worse, all friendly Italian units have their basic Morale reduced by 2. If the number is +3 or better, all friendly Italian units have their basic Morale increased by 2."
+      },
+      {
+        "name": "Defensive Strategy",
+        "description": "In scenarios with an attacker and a defender, first roll as normal to determine which side is going to be the defender. If the Italian player is not the defender, you must re-roll that dice - the second result stands. Note that in an Italian versus Italian battle neither player gets to re-roll. If the Italian army is the defender (including against Italian attackers), it gets the following advantages:\\n- During the first turn of the game, the enemy cannot order his units to Run as they cautiously probe the terrain in front of the Italian line for minefields and make their way across the barbed wire.\\n- The player can re-roll the dice on the Artillery Barrage and Smoke Barrage chart - the Italian artillery is already ranged in on no-man's land.\n- During set-up, any Italian unit starting the game Hidden may start the game already in Ambush. If you decide to do so, place one of your Order Dice already in place next to them, as if you had ordered them to Ambush.\n- After determining table edges, but before either side deploys any unit, roll a D3 - the result is the number of emplacements available to the player. Each emplacement is made of three linear obstacles up to 6\" long and 1\" tall, representing hard cover like sandbags, a section of low wall or earthwork. These are placed by the player so that they are all completely within 12\" of their table edge."
       }
     ]
   },
