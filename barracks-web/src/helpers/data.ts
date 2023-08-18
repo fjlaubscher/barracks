@@ -3,7 +3,8 @@ export const ARMY_NAME_MAPPING: { [key: string]: string } = {
   us: 'United States',
   'great-britain': 'Great Britain',
   'soviet-union': 'Soviet Union',
-  'imperial-japan': 'Imperial Japan'
+  'imperial-japan': 'Imperial Japan',
+  italy: 'Italy'
 };
 
 export const LIST_UNITS_TEMPLATE: Barracks.List.Units = {

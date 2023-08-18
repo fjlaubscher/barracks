@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
 import { MdPostAdd } from 'react-icons/md';
-import { IconButton, Grid, Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
+import { IconButton, Stack, Stat, capitalize, slugify, Image } from '@fjlaubscher/matter';
 import { useNavigate, useParams } from 'react-router-dom';
 
 // components
+import ArmyRules from '../../components/rules/army';
 import ArmyUnitCard from '../../components/army/unit-card';
 import BackButton from '../../components/button/back';
-import Card from '../../components/card';
 import ContentsModal from '../../components/contents-modal';
 import Layout from '../../components/layout';
 import Section from '../../components/section';
@@ -77,13 +77,7 @@ const Army = () => {
               <Image className={styles.book} src={army.image} alt={army.name} />
             </div>
             <Section title="Army Special Rules" description={army.name}>
-              <Grid className={styles.rulesGrid} simple>
-                {army.rules.map((rule, i) => (
-                  <Card key={`army-rule-${i}`} title={rule.name}>
-                    <p>{rule.description}</p>
-                  </Card>
-                ))}
-              </Grid>
+              <ArmyRules army={army} />
             </Section>
           </Stack>
           {Object.keys(units)

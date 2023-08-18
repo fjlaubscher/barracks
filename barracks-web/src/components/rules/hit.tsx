@@ -7,7 +7,7 @@ interface Props {
 }
 
 const Hit = ({ hits }: Props) => (
-  <Table headings={[{ text: 'Type' }, { text: 'Modifier' }]}>
+  <Table className={styles.table} headings={[{ text: 'Type' }, { text: 'Modifier' }]}>
     {hits.map((h, i) => (
       <tr key={`hit-${i}`}>
         <td className={styles.stretch}>{h.type}</td>

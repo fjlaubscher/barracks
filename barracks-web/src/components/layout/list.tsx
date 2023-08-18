@@ -3,11 +3,12 @@ import type { ReactNode } from 'react';
 import { Stat, Stack } from '@fjlaubscher/matter';
 
 // components
-import Card from '../../components/card';
+import ArmyRules from '../rules/army';
 import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
 import Morale from '../rules/morale';
+import Officers from '../rules/officers';
 import Stats from '../../components/stats';
 import Section from '../../components/section';
 import Weapons from '../rules/weapons';
@@ -61,17 +62,16 @@ const ListLayout = ({ action, children, list, showRules = false, showWeapons = f
       {army && data && showRules && (
         <Stack className={styles.rules} direction="column">
           <Section id="army-rules" title="Rules" description={army.name}>
-            {army.rules.map((rule, i) => (
-              <Card key={`army-rule-${i}`} title={rule.name}>
-                <p>{rule.description}</p>
-              </Card>
-            ))}
+            <ArmyRules army={army} />
           </Section>
           <Section title="Rules" description="Damage Value">
             <Damage damage={data.damage} />
           </Section>
           <Section title="Rules" description="Hit Modifiers">
             <Hit hits={data.hit} />
+          </Section>
+          <Section title="Rules" description="Officer Bonuses">
+            <Officers />
           </Section>
           <Section title="Rules" description="Troop Quality and Morale">
             <Morale />

@@ -4,6 +4,10 @@
   white-space: nowrap;
 }
 
+.preWrap {
+  white-space: pre-wrap;
+}
+
 .stretch {
   min-width: 75%;
 }
@@ -16,10 +20,15 @@
   font-style: italic;
 }
 
+.table {
+  font-size: 0.9rem;
+}
+
 .keys {
   font-size: 0.9rem;
   list-style: none;
   padding-left: 0;
+  margin: 0;
 
   li {
     margin-bottom: 0.5rem;
@@ -27,8 +36,9 @@
 }
 
 .list {
-  font-size: 1rem;
+  font-size: 0.9rem;
   padding-left: 1.5rem;
+  margin: 0;
 
   li {
     margin-bottom: 0.5rem;
@@ -50,7 +60,7 @@
 }
 
 .keywords {
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   ul {
     font-size: inherit;

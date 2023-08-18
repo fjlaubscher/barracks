@@ -8,6 +8,7 @@ import Damage from '../../components/rules/damage';
 import Hit from '../../components/rules/hit';
 import Layout from '../../components/layout';
 import Morale from '../../components/rules/morale';
+import Officers from '../../components/rules/officers';
 import Section from '../../components/section';
 import Weapons from '../../components/rules/weapons';
 
@@ -152,6 +153,7 @@ const QuickReferenceRules = () => {
           </Section>
           <Section id="orders" title="Rules" description="Orders">
             <Table
+              className={styles.table}
               headings={[
                 { text: '#' },
                 { text: 'Order' },
@@ -230,43 +232,14 @@ const QuickReferenceRules = () => {
               <Morale />
             </Card>
             <Card id="orders-officers" title="Officer Bonuses">
-              <Table
-                headings={[
-                  { text: 'Rank' },
-                  { text: 'Morale' },
-                  { text: 'Orders' },
-                  { text: 'Range' }
-                ]}
-              >
-                <tr>
-                  <td className={styles.stretch}>Second Lieutenant</td>
-                  <td className={styles.center}>+1</td>
-                  <td className={styles.center}>1</td>
-                  <td className={styles.center}>6"</td>
-                </tr>
-                <tr>
-                  <td className={styles.stretch}>First Lieutenant</td>
-                  <td className={styles.center}>+2</td>
-                  <td className={styles.center}>2</td>
-                  <td className={styles.center}>6"</td>
-                </tr>
-                <tr>
-                  <td className={styles.stretch}>Captain</td>
-                  <td className={styles.center}>+3</td>
-                  <td className={styles.center}>3</td>
-                  <td className={styles.center}>12"</td>
-                </tr>
-                <tr>
-                  <td className={styles.stretch}>Major</td>
-                  <td className={styles.center}>+4</td>
-                  <td className={styles.center}>4</td>
-                  <td className={styles.center}>12"</td>
-                </tr>
-              </Table>
+              <Officers />
             </Card>
           </Section>
           <Section id="movement" title="Rules" description="Movement">
-            <Table headings={[{ text: 'Type' }, { text: 'Advance' }, { text: 'Run' }]}>
+            <Table
+              className={styles.table}
+              headings={[{ text: 'Type' }, { text: 'Advance' }, { text: 'Run' }]}
+            >
               <tr>
                 <td className={styles.noWrap}>Infantry</td>
                 <td className={styles.center}>6"</td>
@@ -299,35 +272,35 @@ const QuickReferenceRules = () => {
                 ]}
               >
                 <tr>
-                  <td>Open Ground</td>
+                  <td className={styles.noWrap}>Open Ground</td>
                   <td>OK</td>
                   <td>OK</td>
                   <td>OK</td>
                   <td>OK</td>
                 </tr>
                 <tr>
-                  <td>Rough Ground</td>
+                  <td className={styles.noWrap}>Rough Ground</td>
                   <td>No Run</td>
                   <td>No*</td>
                   <td>No</td>
                   <td>No Run</td>
                 </tr>
                 <tr>
-                  <td>Obstacle</td>
+                  <td className={styles.noWrap}>Obstacle</td>
                   <td>No Run</td>
                   <td>No</td>
                   <td>No</td>
                   <td>OK*</td>
                 </tr>
                 <tr>
-                  <td>Building</td>
+                  <td className={styles.noWrap}>Building</td>
                   <td>OK</td>
                   <td>No*</td>
                   <td>No</td>
                   <td>No (!)</td>
                 </tr>
                 <tr>
-                  <td>Road</td>
+                  <td className={styles.noWrap}>Road</td>
                   <td>OK</td>
                   <td>OK</td>
                   <td>x2</td>
@@ -383,21 +356,21 @@ const QuickReferenceRules = () => {
                 ]}
               >
                 <tr>
-                  <td>Tracked</td>
+                  <td className={styles.noWrap}>Tracked</td>
                   <td>9"</td>
                   <td>2</td>
                   <td>18"</td>
                   <td>None</td>
                 </tr>
                 <tr>
-                  <td>Half-track</td>
+                  <td className={styles.noWrap}>Half-track</td>
                   <td>9"</td>
                   <td>2</td>
                   <td>18"</td>
                   <td>1</td>
                 </tr>
                 <tr>
-                  <td>Wheeled</td>
+                  <td className={styles.noWrap}>Wheeled</td>
                   <td>12"</td>
                   <td>2</td>
                   <td>24"</td>
@@ -617,6 +590,7 @@ const QuickReferenceRules = () => {
           </Section>
           <Section id="buildings" title="Rules" description="Buildings">
             <Table
+              className={styles.table}
               headings={[
                 { text: 'Type' },
                 { text: 'Line of Sight' },

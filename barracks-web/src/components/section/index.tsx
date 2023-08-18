@@ -47,7 +47,9 @@ const Section = ({
         </IconButton>
       )}
     </Stack>
-    <Stack direction="column">{children}</Stack>
+    <Stack className={styles.content} direction="column">
+      {children}
+    </Stack>
   </Stack>
 );
 
