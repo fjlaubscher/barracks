@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-26T00:00Z",
+  "lastUpdated": "2023-08-21T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -156,6 +156,67 @@
       }
     ],
     "Infantry Squads and Teams": [
+      {
+        "name": "Spähtrupp",
+        "profiles": [
+          {
+            "name": "Spähtrupp",
+            "cost": {
+              "regular": 50,
+              "veteran": 64
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 3 soldiers",
+          "baseSize": 3
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 13,
+              "veteran": 16
+            },
+            "max": 2
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "Stubborn",
+            "cost": {
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 6
+          },
+          {
+            "name": "Fanatics",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 6
+          }
+        ],
+        "rules": [
+          "Escape Reaction: This unit can react when shot at or assaulted as long as they have not taken an action yet, just as described for cavalry units, except that their escape move is a half-distance 6\" Run move. After they have finished their escape move, assign them an Order die displaying the Run action.",
+          "Forward Deployment: This squad may forward deploy in the same way as Snipers and Observers.",
+          "Fanatics (if taken)",
+          "Recon Troops: This unit may spot hidden enemy units at 18\" rather than the normal 12\".",
+          "Stubborn (if taken)"
+        ]
+      },
       {
         "name": "Heer Infantry Squad",
         "profiles": [
@@ -1403,6 +1464,32 @@
         },
         "options": [],
         "rules": ["Sniper", "Team Weapon"]
+      },
+      {
+        "name": "Gewehr 43 Sniper Team",
+        "profiles": [
+          {
+            "name": "Gewehr 43 Sniper Team",
+            "cost": {
+              "regular": 55,
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers"
+        },
+        "weapons": {
+          "description": "Gewehr 43 semi-automatic sniper rifle. Both the sniper and spotter have pistols.",
+          "keys": ["pistol", "rifle"]
+        },
+        "options": [],
+        "rules": [
+          "Fire and Manoeuvre: This unit does not suffer the -1 'to hit' penalty for moving and shooting.",
+          "Semi-automatic: After resolving shooting, roll a die, on a result of 4+ a Veteran sniper gets a second shot. On a roll of a 5+ a Regular sniper gets the second shot. This second shot is taken at the same target.",
+          "Sniper",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Flamethrower Team",

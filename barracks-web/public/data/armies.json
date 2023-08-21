@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-18T00:00Z",
+  "lastUpdated": "2023-08-21T00:00Z",
   "germany": {
     "name": "Armies of Germany",
     "image": "/images/germany.jpg",
@@ -100,11 +100,11 @@
       },
       {
         "name": "Fire and Manoeuvre",
-        "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for shooting and moving."
+        "description": "US infantry models equipped with M1 Garand rifles/carbines and BAR do not suffer the -1 'to hit' penalty for moving and shooting."
       },
       {
         "name": "Gyro-Stabilisers",
-        "description": "When a weapon is described as gyro-stabilised in a vehicle's entry, it does not suffer the -1 'to hit' penalty for shooting and moving if the crew are Veteran. This does not apply to vehicles with Inexperienced or Regular crew, nor does it apply to any co-axial machine gun."
+        "description": "When a weapon is described as gyro-stabilised in a vehicle's entry, it does not suffer the -1 'to hit' penalty for moving and shooting if the crew are Veteran. This does not apply to vehicles with Inexperienced or Regular crew, nor does it apply to any co-axial machine gun."
       },
       {
         "name": "Modern Communications",
