@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import classnames from 'classnames';
 import { MdDelete, MdCopyAll } from 'react-icons/md';
-import { Card as MatterCard, Stack, IconButton, Image } from '@fjlaubscher/matter';
+import { Card as MatterCard, Stack, IconButton } from '@fjlaubscher/matter';
 import type { CardProps } from '@fjlaubscher/matter';
 
 import styles from './card.module.scss';

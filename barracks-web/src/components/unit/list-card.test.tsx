@@ -1,6 +1,9 @@
 import { capitalize } from '@fjlaubscher/matter';
 import { render, screen } from '@testing-library/react';
 
+// components
+import UnitSpecialRules from '../rules/unit-special-rules';
+
 // helpers
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
 import { TestWrapper } from '../../helpers/test-wrapper';
@@ -10,10 +13,14 @@ vi.mock('../../hooks/core', () => ({
   useWeapons: vi.fn().mockReturnValue({ data: [] })
 }));
 
+vi.mock('../rules/unit-special-rules', () => ({ default: vi.fn().mockReturnValue(<div />) }));
+
 import UnitListCard from './list-card';
 import type { Props } from './list-card';
 
 import { MOCK_LIST_UNIT } from './mock';
+
+const UnitSpecialRulesMock = UnitSpecialRules as Function;
 
 const arrangeTest = (props?: Partial<Props>) =>
   render(
@@ -113,8 +120,12 @@ describe('ListUnitCard', () => {
       it('renders the special rules', () => {
         arrangeTest({ displayMode: 'verbose' });
 
-        const specialRules = screen.queryAllByTestId('list-unit-card-rule');
-        expect(specialRules.length).toEqual(MOCK_LIST_UNIT.unit.rules.length);
+        expect(UnitSpecialRulesMock).toHaveBeenCalledWith(
+          expect.objectContaining({
+            rules: MOCK_LIST_UNIT.unit.rules
+          }),
+          {}
+        );
       });
     });
   });

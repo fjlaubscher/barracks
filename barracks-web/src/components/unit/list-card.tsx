@@ -21,7 +21,7 @@ export interface Props {
   showWeapons?: boolean;
 }
 
-const UnitListCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
+const UnitListCard = ({ army, listUnit, displayMode = 'verbose', showWeapons = false }: Props) => {
   const { data: core } = useCore();
   const { data: weapons } = useWeapons(showWeapons ? listUnit.unit.weapons.keys : []);
 
@@ -80,6 +80,7 @@ const UnitListCard = ({ listUnit, displayMode = 'verbose', showWeapons = false }
             {listUnit.unit.rules.length > 0 ? (
               <UnitSpecialRules
                 className={styles.section}
+                army={army}
                 core={core}
                 rules={listUnit.unit.rules}
               />
