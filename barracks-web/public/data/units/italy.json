@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-16T00:00Z",
+  "lastUpdated": "2023-08-24T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -288,6 +288,63 @@
           }
         ],
         "rules": ["Tank Hunters (if anti-tank grenades taken)", "Motorbikes"]
+      },
+      {
+        "name": "San Marco (Marines) Infantry Section",
+        "profiles": [
+          {
+            "name": "San Marco (Marines) Infantry Section",
+            "cost": {
+              "veteran": 70
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["pistol", "smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 14
+            },
+            "max": 4
+          },
+          {
+            "name": "Pistol",
+            "cost": {
+              "veteran": -3
+            },
+            "max": 1
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "veteran": 2
+            },
+            "max": 9
+          }
+        ],
+        "rules": ["Behind Enemy Lines: When Outflanking, units of San Marco marines ignore the -1 modifier to the Order test for coming onto the table.", "Tank Hunters (if anti-tank grenades taken)"]
       },
       {
         "name": "Machine Gun Team",
