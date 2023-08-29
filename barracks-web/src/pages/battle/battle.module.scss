@@ -1,0 +1,48 @@
+.diceBag {
+  display: grid;
+  grid-template-rows: 4rem;
+  width: auto;
+  overflow-x: scroll;
+  gap: 1rem;
+
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+    background-color: var(--color-light-background);
+
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--color-dark-background);
+    }
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-accent);
+  }
+}
+
+.orderDie {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--color-light-surface);
+  color: var(--color-light-text);
+  
+  &.player {
+    background-color: var(--color-info-blue);
+    color: var(--color-dark-text);
+  }
+
+  &.rax {
+    background-color: var(--color-error-red);
+    color: var(--color-dark-text);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-dark-surface);
+    color: var(--color-dark-text);
+  }
+}
