@@ -22,6 +22,22 @@ declare namespace Barracks {
     [key: string]: Army;
   }
 
+  interface Battle {
+    key: string;
+    created: string;
+    name: string;
+    notes: string;
+    playerScore: number;
+    playerListKey: string;
+    opponentScore: number;
+    opponentListKey: string | undefined;
+    isAIOpponent: boolean;
+  }
+
+  interface Battles {
+    [key: string]: Barracks.Battle;
+  }
+
   interface Cost {
     [key: string]: number;
   }
@@ -129,7 +145,7 @@ declare namespace Barracks.Core {
 }
 
 declare namespace Barracks.Data {
-  type ObjectStore = 'ARMIES' | 'CORE' | 'LISTS' | 'UNITS' | 'SPECIAL_RULES';
+  type ObjectStore = 'ARMIES' | 'BATTLES' | 'CORE' | 'LISTS' | 'UNITS';
 }
 
 declare namespace Barracks.List {

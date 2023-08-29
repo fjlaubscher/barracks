@@ -1,6 +1,6 @@
 const DATABASE_NAME = 'BARRACKS';
-const DATABASE_VERSION = 2;
-const OBJECT_STORES = ['ARMIES', 'CORE', 'LISTS', 'UNITS', 'SPECIAL_RULES'];
+const DATABASE_VERSION = 3;
+const OBJECT_STORES = ['ARMIES', 'BATTLES', 'CORE', 'LISTS', 'UNITS'];
 
 const getDBConnectionAsync = (): Promise<IDBDatabase> =>
   new Promise((resolve, reject) => {
