@@ -1,0 +1,59 @@
+$full-size: 6rem;
+$half-size: 3rem;
+
+.perspective {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: $full-size;
+  width: 100%;
+}
+
+.die {
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+  width: $full-size;
+  height: $full-size;
+
+  .face {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $full-size;
+    height: $full-size;
+    border-radius: 0.25rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 1rem;
+    background-color: var(--color-accent);
+    color: var(--color-dark-text);
+  }
+
+  .advance {
+    transform: translateZ($half-size);
+  }
+
+  .run {
+    transform: rotateX(-180deg) translateZ($half-size);
+  }
+
+  .fire {
+    transform: rotateY(90deg) translateZ($half-size);
+  }
+
+  .down {
+    transform: rotateY(-90deg) translateZ($half-size);
+  }
+
+  .rally {
+    transform: rotateX(90deg) translateZ($half-size);
+  }
+
+  .ambush {
+    transform: rotateX(-90deg) translateZ($half-size);
+  }
+}
+

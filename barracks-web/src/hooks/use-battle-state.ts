@@ -6,14 +6,19 @@ type BattleState = {
   actor: 'PLAYER' | 'RAX' | 'NONE';
 };
 
-type BattleAction = {
-  type: 'INITIALIZE' | 'DRAW_ORDER_DIE' | 'COMPLETE_ROUND';
-  payload?: CompleteRoundPayload;
+type DrawOrderDiePayload = {
+  diceBag: string[];
+  actor: BattleState['actor'];
 };
 
 type CompleteRoundPayload = {
   totalPlayerDice: number;
-  totalAiDice: number;
+  totalRaxDice: number;
+};
+
+type BattleAction = {
+  type: 'INITIALIZE' | 'DRAW_ORDER_DIE' | 'COMPLETE_ROUND';
+  payload?: CompleteRoundPayload | DrawOrderDiePayload;
 };
 
 type BattleStateReducer = (state: BattleState, action: BattleAction) => BattleState;
@@ -31,23 +36,16 @@ const reducer: BattleStateReducer = (state, action) => {
     case 'INITIALIZE':
       return {
         actor: 'NONE',
-        diceBag: fillDiceBag(action.payload?.totalPlayerDice, action.payload?.totalAiDice),
+        diceBag: fillDiceBag(action.payload as CompleteRoundPayload),
         round: 1
       };
     case 'DRAW_ORDER_DIE':
-      const newDiceBag = [...state.diceBag];
-      const index = Math.floor(Math.random() * newDiceBag.length);
-      const active = newDiceBag[index] as BattleState['actor'];
-      newDiceBag.splice(index, 1);
-
-      return { ...state, actor: active, diceBag: newDiceBag };
+      return { ...state, ...action.payload };
     case 'COMPLETE_ROUND':
-      const payload = action.payload as CompleteRoundPayload;
-
       return {
         ...state,
         actor: 'NONE',
-        diceBag: fillDiceBag(action.payload?.totalPlayerDice, action.payload?.totalAiDice),
+        diceBag: fillDiceBag(action.payload as CompleteRoundPayload),
         round: state.round + 1
       };
     default:
@@ -55,8 +53,8 @@ const reducer: BattleStateReducer = (state, action) => {
   }
 };
 
-const fillDiceBag = (totalPlayerDice: number = 0, totalAiDice: number = 0) => {
-  if (totalPlayerDice === 0 && totalAiDice === 0) return [];
+const fillDiceBag = ({ totalPlayerDice, totalRaxDice }: CompleteRoundPayload) => {
+  if (!totalPlayerDice && !totalRaxDice) return [];
 
   const diceBag: string[] = [];
 
@@ -64,15 +62,18 @@ const fillDiceBag = (totalPlayerDice: number = 0, totalAiDice: number = 0) => {
     diceBag.push('PLAYER');
   }
 
-  for (let i = 0; i < totalAiDice; i++) {
+  for (let i = 0; i < totalRaxDice; i++) {
     diceBag.push('RAX');
   }
 
-  return diceBag
+  return diceBag;
+};
+
+const shuffleDiceBag = (diceBag: string[]) =>
+  diceBag
     .map((value) => ({ value, sort: Math.random() }))
     .sort((a, b) => a.sort - b.sort)
     .map(({ value }) => value);
-};
 
 const getNextAction = (state: BattleState): BattleAction['type'] => {
   if (state.round === 0) {
@@ -86,35 +87,42 @@ const getNextAction = (state: BattleState): BattleAction['type'] => {
   return 'DRAW_ORDER_DIE';
 };
 
-const useBattleState = () => {
+export const useBattleState = () => {
   const [state, dispatch] = useReducer(reducer, INITIAL_STATE);
 
   const handleInitialize = useCallback(
-    (totalPlayerDice: number, totalAiDice: number) => {
-      dispatch({ type: 'INITIALIZE', payload: { totalPlayerDice, totalAiDice } });
+    (totalPlayerDice: number, totalRaxDice: number) => {
+      dispatch({ type: 'INITIALIZE', payload: { totalPlayerDice, totalRaxDice } });
     },
     [dispatch]
   );
 
   const handleDrawDice = useCallback(() => {
-    dispatch({ type: 'DRAW_ORDER_DIE' });
-  }, [dispatch]);
+    const diceBag = shuffleDiceBag([...state.diceBag]);
+    const actor = diceBag[0] as BattleState['actor'];
+    diceBag.splice(0, 1);
+
+    dispatch({ type: 'DRAW_ORDER_DIE', payload: { diceBag, actor } });
+  }, [state, dispatch]);
 
   const handleCompleteRound = useCallback(
-    (totalPlayerDice: number, totalAiDice: number) => {
-      dispatch({ type: 'COMPLETE_ROUND', payload: { totalPlayerDice, totalAiDice } });
+    (totalPlayerDice: number, totalRaxDice: number) => {
+      dispatch({ type: 'COMPLETE_ROUND', payload: { totalPlayerDice, totalRaxDice } });
     },
     [dispatch]
   );
 
   const memoedState = useMemo(() => {
+    const remainingPlayerDice = state.diceBag.filter((d) => d === 'PLAYER').length;
+    const remainingRaxDice = state.diceBag.length - remainingPlayerDice;
+
     return {
       actor: state.actor,
       round: state.round,
       diceBag: {
         dice: state.diceBag,
-        player: state.diceBag.filter((d) => d === 'PLAYER').length,
-        rax: state.diceBag.filter((d) => d === 'RAX').length
+        remainingPlayerDice,
+        remainingRaxDice
       },
       nextAction: getNextAction(state)
     };
@@ -127,5 +135,3 @@ const useBattleState = () => {
     initialize: handleInitialize
   };
 };
-
-export default useBattleState;
