@@ -475,6 +475,10 @@
       {
         "name": "Turret Rear-Mounted Machine Gun",
         "description": "When firing, first select a target for the tank main gun (or co-axial machine gun) and resolve it. Whichever arc the main gun has engaged an enemy, the rear-mounted machine gun can only shoot into the opposite arc."
+      },
+      {
+        "name": "Vulnerable",
+        "description": "Because of the riveted construction, all shots to the side and rear of the vehicle get an additional +1 penetration modifier."
       }
     ]
   }

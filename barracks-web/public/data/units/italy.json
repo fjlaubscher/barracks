@@ -480,9 +480,35 @@
         "rules": [
           "Bangalore Torpedoes",
           "Demolition Charges",
+          "Engineers: Count as engineers in scenarios where barbed wire and minefield special rules are used.",
           "Flamethrower (if taken)",
           "Tank Hunters",
           "Team Weapon"
+        ]
+      },
+      {
+        "name": "Guastatori Support Group",
+        "profiles": [
+          {
+            "name": "Guastatori Support Group",
+            "cost": {
+              "regular": 100,
+              "veteran": 120
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 5 soldiers",
+          "baseSize": 5
+        },
+        "weapons": {
+          "description": "Pistols, 1 LMG, 1 Light Mortar",
+          "keys": ["pistol", "light-mortar", "lmg"]
+        },
+        "options": [],
+        "rules": [
+          "Engineers: Count as engineers in scenarios where barbed wire and minefield special rules are used.",
+          "Split Fire: The mortar in this group may fire at a different target from the rest of the squad."
         ]
       },
       {
@@ -900,7 +926,7 @@
         ],
         "damage": "8+ (light tank)",
         "rules": [
-          "Vulnerable: All shots to the side and rear of the vehicle get an additional +1 penetration modifier."
+          "Vulnerable"
         ]
       }
     ],
@@ -935,13 +961,58 @@
         ],
         "damage": "9+ (medium tank)",
         "rules": [
-          "HE: Instead of using the 1\" template, a Sherman's HE rounds use the 2\" template (75mm gun tanks)",
-          "Vulnerable: All shots to the side and rear of the vehicle get an additional +1 penetration modifier."
+          "HE: Instead of using the 1\" template, HE rounds use the 2\" template (75mm gun tanks)",
+          "Vulnerable"
         ]
       }
     ],
     "Anti-Aircraft Vehicles": [],
-    "Armoured Cars": [],
+    "Armoured Cars": [{
+      "name": "L6/40",
+      "profiles": [
+        {
+          "name": "L6/40",
+          "cost": {
+            "inexperienced": 76,
+            "regular": 95,
+            "veteran": 114
+          }
+        }
+      ],
+      "weapons": {
+        "description": "1 Turret-mounted light automatic cannon with co-axial MMG",
+        "keys": ["vehicle-flamethrower", "mmg", "light-automatic-cannon"]
+      },
+      "options": [
+        {
+          "name": "Command Tank",
+          "cost": {
+            "inexperienced": 20,
+            "regular": 20,
+            "veteran": 20
+          },
+          "max": 1
+        },
+        {
+          "name": "Flamethrower (replaces automatic cannon)",
+          "cost": {
+            "inexperienced": 10,
+            "regular": 10,
+            "veteran": 10
+          },
+          "max": 1
+        }
+      ],
+      "damage": "8+ (light tank)",
+      "rules": [
+        "Command Vehicle (Command Tank only)",
+        "Flamethrower (if taken): The vehicle loses the Recce rule.",
+        "One-man turret: It is always necessary to make an order test when issuing an Advance order, even if the tank is not pinned.",
+        "Open-Topped (Command Tank only)",
+        "Recce",
+        "Vulnerable"
+      ]
+    }],
     "Transports and Tows": [
       {
         "name": "General Purpose Truck",
