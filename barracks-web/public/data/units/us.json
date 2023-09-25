@@ -232,6 +232,63 @@
         ]
       },
       {
+        "name": "I&R Squad",
+        "profiles": [
+          {
+            "name": "I&R Squad",
+            "cost": {
+              "inexperienced": 32,
+              "regular": 44,
+              "veteran": 56
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 3 soldiers",
+          "baseSize": 3
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": [
+            "smg",
+            "rifle",
+            "automatic-rifle"
+          ]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 8,
+              "regular": 11,
+              "veteran": 14
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "inexperienced": 3,
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 2
+          },
+          {
+            "name": "BAR",
+            "cost": {
+              "inexperienced": 5,
+              "regular": 5,
+              "veteran": 5
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Recon Troops: This unit may spot hidden enemy units at 18\" rather than the normal 12\"."
+        ]
+      },
+      {
         "name": "Regular Infantry Squad (Early / Mid-War)",
         "profiles": [
           {
@@ -1610,6 +1667,31 @@
         "damage": "7+ (armoured car)",
         "rules": [
           "Open-Topped",
+          "Recce"
+        ]
+      },
+      {
+        "name": "Armoured Jeep with Twin Bazookas",
+        "profiles": [
+          {
+            "name": "Armoured Jeep with Twin Bazookas",
+            "cost": {
+              "inexperienced": 84,
+              "regular": 105,
+              "veteran": 121
+            }
+          }
+        ],
+        "weapons": {
+          "description": "2 M9A1 Bazooka rocket launchers with 360° arc of fire",
+          "keys": [
+            "bazooka"
+          ]
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "rules": [
+          "Frontal armour: This vehicle cannot be damaged by small arms hits from the frontal arc but will still be pinned as normal.",
           "Recce"
         ]
       }
