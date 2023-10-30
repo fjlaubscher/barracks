@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-26T00:00Z",
+  "lastUpdated": "2023-10-30T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -186,6 +186,78 @@
       }
     ],
     "Infantry Squads and Teams": [
+      {
+        "name": "Anti-Tank Rifle Squad",
+        "profiles": [
+          {
+            "name": "Anti-Tank Rifle Squad",
+            "cost": {
+              "inexperienced": 35,
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["rifle", "anti-tank-rifle"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "inexperienced": 7,
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-Tank Rifle",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 3
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "inexperienced": 2,
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 7
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Frontnik Anti-Tank Rifle Team",
+        "profiles": [
+          {
+            "name": "Frontnik Anti-Tank Rifle Team",
+            "cost": {
+              "veteran": 45
+            }
+          }
+        ],
+        "composition": {
+          "description": "2 soldiers",
+          "baseSize": 2
+        },
+        "weapons": {
+          "description": "Anti-Tank Rifle",
+          "keys": ["anti-tank-rifle"]
+        },
+        "options": [],
+        "rules": ["Forward Position: Frontnik anti-tank rifle teams may be deployed like snipers.", "Team Weapon"]
+      },
       {
         "name": "Rifle Squad",
         "profiles": [

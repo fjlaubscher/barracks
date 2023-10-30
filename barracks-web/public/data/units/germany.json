@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-21T00:00Z",
+  "lastUpdated": "2023-10-30T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -215,6 +215,80 @@
           "Fanatics (if taken)",
           "Recon Troops: This unit may spot hidden enemy units at 18\" rather than the normal 12\".",
           "Stubborn (if taken)"
+        ]
+      },
+      {
+        "name": "Waffen-SS Wiking Panzergrenadier Squad",
+        "profiles": [
+          {
+            "name": "Waffen-SS Wiking Panzergrenadier Squad",
+            "cost": {
+              "regular": 50,
+              "veteran": 65
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 4 soldiers",
+          "baseSize": 4
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 5
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 3
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Fanatics",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 10
+          },
+          {
+            "name": "Sisu",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 10
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2
+            },
+            "max": 10
+          }
+        ],
+        "rules": [
+          "Fanatics (if taken)",
+          "Sisu (if taken): When this unit is reduced to 50% or less of its starting strength, the remaining models in that unit are automatically upgraded to higher quality - Regulars become Veterans, while Veteran units increase their base morale to 11. If taken, the unit no longer benefits from the Initiative Training national rule.",
+          "Tank Hunters (if anti-tank grenades taken)"
         ]
       },
       {

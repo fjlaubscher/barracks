@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-21T00:00Z",
+  "lastUpdated": "2023-10-30T00:00Z",
   "germany": {
     "name": "Armies of Germany",
     "image": "/images/germany.jpg",
@@ -65,6 +65,18 @@
       {
         "name": "Defensive Strategy",
         "description": "In scenarios with an attacker and a defender, first roll as normal to determine which side is going to be the defender. If the Italian player is not the defender, you must re-roll that dice - the second result stands.<br/>Note that in an Italian versus Italian battle neither player gets to re-roll.<br/><br/>If the Italian army is the defender (including against Italian attackers), it gets the following advantages:<ul><li>During the first turn of the game, the enemy cannot order his units to Run as they cautiously probe the terrain in front of the Italian line for minefields and make their way across the barbed wire.</li><li>The player can re-roll the dice on the Artillery Barrage and Smoke Barrage chart - the Italian artillery is already ranged in on no-man's land.</li><li>During set-up, any Italian unit starting the game Hidden may start the game already in Ambush. If you decide to do so, place one of your Order Dice already in place next to them, as if you had ordered them to Ambush.</li><li>After determining table edges, but before either side deploys any unit, roll a D3 - the result is the number of emplacements available to the player. Each emplacement is made of three linear obstacles up to 6\" long and 1\" tall, representing hard cover like sandbags, a section of low wall or earthwork. These are placed by the player so that they are all completely within 12\" of their table edge.</li></ul>"
+      },
+      {
+        "name": "Improvised AT",
+        "description": "When rolling to penetrate enemy vehicles using AT grenades or weapons with less than +3 penetration, the player may elect to re-roll the result."
+      },
+      {
+        "name": "Large Squads",
+        "description": "Italian infantry units that have 14 or more soldiers remaining cause D2 pins instead of one pin when performing a shooting attack against an enemy unit. Italian squads lose this ability when they have 13 or fewer models remaining in their squad."
+      },
+      {
+        "name": "Cedere, Obbedire, Combattere",
+        "description": "Select one of the following bonuses to add to your army:<br/><br/><strong>Cedere</strong><br/>Blackshirt 'M' Battalion squads and Regular HQ units gain the <i>Fanatics</i> special rule.<br/><br/><strong>Obbedire</strong><br/>Alpini squads gain the <i>Stubborn</i> special rule. Veteran HQ units modelled as Alpini gain the <i>Stubborn</i> and <i>Mountaineers</i> special rules.<br/><br/><strong>Combattere</strong></br>Bersaglieri squads and veteran HQ units modelled as Bersaglieri gain the <i>Fire & Manoeuvre</i> special rule. Rifle-armed models in a unit with the <i>Fire & Manoeuvre</i> rule do not suffer the -1 penalty when <i>Advancing</i>."
       }
     ]
   },

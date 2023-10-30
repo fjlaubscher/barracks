@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-24T00:00Z",
+  "lastUpdated": "2023-10-30T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -171,6 +171,159 @@
               "regular": 2
             },
             "max": 11
+          }
+        ],
+        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Blackshirt 'M' Battalion Squad",
+        "profiles": [
+          {
+            "name": "Blackshirt 'M' Battalion Squad",
+            "cost": {
+              "regular": 99,
+              "veteran": 126
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 8 soldiers",
+          "baseSize": 8
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 11,
+              "veteran": 14
+            },
+            "max": 9
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 18
+          }
+        ],
+        "rules": ["Tough Fighters", "Tank Hunters (if anti-tank grenades taken)"]
+      },
+      {
+        "name": "Savoia Cavalleria Squad",
+        "profiles": [
+          {
+            "name": "Savoia Cavalleria Squad",
+            "cost": {
+              "veteran": 96
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 5 soldiers mounted on horses",
+          "baseSize": 5
+        },
+        "weapons": {
+          "description": "Cavalry Carbines",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "veteran": 16
+            },
+            "max": 6
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "veteran": 20
+            },
+            "max": 1
+          }
+        ],
+        "rules": ["Cavalry", "Cavalry Carbines: These short-barrelled rifles count as pistols when used on horseback and rifles when used on foot.", "Carical: Instead of regrouping after any successful close-quarters combat, Savoia Cavalleria units can immediately be given a new assault order - roll for the Order test as normal. This can be done once per game turn."]
+      },
+      {
+        "name": "Fucilieri Squad",
+        "profiles": [
+          {
+            "name": "Fucilieri Squad",
+            "cost": {
+              "regular": 100,
+              "veteran": 130
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 NCO and 9 soldiers",
+          "baseSize": 9
+        },
+        "weapons": {
+          "description": "Rifles",
+          "keys": ["smg", "rifle", "lmg"]
+        },
+        "options": [
+          {
+            "name": "Additional soldier",
+            "cost": {
+              "regular": 10,
+              "veteran": 13
+            },
+            "max": 10
+          },
+          {
+            "name": "SMG",
+            "cost": {
+              "regular": 3,
+              "veteran": 3
+            },
+            "max": 1
+          },
+          {
+            "name": "LMG",
+            "cost": {
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 2
+          },
+          {
+            "name": "Anti-tank grenades",
+            "cost": {
+              "regular": 2,
+              "veteran": 2
+            },
+            "max": 20
           }
         ],
         "rules": ["Tank Hunters (if anti-tank grenades taken)"]
@@ -658,6 +811,28 @@
           }
         ],
         "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+      },
+      {
+        "name": "75/32 Modello 37",
+        "profiles": [
+          {
+            "name": "75/32 Modello 37",
+            "cost": {
+              "inexperienced": 64,
+              "regular": 80,
+              "veteran": 96
+            }
+          }
+        ],
+        "composition": {
+          "description": "4 soldiers"
+        },
+        "weapons": {
+          "description": "1 Medium anti-tank gun",
+          "keys": ["light-howitzer", "medium-at-gun"]
+        },
+        "options": [],
+        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon", "Versatile: The 75/32 Modello 37 can also fire as a light howitzer."]
       }
     ],
     "Anti-Tank Guns": [
