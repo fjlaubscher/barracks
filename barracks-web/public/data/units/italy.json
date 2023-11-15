@@ -1182,7 +1182,7 @@
       "rules": [
         "Command Vehicle (Command Tank only)",
         "Flamethrower (if taken): The vehicle loses the Recce rule.",
-        "One-man turret: It is always necessary to make an order test when issuing an Advance order, even if the tank is not pinned.",
+        "One-man Turret",
         "Open-Topped (Command Tank only)",
         "Recce",
         "Vulnerable"

@@ -285,6 +285,14 @@
       "rules": ["Flamethrower"],
       "heavy": true
     },
+    "vb-launcher": {
+      "type": "VB Launcher",
+      "range": "6-18",
+      "shots": "1",
+      "pen": "HE",
+      "rules": ["Indirect Fire", "HE (1\")"],
+      "heavy": false
+    },
     "light-mortar": {
       "type": "Light mortar",
       "range": "12-24",
@@ -459,6 +467,10 @@
       {
         "name": "Open-Topped",
         "description": "Open-topped armoured vehicles are pinned by hits from small-arms in the same way as soft-skins and infantry. If assaulted by infantry open-topped armoured vehicles are destroyed automatically if the vehicle is damaged, in the same was as for soft-skins.<br/><br/>If hit by indirect fire then add +1 to the damage result roll to represent the effect of a shot falling into an open-topped vehicle. Note that all hits upon the upper surface of armoured vehicles count +1 penetration regardless of whether the target is open or not - so open-topped armoured vehicles suffer a double penalty: +1 penetration and +1 damage result."
+      },
+      {
+        "name": "One-man Turret",
+        "description": "It is always necessary to make an order test when issuing an Advance order, even if the tank is not pinned."
       },
       {
         "name": "Recce",

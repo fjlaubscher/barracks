@@ -1,5 +1,23 @@
 {
   "lastUpdated": "2023-10-30T00:00Z",
+  "france": {
+    "name": "Armies of France",
+    "image": "/images/france.jpg",
+    "rules": [
+      {
+        "name": "Communication Breakdown!",
+        "description": "In the first turn of the game, if the first Order Die drawn from the bag is one of yours, the enemy can decide that the die is put back into the bag and a new Order Die is drawn instead."
+      },
+      {
+        "name": "Forward Artillery Doctrine",
+        "description": "French armies get one free Inexperienced or Regular artillery unit. This unit can be any anti-tank gun or field artillery piece in the French army list (except for Heavy Artillery).<br/>This unit is in addition to the number of artillery units normally available."
+      },
+      {
+        "name": "Hurriedly Conscripted Reserves",
+        "description": "If the force includes three or more Inexperienced Infantry Sections, then it may include a free Inexperienced Infantry Section identical to the cheapest one already purchased.<br/>This free section is in addition to units chosen from whatever selector is used."
+      }
+    ]
+  },
   "germany": {
     "name": "Armies of Germany",
     "image": "/images/germany.jpg",

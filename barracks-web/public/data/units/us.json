@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-21T00:00Z",
+  "lastUpdated": "2023-11-15T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -1204,6 +1204,39 @@
         ]
       },
       {
+        "name": "Light Mortar Team",
+        "profiles": [
+          {
+            "name": "Light Mortar Team",
+            "cost": {
+              "inexperienced": 28,
+              "regular": 40,
+              "veteran": 52
+            }
+          },
+          {
+            "name": "Light Mortar Team (Paratroopers)",
+            "cost": {
+              "veteran": 46
+            }
+          }
+        ],
+        "composition": {
+          "description": "3 soldiers (2 soldiers for Paratroopers)"
+        },
+        "weapons": {
+          "description": "1 Light mortar",
+          "keys": [
+            "light-mortar"
+          ]
+        },
+        "options": [],
+        "rules": [
+          "Indirect Fire",
+          "Team Weapon"
+        ]
+      },
+      {
         "name": "Medium Mortar Team",
         "profiles": [
           {
@@ -1698,10 +1731,97 @@
     ],
     "Transports and Tows": [
       {
-        "name": "2½ Ton Truck",
+        "name": "M3 White Scout Car",
         "profiles": [
           {
-            "name": "2½ Ton Truck",
+            "name": "M3 White Scout Car",
+            "cost": {
+              "inexperienced": 69,
+              "regular": 86,
+              "veteran": 103
+            }
+          }
+        ],
+        "weapons": {
+          "description": "1 Pintle-mounted HMG covering the forward arc",
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pintle-mounted MMG (left & rear arc)",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          },
+          {
+            "name": "Pintle-mounted MMG (right & rear arc)",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          },
+          {
+            "name": "Replace transport capacity with Recce",
+            "cost": {
+              "inexperienced": 0,
+              "regular": 0,
+              "veteran": 0
+            },
+            "max": 1
+          }
+        ],
+        "damage": "7+ (armoured car)",
+        "transport": "8 soldiers",
+        "tow": "Light or medium anti-tank gun; light howitzer, light anti-aircraft gun",
+        "rules": ["Open-topped", "Recce (if taken)"]
+      },
+      {
+        "name": "Dodge ¾ Ton Truck",
+        "profiles": [
+          {
+            "name": "Dodge ¾ Ton Truck",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 31,
+              "veteran": 37
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": [
+            "mmg"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pintle-mounted MMG with 360° arc of fire",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "8 soldiers",
+        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
+        "rules": []
+      },
+      {
+        "name": "1½ Ton Truck",
+        "profiles": [
+          {
+            "name": "1½ Ton Truck",
             "cost": {
               "inexperienced": 31,
               "regular": 39,
@@ -1718,7 +1838,7 @@
         },
         "options": [
           {
-            "name": "Pintle-mounted MMG",
+            "name": "Pintle-mounted MMG with 360° arc of fire",
             "cost": {
               "inexperienced": 15,
               "regular": 15,
@@ -1727,7 +1847,7 @@
             "max": 1
           },
           {
-            "name": "Pintle-mounted HMG",
+            "name": "Pintle-mounted HMG with 360° arc of fire",
             "cost": {
               "inexperienced": 25,
               "regular": 25,
@@ -1738,6 +1858,50 @@
         ],
         "damage": "6+ (soft-skinned)",
         "transport": "12 soldiers",
+        "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
+        "rules": []
+      },
+      {
+        "name": "2½ Ton Truck",
+        "profiles": [
+          {
+            "name": "2½ Ton Truck",
+            "cost": {
+              "inexperienced": 41,
+              "regular": 51,
+              "veteran": 61
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pintle-mounted MMG with 360° arc of fire",
+            "cost": {
+              "inexperienced": 15,
+              "regular": 15,
+              "veteran": 15
+            },
+            "max": 1
+          },
+          {
+            "name": "Pintle-mounted HMG with 360° arc of fire",
+            "cost": {
+              "inexperienced": 25,
+              "regular": 25,
+              "veteran": 25
+            },
+            "max": 1
+          }
+        ],
+        "damage": "6+ (soft-skinned)",
+        "transport": "18 soldiers",
         "tow": "Light, medium or heavy anti-tank gun; light or medium howitzer, light or heavy anti-aircraft gun",
         "rules": []
       },
