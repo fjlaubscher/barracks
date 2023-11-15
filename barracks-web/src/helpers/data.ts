@@ -4,7 +4,8 @@ export const ARMY_NAME_MAPPING: { [key: string]: string } = {
   'great-britain': 'Great Britain',
   'soviet-union': 'Soviet Union',
   'imperial-japan': 'Imperial Japan',
-  italy: 'Italy'
+  italy: 'Italy',
+  france: 'France'
 };
 
 export const LIST_UNITS_TEMPLATE: Barracks.List.Units = {

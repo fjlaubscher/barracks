@@ -51,7 +51,9 @@ const UnitSpecialRules = ({ className, army, core, rules }: Props) => {
           </div>
           <div
             className={styles.description}
-            dangerouslySetInnerHTML={{ __html: selectedRule?.description || '' }}
+            dangerouslySetInnerHTML={{
+              __html: selectedRule?.description || 'Error retrieving rule description'
+            }}
           />
         </Stack>
       </Modal>

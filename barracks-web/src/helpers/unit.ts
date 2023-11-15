@@ -20,21 +20,22 @@ export const buildListUnitComposition = (listUnit: Barracks.List.Unit) => {
   const hasUnitLeader = listUnit.unit.composition.description.includes('and');
 
   if (hasUnitLeader) {
-    const additionalSoldiers = listUnit.options.filter(
-      (o) => o.option.name.toLowerCase() === 'additional soldier'
-    )[0];
+    // some armies include "Additional Soldier" with various equipment, all of those should be accumulated
+    const totalAdditionalSoldiers = listUnit.options
+      .filter((o) => o.option.name.toLowerCase().includes('additional soldier'))
+      .reduce((total, option) => total + option.amount, 0);
     const attendants = listUnit.options.filter(
       (o) => o.option.name.toLowerCase() === 'attendant'
     )[0];
     const unitLeader = listUnit.unit.composition.description.split('and')[0].trim();
     const soldiers = listUnit.unit.composition.baseSize || 0;
-    const totalSoldiers = soldiers + (additionalSoldiers?.amount || 0) + (attendants?.amount || 0);
+    const totalSoldiers = soldiers + totalAdditionalSoldiers + (attendants?.amount || 0);
 
     if (attendants?.amount) {
       return `${unitLeader} and ${
         totalSoldiers > 1 ? `${totalSoldiers} attendants` : '1 attendant'
       }`;
-    } else if (additionalSoldiers?.amount || soldiers) {
+    } else if (totalAdditionalSoldiers || soldiers) {
       return `${unitLeader} and ${totalSoldiers > 1 ? `${totalSoldiers} soldiers` : '1 soldier'}`;
     } else {
       return unitLeader;
