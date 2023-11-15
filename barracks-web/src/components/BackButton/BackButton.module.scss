@@ -1,0 +1,15 @@
+@use '@fjlaubscher/matter/src/styles/colors';
+
+.back {
+  justify-content: start;
+  gap: 1rem;
+  background-color: darken(#f0f0f0, 10%);
+  color: colors.$light-text;
+  padding: 0.75rem 1rem;
+  max-width: 8rem;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: lighten(#202020, 20%);
+    color: colors.$dark-text;
+  }
+}

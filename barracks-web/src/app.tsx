@@ -2,15 +2,15 @@ import { Suspense } from 'react';
 import { Loader } from '@fjlaubscher/matter';
 
 // components
-import Layout from './components/layout';
+import AppLayout from './components/AppLayout';
 
 import Routes from './routes';
 
 const App = () => {
   const fallback = (
-    <Layout title="" isLoading>
+    <AppLayout title="" isLoading>
       <Loader />
-    </Layout>
+    </AppLayout>
   );
 
   return (

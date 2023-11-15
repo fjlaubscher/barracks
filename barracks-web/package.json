@@ -13,7 +13,7 @@
     "build": "tsc && vite build",
     "postbuild": "react-snap",
     "preview": "vite preview",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format": "prettier --write \"src/**/*.{ts,tsx,scss}\"",
     "test": "vitest run",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"

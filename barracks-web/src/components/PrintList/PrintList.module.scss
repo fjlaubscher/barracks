@@ -1,0 +1,41 @@
+.print {
+  padding: 1rem;
+
+  .noBreak {
+    page-break-inside: avoid;
+  }
+
+  .stats {
+    margin-top: 0;
+  }
+
+  .listRules {
+    font-size: 0.9rem;
+    page-break-inside: avoid;
+
+    .armyRule {
+      h4 {
+        margin-bottom: 0;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    table {
+      page-break-inside: avoid;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+
+      td {
+        background-color: #fff;
+        padding: 0.25rem;
+
+        @media (prefers-color-scheme: dark) {
+          background-color: var(--color-dark-background);
+        }
+      }
+    }
+  }
+}
