@@ -1,0 +1,78 @@
+@use '@fjlaubscher/matter/src/styles/breakpoints';
+
+.noWrap {
+  white-space: nowrap;
+}
+
+.stretch {
+  min-width: 75%;
+}
+
+.center {
+  text-align: center;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.table {
+  font-size: 0.9rem;
+}
+
+.keys {
+  font-size: 0.9rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.list {
+  font-size: 0.9rem;
+  padding-left: 1.5rem;
+  margin: 0;
+
+  li {
+    margin-bottom: 0.5rem;
+
+    ol {
+      list-style: lower-roman;
+    }
+
+    ul,
+    ol {
+      padding-top: 0.5rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.notes {
+  font-size: 0.8rem;
+}
+
+.link {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .book {
+    @media (min-width: breakpoints.$tablet) {
+      max-width: 10rem;
+    }
+  }
+
+  @media (min-width: breakpoints.$tablet) {
+    flex-direction: row;
+  }
+}

@@ -1,22 +1,22 @@
 import { lazy, useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 
-const About = lazy(() => import('./pages/about'));
-const CreateList = lazy(() => import('./pages/list/create'));
-const EditList = lazy(() => import('./pages/list/edit'));
-const AddListUnit = lazy(() => import('./pages/list-unit'));
-const EditListUnit = lazy(() => import('./pages/list-unit/edit'));
-const List = lazy(() => import('./pages/list'));
-const Lists = lazy(() => import('./pages/lists'));
-const PrintList = lazy(() => import('./pages/list/print'));
-const Rules = lazy(() => import('./pages/rules'));
-const Armies = lazy(() => import('./pages/rules/armies'));
-const Army = lazy(() => import('./pages/rules/army'));
-const CoreRules = lazy(() => import('./pages/rules/core'));
-const SpecialRules = lazy(() => import('./pages/rules/special-rules'));
+const About = lazy(() => import('./pages/About'));
+const CreateList = lazy(() => import('./pages/CreateList'));
+const EditList = lazy(() => import('./pages/EditList'));
+const AddListUnit = lazy(() => import('./pages/CreateListUnit'));
+const EditListUnit = lazy(() => import('./pages/EditListUnit'));
+const List = lazy(() => import('./pages/List'));
+const Lists = lazy(() => import('./pages/Lists'));
+const PrintList = lazy(() => import('./pages/PrintList'));
+const Rules = lazy(() => import('./pages/Rules'));
+const Armies = lazy(() => import('./pages/Armies'));
+const Army = lazy(() => import('./pages/Army'));
+const CoreRules = lazy(() => import('./pages/CoreRules'));
+const SpecialRules = lazy(() => import('./pages/SpecialRules'));
 const Settings = lazy(() => import('./pages/settings'));
-const NotFound = lazy(() => import('./pages/not-found'));
-const Home = lazy(() => import('./pages/home'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Home = lazy(() => import('./pages/Home'));
 
 const AppRoutes = () => {
   const location = useLocation();

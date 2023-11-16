@@ -1,0 +1,43 @@
+.ruleModal {
+  height: 100%;
+
+  .close {
+    font-size: 1.25rem;
+    padding: 0;
+  }
+
+  .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-accent);
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+  .description {
+    height: 100%;
+    max-height: 65vh;
+    overflow-y: auto;
+    padding-right: 0.5rem;
+
+    &::-webkit-scrollbar {
+      width: 0.25rem;
+      background-color: var(--color-light-background);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-dark-background);
+      }
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(---color-accent);
+
+      @media (prefers-color-scheme: dark) {
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}

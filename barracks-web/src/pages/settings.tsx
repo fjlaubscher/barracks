@@ -6,15 +6,15 @@ import { MdSave } from 'react-icons/md';
 import { useLocalStorage } from 'usehooks-ts';
 
 // components
-import SettingsForm from '../components/settings/form';
-import Layout from '../components/layout';
+import AppLayout from '../components/AppLayout';
+import SettingsForm from '../components/SettingsForm';
 
 // helpers
 import { DEFAULT_SETTINGS } from '../data/settings';
 import { SETTINGS } from '../data/storage';
 
 // hooks
-import { useArmies } from '../hooks/army';
+import { useArmies } from '../hooks/use-army';
 
 const Settings = () => {
   const toast = useToast();
@@ -50,7 +50,7 @@ const Settings = () => {
 
   return (
     <FormProvider {...form}>
-      <Layout
+      <AppLayout
         title="Settings"
         isLoading={loadingArmies}
         action={
@@ -65,7 +65,7 @@ const Settings = () => {
         }
       >
         {armies && <SettingsForm armies={armies} onSubmit={handleSubmit} />}
-      </Layout>
+      </AppLayout>
     </FormProvider>
   );
 };

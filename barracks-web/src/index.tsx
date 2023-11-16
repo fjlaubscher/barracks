@@ -9,7 +9,7 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 import './styles/global.scss';
 
 import App from './app';
-import ErrorBoundary from './components/error-boundary';
+import ErrorBoundary from './components/ErrorBoundary';
 
 const BarracksApp = () => (
   <React.StrictMode>
