@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-10-30T00:00Z",
+  "lastUpdated": "2023-11-16T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -43,7 +43,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -81,7 +85,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -93,7 +101,9 @@
             "max": 2
           }
         ],
-        "rules": ["Massed Batteries (Artillery Forward Observer)"]
+        "rules": [
+          "Massed Batteries (Artillery Forward Observer)"
+        ]
       },
       {
         "name": "Medic",
@@ -111,7 +121,9 @@
         },
         "weapons": {
           "description": "Pistol or none as depicted on the models.",
-          "keys": ["pistol"]
+          "keys": [
+            "pistol"
+          ]
         },
         "options": [
           {
@@ -140,7 +152,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -151,7 +167,9 @@
             "max": 2
           }
         ],
-        "rules": ["Not One Step Back!"]
+        "rules": [
+          "Not One Step Back!"
+        ]
       },
       {
         "name": "Frontnik Commissar",
@@ -168,7 +186,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -182,6 +204,67 @@
         "rules": [
           "Inspiring Rhetoric: Aside from watching for political disloyalty, the commissar also helped train and boost the confidence of new soldiers. Inexperienced squads within 6\" of the commissar do not suffer the -1 to hit penalty for being inexperienced.",
           "Not One Step Back!"
+        ]
+      },
+      {
+        "name": "Chaplain",
+        "profiles": [
+          {
+            "name": "Chaplain",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 25,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Chaplain"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models.",
+          "keys": [
+            "pistol"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pistol",
+            "cost": {
+              "inexperienced": 1,
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Inspiring Presence: Upon receiving his order die (except for Down), a chaplain may select one friendly unit within 6\" and roll a D6, applying the following modifiers: Inexperienced -1, Veteran +1. On a 4+, the chaplain may remove 1 pin from the selected unit.",
+          "Non-Combatant: The chaplain is there to support the soldiers, not win battles. A chaplain unit cannot be used to claim or contest objectives.",
+          "Self-Defence Only: Clergymen are not soldiers and will not take part in hostile actions - they cannot fire any weapon, nor assault enemy units. However, there is anecdotal evidence of several examples of chaplains who broke regulations to carry a pistol for self-defence only; German chaplains were even issued with a pistol. If your chaplain is equipped with a pistol, it can only be used in close quarters if the enemy assaults him (including firing it at the assaulting enemies as a reaction, if applicable)."
+        ]
+      },
+      {
+        "name": "Field Ambulance",
+        "profiles": [
+          {
+            "name": "Field Ambulance",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": []
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "transport": "None",
+        "tow": "",
+        "rules": [
+          "Medical Vehicle: Being in proximity of an ambulance means that any wounded soldiers nearby have a chance of being treated\nby a medic or stretcher bearer from amongst the crew of the ambulance. All infantry and artillery units within 6\" of the vehicle\ncount as within 6\" of a Medic."
         ]
       }
     ],
@@ -204,7 +287,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["rifle", "anti-tank-rifle"]
+          "keys": [
+            "rifle",
+            "anti-tank-rifle"
+          ]
         },
         "options": [
           {
@@ -235,7 +321,9 @@
             "max": 7
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Frontnik Anti-Tank Rifle Team",
@@ -253,10 +341,15 @@
         },
         "weapons": {
           "description": "Anti-Tank Rifle",
-          "keys": ["anti-tank-rifle"]
+          "keys": [
+            "anti-tank-rifle"
+          ]
         },
         "options": [],
-        "rules": ["Forward Position: Frontnik anti-tank rifle teams may be deployed like snipers.", "Team Weapon"]
+        "rules": [
+          "Forward Position: Frontnik anti-tank rifle teams may be deployed like snipers.",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Rifle Squad",
@@ -274,7 +367,9 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["rifle"]
+          "keys": [
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -299,7 +394,10 @@
             "max": 12
           }
         ],
-        "rules": ["Green", "Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Green",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Light Machine Gun Squad",
@@ -318,7 +416,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -362,7 +464,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Submachine Gun Squad",
@@ -381,7 +485,10 @@
         },
         "weapons": {
           "description": "Submachine guns",
-          "keys": ["smg", "lmg"]
+          "keys": [
+            "smg",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -417,7 +524,9 @@
             "max": 12
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Tank Riders Squad",
@@ -436,7 +545,10 @@
         },
         "weapons": {
           "description": "Submachine guns",
-          "keys": ["smg", "lmg"]
+          "keys": [
+            "smg",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -493,7 +605,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -532,7 +649,9 @@
             "max": 11
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Veteran Squad",
@@ -550,7 +669,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["panzerfaust", "smg", "rifle", "lmg"]
+          "keys": [
+            "panzerfaust",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -617,7 +741,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -649,7 +777,9 @@
             "max": 11
           }
         ],
-        "rules": ["Fanatics (if option is taken)"]
+        "rules": [
+          "Fanatics (if option is taken)"
+        ]
       },
       {
         "name": "Assault Engineer Squad",
@@ -667,7 +797,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["infantry-flamethrower", "smg", "rifle", "lmg"]
+          "keys": [
+            "infantry-flamethrower",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -749,7 +884,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle"]
+          "keys": [
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -796,7 +934,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle"]
+          "keys": [
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -851,7 +992,9 @@
         },
         "weapons": {
           "description": "1 MMG",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {
@@ -887,7 +1030,9 @@
         },
         "weapons": {
           "description": "1 Anti-tank rifle",
-          "keys": ["anti-tank-rifle"]
+          "keys": [
+            "anti-tank-rifle"
+          ]
         },
         "options": [],
         "rules": [
@@ -911,7 +1056,9 @@
         },
         "weapons": {
           "description": "1 Infantry flamethrower",
-          "keys": ["infantry-flamethrower"]
+          "keys": [
+            "infantry-flamethrower"
+          ]
         },
         "options": [
           {
@@ -945,10 +1092,15 @@
         },
         "weapons": {
           "description": "1 Rifle",
-          "keys": ["rifle"]
+          "keys": [
+            "rifle"
+          ]
         },
         "options": [],
-        "rules": ["Sniper", "Team Weapon"]
+        "rules": [
+          "Sniper",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Sniper Detachment",
@@ -965,7 +1117,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle"]
+          "keys": [
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -1002,7 +1157,9 @@
         },
         "weapons": {
           "description": "Sniper Rifles",
-          "keys": ["rifle"]
+          "keys": [
+            "rifle"
+          ]
         },
         "options": [],
         "rules": [
@@ -1027,10 +1184,15 @@
         },
         "weapons": {
           "description": "1 Light mortar",
-          "keys": ["light-mortar"]
+          "keys": [
+            "light-mortar"
+          ]
         },
         "options": [],
-        "rules": ["Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -1049,7 +1211,9 @@
         },
         "weapons": {
           "description": "1 Medium mortar",
-          "keys": ["medium-mortar"]
+          "keys": [
+            "medium-mortar"
+          ]
         },
         "options": [
           {
@@ -1062,7 +1226,11 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -1085,10 +1253,17 @@
         },
         "weapons": {
           "description": "1 Light howitzer",
-          "keys": ["light-howitzer"]
+          "keys": [
+            "light-howitzer"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -1109,10 +1284,16 @@
         },
         "weapons": {
           "description": "1 Medium anti-tank gun",
-          "keys": ["medium-at-gun"]
+          "keys": [
+            "medium-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Team Weapon"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -1133,10 +1314,16 @@
         },
         "weapons": {
           "description": "1 Platform-mounted heavy automatic cannon",
-          "keys": ["heavy-automatic-cannon"]
+          "keys": [
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Flak", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Flak",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -1164,7 +1351,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted light anti-tank gun with co-axial MMG",
-          "keys": ["mmg", "light-at-gun", "light-howitzer"]
+          "keys": [
+            "mmg",
+            "light-at-gun",
+            "light-howitzer"
+          ]
         },
         "options": [
           {
@@ -1194,7 +1385,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [],
         "damage": "9+ (medium tank)",
@@ -1214,7 +1408,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [
           {
@@ -1243,7 +1440,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted heavy anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1272,7 +1472,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted heavy anti-tank gun with co-axial MMG, 1 turret-mounted rear-facing MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [],
         "damage": "10+ (heavy tank)",
@@ -1297,7 +1500,9 @@
         ],
         "weapons": {
           "description": "1 Casement-mounted forward facing heavy anti-tank gun",
-          "keys": ["heavy-at-gun"]
+          "keys": [
+            "heavy-at-gun"
+          ]
         },
         "options": [],
         "damage": "8+ (light tank)",
@@ -1319,11 +1524,16 @@
         ],
         "weapons": {
           "description": "1 Forward facing light howitzer",
-          "keys": ["light-howitzer"]
+          "keys": [
+            "light-howitzer"
+          ]
         },
         "options": [],
         "damage": "8+ (light tank)",
-        "rules": ["Howitzer", "Open-Topped"]
+        "rules": [
+          "Howitzer",
+          "Open-Topped"
+        ]
       },
       {
         "name": "Katyusha Rocket Launcher",
@@ -1339,11 +1549,16 @@
         ],
         "weapons": {
           "description": "1 Forward facing Katyusha multiple rocket launcher (heavy mortar)",
-          "keys": ["heavy-mortar"]
+          "keys": [
+            "heavy-mortar"
+          ]
         },
         "options": [],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Indirect Fire", "Multiple Launcher"]
+        "rules": [
+          "Indirect Fire",
+          "Multiple Launcher"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1361,7 +1576,10 @@
         ],
         "weapons": {
           "description": "4 turret-mounted MMGs",
-          "keys": ["mmg", "heavy-automatic-cannon"]
+          "keys": [
+            "mmg",
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [
           {
@@ -1375,7 +1593,9 @@
           }
         ],
         "damage": "6+ (soft-skinned)",
-        "rules": ["Flak"]
+        "rules": [
+          "Flak"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -1393,11 +1613,16 @@
         ],
         "weapons": {
           "description": "1 turreted LMG with 360° arc",
-          "keys": ["lmg"]
+          "keys": [
+            "lmg"
+          ]
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Open-Topped", "Recce"]
+        "rules": [
+          "Open-Topped",
+          "Recce"
+        ]
       }
     ],
     "Transports and Tows": [
@@ -1415,7 +1640,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {
@@ -1446,7 +1673,10 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {

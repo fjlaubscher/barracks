@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-10-30T00:00Z",
+  "lastUpdated": "2023-11-16T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -43,7 +43,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -81,7 +85,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -110,7 +118,9 @@
         },
         "weapons": {
           "description": "Pistol or none as depicted on the models",
-          "keys": ["pistol"]
+          "keys": [
+            "pistol"
+          ]
         },
         "options": [
           {
@@ -122,6 +132,67 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Chaplain",
+        "profiles": [
+          {
+            "name": "Chaplain",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 25,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Chaplain"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models.",
+          "keys": [
+            "pistol"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pistol",
+            "cost": {
+              "inexperienced": 1,
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Inspiring Presence: Upon receiving his order die (except for Down), a chaplain may select one friendly unit within 6\" and roll a D6, applying the following modifiers: Inexperienced -1, Veteran +1. On a 4+, the chaplain may remove 1 pin from the selected unit.",
+          "Non-Combatant: The chaplain is there to support the soldiers, not win battles. A chaplain unit cannot be used to claim or contest objectives.",
+          "Self-Defence Only: Clergymen are not soldiers and will not take part in hostile actions - they cannot fire any weapon, nor assault enemy units. However, there is anecdotal evidence of several examples of chaplains who broke regulations to carry a pistol for self-defence only; German chaplains were even issued with a pistol. If your chaplain is equipped with a pistol, it can only be used in close quarters if the enemy assaults him (including firing it at the assaulting enemies as a reaction, if applicable)."
+        ]
+      },
+      {
+        "name": "Field Ambulance",
+        "profiles": [
+          {
+            "name": "Field Ambulance",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": []
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "transport": "None",
+        "tow": "",
+        "rules": [
+          "Medical Vehicle: Being in proximity of an ambulance means that any wounded soldiers nearby have a chance of being treated\nby a medic or stretcher bearer from amongst the crew of the ambulance. All infantry and artillery units within 6\" of the vehicle\ncount as within 6\" of a Medic."
+        ]
       }
     ],
     "Infantry Squads and Teams": [
@@ -141,7 +212,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -173,7 +248,9 @@
             "max": 11
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Blackshirt 'M' Battalion Squad",
@@ -192,7 +269,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -228,7 +309,10 @@
             "max": 18
           }
         ],
-        "rules": ["Tough Fighters", "Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tough Fighters",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Savoia Cavalleria Squad",
@@ -246,7 +330,11 @@
         },
         "weapons": {
           "description": "Cavalry Carbines",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -271,7 +359,11 @@
             "max": 1
           }
         ],
-        "rules": ["Cavalry", "Cavalry Carbines: These short-barrelled rifles count as pistols when used on horseback and rifles when used on foot.", "Carical: Instead of regrouping after any successful close-quarters combat, Savoia Cavalleria units can immediately be given a new assault order - roll for the Order test as normal. This can be done once per game turn."]
+        "rules": [
+          "Cavalry",
+          "Cavalry Carbines: These short-barrelled rifles count as pistols when used on horseback and rifles when used on foot.",
+          "Carical: Instead of regrouping after any successful close-quarters combat, Savoia Cavalleria units can immediately be given a new assault order - roll for the Order test as normal. This can be done once per game turn."
+        ]
       },
       {
         "name": "Fucilieri Squad",
@@ -290,7 +382,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -326,7 +422,9 @@
             "max": 20
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Inexperienced Infantry Section",
@@ -344,7 +442,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -383,7 +485,10 @@
             "max": 11
           }
         ],
-        "rules": ["Green (if taken)", "Shirkers (if taken)"]
+        "rules": [
+          "Green (if taken)",
+          "Shirkers (if taken)"
+        ]
       },
       {
         "name": "Bersaglieri Infantry Section",
@@ -401,7 +506,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -440,7 +549,10 @@
             "max": 11
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)", "Motorbikes"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)",
+          "Motorbikes"
+        ]
       },
       {
         "name": "San Marco (Marines) Infantry Section",
@@ -458,7 +570,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["pistol", "smg", "rifle", "lmg"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -497,7 +614,10 @@
             "max": 9
           }
         ],
-        "rules": ["Behind Enemy Lines: When Outflanking, units of San Marco marines ignore the -1 modifier to the Order test for coming onto the table.", "Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Behind Enemy Lines: When Outflanking, units of San Marco marines ignore the -1 modifier to the Order test for coming onto the table.",
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Machine Gun Team",
@@ -516,10 +636,15 @@
         },
         "weapons": {
           "description": "1 MMG",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Solothurn 20mm Anti-Tank Rifle",
@@ -538,10 +663,14 @@
         },
         "weapons": {
           "description": "1 Anti-Tank Rifle",
-          "keys": ["anti-tank-rifle"]
+          "keys": [
+            "anti-tank-rifle"
+          ]
         },
         "options": [],
-        "rules": ["Team Weapon"]
+        "rules": [
+          "Team Weapon"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -559,10 +688,15 @@
         },
         "weapons": {
           "description": "1 Rifle",
-          "keys": ["rifle"]
+          "keys": [
+            "rifle"
+          ]
         },
         "options": [],
-        "rules": ["Sniper", "Team Weapon"]
+        "rules": [
+          "Sniper",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Flamethrower Team",
@@ -580,10 +714,15 @@
         },
         "weapons": {
           "description": "1 Flamethrower",
-          "keys": ["infantry-flamethrower"]
+          "keys": [
+            "infantry-flamethrower"
+          ]
         },
         "options": [],
-        "rules": ["Flamethrower", "Team Weapon"]
+        "rules": [
+          "Flamethrower",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Guastatori Destruction Group",
@@ -602,7 +741,11 @@
         },
         "weapons": {
           "description": "Rifles, Bangalore Torpedoes and Demolition Charges",
-          "keys": ["infantry-flamethrower", "pistol", "rifle"]
+          "keys": [
+            "infantry-flamethrower",
+            "pistol",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -656,7 +799,11 @@
         },
         "weapons": {
           "description": "Pistols, 1 LMG, 1 Light Mortar",
-          "keys": ["pistol", "light-mortar", "lmg"]
+          "keys": [
+            "pistol",
+            "light-mortar",
+            "lmg"
+          ]
         },
         "options": [],
         "rules": [
@@ -681,10 +828,15 @@
         },
         "weapons": {
           "description": "1 Light mortar",
-          "keys": ["light-mortar"]
+          "keys": [
+            "light-mortar"
+          ]
         },
         "options": [],
-        "rules": ["Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -703,7 +855,9 @@
         },
         "weapons": {
           "description": "1 Medium mortar",
-          "keys": ["medium-mortar"]
+          "keys": [
+            "medium-mortar"
+          ]
         },
         "options": [
           {
@@ -716,7 +870,11 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -738,7 +896,9 @@
         },
         "weapons": {
           "description": "1 Light howitzer",
-          "keys": ["light-howitzer"]
+          "keys": [
+            "light-howitzer"
+          ]
         },
         "options": [
           {
@@ -750,7 +910,12 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Medium Artillery",
@@ -768,7 +933,9 @@
         },
         "weapons": {
           "description": "1 Medium howitzer",
-          "keys": ["medium-howitzer"]
+          "keys": [
+            "medium-howitzer"
+          ]
         },
         "options": [
           {
@@ -780,7 +947,12 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Heavy Artillery",
@@ -798,7 +970,9 @@
         },
         "weapons": {
           "description": "1 Heavy howitzer",
-          "keys": ["heavy-howitzer"]
+          "keys": [
+            "heavy-howitzer"
+          ]
         },
         "options": [
           {
@@ -810,7 +984,12 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
+        ]
       },
       {
         "name": "75/32 Modello 37",
@@ -829,10 +1008,19 @@
         },
         "weapons": {
           "description": "1 Medium anti-tank gun",
-          "keys": ["light-howitzer", "medium-at-gun"]
+          "keys": [
+            "light-howitzer",
+            "medium-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon", "Versatile: The 75/32 Modello 37 can also fire as a light howitzer."]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon",
+          "Versatile: The 75/32 Modello 37 can also fire as a light howitzer."
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -853,7 +1041,9 @@
         },
         "weapons": {
           "description": "1 Light anti-tank gun",
-          "keys": ["light-at-gun"]
+          "keys": [
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -866,7 +1056,11 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Gun shield (if taken)", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun shield (if taken)",
+          "Team Weapon"
+        ]
       },
       {
         "name": "75/39 Anti-Tank Gun",
@@ -885,10 +1079,16 @@
         },
         "weapons": {
           "description": "1 Medium anti-tank gun",
-          "keys": ["medium-at-gun"]
+          "keys": [
+            "medium-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun shield", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun shield",
+          "Team Weapon"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -909,10 +1109,16 @@
         },
         "weapons": {
           "description": "1 Light automatic cannon",
-          "keys": ["light-automatic-cannon"]
+          "keys": [
+            "light-automatic-cannon"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Flak", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Flak",
+          "Team Weapon"
+        ]
       },
       {
         "name": "75/46 Dual-Purpose AA Gun",
@@ -931,10 +1137,16 @@
         },
         "weapons": {
           "description": "1 Heavy Anti-Tank Gun",
-          "keys": ["heavy-at-gun"]
+          "keys": [
+            "heavy-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Flak", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Flak",
+          "Team Weapon"
+        ]
       },
       {
         "name": "90/53 Dual-Purpose AA Gun",
@@ -953,10 +1165,16 @@
         },
         "weapons": {
           "description": "1 Super-Heavy Anti-Tank Gun",
-          "keys": ["super-heavy-at-gun"]
+          "keys": [
+            "super-heavy-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Flak", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Flak",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -976,7 +1194,10 @@
         ],
         "weapons": {
           "description": "2 turret-mounted MMGs",
-          "keys": ["mmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1009,7 +1230,9 @@
         ],
         "weapons": {
           "description": "1 forward-facing hull-mounted MMG",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [],
         "damage": "7+ (tankette)",
@@ -1029,7 +1252,12 @@
         ],
         "weapons": {
           "description": "1 forward-facing hull-mounted MMG",
-          "keys": ["vehicle-flamethrower", "anti-tank-rifle", "mmg", "hmg"]
+          "keys": [
+            "vehicle-flamethrower",
+            "anti-tank-rifle",
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1070,7 +1298,9 @@
           }
         ],
         "damage": "7+ (tankette)",
-        "rules": ["Slow (if upgraded with a flamethrower)"]
+        "rules": [
+          "Slow (if upgraded with a flamethrower)"
+        ]
       },
       {
         "name": "M11/39 Medium Tank",
@@ -1086,7 +1316,10 @@
         ],
         "weapons": {
           "description": "1 Forward-facing hull-mounted light anti-tank gun and 2 turret-mounted MMGs",
-          "keys": ["mmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1121,7 +1354,10 @@
         ],
         "weapons": {
           "description": "1 Forward-facing hull-mounted medium anti-tank gun",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [
           {
@@ -1142,52 +1378,58 @@
       }
     ],
     "Anti-Aircraft Vehicles": [],
-    "Armoured Cars": [{
-      "name": "L6/40",
-      "profiles": [
-        {
-          "name": "L6/40",
-          "cost": {
-            "inexperienced": 76,
-            "regular": 95,
-            "veteran": 114
+    "Armoured Cars": [
+      {
+        "name": "L6/40",
+        "profiles": [
+          {
+            "name": "L6/40",
+            "cost": {
+              "inexperienced": 76,
+              "regular": 95,
+              "veteran": 114
+            }
           }
-        }
-      ],
-      "weapons": {
-        "description": "1 Turret-mounted light automatic cannon with co-axial MMG",
-        "keys": ["vehicle-flamethrower", "mmg", "light-automatic-cannon"]
-      },
-      "options": [
-        {
-          "name": "Command Tank",
-          "cost": {
-            "inexperienced": 20,
-            "regular": 20,
-            "veteran": 20
-          },
-          "max": 1
+        ],
+        "weapons": {
+          "description": "1 Turret-mounted light automatic cannon with co-axial MMG",
+          "keys": [
+            "vehicle-flamethrower",
+            "mmg",
+            "light-automatic-cannon"
+          ]
         },
-        {
-          "name": "Flamethrower (replaces automatic cannon)",
-          "cost": {
-            "inexperienced": 10,
-            "regular": 10,
-            "veteran": 10
+        "options": [
+          {
+            "name": "Command Tank",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 20,
+              "veteran": 20
+            },
+            "max": 1
           },
-          "max": 1
-        }
-      ],
-      "damage": "8+ (light tank)",
-      "rules": [
-        "Command Vehicle (Command Tank only)",
-        "Flamethrower (if taken): The vehicle loses the Recce rule.",
-        "One-man Turret",
-        "Open-Topped (Command Tank only)",
-        "Recce",
-        "Vulnerable"
-      ]
-    }],
+          {
+            "name": "Flamethrower (replaces automatic cannon)",
+            "cost": {
+              "inexperienced": 10,
+              "regular": 10,
+              "veteran": 10
+            },
+            "max": 1
+          }
+        ],
+        "damage": "8+ (light tank)",
+        "rules": [
+          "Command Vehicle (Command Tank only)",
+          "Flamethrower (if taken): The vehicle loses the Recce rule.",
+          "One-man Turret",
+          "Open-Topped (Command Tank only)",
+          "Recce",
+          "Vulnerable"
+        ]
+      }
+    ],
     "Transports and Tows": [
       {
         "name": "General Purpose Truck",
@@ -1203,7 +1445,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {

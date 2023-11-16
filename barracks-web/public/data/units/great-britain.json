@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-08-07T00:00Z",
+  "lastUpdated": "2023-11-16T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -43,7 +43,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -81,7 +85,11 @@
         },
         "weapons": {
           "description": "Pistol, submachine gun, or rifle as depicted on the models.",
-          "keys": ["pistol", "smg", "rifle"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle"
+          ]
         },
         "options": [
           {
@@ -119,7 +127,9 @@
         },
         "weapons": {
           "description": "Pistol or none as depicted on the models.",
-          "keys": ["pistol"]
+          "keys": [
+            "pistol"
+          ]
         },
         "options": [
           {
@@ -132,6 +142,67 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Chaplain",
+        "profiles": [
+          {
+            "name": "Chaplain",
+            "cost": {
+              "inexperienced": 20,
+              "regular": 25,
+              "veteran": 30
+            }
+          }
+        ],
+        "composition": {
+          "description": "1 Chaplain"
+        },
+        "weapons": {
+          "description": "Pistol or none as depicted on the models.",
+          "keys": [
+            "pistol"
+          ]
+        },
+        "options": [
+          {
+            "name": "Pistol",
+            "cost": {
+              "inexperienced": 1,
+              "regular": 1,
+              "veteran": 1
+            },
+            "max": 1
+          }
+        ],
+        "rules": [
+          "Inspiring Presence: Upon receiving his order die (except for Down), a chaplain may select one friendly unit within 6\" and roll a D6, applying the following modifiers: Inexperienced -1, Veteran +1. On a 4+, the chaplain may remove 1 pin from the selected unit.",
+          "Non-Combatant: The chaplain is there to support the soldiers, not win battles. A chaplain unit cannot be used to claim or contest objectives.",
+          "Self-Defence Only: Clergymen are not soldiers and will not take part in hostile actions - they cannot fire any weapon, nor assault enemy units. However, there is anecdotal evidence of several examples of chaplains who broke regulations to carry a pistol for self-defence only; German chaplains were even issued with a pistol. If your chaplain is equipped with a pistol, it can only be used in close quarters if the enemy assaults him (including firing it at the assaulting enemies as a reaction, if applicable)."
+        ]
+      },
+      {
+        "name": "Field Ambulance",
+        "profiles": [
+          {
+            "name": "Field Ambulance",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": []
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "transport": "None",
+        "tow": "",
+        "rules": [
+          "Medical Vehicle: Being in proximity of an ambulance means that any wounded soldiers nearby have a chance of being treated\nby a medic or stretcher bearer from amongst the crew of the ambulance. All infantry and artillery units within 6\" of the vehicle\ncount as within 6\" of a Medic."
+        ]
       }
     ],
     "Infantry Squads and Teams": [
@@ -151,7 +222,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["rifle", "lmg"]
+          "keys": [
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -176,7 +250,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Regular Infantry Section (Mid / Late-War)",
@@ -194,7 +270,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -226,7 +306,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Veteran Infantry Section (Early / Mid-War)",
@@ -244,7 +326,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -276,7 +362,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Veteran Infantry Section (Late-War)",
@@ -294,7 +382,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -326,7 +418,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Paratroop Section",
@@ -344,7 +438,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -397,7 +495,12 @@
         },
         "weapons": {
           "description": "Pistols and rifles",
-          "keys": ["pistol", "smg", "rifle", "lmg"]
+          "keys": [
+            "pistol",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -459,7 +562,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -505,7 +612,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -569,7 +680,12 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["infantry-flamethrower", "smg", "rifle", "lmg"]
+          "keys": [
+            "infantry-flamethrower",
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -611,7 +727,7 @@
           {
             "name": "LMG",
             "cost": {
-              "inexperienced":20,
+              "inexperienced": 20,
               "regular": 20,
               "veteran": 20
             },
@@ -668,7 +784,10 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["rifle", "lmg"]
+          "keys": [
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -693,7 +812,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Inexperienced Infantry Section (Mid / Late-War)",
@@ -711,7 +832,11 @@
         },
         "weapons": {
           "description": "Rifles",
-          "keys": ["smg", "rifle", "lmg"]
+          "keys": [
+            "smg",
+            "rifle",
+            "lmg"
+          ]
         },
         "options": [
           {
@@ -743,7 +868,9 @@
             "max": 10
           }
         ],
-        "rules": ["Tank Hunters (if anti-tank grenades taken)"]
+        "rules": [
+          "Tank Hunters (if anti-tank grenades taken)"
+        ]
       },
       {
         "name": "Boys Anti-Tank Rifle Team",
@@ -762,10 +889,14 @@
         },
         "weapons": {
           "description": "1 Boys anti-tank rifle",
-          "keys": ["anti-tank-rifle"]
+          "keys": [
+            "anti-tank-rifle"
+          ]
         },
         "options": [],
-        "rules": ["Team Weapon"]
+        "rules": [
+          "Team Weapon"
+        ]
       },
       {
         "name": "Machine Gun Team",
@@ -784,10 +915,15 @@
         },
         "weapons": {
           "description": "1 MMG",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Team Weapon"
+        ]
       },
       {
         "name": "PIAT Team",
@@ -806,10 +942,15 @@
         },
         "weapons": {
           "description": "1 PIAT",
-          "keys": ["piat"]
+          "keys": [
+            "piat"
+          ]
         },
         "options": [],
-        "rules": ["Shaped Charge", "Team Weapon"]
+        "rules": [
+          "Shaped Charge",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Sniper Team",
@@ -827,10 +968,15 @@
         },
         "weapons": {
           "description": "1 Rifle",
-          "keys": ["rifle"]
+          "keys": [
+            "rifle"
+          ]
         },
         "options": [],
-        "rules": ["Sniper", "Team Weapon"]
+        "rules": [
+          "Sniper",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Light Mortar Team",
@@ -849,10 +995,15 @@
         },
         "weapons": {
           "description": "1 Light mortar",
-          "keys": ["light-mortar"]
+          "keys": [
+            "light-mortar"
+          ]
         },
         "options": [],
-        "rules": ["Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       },
       {
         "name": "Medium Mortar Team",
@@ -871,7 +1022,9 @@
         },
         "weapons": {
           "description": "1 Medium mortar",
-          "keys": ["medium-mortar"]
+          "keys": [
+            "medium-mortar"
+          ]
         },
         "options": [
           {
@@ -884,7 +1037,11 @@
             "max": 1
           }
         ],
-        "rules": ["Fixed", "Indirect Fire", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Indirect Fire",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -906,10 +1063,17 @@
         },
         "weapons": {
           "description": "1 Light howitzer",
-          "keys": ["light-howitzer"]
+          "keys": [
+            "light-howitzer"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Howitzer", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Howitzer",
+          "Team Weapon"
+        ]
       }
     ],
     "Anti-Tank Guns": [
@@ -930,10 +1094,16 @@
         },
         "weapons": {
           "description": "1 Medium anti-tank gun",
-          "keys": ["medium-at-mortar"]
+          "keys": [
+            "medium-at-mortar"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Team Weapon"
+        ]
       },
       {
         "name": "QF 17-pdr",
@@ -951,10 +1121,16 @@
         },
         "weapons": {
           "description": "1 Super-heavy anti-tank gun",
-          "keys": ["super-heavy-at-gun"]
+          "keys": [
+            "super-heavy-at-gun"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Gun Shield", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Gun Shield",
+          "Team Weapon"
+        ]
       }
     ],
     "Anti-Aircraft Guns": [
@@ -975,10 +1151,16 @@
         },
         "weapons": {
           "description": "1 Platform-mounted heavy automatic cannon",
-          "keys": ["heavy-automatic-cannon"]
+          "keys": [
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [],
-        "rules": ["Fixed", "Flak", "Team Weapon"]
+        "rules": [
+          "Fixed",
+          "Flak",
+          "Team Weapon"
+        ]
       }
     ]
   },
@@ -998,7 +1180,12 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["vehicle-flamethrower", "mmg", "medium-at-gun", "medium-howitzer"]
+          "keys": [
+            "vehicle-flamethrower",
+            "mmg",
+            "medium-at-gun",
+            "medium-howitzer"
+          ]
         },
         "options": [
           {
@@ -1040,7 +1227,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "medium-at-gun", "medium-howitzer"]
+          "keys": [
+            "mmg",
+            "medium-at-gun",
+            "medium-howitzer"
+          ]
         },
         "options": [
           {
@@ -1072,7 +1263,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted 6-pdr medium anti-tank gun with co-axial MMG",
-          "keys": ["mmg", "medium-at-gun"]
+          "keys": [
+            "mmg",
+            "medium-at-gun"
+          ]
         },
         "options": [],
         "damage": "8+ (light tank)",
@@ -1092,7 +1286,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted light anti-tank gun with co-axial MMG and 2 forward facing hull-mounted MMGs",
-          "keys": ["mmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1125,7 +1322,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted light anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "hmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "light-at-gun"
+          ]
         },
         "options": [
           {
@@ -1164,7 +1365,12 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted medium anti-tank gun with co-axial MMG and 1 forward facing hull-mounted MMG",
-          "keys": ["mmg", "hmg", "medium-at-gun", "medium-howitzer"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "medium-at-gun",
+            "medium-howitzer"
+          ]
         },
         "options": [
           {
@@ -1206,7 +1412,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted 2-pdr light anti-tank gun with co-axial MMG",
-          "keys": ["mmg", "light-at-gun", "light-howitzer"]
+          "keys": [
+            "mmg",
+            "light-at-gun",
+            "light-howitzer"
+          ]
         },
         "options": [
           {
@@ -1220,7 +1430,9 @@
           }
         ],
         "damage": "9+ (medium tank)",
-        "rules": ["Slow"]
+        "rules": [
+          "Slow"
+        ]
       },
       {
         "name": "Sherman Firefly",
@@ -1236,7 +1448,11 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted super-heavy anti-tank gun with co-axial MMG",
-          "keys": ["mmg", "hmg", "super-heavy-at-gun"]
+          "keys": [
+            "mmg",
+            "hmg",
+            "super-heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1269,7 +1485,10 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted heavy anti-tank gun",
-          "keys": ["hmg", "heavy-at-gun"]
+          "keys": [
+            "hmg",
+            "heavy-at-gun"
+          ]
         },
         "options": [
           {
@@ -1283,7 +1502,9 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Open-Topped"]
+        "rules": [
+          "Open-Topped"
+        ]
       }
     ],
     "Self-Propelled Artillery": [
@@ -1301,11 +1522,16 @@
         ],
         "weapons": {
           "description": "1 Forward facing medium howitzer and 1 pintle-mounted HMG with 360° arc of fire",
-          "keys": ["hmg", "medium-howitzer"]
+          "keys": [
+            "hmg",
+            "medium-howitzer"
+          ]
         },
         "options": [],
         "damage": "8+ (light tank)",
-        "rules": ["Open-Topped"]
+        "rules": [
+          "Open-Topped"
+        ]
       }
     ],
     "Anti-Aircraft Vehicles": [
@@ -1323,7 +1549,10 @@
         ],
         "weapons": {
           "description": "1 Heavy automatic cannon in open turret",
-          "keys": ["light-automatic-cannon", "heavy-automatic-cannon"]
+          "keys": [
+            "light-automatic-cannon",
+            "heavy-automatic-cannon"
+          ]
         },
         "options": [
           {
@@ -1336,7 +1565,10 @@
           }
         ],
         "damage": "8+ (light tank)",
-        "rules": ["Flak", "Open-Topped (40mm version only)"]
+        "rules": [
+          "Flak",
+          "Open-Topped (40mm version only)"
+        ]
       }
     ],
     "Armoured Cars": [
@@ -1362,11 +1594,16 @@
         ],
         "weapons": {
           "description": "1 Turret-mounted light anti-tank gun with co-axial MMG",
-          "keys": ["mmg", "light-at-gun"]
+          "keys": [
+            "mmg",
+            "light-at-gun"
+          ]
         },
         "options": [],
         "damage": "7+ (armoured car)",
-        "rules": ["Recce"]
+        "rules": [
+          "Recce"
+        ]
       }
     ],
     "Transports and Tows": [
@@ -1384,7 +1621,10 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1428,7 +1668,10 @@
         },
         "weapons": {
           "description": "None",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1469,7 +1712,10 @@
         ],
         "weapons": {
           "description": "1 Forward facing hull-mounted LMG",
-          "keys": ["lmg", "mmg"]
+          "keys": [
+            "lmg",
+            "mmg"
+          ]
         },
         "options": [
           {
@@ -1505,7 +1751,10 @@
         ],
         "weapons": {
           "description": "2 Pintle-mounted MMGs (1 covering the forward and left arcs, and 1 covering the forward and right arcs)",
-          "keys": ["mmg", "hmg"]
+          "keys": [
+            "mmg",
+            "hmg"
+          ]
         },
         "options": [
           {
@@ -1529,7 +1778,9 @@
         ],
         "damage": "6+ (soft-skinned)",
         "transport": "24 soldiers",
-        "rules": ["Amphibious"]
+        "rules": [
+          "Amphibious"
+        ]
       }
     ]
   }

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-07-26T00:00Z",
+  "lastUpdated": "2023-11-16T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -145,6 +145,29 @@
           }
         ],
         "rules": []
+      },
+      {
+        "name": "Field Ambulance",
+        "profiles": [
+          {
+            "name": "Field Ambulance",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": []
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "transport": "None",
+        "tow": "",
+        "rules": [
+          "Medical Vehicle: Being in proximity of an ambulance means that any wounded soldiers nearby have a chance of being treated\nby a medic or stretcher bearer from amongst the crew of the ambulance. All infantry and artillery units within 6\" of the vehicle\ncount as within 6\" of a Medic."
+        ]
       }
     ],
     "Infantry Squads and Teams": [
@@ -722,7 +745,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {
@@ -754,7 +779,9 @@
         ],
         "weapons": {
           "description": "None",
-          "keys": ["mmg"]
+          "keys": [
+            "mmg"
+          ]
         },
         "options": [
           {

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2023-11-15T00:00Z",
+  "lastUpdated": "2023-11-16T00:00Z",
   "infantry": {
     "Headquarters": [
       {
@@ -172,6 +172,27 @@
           "Non-Combatant: The chaplain is there to support the soldiers, not win battles. A chaplain unit cannot be used to claim or contest objectives.",
           "Self-Defence Only: Clergymen are not soldiers and will not take part in hostile actions - they cannot fire any weapon, nor assault enemy units. However, there is anecdotal evidence of several examples of chaplains who broke regulations to carry a pistol for self-defence only; German chaplains were even issued with a pistol. If your chaplain is equipped with a pistol, it can only be used in close quarters if the enemy assaults him (including firing it at the assaulting enemies as a reaction, if applicable)."
         ]
+      },
+      {
+        "name": "Field Ambulance",
+        "profiles": [
+          {
+            "name": "Field Ambulance",
+            "cost": {
+              "regular": 50,
+              "veteran": 60
+            }
+          }
+        ],
+        "weapons": {
+          "description": "None",
+          "keys": []
+        },
+        "options": [],
+        "damage": "6+ (soft-skinned)",
+        "transport": "None",
+        "tow": "",
+        "rules": ["Medical Vehicle: Being in proximity of an ambulance means that any wounded soldiers nearby have a chance of being treated\nby a medic or stretcher bearer from amongst the crew of the ambulance. All infantry and artillery units within 6\" of the vehicle\ncount as within 6\" of a Medic."]
       }
     ],
     "Infantry Squads and Teams": [
