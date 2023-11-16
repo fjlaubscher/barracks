@@ -186,4 +186,4 @@ export const DEFAULT_UNIT_BUILDER_PAYLOAD: UnitBuilderPayload = {
   role: 'Infantry Squads and Teams'
 };
 
-export const MOCK_LIST_UNIT = transformToListUnit(MOCK_UNITS[0], 0, 0, { 0: 1 });
+transformToListUnit(MOCK_UNITS[0], 0, 0, { 0: 1 });

@@ -4,10 +4,6 @@
   font-size: 2rem;
 }
 
-.preWrap {
-  white-space: pre-wrap;
-}
-
 .navAction {
   button {
     box-shadow: none;
@@ -81,12 +77,4 @@
       background-color: var(--color-dark-border);
     }
   }
-}
-
-.stats {
-  margin-top: 0 !important;
-}
-
-.printButton {
-  margin-bottom: 1rem;
 }

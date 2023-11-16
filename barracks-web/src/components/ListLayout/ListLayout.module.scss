@@ -1,27 +1,5 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
 
-.home {
-  font-size: 2rem;
-}
-
-.preWrap {
-  white-space: pre-wrap;
-}
-
-.navAction {
-  button {
-    box-shadow: none;
-    background-color: transparent;
-    color: var(--color-dark-text);
-    font-size: 1.75rem;
-    padding: 0;
-
-    &:disabled {
-      background-color: transparent;
-    }
-  }
-}
-
 .action {
   display: flex;
   flex-direction: column;
@@ -34,14 +12,6 @@
   box-shadow: none;
   border-radius: 0;
   gap: 0;
-
-  &.active {
-    color: var(--color-accent);
-  }
-
-  .chevron {
-    display: none;
-  }
 
   svg {
     font-size: 1.25rem;
@@ -63,18 +33,9 @@
     border-radius: 0.5rem;
     background-color: var(--color-light-border);
 
-    &.active {
-      background-color: var(--color-accent);
-      color: var(--color-dark-text);
-    }
-
     svg {
       font-size: 1rem;
       margin-bottom: 0;
-    }
-
-    .chevron {
-      display: block;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -85,8 +46,4 @@
 
 .stats {
   margin-top: 0 !important;
-}
-
-.printButton {
-  margin-bottom: 1rem;
 }

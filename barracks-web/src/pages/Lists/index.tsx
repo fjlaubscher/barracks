@@ -14,7 +14,7 @@ import {
 import { CredentialResponse, GoogleLogin } from '@react-oauth/google';
 import { useLocalStorage, useDebounce } from 'usehooks-ts';
 import { isBefore, isEqual, parseISO } from 'date-fns';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 // components
 import Avatar from '../../components/Avatar';

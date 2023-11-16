@@ -25,17 +25,9 @@
     max-width: breakpoints.$max-form-width;
     width: 100%;
   }
-
-  .toggle {
-    align-items: flex-end;
-  }
 }
 
 .create {
-  .alert {
-    margin-bottom: 0;
-  }
-
   form {
     max-width: none;
   }

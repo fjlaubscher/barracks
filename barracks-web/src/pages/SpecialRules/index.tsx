@@ -14,7 +14,7 @@ import { formatDate } from '../../helpers/date';
 // hooks
 import { useCore } from '../../hooks/use-core';
 
-import styles from './rules.module.scss';
+import styles from './SpecialRules.module.scss';
 
 const SpecialRules = () => {
   const { key } = useParams();

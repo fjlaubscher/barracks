@@ -8,12 +8,12 @@ import UnitSpecialRules from '../UnitSpecialRules';
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
 import { TestWrapper } from '../../helpers/test-wrapper';
 
-vi.mock('../../hooks/core', () => ({
+vi.mock('../../hooks/use-core', () => ({
   useCore: vi.fn().mockReturnValue({ data: undefined }),
   useWeapons: vi.fn().mockReturnValue({ data: [] })
 }));
 
-vi.mock('../rules/unit-special-rules', () => ({ default: vi.fn().mockReturnValue(<div />) }));
+vi.mock('../UnitSpecialRules', () => ({ default: vi.fn().mockReturnValue(<div />) }));
 
 import UnitListCard from '.';
 import type { Props } from '.';

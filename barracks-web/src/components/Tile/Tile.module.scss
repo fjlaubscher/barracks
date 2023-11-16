@@ -1,26 +1,5 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
 
-.group {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-
-  > a {
-    text-decoration: none;
-    height: 100%;
-    width: 100%;
-  }
-
-  @media (min-width: breakpoints.$tablet) {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-
-  @media (min-width: breakpoints.$tablet) {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
-
 .tile {
   display: flex;
   flex-direction: column;
