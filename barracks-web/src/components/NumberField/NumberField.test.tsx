@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen } from '@testing-library/react';
 
 // helpers
-import { TestWrapper } from '../../helpers/test-wrapper';
+import { TestWrapper } from '../../helpers/TestWrapper';
 
 import NumberField from '.';
 import type { Props } from '.';

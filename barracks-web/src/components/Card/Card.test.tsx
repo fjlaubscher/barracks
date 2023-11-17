@@ -1,7 +1,7 @@
 import { act, render, screen, fireEvent } from '@testing-library/react';
 
 // helpers
-import { TestWrapper } from '../../helpers/test-wrapper';
+import { TestWrapper } from '../../helpers/TestWrapper';
 
 import Card from '.';
 import type { Props } from '.';

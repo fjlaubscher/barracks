@@ -1,5 +1,4 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
-@use '@fjlaubscher/matter/src/styles/colors';
 
 .contentsButton {
   width: auto;
@@ -26,7 +25,7 @@
   font-size: 0.9rem;
 
   a {
-    color: colors.$accent;
+    color: var(--color-accent);
   }
 
   > li {
@@ -48,11 +47,11 @@
 
     &:not(:last-child) {
       padding-bottom: 1rem;
-      border-bottom: 1px solid colors.$light-surface;
+      border-bottom: 1px solid var(--color-light-surface);
       margin-bottom: 1rem;
 
       @media (prefers-color-scheme: dark) {
-        border-bottom-color: colors.$dark-surface;
+        border-bottom-color: var(--color-dark-surface);
       }
     }
   }

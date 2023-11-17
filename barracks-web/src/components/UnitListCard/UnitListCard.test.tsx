@@ -6,7 +6,7 @@ import UnitSpecialRules from '../UnitSpecialRules';
 
 // helpers
 import { buildListUnitComposition, calculateCost } from '../../helpers/unit';
-import { TestWrapper } from '../../helpers/test-wrapper';
+import { TestWrapper } from '../../helpers/TestWrapper';
 
 vi.mock('../../hooks/use-core', () => ({
   useCore: vi.fn().mockReturnValue({ data: undefined }),

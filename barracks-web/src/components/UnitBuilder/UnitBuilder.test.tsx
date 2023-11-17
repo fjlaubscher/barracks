@@ -10,7 +10,7 @@ vi.mock('recoil', async () => {
 const useRecoilStateMock = useRecoilState as Mock;
 
 // helpers
-import { TestWrapper } from '../../helpers/test-wrapper';
+import { TestWrapper } from '../../helpers/TestWrapper';
 import { transformToListUnit } from '../../helpers/unit';
 
 import UnitBuilder from '.';

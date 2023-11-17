@@ -1,52 +1,5 @@
 @use '@fjlaubscher/matter/src/styles/breakpoints';
 
-.noWrap {
-  white-space: nowrap;
-}
-
-.stretch {
-  min-width: 75%;
-}
-
-.center {
-  text-align: center;
-}
-
-.table {
-  font-size: 0.9rem;
-}
-
-.keys {
-  font-size: 0.9rem;
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-
-  li {
-    margin-bottom: 0.5rem;
-  }
-}
-
-.list {
-  font-size: 0.9rem;
-  padding-left: 1.5rem;
-  margin: 0;
-
-  li {
-    margin-bottom: 0.5rem;
-
-    ol {
-      list-style: lower-roman;
-    }
-
-    ul,
-    ol {
-      padding-top: 0.5rem;
-      padding-left: 1rem;
-    }
-  }
-}
-
 .keywords {
   font-size: 0.9rem;
 
@@ -59,12 +12,6 @@
       margin-bottom: 0.5rem;
     }
   }
-}
-
-.link {
-  display: block;
-  width: 100%;
-  text-decoration: none;
 }
 
 .hero {

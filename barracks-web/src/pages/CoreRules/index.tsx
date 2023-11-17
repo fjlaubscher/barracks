@@ -153,7 +153,6 @@ const QuickReferenceRules = () => {
           </Section>
           <Section id="orders" title="Rules" description="Orders">
             <Table
-              className={styles.table}
               headings={[
                 { text: '#' },
                 { text: 'Order' },
@@ -236,10 +235,7 @@ const QuickReferenceRules = () => {
             </Card>
           </Section>
           <Section id="movement" title="Rules" description="Movement">
-            <Table
-              className={styles.table}
-              headings={[{ text: 'Type' }, { text: 'Advance' }, { text: 'Run' }]}
-            >
+            <Table headings={[{ text: 'Type' }, { text: 'Advance' }, { text: 'Run' }]}>
               <tr>
                 <td className={styles.noWrap}>Infantry</td>
                 <td className={styles.center}>6"</td>
@@ -590,7 +586,6 @@ const QuickReferenceRules = () => {
           </Section>
           <Section id="buildings" title="Rules" description="Buildings">
             <Table
-              className={styles.table}
               headings={[
                 { text: 'Type' },
                 { text: 'Line of Sight' },

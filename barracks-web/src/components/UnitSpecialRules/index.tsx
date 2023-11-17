@@ -37,11 +37,7 @@ const UnitSpecialRules = ({ className, army, core, rules }: Props) => {
           </Tag>
         ))}
       </TagGroup>
-      <Modal
-        className={styles.modal}
-        open={!!selectedRule}
-        onClose={() => setSelectedRule(undefined)}
-      >
+      <Modal open={!!selectedRule} onClose={() => setSelectedRule(undefined)}>
         <Stack className={styles.ruleModal} direction="column">
           <div className={styles.title}>
             <h3>{selectedRule?.name}</h3>
@@ -52,7 +48,7 @@ const UnitSpecialRules = ({ className, army, core, rules }: Props) => {
           <div
             className={styles.description}
             dangerouslySetInnerHTML={{
-              __html: selectedRule?.description || 'Error retrieving rule description'
+              __html: selectedRule?.description || 'Rule description not found.'
             }}
           />
         </Stack>

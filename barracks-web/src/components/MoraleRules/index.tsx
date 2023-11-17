@@ -3,10 +3,7 @@ import { Table } from '@fjlaubscher/matter';
 import styles from './MoraleRules.module.scss';
 
 const Morale = () => (
-  <Table
-    className={styles.table}
-    headings={[{ text: 'Quality' }, { text: 'Morale', className: styles.center }]}
-  >
+  <Table headings={[{ text: 'Quality' }, { text: 'Morale', className: styles.center }]}>
     <tr>
       <td className={styles.stretch}>Inexperienced</td>
       <td className={styles.center}>8</td>

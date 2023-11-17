@@ -4,7 +4,6 @@ import styles from './OfficerRules.module.scss';
 
 const OfficerRules = () => (
   <Table
-    className={styles.table}
     headings={[
       { text: 'Rank' },
       { text: 'Morale Bonus' },

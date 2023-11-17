@@ -8,10 +8,7 @@ interface Props {
 
 const Damage = ({ damage }: Props) => (
   <>
-    <Table
-      className={styles.table}
-      headings={[{ text: 'Troops and Soft-Skinned Targets' }, { text: 'Result' }]}
-    >
+    <Table headings={[{ text: 'Troops and Soft-Skinned Targets' }, { text: 'Result' }]}>
       {damage['troops'].map((damage, i) => (
         <tr key={`damage-${i}`}>
           <td className={styles.stretch}>{damage.type}</td>
