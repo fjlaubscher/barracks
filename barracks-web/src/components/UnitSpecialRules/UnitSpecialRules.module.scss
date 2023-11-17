@@ -1,4 +1,17 @@
+.tag {
+  cursor: pointer;
+  background-color: var(--color-light-border);
+  color: var(--color-light-text);
+  font-weight: normal;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-dark-border);
+    color: var(--color-dark-text);
+  }
+}
+
 .ruleModal {
+  min-height: 6rem;
   height: 100%;
 
   .close {

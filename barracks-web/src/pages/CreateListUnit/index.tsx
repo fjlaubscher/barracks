@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { useToast } from '@fjlaubscher/matter';
+import { Alert, useToast } from '@fjlaubscher/matter';
 import { useRecoilValue } from 'recoil';
 
 // components
@@ -59,6 +59,8 @@ const CreateListUnit = () => {
     return <Navigate to={`/list/${key}/edit`} />;
   }
 
+  const hasUnitsForTypeRole = units ? units[type][role].length > 0 : false;
+
   return (
     <ListLayout list={list}>
       <Section
@@ -68,7 +70,11 @@ const CreateListUnit = () => {
         onSaveClick={handleSubmit}
       >
         {unit && <UnitListCard army={army} listUnit={unit} />}
-        {list && units && <UnitBuilder units={units[type][role]} />}
+        {hasUnitsForTypeRole ? (
+          <UnitBuilder units={units ? units[type][role] : []} />
+        ) : (
+          <Alert variant="warning">There are no {role} units</Alert>
+        )}
       </Section>
     </ListLayout>
   );
